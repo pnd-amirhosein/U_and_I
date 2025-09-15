@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": [
+      "dom",
+      "es2022"
+    ],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "es2017",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "h.Fragment",
+    "paths": {
+      "ensemble-ui": [
+        "./dist/ensemble-ui/ensemble-ui.js"
+      ],
+      "ensemble-ui/components/*": [
+        "./dist/components/*"
+      ],
+      "ensemble-ui/components": [
+        "./dist/types/components.d.ts"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src",
+    "stencil.config.ts",
+    "packages/angular"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
