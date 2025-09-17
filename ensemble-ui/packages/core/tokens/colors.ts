@@ -1,19 +1,42 @@
-export const colors = {
+export const baseColors = {
   primary: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    500: '#3b82f6',
-    700: '#1d4ed8',
+    100: '#99C2FF',
+    200: '#4D94FF',
+    300: '#0066FF',
+    400: '#003D99',
   },
   secondary: {
-    500: '#8b5cf6',
+    100: '#BFE5C6',
+    200: '#8FD29C',
+    300: '#5FBE71',
+    400: '#397244'
   },
   neutral: {
-    100: '#f3f4f6',
-    500: '#6b7280',
-    900: '#111827',
+    100: '#F5F5F5',
+    200: '#CCCCCC',
+    300: '#999999',
+    400: '#666666',
+    500: '#333333',
+    600: '#2C2C2C',
+    700: '#262626',
+    800: '#1F1F1F',
   },
-  accent: {
-    500: '#f59e0b',
+  danger: {
+    100: '#FFAAAA',
+    200: '#FF7777',
+    300: '#FF4444',
+    400: '#CC3333',
   },
+  warning: {
+    100: '#FFE699',
+    200: '#FFD966',
+    300: '#FFBB33',
+    400: '#CC9900',
+  }
+};
+
+export const colors = {
+  ...baseColors,
+  success: baseColors.secondary,
+  info: baseColors.primary,
 };
