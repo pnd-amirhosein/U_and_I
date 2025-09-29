@@ -2,7 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ensemble-button',
-  styleUrl: 'button.css',
+  styleUrl: 'button.scss',
   shadow: true,
 })
 export class EnsembleButton {
