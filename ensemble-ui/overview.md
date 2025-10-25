@@ -12,6 +12,8 @@
   ├──├── core/ 
   ├──├── ├── theme/
   ├──├── ├── ├── createTheme.ts
+  ├──├── ├── ├── tokens/
+  ├──├── ├── ├── global.scss/
   ├──├── ├── ├── defaultTheme.ts/
   ├──├── ├── tokens/ 
   ├──├── ├── ├── colors.css.ts
@@ -35,7 +37,7 @@
   ├── | src/
   ├──├── components/ 
   ├──├── ├── button
-  ├──├── ├── ├── button.css
+  ├──├── ├── ├── button.scss
   ├──├── ├── ├── button.tsx
   ├──├── ├── ├── readme.md
   ├──├── components.d.ts

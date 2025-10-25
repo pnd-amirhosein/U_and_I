@@ -8,6 +8,13 @@ var radii_1 = require("./radii");
 var shadows_1 = require("./shadows");
 var typography_1 = require("./typography");
 var transitions_1 = require("./transitions");
+var chalk = require("chalk");
+function getClock() {
+    var now = new Date();
+    var h = now.getHours().toString().padStart(2, '0');
+    var m = now.getMinutes().toString().padStart(2, '0');
+    return "[".concat(h, ":").concat(m, ".0]");
+}
 function objectToCSSVars(obj, prefix) {
     var css = "";
     for (var _i = 0, _a = Object.entries(obj); _i < _a.length; _i++) {
@@ -28,7 +35,7 @@ var css = ":root {\n".concat(objectToCSSVars(colors_1.colors, "color") +
     objectToCSSVars(typography_1.typography, "font") +
     objectToCSSVars(transitions_1.transitions, "transition"), "}\n");
 (0, fs_1.writeFileSync)("packages/core/theme/tokens.scss", css);
-console.log("✅ tokens.css generated!");
+console.log("".concat(chalk.green(getClock()), "  tokens.css generated!"));
 // run these:
 // 1> npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens
 // 2> node dist-tokens/generate-tokens.js

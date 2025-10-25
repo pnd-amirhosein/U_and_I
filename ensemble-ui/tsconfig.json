@@ -13,6 +13,7 @@
     "moduleResolution": "bundler",
     "module": "esnext",
     "target": "es2017",
+    "types": ["node"],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",

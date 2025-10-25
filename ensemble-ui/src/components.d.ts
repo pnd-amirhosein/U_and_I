@@ -6,48 +6,62 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface EnsembleButton {
+    interface EuiButton {
         /**
-          * @default 'Click me'
+          * Style mode of the button
+          * @default "normal"
          */
-        "label"?: string;
+        "mode": "normal" | "outline" | "text-button";
         /**
+          * Button size
+          * @default "md"
+         */
+        "size": "sm" | "md" | "lg";
+        /**
+          * Button variant
           * @default 'primary'
          */
-        "variant"?: 'primary' | 'secondary';
+        "variant": 'primary' | 'danger' | 'success' | 'warning';
     }
 }
 declare global {
-    interface HTMLEnsembleButtonElement extends Components.EnsembleButton, HTMLStencilElement {
+    interface HTMLEuiButtonElement extends Components.EuiButton, HTMLStencilElement {
     }
-    var HTMLEnsembleButtonElement: {
-        prototype: HTMLEnsembleButtonElement;
-        new (): HTMLEnsembleButtonElement;
+    var HTMLEuiButtonElement: {
+        prototype: HTMLEuiButtonElement;
+        new (): HTMLEuiButtonElement;
     };
     interface HTMLElementTagNameMap {
-        "ensemble-button": HTMLEnsembleButtonElement;
+        "eui-button": HTMLEuiButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface EnsembleButton {
+    interface EuiButton {
         /**
-          * @default 'Click me'
+          * Style mode of the button
+          * @default "normal"
          */
-        "label"?: string;
+        "mode"?: "normal" | "outline" | "text-button";
         /**
+          * Button size
+          * @default "md"
+         */
+        "size"?: "sm" | "md" | "lg";
+        /**
+          * Button variant
           * @default 'primary'
          */
-        "variant"?: 'primary' | 'secondary';
+        "variant"?: 'primary' | 'danger' | 'success' | 'warning';
     }
     interface IntrinsicElements {
-        "ensemble-button": EnsembleButton;
+        "eui-button": EuiButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "ensemble-button": LocalJSX.EnsembleButton & JSXBase.HTMLAttributes<HTMLEnsembleButtonElement>;
+            "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
         }
     }
 }

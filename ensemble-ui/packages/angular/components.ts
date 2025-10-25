@@ -6,20 +6,20 @@ import { ProxyCmp } from './angular-component-lib/utils';
 
 import type { Components } from 'ensemble-ui/components';
 
-import { defineCustomElement as defineEnsembleButton } from 'ensemble-ui/components/ensemble-button.js';
+import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
 @ProxyCmp({
-  defineCustomElementFn: defineEnsembleButton,
-  inputs: ['label', 'variant']
+  defineCustomElementFn: defineEuiButton,
+  inputs: ['mode', 'size', 'variant']
 })
 @Component({
-  selector: 'ensemble-button',
+  selector: 'eui-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['label', 'variant'],
+  inputs: ['mode', 'size', 'variant'],
 })
-export class EnsembleButton {
-  protected el: HTMLEnsembleButtonElement;
+export class EuiButton {
+  protected el: HTMLEuiButtonElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -27,6 +27,6 @@ export class EnsembleButton {
 }
 
 
-export declare interface EnsembleButton extends Components.EnsembleButton {}
+export declare interface EuiButton extends Components.EuiButton {}
 
 

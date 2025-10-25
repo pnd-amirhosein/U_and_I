@@ -7,6 +7,16 @@ import { shadows } from "./shadows";
 import { typography } from "./typography";
 import { transitions } from "./transitions";
 
+
+const chalk = require("chalk");
+
+function getClock() {
+    const now = new Date();
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    return `[${h}:${m}.0]`;
+}
+
 function objectToCSSVars(obj: Record<string, any>, prefix: string): string {
   let css = "";
   for (const [key, value] of Object.entries(obj)) {
@@ -29,8 +39,7 @@ const css = `:root {\n${objectToCSSVars(colors, "color") +
   }}\n`;
 
 writeFileSync("packages/core/theme/tokens.scss", css);
-console.log("✅ tokens.css generated!");
-
+console.log(`${ chalk.green(getClock())}  tokens.css generated!`);
 
 // run these:
 // 1> npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens

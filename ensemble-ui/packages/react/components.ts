@@ -4,4 +4,4 @@
  */
 
 /* eslint-disable */
-export { EnsembleButton } from "./ensemble-button.js";
+export { EuiButton } from "./eui-button.js";

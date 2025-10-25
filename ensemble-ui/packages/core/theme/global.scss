@@ -1,7 +1,8 @@
 @use './tokens.scss';
-
-
+@use '../../../src/components/button/button.scss';
+@use './fonts.scss';
 
 body {
-    background-color: red;
+    font-family: "Hubot Sans", sans-serif;
+    font-variation-settings: "wght" 700, "wdth" 100, "slnt" 0;
 }
