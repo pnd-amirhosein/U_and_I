@@ -7,7 +7,7 @@ const chalk = require("chalk");
         "dist",
         "www",
         "loader",
-        "../test_csr/.angular",
+        "../ensemble-docntest/.angular",
         "src/components/icons"
     ];
     for (const target of targets) {

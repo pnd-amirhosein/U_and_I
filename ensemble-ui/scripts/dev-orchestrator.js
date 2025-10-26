@@ -10,7 +10,7 @@ try {
   run("npm run build");
 
   console.log("🚀 Starting Angular app...");
-  run("cd ../test_csr && npm run start");
+  run("cd ../ensemble-docntest && npm run start");
 } catch (err) {
   console.error("❌ Build orchestration failed:", err);
   process.exit(1);

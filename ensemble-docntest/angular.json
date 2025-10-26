@@ -3,9 +3,13 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "testington": {
+    "ensemble-docntest": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -18,14 +22,20 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "dist/ensemble-ui/icons",
+                "output": "/icons"
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles.scss",
               "../ensemble-ui/dist/ensemble-ui/ensemble-ui.css"
             ]
           },
@@ -57,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "testington:build:production"
+              "buildTarget": "ensemble-docntest:build:production"
             },
             "development": {
-              "buildTarget": "testington:build:development"
+              "buildTarget": "ensemble-docntest:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,6 +86,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
@@ -83,7 +94,7 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ]
           }
         }

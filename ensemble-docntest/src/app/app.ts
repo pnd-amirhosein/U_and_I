@@ -7,7 +7,7 @@ import { filter } from 'rxjs';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styleUrl: './app.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class App {
@@ -35,5 +35,8 @@ export class App {
   }
   public closeDoc() {
     this.router.navigateByUrl("")
+  }
+  public openIcons() {
+    this.router.navigateByUrl("/icon")
   }
 }

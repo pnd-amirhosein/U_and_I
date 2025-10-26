@@ -1,6 +1,5 @@
-import { APP_INITIALIZER, ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import { APP_INITIALIZER, ApplicationConfig, CUSTOM_ELEMENTS_SCHEMA, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // Import this
 
 import { routes } from './app.routes';
 
@@ -23,4 +22,3 @@ export const appConfig: ApplicationConfig = {
     },
   ]
 };
-
