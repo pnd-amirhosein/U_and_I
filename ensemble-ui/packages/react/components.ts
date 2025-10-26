@@ -5,3 +5,4 @@
 
 /* eslint-disable */
 export { EuiButton } from "./eui-button.js";
+export { EuiInput } from "./eui-input.js";

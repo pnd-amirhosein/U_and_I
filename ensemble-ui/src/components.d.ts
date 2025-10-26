@@ -23,6 +23,17 @@ export namespace Components {
          */
         "variant": 'primary' | 'danger' | 'success' | 'warning';
     }
+    interface EuiInput {
+        /**
+          * Style mode of the input
+          * @default "normal"
+         */
+        "mode": "normal" | "outline" | "text-input";
+        /**
+          * @default 'text'
+         */
+        "type": HTMLInputElement['type'];
+    }
 }
 declare global {
     interface HTMLEuiButtonElement extends Components.EuiButton, HTMLStencilElement {
@@ -31,8 +42,15 @@ declare global {
         prototype: HTMLEuiButtonElement;
         new (): HTMLEuiButtonElement;
     };
+    interface HTMLEuiInputElement extends Components.EuiInput, HTMLStencilElement {
+    }
+    var HTMLEuiInputElement: {
+        prototype: HTMLEuiInputElement;
+        new (): HTMLEuiInputElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-button": HTMLEuiButtonElement;
+        "eui-input": HTMLEuiInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -53,8 +71,20 @@ declare namespace LocalJSX {
          */
         "variant"?: 'primary' | 'danger' | 'success' | 'warning';
     }
+    interface EuiInput {
+        /**
+          * Style mode of the input
+          * @default "normal"
+         */
+        "mode"?: "normal" | "outline" | "text-input";
+        /**
+          * @default 'text'
+         */
+        "type"?: HTMLInputElement['type'];
+    }
     interface IntrinsicElements {
         "eui-button": EuiButton;
+        "eui-input": EuiInput;
     }
 }
 export { LocalJSX as JSX };
@@ -62,6 +92,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
         }
     }
 }

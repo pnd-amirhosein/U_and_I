@@ -31,3 +31,7 @@ export const appConfig: ApplicationConfig = {
   ],
 };
 
+
+3. Add project's style to the angular project:
+
+"../ensemble-ui/dist/ensemble-ui/ensemble-ui.css"
