@@ -6,7 +6,9 @@ const chalk = require("chalk");
     const targets = [
         "dist",
         "www",
-        "loader"
+        "loader",
+        "../test_csr/.angular",
+        "src/components/icons"
     ];
     for (const target of targets) {
         const fullPath = path.resolve(target);

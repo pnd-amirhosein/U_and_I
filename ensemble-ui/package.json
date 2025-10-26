@@ -40,13 +40,21 @@
     "loader/"
   ],
   "scripts": {
-    "build": "npm run build:tokens && stencil build",
-    "build:tokens": "node scripts/delete-old.js && node scripts/clean-output.js && node packages/core/tokens/generate-fonts.js && npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens && node dist-tokens/generate-tokens.js",
+    "build": "npm run build:all && stencil build",
+    "build:all": "npm run delete:old && npm run clean:build && npm run generate:font && npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
     "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "generate:font": "node packages/core/tokens/generate-fonts.js",
+    "generate:tokens": "npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens",
+    "generate:dist-tokens": "node dist-tokens/generate-tokens.js",
+    "generate:icon": "node scripts/icon-generator.js",
+    "clean": "rimraf dist dist-tokens node_modules/.stencil .stencil",
+    "clean:build": "node scripts/clean-output.js",
+    "delete:old": "node scripts/delete-old.js",
+    "dev:smart": "node scripts/dev-orchestrator.js"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",
@@ -63,6 +71,7 @@
     "autoprefixer": "^10.4.21",
     "chalk": "^4.1.2",
     "cssnano": "^7.1.1",
+    "fs-extra": "^11.3.2",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "postcss": "^8.5.6",
@@ -70,8 +79,10 @@
     "postcss-preset-env": "^10.4.0",
     "puppeteer": "^24.3.0",
     "sass": "^1.93.2",
+    "svgo": "^4.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "ensemble-icons": "file:../ensemble-icons"
   },
   "license": "MIT",
   "dependencies": {
