@@ -1,110 +1,43 @@
-const fs = require("fs");
-const path = require("path");
-const chalk = require("chalk");
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const ICON_TYPES = ["solid", "outline", "mini", "micro"];
-const ICONS_SRC = path.resolve("packages/icons");
-const OUTPUT_DIR = path.resolve("src/components/icons");
+// Fix __dirname for ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+// Adjust this to your icons folder
+const ICONS_DIR = path.resolve(__dirname, '../packages/icons');
+const OUTPUT_FILE = path.resolve(ICONS_DIR, 'index.ts');
 
-const getAllIconNames = () => {
-    const names = new Set();
-    ICON_TYPES.forEach((type) => {
-        const folder = path.join(ICONS_SRC, type);
-
-        if (fs.existsSync(folder)) {
-            fs.readdirSync(folder)
-                .filter((f) => f.endsWith(".svg"))
-                .forEach((f) => names.add(path.basename(f, ".svg")));
-        }
-    });
-    return [...names];
-};
-
-function toPascalCase(name) {
-    // split on anything non-alphanumeric, drop empties
-    const parts = name.split(/[^a-zA-Z0-9]+/).filter(Boolean);
-    if (parts.length === 0) return "_Icon";
-
-    const pascal = parts
-        .map(p => p.charAt(0).toUpperCase() + p.slice(1))
-        .join("");
-
-    // If it starts with a digit, prefix underscore to make a valid identifier
-    if (/^[0-9]/.test(pascal)) {
-        return "_" + pascal;
+// Recursively get all .svg files
+function walk(dir, prefix = '') {
+  return fs.readdirSync(dir).flatMap(file => {
+    const fullPath = path.join(dir, file);
+    if (fs.statSync(fullPath).isDirectory()) {
+      return walk(fullPath, `${prefix}${file}/`);
     }
-    return pascal;
+    if (file.endsWith('.svg')) return [`${prefix}${file}`];
+    return [];
+  });
 }
 
-const createComponent = (iconName) => {
-    const cases = [];
+const svgFiles = walk(ICONS_DIR);
 
-    ICON_TYPES.forEach((type) => {
-        const filePath = path.join(ICONS_SRC, type, `${iconName}.svg`);
-        if (fs.existsSync(filePath)) {
-            const svg = fs.readFileSync(filePath, "utf8").replace(/`/g, "\\`");
-            cases.push(`case '${type}': return \`${svg}\`;`);
-        }
-    });
+// Build export lines
+const exports = svgFiles.map(file => {
+  const fullPath = path.join(ICONS_DIR, file);
+  let content = fs.readFileSync(fullPath, 'utf-8');
 
-    const pascal = toPascalCase(iconName);
-    const className = `EUIIcon${pascal}`;
-    const tag = `eui-icon-${iconName}`;
+  // Remove newlines and escape single quotes
+  content = content.replace(/\r?\n|\r/g, '').replace(/'/g, "\\'");
 
-    const component = `import { Component, Prop, h, Host, Element } from '@stencil/core';
+  const key = file.replace('.svg', '');
+  return `  '${key}': '${content}'`;
+});
 
-@Component({
-  tag: '${tag}',
-  shadow: false,
-})
-export class ${className} {
-  @Element() hostEl!: HTMLElement;
-  @Prop() type : "solid" | "outline" | "mini" | "micro" = "solid";
+// Write index.ts
+const tsContent = `export const icons: Record<string,string> = {\n${exports.join(',\n')}\n};\n`;
 
-  getSvg() {
-    switch (this.type) {
-      ${cases.join("\n      ")}
-      default:
-        return '';
-    }
-  }
-
-  render() {
-    const svg = this.getSvg();
-    const attrs = Array.from(this.hostEl.attributes)
-      .filter(attr => !['type', 'class'].includes(attr.name))
-      .reduce((acc:any, attr) => {
-        acc[attr.name] = attr.value;
-        return acc;
-      }, {});
-      
-    return (
-      <Host>
-        <div {...attrs} innerHTML={svg}></div>
-      </Host>
-    );
-  }
-}
-`;
-
-    fs.writeFileSync(path.join(OUTPUT_DIR, `${iconName}.tsx`), component, "utf8");
-};
-
-const main = () => {
-    const icons = getAllIconNames();
-    console.log(`${chalk.blue(getClock())} Generating ${icons.length} icon components...`);
-    icons.forEach(createComponent);
-    console.log(`${chalk.green(getClock())} Component generation is done!`);
-};
-
-main();
-
-
-function getClock() {
-    const now = new Date();
-    const h = now.getHours().toString().padStart(2, '0');
-    const m = now.getMinutes().toString().padStart(2, '0');
-    return `[${h}:${m}.0]`;
-}
+fs.writeFileSync(OUTPUT_FILE, tsContent, 'utf-8');
+console.log(`Generated ${OUTPUT_FILE} with ${svgFiles.length} icons`);

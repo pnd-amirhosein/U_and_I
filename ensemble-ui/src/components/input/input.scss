@@ -1,11 +1,94 @@
-input {
-    padding: var(--space-xl) var(--space-2xl);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-neutral-200);
+.input-wrapper {
+    .input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-lg);
 
-    &:focus-visible {
-        outline: unset !important;
-        border-color: var(--color-primary-300);
-        caret-color: var(--color-primary-300);
+        input {
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl) var(--space-2xl);
+            border: unset;
+
+            &:focus-visible {
+                outline: unset !important;
+                border-color: unset;
+                caret-color: var(--color-primary-300);
+            }
+        }
+
+        &:has(input:focus-visible) {
+            outline: unset !important;
+            border-color: var(--color-primary-300);
+        }
+
+        eui-icon-x-mark {
+            display: contents;
+
+            &>* {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding-right: var(--space-2xl);
+                border-radius: var(--radius-md);
+                cursor: pointer;
+
+                path {
+                    fill: var(--color-neutral-500);
+                }
+
+                &:hover {
+                    background: var(--color-neutral-100);
+
+                    path {
+                        fill: var(--color-neutral-800);
+                    }
+                }
+            }
+
+            &.hide {
+                &>* {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+
+    .alert {
+        font-size: var(--font-caption-fontSize);
+        font-weight: var(--font-caption-fontWeight);
+        font-family: var(--font-caption-fontFamily);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-md);
+
+        &.danger {
+            color: var(--color-danger-300);
+
+            svg {
+                fill: var(--color-danger-300);
+            }
+        }
+
+        &.success {
+            color: var(--color-success-300);
+
+            svg {
+                fill: var(--color-success-300);
+            }
+        }
+
+        eui-icon-exclamation-triangle,
+        eui-icon-check-circle {
+            width: 1em;
+
+            svg {
+                display: block;
+                width: 100%;
+            }
+        }
     }
 }

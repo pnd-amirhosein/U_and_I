@@ -16,6 +16,9 @@ export class App {
   public showClose = false;
 
   constructor(private router: Router) {
+
+
+
     this.router.events.pipe(
       filter((e): e is NavigationEnd => e instanceof NavigationEnd)
     ).subscribe((e) => {
@@ -27,7 +30,12 @@ export class App {
     });
   }
 
-  public openButtons() {
+  public async fetch() {
+    return await fetch(`assets/icons/solid/home.svg`);
+  }
+
+  public async openButtons() {
+    await this.fetch()
     this.router.navigateByUrl("button")
   }
   public openInputs() {

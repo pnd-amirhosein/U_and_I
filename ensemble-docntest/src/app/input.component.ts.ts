@@ -8,11 +8,20 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
   template: `
     <div class="doc">
       <span class="flex">
-        <h4 class="title">primary - normal butts:</h4>
-        <eui-input placeHolder="02934092384098">Small Primary</eui-input>
-        <eui-input type="text">Small Primary</eui-input>
-        <eui-input placeHolder="9458739847" type="password">Small Primary</eui-input>
-        <eui-input type="text">Small Primary</eui-input>
+        <h4 class="title">Simple Input</h4>
+        <eui-input placeHolder="simple input"></eui-input>
+      </span>
+      <span class="flex">
+        <h4 class="title">Input with validation (maxlength:10)</h4>
+        <eui-input [validation]={maxLength:10} type="text"></eui-input>
+      </span>
+      <span class="flex">
+        <h4 class="title">Success message</h4>
+        <eui-input type="text"></eui-input>
+      </span>
+      <span class="flex">
+        <h4 class="title">Password input</h4>
+        <eui-input placeHolder="enter password" type="password"></eui-input>
       </span>
     </div>
     `

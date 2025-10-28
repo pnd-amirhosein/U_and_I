@@ -2,3 +2,5 @@
 ensemble-icons/dist/
 ensemble-icons/node_modules/
 node_modules/
+.vscode
+*/.angular/

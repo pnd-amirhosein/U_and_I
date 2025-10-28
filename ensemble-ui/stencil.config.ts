@@ -28,7 +28,9 @@ export const config: Config = {
     sass(),
     postcss({ plugins: postcssPlugins })
   ],
-
+  sourceMap: false,
+  minifyJs: true,
+  minifyCss: true,
   outputTargets: [
     { type: 'dist', esmLoaderPath: '../loader', copy: [{ src: './fonts', dest: 'fonts' }] },
     { type: 'dist-custom-elements', customElementsExportBehavior: 'auto-define-custom-elements', externalRuntime: false, },
