@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import chalk from "chalk";
+
 // Fix __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,4 +42,12 @@ const exports = svgFiles.map(file => {
 const tsContent = `export const icons: Record<string,string> = {\n${exports.join(',\n')}\n};\n`;
 
 fs.writeFileSync(OUTPUT_FILE, tsContent, 'utf-8');
-console.log(`Generated ${OUTPUT_FILE} with ${svgFiles.length} icons`);
+
+console.log(`${chalk.green(getClock())}  Icons generated!`);
+
+function getClock() {
+    const now = new Date();
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    return `[${h}:${m}.0]`;
+}

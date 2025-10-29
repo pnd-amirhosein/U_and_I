@@ -1,6 +1,5 @@
 import { Component, Prop, h, Host, Element, State } from '@stencil/core';
 import { Alert, Validation } from "packages/core/utils/helpers/types"
-import { IconStyleEnum } from "packages/core/utils/helpers/enums"
 
 @Component({
     tag: 'eui-input',
@@ -10,7 +9,7 @@ import { IconStyleEnum } from "packages/core/utils/helpers/enums"
 export class EUIInput {
     @Element() hostEl!: HTMLElement;
 
-    @Prop() iconStyle: IconStyleEnum = IconStyleEnum.outline;
+    @Prop() style?: string;
     @Prop() validation?: Validation;
     @Prop() alert: Alert = { message: "There's an error!", type: "danger" }
     @Prop() mode: 'normal' | 'outline' | 'text-input' = 'normal';
@@ -25,6 +24,7 @@ export class EUIInput {
     private resetInput = () => {
         this.value = '';
         this.inputEl.value = '';
+        this.validate('')
     };
 
     private validate(value: string) {
@@ -53,10 +53,15 @@ export class EUIInput {
         this.isValid = this.validate(this.value);
     };
 
+    componentWillLoad() {
+        if (this.style) {
+            this.hostEl.setAttribute('style', this.style);
+        }
+    }
 
     render() {
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['size', 'variant', 'mode', 'class', 'validation', 'alert', 'mode'].includes(attr.name))
+            .filter(attr => !['size', 'variant', 'mode', 'class', 'validation', 'alert', 'mode', 'style'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -65,7 +70,8 @@ export class EUIInput {
         return (
             <Host>
                 <div class={`input-wrapper ${this.hostEl.attributes.getNamedItem("class") ?? ""}`}>
-                    <span class="input">
+                    <span class={`input ${!this.isValid && this.alert.type == 'danger' ? "danger" : ""} 
+                    ${this.isValid && this.alert.type == 'success' ? "success" : ""}`}>
                         <input
                             ref={el => (this.inputEl = el!)}
                             {...attrs}
@@ -76,36 +82,46 @@ export class EUIInput {
                                 [`input--${this.mode}`]: this.mode !== 'normal',
                             }}
                         />
-                        <eui-icon-x-mark
-                            onClick={this.resetInput}
-                            type={this.iconStyle}
-                            class={`clear-button ${this.value.length == 0 ? "hide" : ""}`}
-                        ></eui-icon-x-mark>
-                        {this.type === 'password' && (
-                            <>
-                                {this.passwordVisible ? (
-                                    <eui-icon-eye-slash
-                                        type={this.iconStyle}
+                        <span class="icon-bar">
+                            {this.value.length != 0 && (
+                                <eui-icon
+                                    key="x-mark"
+                                    name='x-mark'
+                                    onClick={this.resetInput}
+                                    type='solid'
+                                    class={`clear-button`}
+                                ></eui-icon>
+                            )}
+                            {this.type == "password" && (
+                                this.passwordVisible ? (
+                                    <eui-icon
+                                        key="eye-slash"
+                                        name="eye-slash"
+                                        type="outline"
+                                        class={"eye-slash"}
                                         onClick={() => (this.passwordVisible = !this.passwordVisible)}
-                                    ></eui-icon-eye-slash>
+                                    ></eui-icon>
                                 ) : (
-                                    <eui-icon-eye
-                                        type={this.iconStyle}
+                                    <eui-icon
+                                        key="eye"
+                                        name="eye"
+                                        type="outline"
+                                        class={"eye"}
                                         onClick={() => (this.passwordVisible = !this.passwordVisible)}
-                                    ></eui-icon-eye>
-                                )}
-                            </>
-                        )}
+                                    ></eui-icon>
+                                )
+                            )}
+                        </span>
                     </span>
                     {(!this.isValid && this.alert.type == 'danger') && (
                         <span class="alert danger">
-                            <eui-icon-exclamation-triangle type={this.iconStyle}></eui-icon-exclamation-triangle>
+                            <eui-icon name='exclamation-triangle' type='solid'></eui-icon>
                             <p class="alert-text">{this.alert.message}</p>
                         </span>
                     )}
-                    {(!this.isValid && this.alert.type == 'success') && (
+                    {(this.isValid && this.alert.type == 'success') && (
                         <span class="alert success">
-                            <eui-icon-check-circle type={this.iconStyle}></eui-icon-check-circle>
+                            <eui-icon name='check-circle' type='solid'></eui-icon>
                             <p class="alert-text">{this.alert.message}</p>
                         </span>
                     )}

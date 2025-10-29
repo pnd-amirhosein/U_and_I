@@ -2,8 +2,9 @@ import { Component, h, Prop, State } from '@stencil/core';
 import { icons } from '../../../packages/icons';
 
 
-@Component({ tag: 'eui-icon', shadow: false })
+@Component({ tag: 'eui-icon', shadow: false, styleUrl:"./icon.scss" })
 export class EUIIcon {
+  
   @Prop() name: string = '';
   @Prop() type: 'solid' | 'outline' | 'mini' | 'micro' = 'micro';
   @State() svg: string = '';
@@ -15,7 +16,7 @@ export class EUIIcon {
 
   render() {
     return this.svg
-      ? <div innerHTML={this.svg}></div>
-      : <div style={{ color: 'gray', fontSize: '0.8em' }}>Icon not found</div>;
+      ? <div class={`icon-wrapper icon-${this.type}`} innerHTML={this.svg}></div>
+      : <div class={`icon-wrapper icon-${this.type}`} style={{ color: 'gray', fontSize: '0.8em' }}>Icon not found</div>;
   }
 }

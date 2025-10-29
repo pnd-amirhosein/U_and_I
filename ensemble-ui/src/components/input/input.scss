@@ -1,50 +1,78 @@
+:host {
+
+    .input,
+    .icon-bar {
+        display: block;
+        background-color: inherit;
+        color: inherit;
+    }
+}
+
 .input-wrapper {
+    position: relative;
+
     .input {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: var(--space-sm);
-        border: 1px solid var(--color-neutral-200);
+        border: 1px solid var(--color-neutral-500);
         border-radius: var(--radius-lg);
+        background-color: var(--color-neutral-50);
+        background-color: inherit;
+        color: var(--color-neutral-800);
+        transition: all 0.2s ease;
 
         input {
-            border-radius: var(--radius-lg);
+            font-size: var(--font-form-fontSize);
+            font-weight: var(--font-form-fontWeight);
+            font-family: var(--font-form-fontFamily);
+            background-color: transparent;
             padding: var(--space-xl) var(--space-2xl);
-            border: unset;
+            border: none;
+            color: inherit;
+            width: 100%;
 
             &:focus-visible {
-                outline: unset !important;
-                border-color: unset;
+                outline: none !important;
                 caret-color: var(--color-primary-300);
             }
         }
 
         &:has(input:focus-visible) {
-            outline: unset !important;
             border-color: var(--color-primary-300);
         }
 
-        eui-icon-x-mark {
-            display: contents;
+        &.danger {
+            border-color: var(--color-danger-300);
+        }
 
-            &>* {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding-right: var(--space-2xl);
+        &.success {
+            border-color: var(--color-success-300);
+        }
+
+        .icon-bar {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            height: calc(100% - 4px);
+            display: flex;
+            align-items: center;
+            background-color: inherit;
+            color: inherit;
+            padding-right: var(--space-lg);
+            background-color: inherit;
+
+            eui-icon {
                 border-radius: var(--radius-md);
                 cursor: pointer;
-
-                path {
-                    fill: var(--color-neutral-500);
-                }
+                padding: var(--space-lg);
+                box-sizing: border-box;
+                height: 100%;
 
                 &:hover {
-                    background: var(--color-neutral-100);
-
-                    path {
-                        fill: var(--color-neutral-800);
-                    }
+                    color: var(--color-neutral-800);
                 }
             }
 
@@ -58,36 +86,50 @@
     }
 
     .alert {
-        font-size: var(--font-caption-fontSize);
-        font-weight: var(--font-caption-fontWeight);
-        font-family: var(--font-caption-fontFamily);
+        position: absolute;
+        top: calc(100% + var(--space-sm));
+        left: var(--space-sm);
         display: inline-flex;
         align-items: center;
         gap: var(--space-md);
+        font-size: var(--font-caption-fontSize);
+        font-weight: var(--font-caption-fontWeight);
+        font-family: var(--font-caption-fontFamily);
 
         &.danger {
             color: var(--color-danger-300);
-
-            svg {
-                fill: var(--color-danger-300);
-            }
         }
 
         &.success {
             color: var(--color-success-300);
-
-            svg {
-                fill: var(--color-success-300);
-            }
         }
 
-        eui-icon-exclamation-triangle,
-        eui-icon-check-circle {
-            width: 1em;
+        .alert-text {
+            margin: unset;
+        }
 
-            svg {
-                display: block;
-                width: 100%;
+        eui-icon {
+            width: 1em;
+            height: 1em;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .input {
+            background-color: var(--color-neutral-900);
+            color: var(--color-neutral-100);
+
+            .icon-bar {
+                background-color: inherit;
+                color: inherit;
+
+                eui-icon {
+                    color: var(--color-neutral-300);
+
+                    &:hover {
+                        color: var(--color-neutral-100);
+                    }
+                }
             }
         }
     }

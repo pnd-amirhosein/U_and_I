@@ -57,14 +57,14 @@ export declare interface EuiIcon extends Components.EuiIcon {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiInput,
-  inputs: ['alert', 'iconStyle', 'mode', 'type', 'validation']
+  inputs: ['alert', 'mode', 'style', 'type', 'validation']
 })
 @Component({
   selector: 'eui-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alert', 'iconStyle', 'mode', 'type', 'validation'],
+  inputs: ['alert', 'mode', 'style', 'type', 'validation'],
 })
 export class EuiInput {
   protected el: HTMLEuiInputElement;

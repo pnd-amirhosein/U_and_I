@@ -50,7 +50,7 @@
     "generate:font": "node packages/core/tokens/generate-fonts.js",
     "generate:tokens": "npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens",
     "generate:dist-tokens": "node dist-tokens/generate-tokens.js",
-    "generate:icon": "node scripts/icon-generator.js",
+    "generate:icon": "node scripts/icon-generator.mjs",
     "clean": "rimraf dist dist-tokens node_modules/.stencil .stencil",
     "clean:build": "node scripts/clean-output.js",
     "delete:old": "node scripts/delete-old.js",
