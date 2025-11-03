@@ -6,19 +6,43 @@ import { ProxyCmp } from './angular-component-lib/utils';
 
 import type { Components } from 'ensemble-ui/components';
 
+import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 @ProxyCmp({
+  defineCustomElementFn: defineEuiAutoComplete,
+  inputs: ['fetchSuggestions', 'placeholder']
+})
+@Component({
+  selector: 'eui-auto-complete',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['fetchSuggestions', 'placeholder'],
+})
+export class EuiAutoComplete {
+  protected el: HTMLEuiAutoCompleteElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiAutoComplete extends Components.EuiAutoComplete {}
+
+
+@ProxyCmp({
   defineCustomElementFn: defineEuiButton,
-  inputs: ['mode', 'size', 'variant']
+  inputs: ['mode', 'size', 'styleValue', 'variant']
 })
 @Component({
   selector: 'eui-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['mode', 'size', 'variant'],
+  inputs: ['mode', 'size', 'styleValue', 'variant'],
 })
 export class EuiButton {
   protected el: HTMLEuiButtonElement;
@@ -57,14 +81,14 @@ export declare interface EuiIcon extends Components.EuiIcon {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiInput,
-  inputs: ['alert', 'mode', 'style', 'type', 'validation']
+  inputs: ['alert', 'max', 'min', 'mode', 'placeholder', 'step', 'styleValue', 'type', 'validation', 'value']
 })
 @Component({
   selector: 'eui-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alert', 'mode', 'style', 'type', 'validation'],
+  inputs: ['alert', 'max', 'min', 'mode', 'placeholder', 'step', 'styleValue', 'type', 'validation', 'value'],
 })
 export class EuiInput {
   protected el: HTMLEuiInputElement;

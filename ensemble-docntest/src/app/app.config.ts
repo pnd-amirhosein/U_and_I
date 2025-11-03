@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 
 import { defineCustomElements } from 'ensemble-ui/loader';
+import { provideHttpClient } from '@angular/common/http';
 
 export function initializeStencil(): () => Promise<void> {
   return () => Promise.resolve(defineCustomElements(window));
@@ -11,6 +12,7 @@ export function initializeStencil(): () => Promise<void> {
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),

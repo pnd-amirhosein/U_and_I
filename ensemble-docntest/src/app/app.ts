@@ -2,6 +2,8 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
+import { FakeDataService } from './fake.api.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +17,16 @@ export class App {
 
   public showClose = false;
 
-  constructor(private router: Router) {
+  suggestions: string[] = [];
+  searchQuery = '';
 
+  onSearch() {
+    this.fakeApi.getSuggestions(this.searchQuery).subscribe(data => {
+      this.suggestions = data;
+    });
+  }
 
+  constructor(private router: Router, private fakeApi: FakeDataService) {
 
     this.router.events.pipe(
       filter((e): e is NavigationEnd => e instanceof NavigationEnd)
@@ -46,5 +55,8 @@ export class App {
   }
   public openIcons() {
     this.router.navigateByUrl("/icon")
+  }
+  public openAutoComplete() {
+    this.router.navigateByUrl("/autocomplete")
   }
 }

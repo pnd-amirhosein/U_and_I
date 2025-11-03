@@ -17,11 +17,13 @@
 
 ### Used by
 
+ - [eui-auto-complete](../autocomplete)
  - [eui-input](../input)
 
 ### Graph
 ```mermaid
 graph TD;
+  eui-auto-complete --> eui-icon
   eui-input --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

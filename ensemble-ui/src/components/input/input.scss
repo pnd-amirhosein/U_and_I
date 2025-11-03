@@ -38,6 +38,19 @@
                 outline: none !important;
                 caret-color: var(--color-primary-300);
             }
+
+            /* Hide default number arrows */
+            &[type="number"]::-webkit-inner-spin-button,
+            &[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            &[type="number"] {
+                -moz-appearance: textfield;
+            }
+
+
         }
 
         &:has(input:focus-visible) {
@@ -80,6 +93,16 @@
                 &>* {
                     opacity: 0;
                     visibility: hidden;
+                }
+            }
+
+            .number-controls {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                eui-icon {
+                    padding: unset;
                 }
             }
         }

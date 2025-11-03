@@ -8,14 +8,14 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
 export class EUIButton {
   @Element() hostEl!: HTMLElement;
 
-  @Prop() style?: string;
+  @Prop() styleValue?: string;
   @Prop() size: "sm" | "md" | "lg" = "md";
   @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' = 'primary';
   @Prop() mode: "normal" | "outline" | "text-button" = "normal";
 
   componentWillLoad() {
-    if (this.style) {
-      this.hostEl.setAttribute('style', this.style);
+    if (this.styleValue) {
+      this.hostEl.setAttribute('style', this.styleValue);
     }
   }
 

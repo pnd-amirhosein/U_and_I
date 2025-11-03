@@ -14,11 +14,12 @@ examples:
 
 ## Properties
 
-| Property  | Attribute | Description              | Type                                              | Default     |
-| --------- | --------- | ------------------------ | ------------------------------------------------- | ----------- |
-| `mode`    | `mode`    | Style mode of the button | `"normal" \| "outline" \| "text-button"`          | `"normal"`  |
-| `size`    | `size`    | Button size              | `"lg" \| "md" \| "sm"`                            | `"md"`      |
-| `variant` | `variant` | Button variant           | `"danger" \| "primary" \| "success" \| "warning"` | `'primary'` |
+| Property     | Attribute     | Description | Type                                              | Default     |
+| ------------ | ------------- | ----------- | ------------------------------------------------- | ----------- |
+| `mode`       | `mode`        |             | `"normal" \| "outline" \| "text-button"`          | `"normal"`  |
+| `size`       | `size`        |             | `"lg" \| "md" \| "sm"`                            | `"md"`      |
+| `styleValue` | `style-value` |             | `string \| undefined`                             | `undefined` |
+| `variant`    | `variant`     |             | `"danger" \| "primary" \| "success" \| "warning"` | `'primary'` |
 
 
 ----------------------------------------------

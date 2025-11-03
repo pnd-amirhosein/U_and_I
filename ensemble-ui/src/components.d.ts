@@ -8,19 +8,24 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Alert, Validation } from "../packages/core/utils/helpers/types";
 export { Alert, Validation } from "../packages/core/utils/helpers/types";
 export namespace Components {
+    interface EuiAutoComplete {
+        "fetchSuggestions"?: (query: string) => Promise<string[]>;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+    }
     interface EuiButton {
         /**
-          * Style mode of the button
           * @default "normal"
          */
         "mode": "normal" | "outline" | "text-button";
         /**
-          * Button size
           * @default "md"
          */
         "size": "sm" | "md" | "lg";
+        "styleValue"?: string;
         /**
-          * Button variant
           * @default 'primary'
          */
         "variant": 'primary' | 'danger' | 'success' | 'warning';
@@ -40,19 +45,43 @@ export namespace Components {
           * @default { message: "There's an error!", type: "danger" }
          */
         "alert": Alert;
+        "max"?: number;
+        "min"?: number;
         /**
           * @default 'normal'
          */
         "mode": 'normal' | 'outline' | 'text-input';
-        "style"?: string;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * @default 1
+         */
+        "step": number;
+        /**
+          * @default ''
+         */
+        "styleValue"?: string;
         /**
           * @default 'text'
          */
         "type": HTMLInputElement['type'];
         "validation"?: Validation;
+        /**
+          * External value prop (mutable so it can be updated from parent)
+          * @default ''
+         */
+        "value": string;
     }
 }
 declare global {
+    interface HTMLEuiAutoCompleteElement extends Components.EuiAutoComplete, HTMLStencilElement {
+    }
+    var HTMLEuiAutoCompleteElement: {
+        prototype: HTMLEuiAutoCompleteElement;
+        new (): HTMLEuiAutoCompleteElement;
+    };
     interface HTMLEuiButtonElement extends Components.EuiButton, HTMLStencilElement {
     }
     var HTMLEuiButtonElement: {
@@ -72,25 +101,31 @@ declare global {
         new (): HTMLEuiInputElement;
     };
     interface HTMLElementTagNameMap {
+        "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-button": HTMLEuiButtonElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
     }
 }
 declare namespace LocalJSX {
+    interface EuiAutoComplete {
+        "fetchSuggestions"?: (query: string) => Promise<string[]>;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+    }
     interface EuiButton {
         /**
-          * Style mode of the button
           * @default "normal"
          */
         "mode"?: "normal" | "outline" | "text-button";
         /**
-          * Button size
           * @default "md"
          */
         "size"?: "sm" | "md" | "lg";
+        "styleValue"?: string;
         /**
-          * Button variant
           * @default 'primary'
          */
         "variant"?: 'primary' | 'danger' | 'success' | 'warning';
@@ -110,18 +145,37 @@ declare namespace LocalJSX {
           * @default { message: "There's an error!", type: "danger" }
          */
         "alert"?: Alert;
+        "max"?: number;
+        "min"?: number;
         /**
           * @default 'normal'
          */
         "mode"?: 'normal' | 'outline' | 'text-input';
-        "style"?: string;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * @default ''
+         */
+        "styleValue"?: string;
         /**
           * @default 'text'
          */
         "type"?: HTMLInputElement['type'];
         "validation"?: Validation;
+        /**
+          * External value prop (mutable so it can be updated from parent)
+          * @default ''
+         */
+        "value"?: string;
     }
     interface IntrinsicElements {
+        "eui-auto-complete": EuiAutoComplete;
         "eui-button": EuiButton;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
@@ -131,6 +185,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
