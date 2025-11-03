@@ -7,6 +7,7 @@ import { ProxyCmp } from './angular-component-lib/utils';
 import type { Components } from 'ensemble-ui/components';
 
 import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js';
+import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
@@ -36,6 +37,29 @@ export declare interface EuiAutoComplete extends Components.EuiAutoComplete {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiBadge,
+  inputs: ['color', 'styleValue', 'type']
+})
+@Component({
+  selector: 'eui-badge',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'styleValue', 'type'],
+})
+export class EuiBadge {
+  protected el: HTMLEuiBadgeElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiBadge extends Components.EuiBadge {}
 
 
 @ProxyCmp({

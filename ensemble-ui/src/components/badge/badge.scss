@@ -1,0 +1,91 @@
+.bdg {
+    font-size: var(--font-caption-fontSize);
+    font-weight: var(--font-caption-fontWeight);
+    font-family: var(--font-caption-fontFamily);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.bdg:not(.bdg[type="text"], .bdg[type="text-icon"]) {
+    height: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 999999px;
+}
+
+.bdg--primary,
+.bdg[color="primary"] {
+    background-color: var(--color-primary-100);
+    border-color: var(--color-primary-100);
+    color: var(--color-primary-400);
+}
+
+.bdg--success,
+.bdg[color="success"] {
+    background-color: var(--color-success-100);
+    border-color: var(--color-success-100);
+    color: var(--color-success-400);
+}
+
+.bdg--warning,
+.bdg[color="warning"] {
+    background-color: var(--color-warning-100);
+    border-color: var(--color-warning-100);
+    color: var(--color-warning-400);
+}
+
+.bdg--danger,
+.bdg[color="danger"] {
+    background-color: var(--color-danger-100);
+    border-color: var(--color-danger-100);
+    color: var(--color-danger-400);
+}
+
+.bdg--outline,
+.bdg[color="outline"] {
+    background-color: transparent;
+    border-color: var(--color-primary-300);
+    color: var(--color-primary-300);
+
+}
+
+.bdg--pending,
+.bdg[color="pending"] {
+    background-color: var(--color-neutral-200);
+    border-color: var(--color-neutral-200);
+    color: var(--color-neutral-400);
+}
+
+.bdg--outline-filled,
+.bdg[color="outline-filled"] {
+    background-color: var(--color-primary-100);
+    border-color: var(--color-primary-300);
+    color: var(--color-primary-300);
+}
+
+.bdg--text-icon,
+.bdg[type="text-icon"] {
+    display: flex;
+    gap: var(--space-sm);
+    text-wrap-mode: nowrap;
+    border-radius: var(--radius-lg) !important;
+    padding: 0 var(--space-md);
+
+    &>* {
+        padding: var(--space-lg) 0;
+    }
+
+    eui-icon {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        box-sizing: border-box;
+    }
+}
+
+.bdg--text,
+.bdg[type="text"] {
+    text-wrap-mode: nowrap;
+    border-radius: var(--radius-lg) !important;
+    padding: 0 var(--space-md);
+}

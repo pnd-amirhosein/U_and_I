@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.colors = exports.baseColors = void 0;
 exports.baseColors = {
     primary: {
-        100: '#99C2FF',
+        100: '#CCE0FF',
         200: '#4D94FF',
         300: '#0066FF',
         400: '#003D99',
@@ -38,13 +38,13 @@ exports.baseColors = {
         900: '#1E1E1E'
     },
     danger: {
-        100: '#FFAAAA',
+        100: '#FEDBDB',
         200: '#FF7777',
         300: '#FF4444',
         400: '#CC3333',
     },
     warning: {
-        100: '#FFE699',
+        100: '#FFF3CC',
         200: '#FFD966',
         300: '#FFBB33',
         400: '#CC9900',

@@ -16,6 +16,17 @@ export namespace Components {
          */
         "placeholder": string;
     }
+    interface EuiBadge {
+        /**
+          * @default 'primary'
+         */
+        "color": 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending';
+        "styleValue"?: string;
+        /**
+          * @default 'blank'
+         */
+        "type": 'blank' | 'icon' | 'number' | 'text-icon' | 'text';
+    }
     interface EuiButton {
         /**
           * @default "normal"
@@ -98,6 +109,12 @@ declare global {
         prototype: HTMLEuiAutoCompleteElement;
         new (): HTMLEuiAutoCompleteElement;
     };
+    interface HTMLEuiBadgeElement extends Components.EuiBadge, HTMLStencilElement {
+    }
+    var HTMLEuiBadgeElement: {
+        prototype: HTMLEuiBadgeElement;
+        new (): HTMLEuiBadgeElement;
+    };
     interface HTMLEuiButtonElement extends Components.EuiButton, HTMLStencilElement {
     }
     var HTMLEuiButtonElement: {
@@ -118,6 +135,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
+        "eui-badge": HTMLEuiBadgeElement;
         "eui-button": HTMLEuiButtonElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
@@ -132,6 +150,17 @@ declare namespace LocalJSX {
           * @default ''
          */
         "placeholder"?: string;
+    }
+    interface EuiBadge {
+        /**
+          * @default 'primary'
+         */
+        "color"?: 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending';
+        "styleValue"?: string;
+        /**
+          * @default 'blank'
+         */
+        "type"?: 'blank' | 'icon' | 'number' | 'text-icon' | 'text';
     }
     interface EuiButton {
         /**
@@ -194,6 +223,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
+        "eui-badge": EuiBadge;
         "eui-button": EuiButton;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
@@ -204,6 +234,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
+            "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;

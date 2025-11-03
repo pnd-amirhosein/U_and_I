@@ -36,7 +36,7 @@ export class EUIButton {
             btn: true,
             [`btn--${this.size}`]: true,
             [`btn--${this.variant}`]: true,
-            [`btn--${this.mode}`]: this.mode !== 'normal',
+            [`btn--${this.mode}`]: true,
           }}
         >
           <slot />

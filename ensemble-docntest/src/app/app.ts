@@ -59,4 +59,7 @@ export class App {
   public openAutoComplete() {
     this.router.navigateByUrl("/autocomplete")
   }
+  public openBadge() {
+    this.router.navigateByUrl("/badge")
+  }
 }

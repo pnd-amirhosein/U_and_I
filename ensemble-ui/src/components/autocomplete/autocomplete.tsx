@@ -118,7 +118,6 @@ export class EUIAutoComplete {
     }
   }
 
-  // Refined selectItem to properly set the input value
   private selectItem(item: any) {
     // 1. Set the input's visual value to the display text (e.g., the title)
     this.value = this.getSafeDisplay(item);
