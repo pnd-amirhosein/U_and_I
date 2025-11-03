@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* auto-generated angular directive proxies */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Output, NgZone } from '@angular/core';
 
 import { ProxyCmp } from './angular-component-lib/utils';
 
@@ -12,17 +12,19 @@ import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
-  inputs: ['fetchSuggestions', 'placeholder']
+  inputs: ['displayField', 'fetchSuggestions', 'placeholder']
 })
 @Component({
   selector: 'eui-auto-complete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['fetchSuggestions', 'placeholder'],
+  inputs: ['displayField', 'fetchSuggestions', 'placeholder'],
+  outputs: ['itemSelected'],
 })
 export class EuiAutoComplete {
   protected el: HTMLEuiAutoCompleteElement;
+  @Output() itemSelected = new EventEmitter<CustomEvent<any>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -30,7 +32,10 @@ export class EuiAutoComplete {
 }
 
 
-export declare interface EuiAutoComplete extends Components.EuiAutoComplete {}
+export declare interface EuiAutoComplete extends Components.EuiAutoComplete {
+
+  itemSelected: EventEmitter<CustomEvent<any>>;
+}
 
 
 @ProxyCmp({

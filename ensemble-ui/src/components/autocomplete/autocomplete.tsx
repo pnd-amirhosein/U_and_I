@@ -1,4 +1,4 @@
-import { Component, h, State, Element, Listen, Prop } from '@stencil/core';
+import { Component, h, State, Element, Listen, Prop, EventEmitter, Event } from '@stencil/core';
 
 @Component({
   tag: 'eui-auto-complete',
@@ -8,12 +8,15 @@ import { Component, h, State, Element, Listen, Prop } from '@stencil/core';
 export class EUIAutoComplete {
   @Element() hostEl!: HTMLElement;
 
-  @Prop() fetchSuggestions?: (query: string) => Promise<string[]>;
+  @Prop() fetchSuggestions?: (query: string) => Promise<any[]>;
+  @Prop() displayField?: string;
   @Prop() placeholder: string = '';
+
+  @Event() itemSelected?: EventEmitter<any>;
 
   @State() loading: boolean = false;
   @State() value: string = '';
-  @State() suggestions: string[] = [];
+  @State() suggestions: any[] = [];
 
   private dropdownClicked = false;
 
@@ -29,25 +32,52 @@ export class EUIAutoComplete {
     }
 
     this.loading = true;
-    this.suggestions = []; // Clear old suggestions
+    this.suggestions = [];
 
     try {
-      // Call the function passed in from Angular!
-      // The .toPromise() in your Angular code makes this work perfectly.
+      // This promise now resolves with any[]
       const results = await this.fetchSuggestions(this.value);
       this.suggestions = results;
     } catch (error) {
       console.error('Error fetching suggestions:', error);
-      this.suggestions = []; // Clear on error
+      this.suggestions = [];
     } finally {
       this.loading = false;
-      // Only render if we got results and are still focused
       if (this.suggestions.length > 0) {
         this.renderDropdown();
       } else {
-        this.cleanupDropdown(); // No results, hide it
+        this.cleanupDropdown();
       }
     }
+  }
+
+  private getSafeDisplay(item: any): string {
+    // 1. If it's a primitive (like a string), return it directly.
+    if (typeof item !== 'object' || item === null) {
+      return String(item);
+    }
+
+    // 2. If displayField is specified, try to use it.
+    if (this.displayField && item[this.displayField]) {
+      return String(item[this.displayField]);
+    }
+
+    // 3. Fallback: If no displayField or the field is missing, 
+    //    we return a placeholder string instead of the whole JSON.
+    //    We can still log the warning if you want, but this prevents the ugly input value.
+    const displayValue = item.title || item.name || `Item (ID: ${item.id})`; // Try common fields
+
+    if (!this.displayField) {
+      console.warn("eui-auto-complete: No 'displayField' prop provided. Using best guess or JSON string.");
+    }
+
+    // Only warn about missing field if displayField *was* set.
+    if (this.displayField && !item[this.displayField]) {
+      console.warn(`displayField "${this.displayField}" not found in item.`, item);
+    }
+
+    // Use a reasonable fallback display value
+    return displayValue || JSON.stringify(item);
   }
 
   private renderDropdown() {
@@ -68,12 +98,16 @@ export class EUIAutoComplete {
     this.dropdownEl.style.width = `${inputRect.width}px`;
     this.dropdownEl.style.zIndex = '9999';
 
-    // Populate suggestions
     this.dropdownEl.innerHTML = '';
     this.suggestions.forEach(item => {
       const li = document.createElement('li');
-      li.textContent = item;
+
+      // Use the helper to get the display text
+      li.textContent = this.getSafeDisplay(item);
+
+      // Pass the *full object* to selectItem
       li.onclick = () => this.selectItem(item);
+
       this.dropdownEl!.appendChild(li);
     });
 
@@ -84,10 +118,15 @@ export class EUIAutoComplete {
     }
   }
 
-  private selectItem(item: string) {
-    console.log(12, item);
+  // Refined selectItem to properly set the input value
+  private selectItem(item: any) {
+    // 1. Set the input's visual value to the display text (e.g., the title)
+    this.value = this.getSafeDisplay(item);
 
-    this.value = item;
+    // 2. Emit the full object for the consumer (Angular parent)
+    this.itemSelected?.emit(item);
+
+    // 3. Cleanup the component state
     this.suggestions = [];
     this.cleanupDropdown();
   }

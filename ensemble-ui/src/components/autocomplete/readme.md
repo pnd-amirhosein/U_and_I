@@ -7,10 +7,18 @@
 
 ## Properties
 
-| Property           | Attribute           | Description | Type                                                  | Default     |
-| ------------------ | ------------------- | ----------- | ----------------------------------------------------- | ----------- |
-| `fetchSuggestions` | `fetch-suggestions` |             | `((query: string) => Promise<string[]>) \| undefined` | `undefined` |
-| `placeholder`      | `placeholder`       |             | `string`                                              | `''`        |
+| Property           | Attribute           | Description | Type                                               | Default     |
+| ------------------ | ------------------- | ----------- | -------------------------------------------------- | ----------- |
+| `displayField`     | `display-field`     |             | `string \| undefined`                              | `undefined` |
+| `fetchSuggestions` | `fetch-suggestions` |             | `((query: string) => Promise<any[]>) \| undefined` | `undefined` |
+| `placeholder`      | `placeholder`       |             | `string`                                           | `''`        |
+
+
+## Events
+
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `itemSelected` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

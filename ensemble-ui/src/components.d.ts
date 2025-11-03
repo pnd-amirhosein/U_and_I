@@ -9,7 +9,8 @@ import { Alert, Validation } from "../packages/core/utils/helpers/types";
 export { Alert, Validation } from "../packages/core/utils/helpers/types";
 export namespace Components {
     interface EuiAutoComplete {
-        "fetchSuggestions"?: (query: string) => Promise<string[]>;
+        "displayField"?: string;
+        "fetchSuggestions"?: (query: string) => Promise<any[]>;
         /**
           * @default ''
          */
@@ -75,8 +76,23 @@ export namespace Components {
         "value": string;
     }
 }
+export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiAutoCompleteElement;
+}
 declare global {
+    interface HTMLEuiAutoCompleteElementEventMap {
+        "itemSelected": any;
+    }
     interface HTMLEuiAutoCompleteElement extends Components.EuiAutoComplete, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiAutoCompleteElementEventMap>(type: K, listener: (this: HTMLEuiAutoCompleteElement, ev: EuiAutoCompleteCustomEvent<HTMLEuiAutoCompleteElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiAutoCompleteElementEventMap>(type: K, listener: (this: HTMLEuiAutoCompleteElement, ev: EuiAutoCompleteCustomEvent<HTMLEuiAutoCompleteElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEuiAutoCompleteElement: {
         prototype: HTMLEuiAutoCompleteElement;
@@ -109,7 +125,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EuiAutoComplete {
-        "fetchSuggestions"?: (query: string) => Promise<string[]>;
+        "displayField"?: string;
+        "fetchSuggestions"?: (query: string) => Promise<any[]>;
+        "onItemSelected"?: (event: EuiAutoCompleteCustomEvent<any>) => void;
         /**
           * @default ''
          */
