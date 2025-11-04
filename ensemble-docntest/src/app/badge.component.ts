@@ -65,31 +65,31 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
       </span>
       <span class="flex">
         <h4 class="title">icon / primary</h4>
-        <eui-badge type="icon" color="primary"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="primary"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">icon / success</h4>
-        <eui-badge type="icon" color="success"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="success"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">icon / warning</h4>
-        <eui-badge type="icon" color="warning"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="warning"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">icon / danger</h4>
-        <eui-badge type="icon" color="danger"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="danger"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">icon / outline</h4>
-        <eui-badge type="icon" color="outline"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="outline"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">icon / outline-filled</h4>
-        <eui-badge type="icon" color="outline-filled"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="outline-filled"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">icon / pending</h4>
-        <eui-badge type="icon" color="pending"><eui-icon name="academic-cap" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="icon" color="pending"><eui-icon name="academic-cap" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text / primary</h4>
@@ -121,31 +121,31 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
       </span>
       <span class="flex">
         <h4 class="title">text-icon / primary</h4>
-        <eui-badge type="text-icon" color="primary"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="primary"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text-icon / success</h4>
-        <eui-badge type="text-icon" color="success"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="success"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text-icon / warning</h4>
-        <eui-badge type="text-icon" color="warning"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="warning"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text-icon / danger</h4>
-        <eui-badge type="text-icon" color="danger"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="danger"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text-icon / outline</h4>
-        <eui-badge type="text-icon" color="outline"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="outline"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text-icon / outline-filled</h4>
-        <eui-badge type="text-icon" color="outline-filled"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="outline-filled"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
       <span class="flex">
         <h4 class="title">text-icon / pending</h4>
-        <eui-badge type="text-icon" color="pending"><div>Get started</div><eui-icon name="arrow-right" type="solid"></eui-icon></eui-badge>
+        <eui-badge type="text-icon" color="pending"><div>Battery low!</div><eui-icon name="battery-0" type="solid"/></eui-badge>
       </span>
     </div>
     `
