@@ -7,5 +7,6 @@
 export { EuiAutoComplete } from "./eui-auto-complete.js";
 export { EuiBadge } from "./eui-badge.js";
 export { EuiButton } from "./eui-button.js";
+export { EuiDropdown } from "./eui-dropdown.js";
 export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";

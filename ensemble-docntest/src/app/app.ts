@@ -62,4 +62,7 @@ export class App {
   public openBadge() {
     this.router.navigateByUrl("/badge")
   }
+  public openDropdown() {
+    this.router.navigateByUrl("/dropdown")
+  }
 }

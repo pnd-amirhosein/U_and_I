@@ -10,7 +10,7 @@ import { map } from "rxjs";
   template: `
     <div class="doc">
       <span class="flex">
-        <h4 class="title">Simple Input</h4>
+        <h4 class="title">autocomplete example</h4>
         <eui-auto-complete
           [fetchSuggestions]="fetchSuggestions"
           displayField="title" 

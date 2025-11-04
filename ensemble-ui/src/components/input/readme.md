@@ -26,6 +26,7 @@
 ### Used by
 
  - [eui-auto-complete](../autocomplete)
+ - [eui-dropdown](../dropdown)
 
 ### Depends on
 
@@ -36,6 +37,7 @@
 graph TD;
   eui-input --> eui-icon
   eui-auto-complete --> eui-input
+  eui-dropdown --> eui-input
   style eui-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

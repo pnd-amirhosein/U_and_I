@@ -108,7 +108,7 @@ export class EUIAutoComplete {
 
     this.dropdownEl.style.display = 'block';
 
-    // --- 🪶 Floating UI magic ---
+    // --- Floating UI magic ---
     if (this.cleanupAutoUpdate) {
       this.cleanupAutoUpdate(); // stop previous observer
     }

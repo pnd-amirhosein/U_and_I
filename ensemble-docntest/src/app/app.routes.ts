@@ -4,6 +4,7 @@ import { InputComponent } from './input.component.ts';
 import { IconComponent } from './icon.component';
 import { AutoCompleteComponent } from './autocomplete.component';
 import { BadgeComponent } from './badge.component';
+import { DropdownComponent } from './dropdown.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
     { path: "icon", component: IconComponent },
     { path: "autocomplete", component: AutoCompleteComponent },
     { path: "badge", component: BadgeComponent },
+    { path: "dropdown", component: DropdownComponent },
 ];

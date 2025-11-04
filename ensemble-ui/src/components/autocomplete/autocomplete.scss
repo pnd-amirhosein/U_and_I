@@ -22,8 +22,8 @@
   font-weight: var(--font-paragraph-fontWeight);
   font-family: var(--font-paragraph-fontFamily);
   opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transform: translateY(calc(var(--space-sm) * -1));
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 
   &[style*="visibility: visible"] {
     opacity: 1;
@@ -31,7 +31,7 @@
   }
 
   & li {
-    padding: 8px 12px;
+    padding: var(--space-lg) var(--space-xl);
     cursor: pointer;
 
     &:hover {

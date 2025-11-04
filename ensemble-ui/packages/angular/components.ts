@@ -9,6 +9,7 @@ import type { Components } from 'ensemble-ui/components';
 import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js';
 import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
+import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 @ProxyCmp({
@@ -83,6 +84,34 @@ export class EuiButton {
 
 
 export declare interface EuiButton extends Components.EuiButton {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiDropdown,
+  inputs: ['data', 'displayField', 'placeholder', 'suggestions']
+})
+@Component({
+  selector: 'eui-dropdown',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['data', 'displayField', 'placeholder', 'suggestions'],
+  outputs: ['itemSelected'],
+})
+export class EuiDropdown {
+  protected el: HTMLEuiDropdownElement;
+  @Output() itemSelected = new EventEmitter<CustomEvent<any>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiDropdown extends Components.EuiDropdown {
+
+  itemSelected: EventEmitter<CustomEvent<any>>;
+}
 
 
 @ProxyCmp({
