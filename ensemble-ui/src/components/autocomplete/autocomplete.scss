@@ -21,16 +21,24 @@
   font-size: var(--font-paragraph-fontSize);
   font-weight: var(--font-paragraph-fontWeight);
   font-family: var(--font-paragraph-fontFamily);
-}
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
 
-.suggestion-list li {
-  padding: 8px 12px;
-  cursor: pointer;
-}
+  &[style*="visibility: visible"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.suggestion-list li:hover {
-  background: var(--color-secondary-300);
-  color: var(--color-neutral-50);
+  & li {
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--color-secondary-300);
+      color: var(--color-neutral-50);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {

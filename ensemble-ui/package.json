@@ -71,6 +71,7 @@
     "autoprefixer": "^10.4.21",
     "chalk": "^4.1.2",
     "cssnano": "^7.1.1",
+    "ensemble-icons": "file:../ensemble-icons",
     "fs-extra": "^11.3.2",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
@@ -81,13 +82,13 @@
     "sass": "^1.93.2",
     "svgo": "^4.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2",
-    "ensemble-icons": "file:../ensemble-icons"
+    "typescript": "^5.9.2"
   },
   "license": "MIT",
   "dependencies": {
     "@angular/common": "^20.3.0",
     "@angular/core": "^20.3.0",
+    "@floating-ui/dom": "^1.7.4",
     "fs": "^0.0.1-security"
   }
 }

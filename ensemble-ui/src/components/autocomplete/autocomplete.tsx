@@ -1,4 +1,5 @@
 import { Component, h, State, Element, Listen, Prop, EventEmitter, Event } from '@stencil/core';
+import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom';
 
 @Component({
   tag: 'eui-auto-complete',
@@ -19,7 +20,8 @@ export class EUIAutoComplete {
   @State() suggestions: any[] = [];
 
   private dropdownClicked = false;
-
+  private cleanupAutoUpdate?: () => void;
+  public inputEl?: HTMLElement;
   private dropdownEl: HTMLUListElement | null = null;
 
   private async onInput(e: InputEvent) {
@@ -90,33 +92,48 @@ export class EUIAutoComplete {
       });
     }
 
-    // Position relative to input
-    const inputRect = this.hostEl.getBoundingClientRect();
-    this.dropdownEl.style.position = 'absolute';
-    this.dropdownEl.style.top = `${inputRect.bottom + window.scrollY + 15}px`;
-    this.dropdownEl.style.left = `${inputRect.left + window.scrollX}px`;
-    this.dropdownEl.style.width = `${inputRect.width}px`;
-    this.dropdownEl.style.zIndex = '9999';
-
+    // Refresh items
     this.dropdownEl.innerHTML = '';
     this.suggestions.forEach(item => {
       const li = document.createElement('li');
-
-      // Use the helper to get the display text
       li.textContent = this.getSafeDisplay(item);
-
-      // Pass the *full object* to selectItem
       li.onclick = () => this.selectItem(item);
-
       this.dropdownEl!.appendChild(li);
     });
 
     if (this.suggestions.length === 0) {
       this.dropdownEl.style.display = 'none';
-    } else {
-      this.dropdownEl.style.display = 'block';
+      return;
     }
+
+    this.dropdownEl.style.display = 'block';
+
+    // --- 🪶 Floating UI magic ---
+    if (this.cleanupAutoUpdate) {
+      this.cleanupAutoUpdate(); // stop previous observer
+    }
+
+    const trigger = this.hostEl.querySelector('eui-input input') as HTMLElement;
+    this.inputEl = trigger;
+
+    this.cleanupAutoUpdate = autoUpdate(trigger, this.dropdownEl, async () => {
+      const { x, y } = await computePosition(trigger, this.dropdownEl!, {
+        placement: 'bottom-start',
+        middleware: [offset(6), flip(), shift({ padding: 8 })],
+      });
+
+      Object.assign(this.dropdownEl!.style, {
+        position: 'absolute',
+        left: `${x}px`,
+        top: `${y}px`,
+        width: `${trigger.offsetWidth}px`,
+        zIndex: '9999',
+        visibility: 'visible',
+        opacity: '1',
+      });
+    });
   }
+
 
   private selectItem(item: any) {
     // 1. Set the input's visual value to the display text (e.g., the title)
@@ -131,12 +148,18 @@ export class EUIAutoComplete {
   }
 
   private cleanupDropdown() {
-
+    if (this.cleanupAutoUpdate) {
+      this.cleanupAutoUpdate(); // stop listeners
+      this.cleanupAutoUpdate = undefined;
+    }
     if (this.dropdownEl) {
       this.dropdownEl.style.display = 'none';
       this.dropdownEl.innerHTML = '';
     }
+  }
 
+  disconnectedCallback() {
+    if (this.cleanupAutoUpdate) this.cleanupAutoUpdate();
   }
 
   private handleBlur() {
