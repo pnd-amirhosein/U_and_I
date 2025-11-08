@@ -147,9 +147,11 @@ export declare interface EuiIcon extends Components.EuiIcon {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alert', 'max', 'min', 'mode', 'placeholder', 'step', 'styleValue', 'type', 'validation', 'value'],
+  outputs: ['clear'],
 })
 export class EuiInput {
   protected el: HTMLEuiInputElement;
+  @Output() clear = new EventEmitter<CustomEvent<any>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -157,6 +159,9 @@ export class EuiInput {
 }
 
 
-export declare interface EuiInput extends Components.EuiInput {}
+export declare interface EuiInput extends Components.EuiInput {
+
+  clear: EventEmitter<CustomEvent<any>>;
+}
 
 

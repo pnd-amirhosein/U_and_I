@@ -21,6 +21,13 @@
 | `value`       | `value`       | External value prop (mutable so it can be updated from parent) | `string`                                                                                                                                                                                                             | `''`                                               |
 
 
+## Events
+
+| Event   | Description | Type               |
+| ------- | ----------- | ------------------ |
+| `clear` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Used by

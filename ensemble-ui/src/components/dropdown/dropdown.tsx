@@ -21,30 +21,53 @@ export class EUIDropdown {
     @Prop() suggestions: any[] = [];
 
     private dropdownClicked = false;
+    private isOpen = false;
     private cleanupAutoUpdate?: () => void;
     public inputEl?: HTMLElement;
     private dropdownEl: HTMLUListElement | null = null;
 
+    // make openCloseDropdown an arrow so `this` is preserved
+    private openCloseDropdown = (forceClose?: boolean) => {
+        if (forceClose) this.isOpen = true;
+        if (!this.isOpen) {
+            this.suggestions = Array.isArray(this.data) ? this.data : [];
+            if (this.suggestions.length) {
+                this.renderDropdown();
+            }
+            this.isOpen = true
+        } else {
+            this.suggestions = []
+            this.cleanupDropdown()
+            this.isOpen = false
+        }
+
+    }
+    private clear() {
+        this.value = ''
+        this.suggestions = [];
+        this.openCloseDropdown();
+
+    }
+
     private async onInput(e: InputEvent) {
         this.value = (e.target as HTMLInputElement).value;
-
         this.suggestions = [];
-        // console.log("disposo!", this.value, this.data);
-
         this.loading = true;
 
         try {
             if (this.displayField) {
-                this.suggestions = this.data.filter(item => {
+                const q = this.value.toLowerCase();
+                const candidates = Array.isArray(this.data) ? this.data : [];
+                this.suggestions = candidates.filter(item => {
                     const values = deepGet(item, this.displayField!);
-                    return values.some(v =>
-                        String(v).toLowerCase().includes(this.value.toLowerCase())
-                    );
+                    if (Array.isArray(values)) {
+                        return values.some(v => String(v).toLowerCase().includes(q));
+                    }
+                    if (values !== undefined && values !== null) {
+                        return String(values).toLowerCase().includes(q);
+                    }
+                    return false;
                 });
-
-
-                // console.log("this.suggestions:", this.suggestions);
-
             } else {
                 console.error('Error fetching suggestions: please add display field!');
             }
@@ -54,8 +77,6 @@ export class EUIDropdown {
         } finally {
             this.loading = false;
             if (this.suggestions.length > 0) {
-                console.log("this.suggestions:", this.suggestions);
-
                 this.renderDropdown();
             } else {
                 this.cleanupDropdown();
@@ -64,38 +85,28 @@ export class EUIDropdown {
     }
 
     private getSafeDisplay(item: any): string {
-        // 1. Handle primitives directly
-        if (typeof item !== 'object' || item === null) {
-            return String(item);
-        }
+        if (typeof item !== 'object' || item === null) return String(item);
 
-        // 2. Use displayField path if provided
         if (this.displayField) {
-            const values = deepGet(item, this.displayField); // can return array or single value
+            const values = deepGet(item, this.displayField);
             if (Array.isArray(values)) {
-                console.log("Array.isArray(values):", values);
-
-                return String(values.join(' | ') ?? '')
+                return String(values.slice(0, 3).join(' | ') ?? '');
             } else if (values !== undefined && values !== null) {
                 return String(values);
             }
         }
 
-        // 3. Reasonable fallbacks
-        const displayValue = item.title || item.name || `Item (ID: ${item.id})`;
-        if (!displayValue) {
-            console.warn(` eui-dropdown: Could not resolve displayField "${this.displayField}" in:`, item);
-        }
-
+        const displayValue = item.title ?? item.name ?? `Item (ID: ${item.id})`;
+        if (!displayValue) console.warn(`eui-dropdown: Could not resolve displayField "${this.displayField}" in:`, item);
         return displayValue || JSON.stringify(item);
     }
-
 
     private renderDropdown() {
         if (!this.dropdownEl) {
             this.dropdownEl = document.createElement('ul');
             this.dropdownEl.className = 'suggestion-list';
             document.body.appendChild(this.dropdownEl);
+            // use mousedown so clicks on the list don't blur the input before click
             this.dropdownEl.addEventListener('mousedown', () => {
                 this.dropdownClicked = true;
             });
@@ -105,7 +116,15 @@ export class EUIDropdown {
         this.dropdownEl.innerHTML = '';
         this.suggestions.forEach(item => {
             const li = document.createElement('li');
-            li.textContent = this.getSafeDisplay(item);
+            const itemContext = this.getSafeDisplay(item);
+            li.textContent = itemContext;
+            const icon = document.createElement('eui-icon');
+            icon.type = "mini";
+            icon.name = "check"
+            li.appendChild(icon);
+            if (itemContext == this.value) {
+                li.classList.add("selected-item")
+            }
             li.onclick = () => this.selectItem(item);
             this.dropdownEl!.appendChild(li);
         });
@@ -117,14 +136,21 @@ export class EUIDropdown {
 
         this.dropdownEl.style.display = 'block';
 
-        // --- 🪶 Floating UI magic ---
+        // cleanup previous autoUpdate
         if (this.cleanupAutoUpdate) {
-            this.cleanupAutoUpdate(); // stop previous observer
+            this.cleanupAutoUpdate();
+            this.cleanupAutoUpdate = undefined;
         }
 
-        const trigger = this.hostEl.querySelector('eui-input input') as HTMLElement;
+        // find the internal input element inside eui-input
+        const trigger = this.hostEl.querySelector('eui-input input') as HTMLElement | null;
+        if (!trigger) {
+            console.warn('eui-dropdown: trigger input not found, cannot position dropdown.');
+            return;
+        }
         this.inputEl = trigger;
 
+        // start floating-ui auto update
         this.cleanupAutoUpdate = autoUpdate(trigger, this.dropdownEl, async () => {
             const { x, y } = await computePosition(trigger, this.dropdownEl!, {
                 placement: 'bottom-start',
@@ -143,22 +169,16 @@ export class EUIDropdown {
         });
     }
 
-
     private selectItem(item: any) {
-        // 1. Set the input's visual value to the display text (e.g., the title)
         this.value = this.getSafeDisplay(item);
-
-        // 2. Emit the full object for the consumer (Angular parent)
         this.itemSelected?.emit(item);
-
-        // 3. Cleanup the component state
         this.suggestions = [];
-        this.cleanupDropdown();
+        this.openCloseDropdown();
     }
 
     private cleanupDropdown() {
         if (this.cleanupAutoUpdate) {
-            this.cleanupAutoUpdate(); // stop listeners
+            this.cleanupAutoUpdate();
             this.cleanupAutoUpdate = undefined;
         }
         if (this.dropdownEl) {
@@ -179,11 +199,26 @@ export class EUIDropdown {
         this.cleanupDropdown();
     }
 
-    @Listen('document:click', { capture: true })
+    @Listen('click', { target: 'document', capture: true })
     handleOutsideClick(ev: Event) {
-        if (!this.hostEl.contains(ev.target as Node)) {
-            this.cleanupDropdown();
+        const path = ev.composedPath();
+        const clickedInsideDropdown =
+            path.includes(this.hostEl) ||
+            (this.dropdownEl && path.includes(this.dropdownEl));
+
+        if (clickedInsideDropdown) {
+            // Inside click → ignore
+            return;
         }
+        console.log("BLOOMBERG", ev);
+        this.openCloseDropdown(true);
+    }
+
+    @Listen('clear')
+    handleClear() {
+        console.log(90780987098709879, "is happening!");
+
+        this.clear();
     }
 
     render() {
@@ -195,14 +230,21 @@ export class EUIDropdown {
                     onInput={(e: any) => this.onInput(e)}
                     onBlur={() => this.handleBlur()}
                 >
-                    {this.loading && (
+                    <span class="icon-end" slot="icon-end">
+                        {this.loading && (
+                            <eui-icon
+                                name="third-spinner"
+                                type="mini"
+                                class="rotate"
+                            ></eui-icon>
+                        )}
                         <eui-icon
-                            slot="icon-end"
-                            name="third-spinner"
+                            name="chevron-down"
                             type="mini"
-                            class="rotate"
+                            class="menu-opener"
+                            onClick={() => this.openCloseDropdown()}
                         ></eui-icon>
-                    )}
+                    </span>
                 </eui-input>
             </div>
         );

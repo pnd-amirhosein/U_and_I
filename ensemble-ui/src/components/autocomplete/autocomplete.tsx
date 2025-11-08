@@ -186,14 +186,15 @@ export class EUIAutoComplete {
           onInput={(e: any) => this.onInput(e)}
           onBlur={() => this.handleBlur()}
         >
-          {this.loading && (
-            <eui-icon
-              slot="icon-end"
-              name="third-spinner"
-              type="mini"
-              class="rotate"
-            ></eui-icon>
-          )}
+          <span class="icon-end" slot='icon-end'>
+            {this.loading && (
+              <eui-icon
+                name="third-spinner"
+                type="mini"
+                class="rotate"
+              ></eui-icon>
+            )}
+          </span>
         </eui-input>
       </div>
     );

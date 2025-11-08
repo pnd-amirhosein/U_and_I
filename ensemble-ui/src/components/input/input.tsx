@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Element, State, Watch } from '@stencil/core';
+import { Component, Prop, h, Host, Element, State, Watch, EventEmitter, Event } from '@stencil/core';
 import { Alert, Validation } from "packages/core/utils/helpers/types";
 
 @Component({
@@ -22,6 +22,8 @@ export class EUIInput {
   @Prop() min?: number;
   @Prop() max?: number;
 
+  @Event() clear?: EventEmitter<any>;
+
   private inputEl!: HTMLInputElement;
   @State() isValid: boolean = true;
   @State() passwordVisible: boolean = false;
@@ -37,6 +39,7 @@ export class EUIInput {
     this.value = '';
     if (this.inputEl) this.inputEl.value = '';
     this.validate('');
+    this.clear?.emit(null)
   };
 
   private validate(value: string) {

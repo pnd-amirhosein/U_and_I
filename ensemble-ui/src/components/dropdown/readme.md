@@ -26,14 +26,14 @@
 
 ### Depends on
 
-- [eui-input](../input)
 - [eui-icon](../icon)
+- [eui-input](../input)
 
 ### Graph
 ```mermaid
 graph TD;
-  eui-dropdown --> eui-input
   eui-dropdown --> eui-icon
+  eui-dropdown --> eui-input
   eui-input --> eui-icon
   style eui-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

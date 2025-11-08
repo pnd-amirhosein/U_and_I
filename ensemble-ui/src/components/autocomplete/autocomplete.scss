@@ -41,6 +41,10 @@
   }
 }
 
+.icon-end {
+  display: flex;
+}
+
 @media (prefers-color-scheme: dark) {
   .suggestion-list {
     background: var(--color-neutral-900);

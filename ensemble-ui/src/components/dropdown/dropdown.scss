@@ -23,7 +23,7 @@
     font-family: var(--font-paragraph-fontFamily);
     opacity: 0;
     transform: translateY(calc(var(--space-sm) * -1));
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
 
     &[style*="visibility: visible"] {
         opacity: 1;
@@ -33,12 +33,36 @@
     & li {
         padding: var(--space-lg) var(--space-xl);
         cursor: pointer;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: var(--space-lg);
 
         &:hover {
             background: var(--color-secondary-300);
             color: var(--color-neutral-50);
         }
+
+        & svg {
+            fill: transparent !important;
+
+        }
+
+        &.selected-item {
+
+            svg {
+                fill: var(--color-neutral-900) !important;
+
+                @media (prefers-color-scheme: dark) {
+                    fill: var(--color-neutral-50) !important;
+                }
+            }
+        }
     }
+}
+
+.icon-end {
+    display: flex;
 }
 
 @media (prefers-color-scheme: dark) {

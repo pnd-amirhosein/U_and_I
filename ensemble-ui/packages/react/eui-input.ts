@@ -7,18 +7,18 @@
 
 /* eslint-disable */
 
-import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
+import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import { EuiInput as EuiInputElement, defineCustomElement as defineEuiInput } from "ensemble-ui/dist/components/eui-input.js";
 import React from 'react';
 
-export type EuiInputEvents = NonNullable<unknown>;
+export type EuiInputEvents = { onClear: EventName<CustomEvent<any>> };
 
 export const EuiInput: StencilReactComponent<EuiInputElement, EuiInputEvents> = /*@__PURE__*/ createComponent<EuiInputElement, EuiInputEvents>({
     tagName: 'eui-input',
     elementClass: EuiInputElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as EuiInputEvents,
+    events: { onClear: 'clear' } as EuiInputEvents,
     defineCustomElement: defineEuiInput
 });

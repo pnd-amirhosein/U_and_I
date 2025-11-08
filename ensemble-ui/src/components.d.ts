@@ -110,6 +110,10 @@ export interface EuiDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiDropdownElement;
 }
+export interface EuiInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiInputElement;
+}
 declare global {
     interface HTMLEuiAutoCompleteElementEventMap {
         "itemSelected": any;
@@ -163,7 +167,18 @@ declare global {
         prototype: HTMLEuiIconElement;
         new (): HTMLEuiIconElement;
     };
+    interface HTMLEuiInputElementEventMap {
+        "clear": any;
+    }
     interface HTMLEuiInputElement extends Components.EuiInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiInputElementEventMap>(type: K, listener: (this: HTMLEuiInputElement, ev: EuiInputCustomEvent<HTMLEuiInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiInputElementEventMap>(type: K, listener: (this: HTMLEuiInputElement, ev: EuiInputCustomEvent<HTMLEuiInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEuiInputElement: {
         prototype: HTMLEuiInputElement;
@@ -251,6 +266,7 @@ declare namespace LocalJSX {
           * @default 'normal'
          */
         "mode"?: 'normal' | 'outline' | 'text-input';
+        "onClear"?: (event: EuiInputCustomEvent<any>) => void;
         /**
           * @default ''
          */
