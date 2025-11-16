@@ -5,6 +5,7 @@ import { IconComponent } from './icon.component';
 import { AutoCompleteComponent } from './autocomplete.component';
 import { BadgeComponent } from './badge.component';
 import { DropdownComponent } from './dropdown.component';
+import { ChipsComponent } from './chips.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
     { path: "autocomplete", component: AutoCompleteComponent },
     { path: "badge", component: BadgeComponent },
     { path: "dropdown", component: DropdownComponent },
+    { path: "chips", component: ChipsComponent },
 ];

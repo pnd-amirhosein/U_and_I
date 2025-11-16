@@ -42,6 +42,21 @@ export namespace Components {
          */
         "variant": 'primary' | 'danger' | 'success' | 'warning';
     }
+    interface EuiChips {
+        /**
+          * @default []
+         */
+        "data": any[];
+        "displayField"?: string;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * @default []
+         */
+        "suggestions": any[];
+    }
     interface EuiDropdown {
         /**
           * @default []
@@ -83,6 +98,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * @default true
+         */
+        "showClear"?: boolean;
+        /**
           * @default 1
          */
         "step": number;
@@ -105,6 +124,10 @@ export namespace Components {
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiAutoCompleteElement;
+}
+export interface EuiChipsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiChipsElement;
 }
 export interface EuiDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -143,6 +166,23 @@ declare global {
     var HTMLEuiButtonElement: {
         prototype: HTMLEuiButtonElement;
         new (): HTMLEuiButtonElement;
+    };
+    interface HTMLEuiChipsElementEventMap {
+        "itemSelected": any;
+    }
+    interface HTMLEuiChipsElement extends Components.EuiChips, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiChipsElementEventMap>(type: K, listener: (this: HTMLEuiChipsElement, ev: EuiChipsCustomEvent<HTMLEuiChipsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiChipsElementEventMap>(type: K, listener: (this: HTMLEuiChipsElement, ev: EuiChipsCustomEvent<HTMLEuiChipsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiChipsElement: {
+        prototype: HTMLEuiChipsElement;
+        new (): HTMLEuiChipsElement;
     };
     interface HTMLEuiDropdownElementEventMap {
         "itemSelected": any;
@@ -188,6 +228,7 @@ declare global {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
         "eui-button": HTMLEuiButtonElement;
+        "eui-chips": HTMLEuiChipsElement;
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
@@ -228,6 +269,22 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "variant"?: 'primary' | 'danger' | 'success' | 'warning';
+    }
+    interface EuiChips {
+        /**
+          * @default []
+         */
+        "data"?: any[];
+        "displayField"?: string;
+        "onItemSelected"?: (event: EuiChipsCustomEvent<any>) => void;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * @default []
+         */
+        "suggestions"?: any[];
     }
     interface EuiDropdown {
         /**
@@ -272,6 +329,10 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
+          * @default true
+         */
+        "showClear"?: boolean;
+        /**
           * @default 1
          */
         "step"?: number;
@@ -294,6 +355,7 @@ declare namespace LocalJSX {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
         "eui-button": EuiButton;
+        "eui-chips": EuiChips;
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
@@ -306,6 +368,7 @@ declare module "@stencil/core" {
             "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
             "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;

@@ -14,6 +14,7 @@
 | `min`         | `min`         |                                                                | `number \| undefined`                                                                                                                                                                                                | `undefined`                                        |
 | `mode`        | `mode`        |                                                                | `"normal" \| "outline" \| "text-input"`                                                                                                                                                                              | `'normal'`                                         |
 | `placeholder` | `placeholder` |                                                                | `string`                                                                                                                                                                                                             | `''`                                               |
+| `showClear`   | `show-clear`  |                                                                | `boolean \| undefined`                                                                                                                                                                                               | `true`                                             |
 | `step`        | `step`        |                                                                | `number`                                                                                                                                                                                                             | `1`                                                |
 | `styleValue`  | `style-value` |                                                                | `string \| undefined`                                                                                                                                                                                                | `''`                                               |
 | `type`        | `type`        |                                                                | `string`                                                                                                                                                                                                             | `'text'`                                           |
@@ -33,6 +34,7 @@
 ### Used by
 
  - [eui-auto-complete](../autocomplete)
+ - [eui-chips](../chips)
  - [eui-dropdown](../dropdown)
 
 ### Depends on
@@ -44,6 +46,7 @@
 graph TD;
   eui-input --> eui-icon
   eui-auto-complete --> eui-input
+  eui-chips --> eui-input
   eui-dropdown --> eui-input
   style eui-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

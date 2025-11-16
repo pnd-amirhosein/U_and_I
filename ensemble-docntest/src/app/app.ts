@@ -65,4 +65,7 @@ export class App {
   public openDropdown() {
     this.router.navigateByUrl("/dropdown")
   }
+  public openChips() {
+    this.router.navigateByUrl("/chips")
+  }
 }

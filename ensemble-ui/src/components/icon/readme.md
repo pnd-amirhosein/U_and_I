@@ -18,6 +18,7 @@
 ### Used by
 
  - [eui-auto-complete](../autocomplete)
+ - [eui-chips](../chips)
  - [eui-dropdown](../dropdown)
  - [eui-input](../input)
 
@@ -25,6 +26,7 @@
 ```mermaid
 graph TD;
   eui-auto-complete --> eui-icon
+  eui-chips --> eui-icon
   eui-dropdown --> eui-icon
   eui-input --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px

@@ -21,6 +21,7 @@ export class EUIInput {
   @Prop() step: number = 1;
   @Prop() min?: number;
   @Prop() max?: number;
+  @Prop() showClear?: boolean = true;
 
   @Event() clear?: EventEmitter<any>;
 
@@ -125,7 +126,7 @@ export class EUIInput {
 
             <span class="icon-bar">
               {/* Clear button */}
-              {this.value.length !== 0 && (
+              {this.value.length !== 0 && this.showClear && (
                 <eui-icon
                   key="x-mark"
                   name='x-mark'
