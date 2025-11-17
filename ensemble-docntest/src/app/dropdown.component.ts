@@ -18,7 +18,7 @@ import { fakeProduct } from "./fakeData.const";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-dropdown>
+        />
       </span>
       <span class="flex">
         <h4 class="title">Dropdown by dimensions.height</h4>
@@ -28,7 +28,7 @@ import { fakeProduct } from "./fakeData.const";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-dropdown>
+        />
       </span>
       <span class="flex">
         <h4 class="title">Dropdown by reviews.reviewerName</h4>
@@ -38,7 +38,7 @@ import { fakeProduct } from "./fakeData.const";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-dropdown>
+        />
       </span>
     </div>
     `

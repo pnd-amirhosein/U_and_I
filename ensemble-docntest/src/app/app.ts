@@ -68,4 +68,7 @@ export class App {
   public openChips() {
     this.router.navigateByUrl("/chips")
   }
+  public openCard() {
+    this.router.navigateByUrl("/card")
+  }
 }

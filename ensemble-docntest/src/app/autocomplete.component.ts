@@ -17,7 +17,7 @@ import { map } from "rxjs";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-auto-complete>
+        />
       </span>
     </div>
     `

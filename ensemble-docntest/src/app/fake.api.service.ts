@@ -8,12 +8,8 @@ import { delay } from 'rxjs/operators';
 export class FakeDataService {
   private data = ['one', 'two', 'three', 'four', 'five', 'banana', 'apple'];
 
-  /**
-   *
-   */
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
 
-  }
   getSuggestions(query: string) {
     const filtered = this.data.filter(x => x.toLowerCase().includes(query.toLowerCase()));
     return of(filtered).pipe(delay(300)); // simulate API latency

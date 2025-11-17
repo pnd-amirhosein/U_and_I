@@ -9,31 +9,31 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
     <div class="doc">
       <span class="flex">
         <h4 class="title">blank / primary</h4>
-        <eui-badge type="blank" color="primary"></eui-badge>
+        <eui-badge type="blank" color="primary"/>
       </span>
       <span class="flex">
         <h4 class="title">blank / success</h4>
-        <eui-badge type="blank" color="success"></eui-badge>
+        <eui-badge type="blank" color="success"/>
       </span>
       <span class="flex">
         <h4 class="title">blank / warning</h4>
-        <eui-badge type="blank" color="warning"></eui-badge>
+        <eui-badge type="blank" color="warning"/>
       </span>
       <span class="flex">
         <h4 class="title">blank / danger</h4>
-        <eui-badge type="blank" color="danger"></eui-badge>
+        <eui-badge type="blank" color="danger"/>
       </span>
       <span class="flex">
         <h4 class="title">blank / outline</h4>
-        <eui-badge type="blank" color="outline"></eui-badge>
+        <eui-badge type="blank" color="outline"/>
       </span>
       <span class="flex">
         <h4 class="title">blank / outline-filled</h4>
-        <eui-badge type="blank" color="outline-filled"></eui-badge>
+        <eui-badge type="blank" color="outline-filled"/>
       </span>
       <span class="flex">
         <h4 class="title">blank / pending</h4>
-        <eui-badge type="blank" color="pending"></eui-badge>
+        <eui-badge type="blank" color="pending"/>
       </span>
       <span class="flex">
         <h4 class="title">number / primary</h4>

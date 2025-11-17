@@ -18,7 +18,7 @@ import { fakeProduct } from "./fakeData.const";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-chips>
+        />
       </span>
       <span class="flex">
         <h4 class="title">Chips by dimensions.height</h4>
@@ -28,7 +28,7 @@ import { fakeProduct } from "./fakeData.const";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-chips>
+        />
       </span>
       <span class="flex">
         <h4 class="title">Chips by reviews.reviewerName</h4>
@@ -38,7 +38,7 @@ import { fakeProduct } from "./fakeData.const";
           (itemSelected)="onProductSelected($event)"
           style="width: 25vw;"
           placeholder="Search products..."
-        ></eui-chips>
+        />
       </span>
     </div>
     `

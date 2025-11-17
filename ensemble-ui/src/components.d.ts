@@ -42,6 +42,21 @@ export namespace Components {
          */
         "variant": 'primary' | 'danger' | 'success' | 'warning';
     }
+    interface EuiCard {
+        /**
+          * @default ""
+         */
+        "img": string;
+        /**
+          * @default 'classic'
+         */
+        "mode": "classic" | "belt" | "lollipop" | "gem" | "Flag";
+        /**
+          * @default "vertical"
+         */
+        "orientation": "horizontal" | "vertical";
+        "styleValue"?: string;
+    }
     interface EuiChips {
         /**
           * @default []
@@ -167,6 +182,12 @@ declare global {
         prototype: HTMLEuiButtonElement;
         new (): HTMLEuiButtonElement;
     };
+    interface HTMLEuiCardElement extends Components.EuiCard, HTMLStencilElement {
+    }
+    var HTMLEuiCardElement: {
+        prototype: HTMLEuiCardElement;
+        new (): HTMLEuiCardElement;
+    };
     interface HTMLEuiChipsElementEventMap {
         "itemSelected": any;
     }
@@ -228,6 +249,7 @@ declare global {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
         "eui-button": HTMLEuiButtonElement;
+        "eui-card": HTMLEuiCardElement;
         "eui-chips": HTMLEuiChipsElement;
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
@@ -269,6 +291,21 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "variant"?: 'primary' | 'danger' | 'success' | 'warning';
+    }
+    interface EuiCard {
+        /**
+          * @default ""
+         */
+        "img"?: string;
+        /**
+          * @default 'classic'
+         */
+        "mode"?: "classic" | "belt" | "lollipop" | "gem" | "Flag";
+        /**
+          * @default "vertical"
+         */
+        "orientation"?: "horizontal" | "vertical";
+        "styleValue"?: string;
     }
     interface EuiChips {
         /**
@@ -355,6 +392,7 @@ declare namespace LocalJSX {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
         "eui-button": EuiButton;
+        "eui-card": EuiCard;
         "eui-chips": EuiChips;
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
@@ -368,6 +406,7 @@ declare module "@stencil/core" {
             "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
             "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
