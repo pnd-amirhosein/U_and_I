@@ -57,6 +57,20 @@ export namespace Components {
         "orientation": "horizontal" | "vertical";
         "styleValue"?: string;
     }
+    interface EuiCheckbox {
+        /**
+          * @default "md"
+         */
+        "size": "sm" | "md" | "lg";
+        /**
+          * @default ['null', 'false', 'partial', 'true']
+         */
+        "states": Array<'null' | 'false' | 'partial' | 'true'>;
+        /**
+          * @default 'null'
+         */
+        "value": 'null' | 'false' | 'partial' | 'true';
+    }
     interface EuiChips {
         /**
           * @default []
@@ -140,6 +154,10 @@ export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiAutoCompleteElement;
 }
+export interface EuiCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiCheckboxElement;
+}
 export interface EuiChipsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiChipsElement;
@@ -187,6 +205,23 @@ declare global {
     var HTMLEuiCardElement: {
         prototype: HTMLEuiCardElement;
         new (): HTMLEuiCardElement;
+    };
+    interface HTMLEuiCheckboxElementEventMap {
+        "valueChange": 'null' | 'false' | 'partial' | 'true';
+    }
+    interface HTMLEuiCheckboxElement extends Components.EuiCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiCheckboxElementEventMap>(type: K, listener: (this: HTMLEuiCheckboxElement, ev: EuiCheckboxCustomEvent<HTMLEuiCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiCheckboxElementEventMap>(type: K, listener: (this: HTMLEuiCheckboxElement, ev: EuiCheckboxCustomEvent<HTMLEuiCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiCheckboxElement: {
+        prototype: HTMLEuiCheckboxElement;
+        new (): HTMLEuiCheckboxElement;
     };
     interface HTMLEuiChipsElementEventMap {
         "itemSelected": any;
@@ -250,6 +285,7 @@ declare global {
         "eui-badge": HTMLEuiBadgeElement;
         "eui-button": HTMLEuiButtonElement;
         "eui-card": HTMLEuiCardElement;
+        "eui-checkbox": HTMLEuiCheckboxElement;
         "eui-chips": HTMLEuiChipsElement;
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
@@ -306,6 +342,21 @@ declare namespace LocalJSX {
          */
         "orientation"?: "horizontal" | "vertical";
         "styleValue"?: string;
+    }
+    interface EuiCheckbox {
+        "onValueChange"?: (event: EuiCheckboxCustomEvent<'null' | 'false' | 'partial' | 'true'>) => void;
+        /**
+          * @default "md"
+         */
+        "size"?: "sm" | "md" | "lg";
+        /**
+          * @default ['null', 'false', 'partial', 'true']
+         */
+        "states"?: Array<'null' | 'false' | 'partial' | 'true'>;
+        /**
+          * @default 'null'
+         */
+        "value"?: 'null' | 'false' | 'partial' | 'true';
     }
     interface EuiChips {
         /**
@@ -393,6 +444,7 @@ declare namespace LocalJSX {
         "eui-badge": EuiBadge;
         "eui-button": EuiButton;
         "eui-card": EuiCard;
+        "eui-checkbox": EuiCheckbox;
         "eui-chips": EuiChips;
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
@@ -407,6 +459,7 @@ declare module "@stencil/core" {
             "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
+            "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;

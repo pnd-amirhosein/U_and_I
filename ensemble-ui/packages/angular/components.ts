@@ -10,6 +10,7 @@ import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/compon
 import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
+import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components/eui-checkbox.js';
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
@@ -109,6 +110,34 @@ export class EuiCard {
 
 
 export declare interface EuiCard extends Components.EuiCard {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiCheckbox,
+  inputs: ['size', 'states', 'value']
+})
+@Component({
+  selector: 'eui-checkbox',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['size', 'states', 'value'],
+  outputs: ['valueChange'],
+})
+export class EuiCheckbox {
+  protected el: HTMLEuiCheckboxElement;
+  @Output() valueChange = new EventEmitter<CustomEvent<'null' | 'false' | 'partial' | 'true'>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiCheckbox extends Components.EuiCheckbox {
+
+  valueChange: EventEmitter<CustomEvent<'null' | 'false' | 'partial' | 'true'>>;
+}
 
 
 @ProxyCmp({

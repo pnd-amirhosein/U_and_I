@@ -1,0 +1,36 @@
+input {
+    visibility: hidden;
+    user-select: none;
+    display: none;
+}
+
+.chk {
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-md);
+    background-color: var(--color-success-300);
+    display: block;
+
+    svg {
+        fill: var(--color-neutral-50) !important;
+        
+        
+        @media (prefers-color-scheme: dark) {
+            fill: var(--color-neutral-900) !important;
+        }
+    }
+
+    &.chk--sm {
+        aspect-ratio: 1/1;
+        height: var(--space-xl);
+    }
+
+    &.chk--md {
+        aspect-ratio: 1/1;
+        height: var(--space-2xl);
+    }
+
+    &.chk--lg {
+        aspect-ratio: 1/1;
+        height: var(--space-3xl);
+    }
+}

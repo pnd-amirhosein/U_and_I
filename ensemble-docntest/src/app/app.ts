@@ -71,4 +71,7 @@ export class App {
   public openCard() {
     this.router.navigateByUrl("/card")
   }
+  public openCheckkbox() {
+    this.router.navigateByUrl("/checkbox")
+  }
 }
