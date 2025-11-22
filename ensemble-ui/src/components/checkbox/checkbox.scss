@@ -7,17 +7,46 @@ input {
 .chk {
     border: 1px solid var(--color-neutral-200);
     border-radius: var(--radius-md);
-    background-color: var(--color-success-300);
+    background-color: var(--color-secondary-300);
     display: block;
+
+    & * {
+        transition: unset !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        border-color: var(--color-neutral-500);
+    }
 
     svg {
         fill: var(--color-neutral-50) !important;
-        
-        
+
+
         @media (prefers-color-scheme: dark) {
             fill: var(--color-neutral-900) !important;
         }
     }
+
+    &:hover {
+        border-color: var(--color-secondary-300);
+    }
+
+    &:focus-visible,
+    &:focus {
+        outline: none;
+        border-color: var(--color-primary-300);
+    }
+
+    &:active {
+        outline: none;
+        border-color: var(--color-primary-300);
+
+        svg {
+            fill: var(--color-primary-300) !important;
+        }
+    }
+
+
 
     &.chk--sm {
         aspect-ratio: 1/1;
@@ -32,5 +61,17 @@ input {
     &.chk--lg {
         aspect-ratio: 1/1;
         height: var(--space-3xl);
+    }
+
+    &.chk--null {
+        background-color: unset;
+
+        &:hover {
+            background-color: var(--color-secondary-100);
+
+            @media (prefers-color-scheme: dark) {
+                background-color: var(--color-secondary-400);
+            }
+        }
     }
 }

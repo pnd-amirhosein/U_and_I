@@ -70,9 +70,19 @@ export class EUICheckbox {
         return (
             <Host>
                 <label
+                    tabindex={0}
                     class={{
                         chk: true,
                         [`chk--${this.size}`]: true,
+                        [`chk--${this.value}`]: true,
+                    }}
+                    role="checkbox"
+                    aria-checked={this.value === 'true' ? 'true' : this.value === 'false' ? 'false' : 'mixed'}
+                    onKeyDown={(e) => {
+                        if (e.key === ' ' || e.key === 'Enter') {
+                            e.preventDefault();   // prevent page scrolling on space
+                            this.toggle();
+                        }
                     }}
                 >
                     <input
