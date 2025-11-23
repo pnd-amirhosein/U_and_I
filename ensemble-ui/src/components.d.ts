@@ -153,6 +153,21 @@ export namespace Components {
          */
         "value": string;
     }
+    interface EuiPaginator {
+        /**
+          * @default 1
+         */
+        "defaultCurrentPage": number;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "styleValue"?: string;
+        /**
+          * @default 1
+         */
+        "totalPages": number;
+    }
 }
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -173,6 +188,10 @@ export interface EuiDropdownCustomEvent<T> extends CustomEvent<T> {
 export interface EuiInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiInputElement;
+}
+export interface EuiPaginatorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiPaginatorElement;
 }
 declare global {
     interface HTMLEuiAutoCompleteElementEventMap {
@@ -284,6 +303,23 @@ declare global {
         prototype: HTMLEuiInputElement;
         new (): HTMLEuiInputElement;
     };
+    interface HTMLEuiPaginatorElementEventMap {
+        "currentPage": any;
+    }
+    interface HTMLEuiPaginatorElement extends Components.EuiPaginator, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiPaginatorElementEventMap>(type: K, listener: (this: HTMLEuiPaginatorElement, ev: EuiPaginatorCustomEvent<HTMLEuiPaginatorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiPaginatorElementEventMap>(type: K, listener: (this: HTMLEuiPaginatorElement, ev: EuiPaginatorCustomEvent<HTMLEuiPaginatorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiPaginatorElement: {
+        prototype: HTMLEuiPaginatorElement;
+        new (): HTMLEuiPaginatorElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
@@ -294,6 +330,7 @@ declare global {
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
+        "eui-paginator": HTMLEuiPaginatorElement;
     }
 }
 declare namespace LocalJSX {
@@ -447,6 +484,22 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface EuiPaginator {
+        /**
+          * @default 1
+         */
+        "defaultCurrentPage"?: number;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onCurrentPage"?: (event: EuiPaginatorCustomEvent<any>) => void;
+        "styleValue"?: string;
+        /**
+          * @default 1
+         */
+        "totalPages"?: number;
+    }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
@@ -457,6 +510,7 @@ declare namespace LocalJSX {
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
+        "eui-paginator": EuiPaginator;
     }
 }
 export { LocalJSX as JSX };
@@ -472,6 +526,7 @@ declare module "@stencil/core" {
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
+            "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
         }
     }
 }

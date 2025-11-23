@@ -15,6 +15,7 @@ import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eu
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
+import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
   inputs: ['displayField', 'fetchSuggestions', 'placeholder']
@@ -244,6 +245,34 @@ export class EuiInput {
 export declare interface EuiInput extends Components.EuiInput {
 
   clear: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiPaginator,
+  inputs: ['defaultCurrentPage', 'disabled', 'styleValue', 'totalPages']
+})
+@Component({
+  selector: 'eui-paginator',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['defaultCurrentPage', 'disabled', 'styleValue', 'totalPages'],
+  outputs: ['currentPage'],
+})
+export class EuiPaginator {
+  protected el: HTMLEuiPaginatorElement;
+  @Output() currentPage = new EventEmitter<CustomEvent<any>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiPaginator extends Components.EuiPaginator {
+
+  currentPage: EventEmitter<CustomEvent<any>>;
 }
 
 

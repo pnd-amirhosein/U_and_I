@@ -1,0 +1,163 @@
+.pg {
+    display: flex;
+    border-radius: var(--radius-lg);
+    gap: var(--space-md);
+    border: 1px solid var(--color-neutral-200);
+
+    & * {
+        transition-duration: 100ms !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid var(--color-neutral-500);
+    }
+
+    .item {
+        border-radius: var(--radius-md);
+        padding: var(--space-lg);
+        position: relative;
+        z-index: 2;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid transparent;
+            border-radius: var(--radius-md);
+            z-index: 1;
+        }
+
+        transform: scalePx(2);
+
+        &:not(.separator):hover {
+            background-color: var(--color-secondary-300);
+            cursor: pointer;
+        }
+
+        &.active {
+            color: var(--color-primary-300);
+
+            &::after {
+                border-color: var(--color-primary-300);
+            }
+        }
+
+        &:focus-visible,
+        &:focus {
+            outline: none;
+
+            &::after {
+                border-color: var(--color-primary-300);
+            }
+        }
+
+        &:active {
+            outline: none;
+            color: var(--color-primary-300);
+
+            &::after {
+                border-color: var(--color-primary-300);
+            }
+        }
+
+
+        &.item.separator {
+            display: flex;
+            align-items: center;
+
+            .separator-box {
+                display: flex;
+                gap: var(--space-md);
+
+                &>span {
+                    aspect-ratio: 1 / 1;
+                    width: var(--space-sm);
+                    display: block;
+                    background: var(--color-neutral-200);
+                    border-radius: 9999px;
+
+                    @media (prefers-color-scheme: dark) {
+                        background: var(--color-neutral-500);
+                    }
+                }
+            }
+        }
+
+        &.previous-button {
+            border-radius: var(--radius-md) 0 0 var(--radius-md);
+            border-right: 1px solid var(--color-neutral-200);
+
+            &::after {
+                border-radius: var(--radius-md) 0 0 var(--radius-md);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                border-right: 1px solid var(--color-neutral-500);
+            }
+        }
+
+        &.next-button {
+            border-left: 1px solid var(--color-neutral-200);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+
+            &::after {
+                border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                border-left: 1px solid var(--color-neutral-500);
+            }
+        }
+
+        &.disable {
+            
+            &:hover{
+                cursor: default !important;
+                background-color: unset  !important;
+            }
+
+            svg {
+                fill: var(--color-neutral-200);
+
+                @media (prefers-color-scheme: dark) {
+                    fill: var(--color-neutral-500);
+                }
+            }
+        }
+    }
+
+    &.pg--disabled,
+    &:disabled {
+        background-color: var(--color-neutral-100);
+
+        * {
+            color: var(--color-neutral-200);
+            background-color: unset;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--color-neutral-700);
+
+            * {
+                color: var(--color-neutral-500);
+                border-color: var(--color-neutral-500);
+                cursor: default !important;
+
+                &.active {
+                    color: var(--color-neutral-500) !important;
+
+                    &::after {
+                        border-color: var(--color-neutral-500) !important;
+                    }
+                }
+
+                &:hover {
+                    background-color: unset !important;
+                }
+            }
+        }
+    }
+}

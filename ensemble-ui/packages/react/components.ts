@@ -13,3 +13,4 @@ export { EuiChips } from "./eui-chips.js";
 export { EuiDropdown } from "./eui-dropdown.js";
 export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";
+export { EuiPaginator } from "./eui-paginator.js";

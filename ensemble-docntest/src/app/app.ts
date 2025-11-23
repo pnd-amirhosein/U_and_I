@@ -74,4 +74,7 @@ export class App {
   public openCheckkbox() {
     this.router.navigateByUrl("/checkbox")
   }
+  public openPaginator() {
+    this.router.navigateByUrl("/paginator")
+  }
 }
