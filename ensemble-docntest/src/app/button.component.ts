@@ -94,6 +94,12 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
         <eui-button disabled="true">Medium success</eui-button>
         <eui-button disabled="true">large success</eui-button>
           </span>
+          <span class="flex">
+        <h4 class="title">neutral buttons:</h4>
+        <eui-button variant='neutral'>Small success</eui-button>
+        <eui-button variant='neutral'>Medium success</eui-button>
+        <eui-button variant='neutral'>large success</eui-button>
+          </span>
     </div>
     `
 })

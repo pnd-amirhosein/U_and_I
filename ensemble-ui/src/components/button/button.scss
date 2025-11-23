@@ -91,6 +91,36 @@ button[variant="danger"] {
   }
 }
 
+
+.btn--neutral,
+button[variant="neutral"] {
+  background-color: transparent;
+  color: var(--color-neutral-500);
+  border-color: transparent;
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-neutral-500);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-neutral-200);
+    border-color: var(--color-neutral-500);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-neutral-200);
+
+    &:hover:not(:disabled) {
+      border-color: var(--color-neutral-200);
+    }
+
+    &:active:not(:disabled) {
+      background-color: var(--color-neutral-500);
+      border-color: var(--color-neutral-200);
+    }
+  }
+}
+
 /* Mode */
 .btn--outline,
 button[mode="outline"] {
