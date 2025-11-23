@@ -9,6 +9,7 @@
 
 | Property | Attribute | Description | Type                                           | Default                                |
 | -------- | --------- | ----------- | ---------------------------------------------- | -------------------------------------- |
+| `mode`   | `mode`    |             | `"fill" \| "outline"`                          | `"fill"`                               |
 | `size`   | `size`    |             | `"lg" \| "md" \| "sm"`                         | `"md"`                                 |
 | `states` | `states`  |             | `("null" \| "false" \| "partial" \| "true")[]` | `['null', 'false', 'partial', 'true']` |
 | `value`  | `value`   |             | `"false" \| "null" \| "partial" \| "true"`     | `'null'`                               |

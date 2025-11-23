@@ -11,6 +11,7 @@ export class EUICheckbox {
     @Prop({ mutable: true }) value: 'null' | 'false' | 'partial' | 'true' = 'null';
     @Prop() states: Array<'null' | 'false' | 'partial' | 'true'> = ['null', 'false', 'partial', 'true'];
     @Prop() size: "sm" | "md" | "lg" = "md"
+    @Prop() mode: "fill" | "outline" = "fill"
 
     @Event() valueChange!: EventEmitter<'null' | 'false' | 'partial' | 'true'>;
 
@@ -55,7 +56,7 @@ export class EUICheckbox {
     render() {
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['value', 'states', 'class', 'size'].includes(attr.name))
+            .filter(attr => !['value', 'states', 'class', 'size', 'mode'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -75,6 +76,7 @@ export class EUICheckbox {
                         chk: true,
                         [`chk--${this.size}`]: true,
                         [`chk--${this.value}`]: true,
+                        [`chk--${this.mode}`]: true,
                     }}
                     role="checkbox"
                     aria-checked={this.value === 'true' ? 'true' : this.value === 'false' ? 'false' : 'mixed'}

@@ -59,6 +59,10 @@ export namespace Components {
     }
     interface EuiCheckbox {
         /**
+          * @default "fill"
+         */
+        "mode": "fill" | "outline";
+        /**
           * @default "md"
          */
         "size": "sm" | "md" | "lg";
@@ -344,6 +348,10 @@ declare namespace LocalJSX {
         "styleValue"?: string;
     }
     interface EuiCheckbox {
+        /**
+          * @default "fill"
+         */
+        "mode"?: "fill" | "outline";
         "onValueChange"?: (event: EuiCheckboxCustomEvent<'null' | 'false' | 'partial' | 'true'>) => void;
         /**
           * @default "md"

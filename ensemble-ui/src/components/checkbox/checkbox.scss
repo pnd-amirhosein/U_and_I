@@ -67,10 +67,26 @@ input {
         background-color: unset;
 
         &:hover {
-            background-color: var(--color-secondary-100);
+            background-color: var(--color-secondary-50);
 
             @media (prefers-color-scheme: dark) {
-                background-color: var(--color-secondary-400);
+                background-color: var(--color-secondary-500);
+            }
+        }
+    }
+
+    &.chk--outline {
+        background-color: unset;
+
+        svg {
+            fill: var(--color-secondary-300) !important;
+        }
+
+        &:hover {
+            background-color: var(--color-secondary-50);
+
+            @media (prefers-color-scheme: dark) {
+                background-color: var(--color-secondary-500);
             }
         }
     }

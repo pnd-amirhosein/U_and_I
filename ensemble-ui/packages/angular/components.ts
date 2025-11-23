@@ -114,14 +114,14 @@ export declare interface EuiCard extends Components.EuiCard {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCheckbox,
-  inputs: ['size', 'states', 'value']
+  inputs: ['mode', 'size', 'states', 'value']
 })
 @Component({
   selector: 'eui-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['size', 'states', 'value'],
+  inputs: ['mode', 'size', 'states', 'value'],
   outputs: ['valueChange'],
 })
 export class EuiCheckbox {
