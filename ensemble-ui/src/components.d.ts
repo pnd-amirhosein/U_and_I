@@ -40,7 +40,7 @@ export namespace Components {
         /**
           * @default 'primary'
          */
-        "variant": 'primary' | 'danger' | 'success' | 'warning';
+        "variant": 'primary' | 'danger' | 'success' | 'warning' | 'neutral';
     }
     interface EuiCard {
         /**
@@ -89,6 +89,17 @@ export namespace Components {
           * @default []
          */
         "suggestions": any[];
+    }
+    interface EuiDialogue {
+        /**
+          * @default "MESSAGE!"
+         */
+        "headerMessage": string;
+        "styleValue"?: string;
+        /**
+          * @default 'primary'
+         */
+        "variant": 'primary' | 'danger' | 'success' | 'warning';
     }
     interface EuiDropdown {
         /**
@@ -263,6 +274,12 @@ declare global {
         prototype: HTMLEuiChipsElement;
         new (): HTMLEuiChipsElement;
     };
+    interface HTMLEuiDialogueElement extends Components.EuiDialogue, HTMLStencilElement {
+    }
+    var HTMLEuiDialogueElement: {
+        prototype: HTMLEuiDialogueElement;
+        new (): HTMLEuiDialogueElement;
+    };
     interface HTMLEuiDropdownElementEventMap {
         "itemSelected": any;
     }
@@ -327,6 +344,7 @@ declare global {
         "eui-card": HTMLEuiCardElement;
         "eui-checkbox": HTMLEuiCheckboxElement;
         "eui-chips": HTMLEuiChipsElement;
+        "eui-dialogue": HTMLEuiDialogueElement;
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
@@ -367,7 +385,7 @@ declare namespace LocalJSX {
         /**
           * @default 'primary'
          */
-        "variant"?: 'primary' | 'danger' | 'success' | 'warning';
+        "variant"?: 'primary' | 'danger' | 'success' | 'warning' | 'neutral';
     }
     interface EuiCard {
         /**
@@ -418,6 +436,17 @@ declare namespace LocalJSX {
           * @default []
          */
         "suggestions"?: any[];
+    }
+    interface EuiDialogue {
+        /**
+          * @default "MESSAGE!"
+         */
+        "headerMessage"?: string;
+        "styleValue"?: string;
+        /**
+          * @default 'primary'
+         */
+        "variant"?: 'primary' | 'danger' | 'success' | 'warning';
     }
     interface EuiDropdown {
         /**
@@ -507,6 +536,7 @@ declare namespace LocalJSX {
         "eui-card": EuiCard;
         "eui-checkbox": EuiCheckbox;
         "eui-chips": EuiChips;
+        "eui-dialogue": EuiDialogue;
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
@@ -523,6 +553,7 @@ declare module "@stencil/core" {
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
+            "eui-dialogue": LocalJSX.EuiDialogue & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;

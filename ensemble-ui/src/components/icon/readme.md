@@ -20,6 +20,7 @@
  - [eui-auto-complete](../autocomplete)
  - [eui-checkbox](../checkbox)
  - [eui-chips](../chips)
+ - [eui-dialogue](../dialogue)
  - [eui-dropdown](../dropdown)
  - [eui-input](../input)
  - [eui-paginator](../paginator)
@@ -30,6 +31,7 @@ graph TD;
   eui-auto-complete --> eui-icon
   eui-checkbox --> eui-icon
   eui-chips --> eui-icon
+  eui-dialogue --> eui-icon
   eui-dropdown --> eui-icon
   eui-input --> eui-icon
   eui-paginator --> eui-icon

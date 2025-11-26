@@ -9,6 +9,7 @@ import { ChipsComponent } from './chips.component';
 import { CardComponent } from './card.component';
 import { CheckboxComponent } from './checkbox.component';
 import { PaginatorComponent } from './paginator.component.';
+import { DialogueComponent } from './dialogue.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -21,4 +22,5 @@ export const routes: Routes = [
     { path: "card", component: CardComponent },
     { path: "checkbox", component: CheckboxComponent },
     { path: "paginator", component: PaginatorComponent },
+    { path: "dialogue", component: DialogueComponent },
 ];

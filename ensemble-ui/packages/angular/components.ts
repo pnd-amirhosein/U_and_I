@@ -12,6 +12,7 @@ import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/e
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
 import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components/eui-checkbox.js';
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
+import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components/eui-dialogue.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
@@ -167,6 +168,29 @@ export declare interface EuiChips extends Components.EuiChips {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiDialogue,
+  inputs: ['headerMessage', 'styleValue', 'variant']
+})
+@Component({
+  selector: 'eui-dialogue',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['headerMessage', 'styleValue', 'variant'],
+})
+export class EuiDialogue {
+  protected el: HTMLEuiDialogueElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiDialogue extends Components.EuiDialogue {}
 
 
 @ProxyCmp({

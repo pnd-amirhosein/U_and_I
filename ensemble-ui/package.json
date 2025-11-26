@@ -15,7 +15,9 @@
   "exports": {
     ".": {
       "import": "./dist/ensemble-ui/ensemble-ui.esm.js",
-      "require": "./dist/ensemble-ui/ensemble-ui.cjs.js"
+      "require": "./dist/ensemble-ui/ensemble-ui.cjs.js",
+      "types": "./dist/components.d.ts",
+      "default": "./dist/index.js"
     },
     "./dist/components/*": {
       "import": "./dist/components/*",

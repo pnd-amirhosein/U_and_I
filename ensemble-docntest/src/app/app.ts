@@ -77,4 +77,7 @@ export class App {
   public openPaginator() {
     this.router.navigateByUrl("/paginator")
   }
+  public openDialogue() {
+    this.router.navigateByUrl("/dialogue")
+  }
 }

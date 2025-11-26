@@ -10,6 +10,7 @@ export { EuiButton } from "./eui-button.js";
 export { EuiCard } from "./eui-card.js";
 export { EuiCheckbox } from "./eui-checkbox.js";
 export { EuiChips } from "./eui-chips.js";
+export { EuiDialogue } from "./eui-dialogue.js";
 export { EuiDropdown } from "./eui-dropdown.js";
 export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";
