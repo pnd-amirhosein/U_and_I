@@ -49,6 +49,20 @@ button[variant="primary"] {
   }
 }
 
+.btn--info,
+button[variant="info"] {
+  background-color: var(--color-info-300);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-info-400);
+  }
+
+  &:active:not(:disabled) {
+    border-color: var(--color-info-300);
+    color: var(--color-info-300);
+  }
+}
+
 .btn--success,
 button[variant="success"] {
   background-color: var(--color-success-300);
@@ -143,6 +157,24 @@ button[mode="outline"] {
     }
   }
 
+  &.btn--info,
+  &[variant="info"] {
+    background-color: #0000;
+    color: var(--color-info-300);
+    border-color: var(--color-info-300);
+
+    &:hover:not(:disabled) {
+      color: white;
+      border-color: var(--color-info-400);
+      background-color: var(--color-info-400);
+    }
+
+    &:active:not(:disabled) {
+      border-color: var(--color-info-300);
+      color: var(--color-info-300);
+    }
+  }
+
   &.btn--success,
   &[variant="success"] {
     background-color: #0000;
@@ -217,6 +249,24 @@ button[mode="text-button"] {
     &:active:not(:disabled) {
       border-color: var(--color-primary-300);
       color: var(--color-primary-300);
+    }
+  }
+
+  &.btn--info,
+  &[variant="info"] {
+    background-color: #0000;
+    color: var(--color-info-300);
+    border-color: #0000;
+
+    &:hover:not(:disabled) {
+      color: white;
+      border-color: var(--color-info-400);
+      background-color: var(--color-info-400);
+    }
+
+    &:active:not(:disabled) {
+      border-color: var(--color-info-300);
+      color: var(--color-info-300);
     }
   }
 

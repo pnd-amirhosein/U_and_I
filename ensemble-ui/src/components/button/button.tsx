@@ -10,7 +10,7 @@ export class EUIButton {
 
   @Prop() styleValue?: string;
   @Prop() size: "sm" | "md" | "lg" = "md";
-  @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' | 'neutral' = 'primary';
+  @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info' = 'primary';
   @Prop() mode: "normal" | "outline" | "text-button" = "normal";
 
   componentWillLoad() {

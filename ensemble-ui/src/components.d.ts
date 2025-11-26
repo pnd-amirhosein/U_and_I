@@ -40,7 +40,7 @@ export namespace Components {
         /**
           * @default 'primary'
          */
-        "variant": 'primary' | 'danger' | 'success' | 'warning' | 'neutral';
+        "variant": 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info';
     }
     interface EuiCard {
         /**
@@ -99,7 +99,7 @@ export namespace Components {
         /**
           * @default 'primary'
          */
-        "variant": 'primary' | 'danger' | 'success' | 'warning';
+        "variant": 'primary' | 'danger' | 'success' | 'warning' | 'info';
     }
     interface EuiDropdown {
         /**
@@ -385,7 +385,7 @@ declare namespace LocalJSX {
         /**
           * @default 'primary'
          */
-        "variant"?: 'primary' | 'danger' | 'success' | 'warning' | 'neutral';
+        "variant"?: 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info';
     }
     interface EuiCard {
         /**
@@ -446,7 +446,7 @@ declare namespace LocalJSX {
         /**
           * @default 'primary'
          */
-        "variant"?: 'primary' | 'danger' | 'success' | 'warning';
+        "variant"?: 'primary' | 'danger' | 'success' | 'warning' | 'info';
     }
     interface EuiDropdown {
         /**
