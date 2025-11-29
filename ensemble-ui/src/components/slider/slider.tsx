@@ -35,7 +35,8 @@ export class EUISlider {
         const percent = this.clamp(x / rect.width);
 
         this.value_state = percent;
-        this.valueChange.emit(percent);
+
+        this.valueChange.emit(Number((+percent).toFixed(2)));
     }
 
     onMouseDown = (ev: MouseEvent) => {
