@@ -9,7 +9,7 @@
     }
 
     .dlg--header {
-        padding: var(--space-2xl);
+        padding: var(--space-2xl) var(--space-3xl);
         border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         font-size: var(--font-h3-fontSize);
         font-weight: var(--font-h3-fontWeight);
@@ -23,6 +23,10 @@
         eui-icon {
             width: var(--space-4xl);
             aspect-ratio: 1/1;
+        }
+
+        .header-value {
+            text-wrap-mode: nowrap;
         }
     }
 

@@ -49,7 +49,7 @@ export class EUIDialogue {
                 >
                     <header class="dlg--header">
                         {variantIcons[this.variant]}
-                        <span>{this.headerMessage}</span>
+                        <span class="header-value">{this.headerMessage}</span>
                     </header>
 
                     <section class="dlg--body">
