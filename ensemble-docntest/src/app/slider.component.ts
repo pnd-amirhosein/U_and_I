@@ -1,0 +1,26 @@
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+
+@Component({
+  selector: 'app-root',
+  styleUrl: './app.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  standalone: true,
+  template: `
+    <div class="doc">
+      <span class="flex">
+        <h4 class="title">Slider - sm:</h4>
+       <eui-slider styleValue="width:25vw;" size='sm' [value]="0.5"/>
+      </span>
+      <span class="flex">
+        <h4 class="title">Slider - md:</h4>
+       <eui-slider styleValue="width:25vw;" size='md' [value]="0.5"/>
+      </span>
+      <span class="flex">
+        <h4 class="title">Slider - lg:</h4>
+       <eui-slider styleValue="width:25vw;" size='lg' [value]="0.5"/>
+      </span>
+    </div>
+    `
+})
+export class SliderComponent {
+}

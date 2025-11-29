@@ -83,4 +83,7 @@ export class App {
   public openProgressbar() {
     this.router.navigateByUrl("/progressbar")
   }
+  public openSlider() {
+    this.router.navigateByUrl("/slider")
+  }
 }

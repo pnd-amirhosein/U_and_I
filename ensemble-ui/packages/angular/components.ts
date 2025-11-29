@@ -18,6 +18,7 @@ import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
+import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/eui-slider.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
   inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
@@ -322,5 +323,33 @@ export class EuiProgressbar {
 
 
 export declare interface EuiProgressbar extends Components.EuiProgressbar {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiSlider,
+  inputs: ['size', 'styleValue', 'value']
+})
+@Component({
+  selector: 'eui-slider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['size', 'styleValue', 'value'],
+  outputs: ['valueChange'],
+})
+export class EuiSlider {
+  protected el: HTMLEuiSliderElement;
+  @Output() valueChange = new EventEmitter<CustomEvent<number>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiSlider extends Components.EuiSlider {
+
+  valueChange: EventEmitter<CustomEvent<number>>;
+}
 
 

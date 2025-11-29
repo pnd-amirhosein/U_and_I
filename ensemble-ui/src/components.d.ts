@@ -192,6 +192,17 @@ export namespace Components {
          */
         "value": number;
     }
+    interface EuiSlider {
+        /**
+          * @default "md"
+         */
+        "size": "sm" | "md" | "lg";
+        "styleValue"?: string;
+        /**
+          * @default 0
+         */
+        "value": number;
+    }
 }
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -216,6 +227,10 @@ export interface EuiInputCustomEvent<T> extends CustomEvent<T> {
 export interface EuiPaginatorCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiPaginatorElement;
+}
+export interface EuiSliderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiSliderElement;
 }
 declare global {
     interface HTMLEuiAutoCompleteElementEventMap {
@@ -356,6 +371,23 @@ declare global {
         prototype: HTMLEuiProgressbarElement;
         new (): HTMLEuiProgressbarElement;
     };
+    interface HTMLEuiSliderElementEventMap {
+        "valueChange": number;
+    }
+    interface HTMLEuiSliderElement extends Components.EuiSlider, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiSliderElementEventMap>(type: K, listener: (this: HTMLEuiSliderElement, ev: EuiSliderCustomEvent<HTMLEuiSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiSliderElementEventMap>(type: K, listener: (this: HTMLEuiSliderElement, ev: EuiSliderCustomEvent<HTMLEuiSliderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiSliderElement: {
+        prototype: HTMLEuiSliderElement;
+        new (): HTMLEuiSliderElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
@@ -369,6 +401,7 @@ declare global {
         "eui-input": HTMLEuiInputElement;
         "eui-paginator": HTMLEuiPaginatorElement;
         "eui-progressbar": HTMLEuiProgressbarElement;
+        "eui-slider": HTMLEuiSliderElement;
     }
 }
 declare namespace LocalJSX {
@@ -562,6 +595,18 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiSlider {
+        "onValueChange"?: (event: EuiSliderCustomEvent<number>) => void;
+        /**
+          * @default "md"
+         */
+        "size"?: "sm" | "md" | "lg";
+        "styleValue"?: string;
+        /**
+          * @default 0
+         */
+        "value"?: number;
+    }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
@@ -575,6 +620,7 @@ declare namespace LocalJSX {
         "eui-input": EuiInput;
         "eui-paginator": EuiPaginator;
         "eui-progressbar": EuiProgressbar;
+        "eui-slider": EuiSlider;
     }
 }
 export { LocalJSX as JSX };
@@ -593,6 +639,7 @@ declare module "@stencil/core" {
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
             "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
+            "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
         }
     }
 }

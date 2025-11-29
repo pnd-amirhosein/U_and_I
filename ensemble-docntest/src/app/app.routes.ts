@@ -11,6 +11,7 @@ import { CheckboxComponent } from './checkbox.component';
 import { PaginatorComponent } from './paginator.component.';
 import { DialogueComponent } from './dialogue.component';
 import { ProgressbarComponent } from './progressbar.component';
+import { SliderComponent } from './slider.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -25,4 +26,5 @@ export const routes: Routes = [
     { path: "paginator", component: PaginatorComponent },
     { path: "dialogue", component: DialogueComponent },
     { path: "progressbar", component: ProgressbarComponent },
+    { path: "slider", component: SliderComponent },
 ];

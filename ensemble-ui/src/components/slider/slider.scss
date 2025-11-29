@@ -1,0 +1,47 @@
+eui-slider {
+    display: contents;
+}
+
+.sld {
+    background-color: var(--color-neutral-100);
+    border-radius: var(--radius-lg);
+    display: flex;
+
+    & {
+        transition: all 0.1s cubic-bezier(0.4, 0, 1, 1) !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--color-neutral-600);
+    }
+
+    &.sld--sm {
+        height: var(--space-xs);
+
+        &:hover {
+            height: calc(1.5 * var(--space-xs));
+        }
+    }
+
+    &.sld--md {
+        height: var(--space-md);
+
+        &:hover {
+            height: calc(1.5 * var(--space-md));
+        }
+    }
+
+    &.sld--lg {
+        height: var(--space-xl);
+
+        &:hover {
+            height: calc(1.5 * var(--space-xl));
+        }
+    }
+
+    .sld--value {
+        background-color: var(--color-secondary-300);
+        border-radius: var(--radius-lg);
+        transition: unset !important;
+    }
+}
