@@ -16,7 +16,7 @@ import { fakeProduct } from "./fakeData.const";
           [data]="data"
           display-field="title" 
           (itemSelected)="onProductSelected($event)"
-          style="width: 25vw;"
+          styleValue="width: 25vw;"
           placeholder="Search products..."
         />
       </span>
@@ -26,7 +26,7 @@ import { fakeProduct } from "./fakeData.const";
           [data]="data"
           display-field="dimensions.height" 
           (itemSelected)="onProductSelected($event)"
-          style="width: 25vw;"
+          styleValue="width: 25vw;"
           placeholder="Search products..."
         />
       </span>
@@ -36,7 +36,7 @@ import { fakeProduct } from "./fakeData.const";
           [data]="data"
           display-field="reviews.reviewerName" 
           (itemSelected)="onProductSelected($event)"
-          style="width: 25vw;"
+          styleValue="width: 25vw;"
           placeholder="Search products..."
         />
       </span>

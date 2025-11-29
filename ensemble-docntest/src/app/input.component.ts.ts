@@ -37,7 +37,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 export class InputComponent {
   sell = "1"
   checkMate(e: any): boolean {
-    console.log(e);
+    
     if (!e) return true
     else return false
 

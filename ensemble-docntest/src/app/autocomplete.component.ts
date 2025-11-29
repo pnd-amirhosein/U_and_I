@@ -15,7 +15,7 @@ import { map } from "rxjs";
           [fetchSuggestions]="fetchSuggestions"
           displayField="title" 
           (itemSelected)="onProductSelected($event)"
-          style="width: 25vw;"
+          styleValue="width: 25vw;"
           placeholder="Search products..."
         />
       </span>
