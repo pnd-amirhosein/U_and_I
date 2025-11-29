@@ -17,6 +17,7 @@ import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
+import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
   inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
@@ -298,5 +299,28 @@ export declare interface EuiPaginator extends Components.EuiPaginator {
 
   currentPage: EventEmitter<CustomEvent<any>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiProgressbar,
+  inputs: ['size', 'styleValue', 'value']
+})
+@Component({
+  selector: 'eui-progressbar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['size', 'styleValue', 'value'],
+})
+export class EuiProgressbar {
+  protected el: HTMLEuiProgressbarElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiProgressbar extends Components.EuiProgressbar {}
 
 

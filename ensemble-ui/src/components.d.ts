@@ -181,6 +181,17 @@ export namespace Components {
          */
         "totalPages": number;
     }
+    interface EuiProgressbar {
+        /**
+          * @default "md"
+         */
+        "size": "sm" | "md" | "lg";
+        "styleValue"?: string;
+        /**
+          * @default 0
+         */
+        "value": number;
+    }
 }
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -339,6 +350,12 @@ declare global {
         prototype: HTMLEuiPaginatorElement;
         new (): HTMLEuiPaginatorElement;
     };
+    interface HTMLEuiProgressbarElement extends Components.EuiProgressbar, HTMLStencilElement {
+    }
+    var HTMLEuiProgressbarElement: {
+        prototype: HTMLEuiProgressbarElement;
+        new (): HTMLEuiProgressbarElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
@@ -351,6 +368,7 @@ declare global {
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
         "eui-paginator": HTMLEuiPaginatorElement;
+        "eui-progressbar": HTMLEuiProgressbarElement;
     }
 }
 declare namespace LocalJSX {
@@ -533,6 +551,17 @@ declare namespace LocalJSX {
          */
         "totalPages"?: number;
     }
+    interface EuiProgressbar {
+        /**
+          * @default "md"
+         */
+        "size"?: "sm" | "md" | "lg";
+        "styleValue"?: string;
+        /**
+          * @default 0
+         */
+        "value"?: number;
+    }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
@@ -545,6 +574,7 @@ declare namespace LocalJSX {
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
         "eui-paginator": EuiPaginator;
+        "eui-progressbar": EuiProgressbar;
     }
 }
 export { LocalJSX as JSX };
@@ -562,6 +592,7 @@ declare module "@stencil/core" {
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
             "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
+            "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
         }
     }
 }

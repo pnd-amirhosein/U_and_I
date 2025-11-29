@@ -14,7 +14,7 @@ import { fakeProduct } from "./fakeData.const";
         <h4 class="title">Dropdown by title</h4>
         <eui-dropdown
           [data]="data"
-          display-field="title" 
+          displayField="title" 
           (itemSelected)="onProductSelected($event)"
           styleValue="width: 25vw;"
           placeholder="Search products..."
@@ -24,7 +24,7 @@ import { fakeProduct } from "./fakeData.const";
         <h4 class="title">Dropdown by dimensions.height</h4>
         <eui-dropdown
           [data]="data"
-          display-field="dimensions.height" 
+          displayField="dimensions.height" 
           (itemSelected)="onProductSelected($event)"
           styleValue="width: 25vw;"
           placeholder="Search products..."
@@ -34,7 +34,7 @@ import { fakeProduct } from "./fakeData.const";
         <h4 class="title">Dropdown by reviews.reviewerName</h4>
         <eui-dropdown
           [data]="data"
-          display-field="reviews.reviewerName" 
+          displayField="reviews.reviewerName" 
           (itemSelected)="onProductSelected($event)"
           styleValue="width: 25vw;"
           placeholder="Search products..."

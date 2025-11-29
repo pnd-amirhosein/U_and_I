@@ -80,4 +80,7 @@ export class App {
   public openDialogue() {
     this.router.navigateByUrl("/dialogue")
   }
+  public openProgressbar() {
+    this.router.navigateByUrl("/progressbar")
+  }
 }
