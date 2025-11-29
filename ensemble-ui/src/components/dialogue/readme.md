@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type                                              | Default      |
-| --------------- | ---------------- | ----------- | ------------------------------------------------- | ------------ |
-| `headerMessage` | `header-message` |             | `string`                                          | `"MESSAGE!"` |
-| `styleValue`    | `style-value`    |             | `string \| undefined`                             | `undefined`  |
-| `variant`       | `variant`        |             | `"danger" \| "primary" \| "success" \| "warning"` | `'primary'`  |
+| Property        | Attribute       | Description | Type                                                        | Default      |
+| --------------- | --------------- | ----------- | ----------------------------------------------------------- | ------------ |
+| `headerMessage` | `headermessage` |             | `string`                                                    | `"MESSAGE!"` |
+| `styleValue`    | `stylevalue`    |             | `string \| undefined`                                       | `undefined`  |
+| `variant`       | `variant`       |             | `"danger" \| "info" \| "primary" \| "success" \| "warning"` | `'primary'`  |
 
 
 ## Dependencies

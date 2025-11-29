@@ -33,7 +33,7 @@ export const config: Config = {
   minifyCss: true,
   outputTargets: [
     { type: 'dist', esmLoaderPath: '../loader', copy: [{ src: './fonts', dest: 'fonts' }] },
-    { type: 'dist-custom-elements', customElementsExportBehavior: 'auto-define-custom-elements', externalRuntime: false, generateTypeDeclarations: true},
+    { type: 'dist-custom-elements', customElementsExportBehavior: 'auto-define-custom-elements', externalRuntime: false},
     // { type: 'dist-custom-elements' },
     { type: 'docs-readme' },
     { type: 'docs-json', file: 'dist/components.json' },
