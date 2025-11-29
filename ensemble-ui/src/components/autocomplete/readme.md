@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property           | Attribute           | Description | Type                                               | Default     |
-| ------------------ | ------------------- | ----------- | -------------------------------------------------- | ----------- |
-| `displayField`     | `display-field`     |             | `string \| undefined`                              | `undefined` |
-| `fetchSuggestions` | `fetch-suggestions` |             | `((query: string) => Promise<any[]>) \| undefined` | `undefined` |
-| `placeholder`      | `placeholder`       |             | `string`                                           | `''`        |
+| Property           | Attribute          | Description | Type                                               | Default     |
+| ------------------ | ------------------ | ----------- | -------------------------------------------------- | ----------- |
+| `displayField`     | `displayfield`     |             | `string \| undefined`                              | `undefined` |
+| `fetchSuggestions` | `fetchsuggestions` |             | `((query: string) => Promise<any[]>) \| undefined` | `undefined` |
+| `placeholder`      | `placeholder`      |             | `string`                                           | `''`        |
+| `styleValue`       | `stylevalue`       |             | `string \| undefined`                              | `undefined` |
 
 
 ## Events

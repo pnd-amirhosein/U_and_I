@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
     tag: 'eui-badge',
@@ -8,20 +9,14 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
 export class EUIBadge {
     @Element() hostEl!: HTMLElement;
 
-    @Prop() styleValue?: string;
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop() type: 'blank' | 'icon' | 'number' | 'text-icon' | 'text' = 'blank';
     @Prop() color: 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending' = 'primary';
-
-    componentWillLoad() {
-        if (this.styleValue) {
-            this.hostEl.setAttribute('style', this.styleValue);
-        }
-    }
 
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['type', 'color', 'class'].includes(attr.name))
+            .filter(attr => !['type', 'color', 'class','stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -30,6 +25,7 @@ export class EUIBadge {
         return (
             <Host>
                 <div
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                     {...attrs}
                     class={{
                         bdg: true,

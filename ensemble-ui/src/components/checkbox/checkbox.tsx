@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element, State, EventEmitter, Event, Watch } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
     tag: 'eui-checkbox',
@@ -8,6 +9,7 @@ import { Component, Prop, h, Host, Element, State, EventEmitter, Event, Watch } 
 export class EUICheckbox {
     @Element() hostEl!: HTMLElement;
 
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop({ mutable: true }) value: 'null' | 'false' | 'partial' | 'true' = 'null';
     @Prop() states: Array<'null' | 'false' | 'partial' | 'true'> = ['null', 'false', 'partial', 'true'];
     @Prop() size: "sm" | "md" | "lg" = "md"
@@ -56,7 +58,7 @@ export class EUICheckbox {
     render() {
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['value', 'states', 'class', 'size', 'mode'].includes(attr.name))
+            .filter(attr => !['value', 'states', 'class', 'size', 'mode', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -71,6 +73,7 @@ export class EUICheckbox {
         return (
             <Host>
                 <label
+                    style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                     tabindex={0}
                     class={{
                         chk: true,

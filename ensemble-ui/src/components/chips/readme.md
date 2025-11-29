@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property       | Attribute       | Description | Type                  | Default     |
-| -------------- | --------------- | ----------- | --------------------- | ----------- |
-| `data`         | `data`          |             | `any[]`               | `[]`        |
-| `displayField` | `display-field` |             | `string \| undefined` | `undefined` |
-| `placeholder`  | `placeholder`   |             | `string`              | `''`        |
-| `suggestions`  | `suggestions`   |             | `any[]`               | `[]`        |
+| Property       | Attribute      | Description | Type                  | Default     |
+| -------------- | -------------- | ----------- | --------------------- | ----------- |
+| `data`         | `data`         |             | `any[]`               | `[]`        |
+| `displayField` | `displayfield` |             | `string \| undefined` | `undefined` |
+| `placeholder`  | `placeholder`  |             | `string`              | `''`        |
+| `styleValue`   | `stylevalue`   |             | `string \| undefined` | `undefined` |
+| `suggestions`  | `suggestions`  |             | `any[]`               | `[]`        |
 
 
 ## Events

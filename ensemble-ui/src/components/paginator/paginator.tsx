@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element, Watch, State, Event, EventEmitter } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
     tag: 'eui-paginator',
@@ -8,9 +9,9 @@ import { Component, Prop, h, Host, Element, Watch, State, Event, EventEmitter } 
 export class EUIPaginator {
     @Element() hostEl!: HTMLElement;
 
-    @Prop() styleValue?: string;
-    @Prop() defaultCurrentPage: number = 1;
-    @Prop() totalPages: number = 1;
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop({ attribute: "defaultCurrentPage" }) defaultCurrentPage: number = 1;
+    @Prop({ attribute: "totalPages" }) totalPages: number = 1;
     @Prop() disabled: boolean = false;
 
     @State() paginatorFormat: (number | string)[] = [];
@@ -80,7 +81,7 @@ export class EUIPaginator {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['defaultCurrentPage', 'variant', 'mode', 'class'].includes(attr.name))
+            .filter(attr => !['defaultCurrentPage', 'variant', 'mode', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -90,6 +91,7 @@ export class EUIPaginator {
             <Host>
                 {this.paginatorFormat && (
                     <div
+                        style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                         {...attrs}
                         class={{
                             pg: true,

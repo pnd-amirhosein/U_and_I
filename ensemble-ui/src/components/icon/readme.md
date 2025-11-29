@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                        | Default   |
-| -------- | --------- | ----------- | ------------------------------------------- | --------- |
-| `name`   | `name`    |             | `string`                                    | `''`      |
-| `type`   | `type`    |             | `"micro" \| "mini" \| "outline" \| "solid"` | `'micro'` |
+| Property     | Attribute    | Description | Type                                        | Default     |
+| ------------ | ------------ | ----------- | ------------------------------------------- | ----------- |
+| `name`       | `name`       |             | `string`                                    | `''`        |
+| `styleValue` | `stylevalue` |             | `string \| undefined`                       | `undefined` |
+| `type`       | `type`       |             | `"micro" \| "mini" \| "outline" \| "solid"` | `'micro'`   |
 
 
 ## Dependencies

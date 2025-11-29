@@ -15,6 +15,7 @@ export namespace Components {
           * @default ''
          */
         "placeholder": string;
+        "styleValue"?: string;
     }
     interface EuiBadge {
         /**
@@ -70,6 +71,7 @@ export namespace Components {
           * @default ['null', 'false', 'partial', 'true']
          */
         "states": Array<'null' | 'false' | 'partial' | 'true'>;
+        "styleValue"?: string;
         /**
           * @default 'null'
          */
@@ -85,6 +87,7 @@ export namespace Components {
           * @default ''
          */
         "placeholder": string;
+        "styleValue"?: string;
         /**
           * @default []
          */
@@ -111,6 +114,7 @@ export namespace Components {
           * @default ''
          */
         "placeholder": string;
+        "styleValue"?: string;
         /**
           * @default []
          */
@@ -121,6 +125,7 @@ export namespace Components {
           * @default ''
          */
         "name": string;
+        "styleValue"?: string;
         /**
           * @default 'micro'
          */
@@ -149,9 +154,6 @@ export namespace Components {
           * @default 1
          */
         "step": number;
-        /**
-          * @default ''
-         */
         "styleValue"?: string;
         /**
           * @default 'text'
@@ -360,6 +362,7 @@ declare namespace LocalJSX {
           * @default ''
          */
         "placeholder"?: string;
+        "styleValue"?: string;
     }
     interface EuiBadge {
         /**
@@ -416,6 +419,7 @@ declare namespace LocalJSX {
           * @default ['null', 'false', 'partial', 'true']
          */
         "states"?: Array<'null' | 'false' | 'partial' | 'true'>;
+        "styleValue"?: string;
         /**
           * @default 'null'
          */
@@ -432,6 +436,7 @@ declare namespace LocalJSX {
           * @default ''
          */
         "placeholder"?: string;
+        "styleValue"?: string;
         /**
           * @default []
          */
@@ -459,6 +464,7 @@ declare namespace LocalJSX {
           * @default ''
          */
         "placeholder"?: string;
+        "styleValue"?: string;
         /**
           * @default []
          */
@@ -469,6 +475,7 @@ declare namespace LocalJSX {
           * @default ''
          */
         "name"?: string;
+        "styleValue"?: string;
         /**
           * @default 'micro'
          */
@@ -498,9 +505,6 @@ declare namespace LocalJSX {
           * @default 1
          */
         "step"?: number;
-        /**
-          * @default ''
-         */
         "styleValue"?: string;
         /**
           * @default 'text'

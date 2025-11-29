@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
     tag: 'eui-card',
@@ -8,7 +9,7 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
 export class EUICard {
     @Element() hostEl!: HTMLElement;
 
-    @Prop() styleValue?: string;
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop() img: string = "";
     @Prop() orientation: "horizontal" | "vertical" = "vertical";
     @Prop() mode: "classic" | "belt" | "lollipop" | "gem" | "Flag" = 'classic';
@@ -22,7 +23,7 @@ export class EUICard {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['orientation', 'mode', 'class', 'img'].includes(attr.name))
+            .filter(attr => !['orientation', 'mode', 'class', 'img', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -31,6 +32,7 @@ export class EUICard {
         return (
             <Host>
                 <div
+                    style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                     {...attrs}
                     class={{
                         crd: true,

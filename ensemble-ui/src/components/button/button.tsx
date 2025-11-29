@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
   tag: 'eui-button',
@@ -8,21 +9,15 @@ import { Component, Prop, h, Host, Element } from '@stencil/core';
 export class EUIButton {
   @Element() hostEl!: HTMLElement;
 
-  @Prop() styleValue?: string;
+  @Prop({ attribute: "styleValue" }) styleValue?: string;
   @Prop() size: "sm" | "md" | "lg" = "md";
   @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info' = 'primary';
   @Prop() mode: "normal" | "outline" | "text-button" = "normal";
 
-  componentWillLoad() {
-    if (this.styleValue) {
-      this.hostEl.setAttribute('style', this.styleValue);
-    }
-  }
-
   render() {
 
     const attrs = Array.from(this.hostEl.attributes)
-      .filter(attr => !['size', 'variant', 'mode', 'class'].includes(attr.name))
+      .filter(attr => !['size', 'variant', 'mode', 'class', 'stylevalue'].includes(attr.name))
       .reduce((acc, attr) => {
         acc[attr.name] = attr.value;
         return acc;
@@ -31,6 +26,7 @@ export class EUIButton {
     return (
       <Host>
         <button
+          style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
           {...attrs}
           class={{
             btn: true,

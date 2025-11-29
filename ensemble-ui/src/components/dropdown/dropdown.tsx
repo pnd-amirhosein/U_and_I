@@ -1,6 +1,7 @@
 import { Component, h, State, Element, Listen, Prop, EventEmitter, Event } from '@stencil/core';
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom';
 import { deepGet } from '../../../packages/core/utils/helpers/deep'
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
     tag: 'eui-dropdown',
@@ -10,15 +11,16 @@ import { deepGet } from '../../../packages/core/utils/helpers/deep'
 export class EUIDropdown {
     @Element() hostEl!: HTMLElement;
 
-    @Prop() displayField?: string;
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop({ attribute: "displayField" }) displayField?: string;
     @Prop() placeholder: string = '';
     @Prop() data: any[] = [];
+    @Prop() suggestions: any[] = [];
 
     @Event() itemSelected?: EventEmitter<any>;
 
     @State() loading: boolean = false;
     @State() value: string = '';
-    @Prop() suggestions: any[] = [];
 
     private dropdownClicked = false;
     private isOpen = false;
@@ -207,28 +209,43 @@ export class EUIDropdown {
             (this.dropdownEl && path.includes(this.dropdownEl));
 
         if (clickedInsideDropdown) {
-            // Inside click → ignore
             return;
         }
-        console.log("BLOOMBERG", ev);
         this.openCloseDropdown(true);
     }
 
     @Listen('clear')
     handleClear() {
-        console.log(90780987098709879, "is happening!");
-
         this.clear();
     }
 
     render() {
+
+        // Grab all native attributes except props we handle
+        const attrs = Array.from(this.hostEl.attributes)
+            .filter(attr => ![
+                "styleValue",
+                "class",
+                'displayField',
+                'placeholder',
+                'data',
+                'suggestions'
+            ].includes(attr.name))
+            .reduce((acc, attr) => {
+                acc[attr.name] = attr.value;
+                return acc;
+            }, {} as Record<string, string>);
+
         return (
-            <div class="dropdown">
+            <div class="dropdown"
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+            >
                 <eui-input
                     value={this.value}
                     placeholder={this.placeholder}
                     onInput={(e: any) => this.onInput(e)}
                     onBlur={() => this.handleBlur()}
+                    {...attrs}
                 >
                     <span class="icon-end" slot="icon-end">
                         {this.loading && (

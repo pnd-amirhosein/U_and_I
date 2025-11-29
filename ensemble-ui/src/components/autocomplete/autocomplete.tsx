@@ -1,5 +1,6 @@
 import { Component, h, State, Element, Listen, Prop, EventEmitter, Event } from '@stencil/core';
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
   tag: 'eui-auto-complete',
@@ -9,9 +10,10 @@ import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/d
 export class EUIAutoComplete {
   @Element() hostEl!: HTMLElement;
 
-  @Prop() fetchSuggestions?: (query: string) => Promise<any[]>;
-  @Prop() displayField?: string;
   @Prop() placeholder: string = '';
+  @Prop({ attribute: "fetchSuggestions" }) fetchSuggestions?: (query: string) => Promise<any[]>;
+  @Prop({ attribute: "displayField" }) displayField?: string;
+  @Prop({ attribute: "styleValue" }) styleValue?: string;
 
   @Event() itemSelected?: EventEmitter<any>;
 
@@ -178,13 +180,29 @@ export class EUIAutoComplete {
   }
 
   render() {
+
+    const attrs = Array.from(this.hostEl.attributes)
+      .filter(attr => ![
+        'stylevalue',
+        'placeholder',
+        'class',
+        'fetchsuggestions',
+        'displayfield'].includes(attr.name))
+      .reduce((acc, attr) => {
+        acc[attr.name] = attr.value;
+        return acc;
+      }, {} as Record<string, string>);
+
     return (
-      <div class="auto-complete">
+      <div class="auto-complete"
+        style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+      >
         <eui-input
           value={this.value}
           placeholder={this.placeholder}
           onInput={(e: any) => this.onInput(e)}
           onBlur={() => this.handleBlur()}
+          {...attrs}
         >
           <span class="icon-end" slot='icon-end'>
             {this.loading && (

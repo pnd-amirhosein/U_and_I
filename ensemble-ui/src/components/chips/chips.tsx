@@ -1,6 +1,7 @@
 import { Component, h, State, Element, Listen, Prop, EventEmitter, Event } from '@stencil/core';
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom';
 import { deepEqual, deepGet } from '../../../packages/core/utils/helpers/deep'
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 @Component({
     tag: 'eui-chips',
@@ -10,7 +11,8 @@ import { deepEqual, deepGet } from '../../../packages/core/utils/helpers/deep'
 export class EUIChips {
     @Element() hostEl!: HTMLElement;
 
-    @Prop() displayField?: string;
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop({ attribute: "displayField" }) displayField?: string;
     @Prop() placeholder: string = '';
     @Prop() data: any[] = [];
     @Prop() suggestions: any[] = [];
@@ -352,8 +354,26 @@ export class EUIChips {
     }
 
     render() {
+
+        // Grab all native attributes except props we handle
+        const attrs = Array.from(this.hostEl.attributes)
+            .filter(attr => ![
+                "styleValue",
+                "class",
+                "displayField",
+                "placeholder",
+                "data",
+                "suggestions",
+            ].includes(attr.name))
+            .reduce((acc, attr) => {
+                acc[attr.name] = attr.value;
+                return acc;
+            }, {} as Record<string, string>);
+
         return (
-            <div class="chips">
+            <div class="chips"
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+            >
                 <span class="chips-cover">
                     <div class="chips-box">
                         {!this.typingMode && this.selectedChips.map(chip =>
@@ -378,6 +398,7 @@ export class EUIChips {
                     onBlur={() => this.handleBlur()}
                     onClick={() => this.typingModeEnabled}
                     showClear={false}
+                    {...attrs}
                 >
                     <span class="icon-end" slot="icon-end">
                         {this.loading && (

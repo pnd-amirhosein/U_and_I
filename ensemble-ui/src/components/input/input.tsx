@@ -1,4 +1,5 @@
 import { Component, Prop, h, Host, Element, State, Watch, EventEmitter, Event } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { Alert, Validation } from "packages/core/utils/helpers/types";
 
 @Component({
@@ -12,7 +13,6 @@ export class EUIInput {
   /** External value prop (mutable so it can be updated from parent) */
   @Prop({ mutable: true }) value: string = '';
 
-  @Prop() styleValue?: string = '';
   @Prop() validation?: Validation;
   @Prop() alert: Alert = { message: "There's an error!", type: "danger" };
   @Prop() mode: 'normal' | 'outline' | 'text-input' = 'normal';
@@ -21,7 +21,8 @@ export class EUIInput {
   @Prop() step: number = 1;
   @Prop() min?: number;
   @Prop() max?: number;
-  @Prop() showClear?: boolean = true;
+  @Prop({ attribute: "showClear" }) showClear?: boolean = true;
+  @Prop({ attribute: "styleValue" }) styleValue?: string;
 
   @Event() clear?: EventEmitter<any>;
 
@@ -83,17 +84,11 @@ export class EUIInput {
     this.value = next.toString();
   };
 
-  componentWillLoad() {
-    if (this.styleValue) {
-      this.hostEl.setAttribute('style', this.styleValue);
-    }
-  }
-
   render() {
 
     const attrs = Array.from(this.hostEl.attributes)
       .filter(attr => ![
-        'styleValue',
+        'stylevalue',
         'validation',
         'alert',
         'mode',
@@ -108,7 +103,9 @@ export class EUIInput {
 
     return (
       <Host >
-        <div class={`input-wrapper ${this.hostEl.getAttribute("class") ?? ""}`}>
+        <div class={`input-wrapper ${this.hostEl.getAttribute("class") ?? ""}`}
+          style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+        >
           <span class={`input ${!this.isValid && this.alert.type == 'danger' ? "danger" : ""} 
               ${this.isValid && this.alert.type == 'success' ? "success" : ""}`}>
 

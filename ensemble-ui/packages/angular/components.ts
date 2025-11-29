@@ -19,14 +19,14 @@ import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eu
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
-  inputs: ['displayField', 'fetchSuggestions', 'placeholder']
+  inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
 })
 @Component({
   selector: 'eui-auto-complete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['displayField', 'fetchSuggestions', 'placeholder'],
+  inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue'],
   outputs: ['itemSelected'],
 })
 export class EuiAutoComplete {
@@ -116,14 +116,14 @@ export declare interface EuiCard extends Components.EuiCard {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCheckbox,
-  inputs: ['mode', 'size', 'states', 'value']
+  inputs: ['mode', 'size', 'states', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['mode', 'size', 'states', 'value'],
+  inputs: ['mode', 'size', 'states', 'styleValue', 'value'],
   outputs: ['valueChange'],
 })
 export class EuiCheckbox {
@@ -144,14 +144,14 @@ export declare interface EuiCheckbox extends Components.EuiCheckbox {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiChips,
-  inputs: ['data', 'displayField', 'placeholder', 'suggestions']
+  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions']
 })
 @Component({
   selector: 'eui-chips',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'displayField', 'placeholder', 'suggestions'],
+  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions'],
   outputs: ['itemSelected'],
 })
 export class EuiChips {
@@ -195,14 +195,14 @@ export declare interface EuiDialogue extends Components.EuiDialogue {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDropdown,
-  inputs: ['data', 'displayField', 'placeholder', 'suggestions']
+  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions']
 })
 @Component({
   selector: 'eui-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'displayField', 'placeholder', 'suggestions'],
+  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions'],
   outputs: ['itemSelected'],
 })
 export class EuiDropdown {
@@ -223,14 +223,14 @@ export declare interface EuiDropdown extends Components.EuiDropdown {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiIcon,
-  inputs: ['name', 'type']
+  inputs: ['name', 'styleValue', 'type']
 })
 @Component({
   selector: 'eui-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['name', 'type'],
+  inputs: ['name', 'styleValue', 'type'],
 })
 export class EuiIcon {
   protected el: HTMLEuiIconElement;
