@@ -5,7 +5,7 @@ import { Alert, Validation } from "packages/core/utils/helpers/types";
 @Component({
   tag: 'eui-input',
   styleUrl: './input.scss',
-  shadow: false,
+  shadow: true,
 })
 export class EUIInput {
   @Element() hostEl!: HTMLElement;

@@ -18,6 +18,7 @@ import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
+import { defineCustomElement as defineEuiSideNav } from 'ensemble-ui/components/eui-side-nav.js';
 import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/eui-slider.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
@@ -323,6 +324,29 @@ export class EuiProgressbar {
 
 
 export declare interface EuiProgressbar extends Components.EuiProgressbar {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiSideNav,
+  inputs: ['direction', 'mode', 'size', 'styleValue']
+})
+@Component({
+  selector: 'eui-side-nav',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['direction', 'mode', 'size', 'styleValue'],
+})
+export class EuiSideNav {
+  protected el: HTMLEuiSideNavElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiSideNav extends Components.EuiSideNav {}
 
 
 @ProxyCmp({

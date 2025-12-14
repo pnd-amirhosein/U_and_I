@@ -86,4 +86,7 @@ export class App {
   public openSlider() {
     this.router.navigateByUrl("/slider")
   }
+  public openSidenav() {
+    this.router.navigateByUrl("/sidenav")
+  }
 }

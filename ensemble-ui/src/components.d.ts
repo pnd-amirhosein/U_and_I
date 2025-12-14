@@ -192,6 +192,21 @@ export namespace Components {
          */
         "value": number;
     }
+    interface EuiSideNav {
+        /**
+          * @default "ltr"
+         */
+        "direction": "rtl" | "ltr";
+        /**
+          * @default "middle"
+         */
+        "mode": "middle" | "start";
+        /**
+          * @default "full"
+         */
+        "size": "full" | "compact";
+        "styleValue"?: string;
+    }
     interface EuiSlider {
         /**
           * @default "md"
@@ -371,6 +386,12 @@ declare global {
         prototype: HTMLEuiProgressbarElement;
         new (): HTMLEuiProgressbarElement;
     };
+    interface HTMLEuiSideNavElement extends Components.EuiSideNav, HTMLStencilElement {
+    }
+    var HTMLEuiSideNavElement: {
+        prototype: HTMLEuiSideNavElement;
+        new (): HTMLEuiSideNavElement;
+    };
     interface HTMLEuiSliderElementEventMap {
         "valueChange": number;
     }
@@ -401,6 +422,7 @@ declare global {
         "eui-input": HTMLEuiInputElement;
         "eui-paginator": HTMLEuiPaginatorElement;
         "eui-progressbar": HTMLEuiProgressbarElement;
+        "eui-side-nav": HTMLEuiSideNavElement;
         "eui-slider": HTMLEuiSliderElement;
     }
 }
@@ -595,6 +617,21 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiSideNav {
+        /**
+          * @default "ltr"
+         */
+        "direction"?: "rtl" | "ltr";
+        /**
+          * @default "middle"
+         */
+        "mode"?: "middle" | "start";
+        /**
+          * @default "full"
+         */
+        "size"?: "full" | "compact";
+        "styleValue"?: string;
+    }
     interface EuiSlider {
         "onValueChange"?: (event: EuiSliderCustomEvent<number>) => void;
         /**
@@ -620,6 +657,7 @@ declare namespace LocalJSX {
         "eui-input": EuiInput;
         "eui-paginator": EuiPaginator;
         "eui-progressbar": EuiProgressbar;
+        "eui-side-nav": EuiSideNav;
         "eui-slider": EuiSlider;
     }
 }
@@ -639,6 +677,7 @@ declare module "@stencil/core" {
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
             "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
+            "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
             "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
         }
     }

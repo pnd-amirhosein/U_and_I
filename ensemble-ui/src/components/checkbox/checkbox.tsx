@@ -4,7 +4,7 @@ import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 @Component({
     tag: 'eui-checkbox',
     styleUrl: './checkbox.scss',
-    shadow: false,
+    shadow: true,
 })
 export class EUICheckbox {
     @Element() hostEl!: HTMLElement;

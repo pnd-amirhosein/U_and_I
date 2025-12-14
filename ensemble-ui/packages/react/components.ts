@@ -16,4 +16,5 @@ export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";
 export { EuiPaginator } from "./eui-paginator.js";
 export { EuiProgressbar } from "./eui-progressbar.js";
+export { EuiSideNav } from "./eui-side-nav.js";
 export { EuiSlider } from "./eui-slider.js";
