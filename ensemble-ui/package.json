@@ -43,7 +43,7 @@
   ],
   "scripts": {
     "build": "npm run build:all && stencil build",
-    "build:all": "npm run delete:old && npm run clean:build && npm run generate:font && npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
+    "build:all": "npm run delete:old && npm run clean:build && npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
     "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",

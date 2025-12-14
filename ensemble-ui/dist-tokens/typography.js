@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.typography = void 0;
 var fontFamilies = {
-    sans: '"Hubot Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    sans: '"Hubot Sans", "Yekan Bakh", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
     mono: '"JetBrains Mono", monospace',
 };
 exports.typography = {

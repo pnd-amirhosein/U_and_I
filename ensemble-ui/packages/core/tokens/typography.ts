@@ -1,5 +1,5 @@
 const fontFamilies = {
-  sans: '"Hubot Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+  sans: '"Hubot Sans", "Yekan Bakh", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
   mono: '"JetBrains Mono", monospace',
 };
 
