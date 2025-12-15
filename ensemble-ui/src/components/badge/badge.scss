@@ -1,7 +1,7 @@
 .bdg {
     font-size: var(--font-caption-fontSize);
     font-weight: var(--font-caption-fontWeight);
-    font-family: var(--font-caption-fontFamily);
+    font-family: inherit;
     display: flex;
     align-items: center;
     justify-content: center;

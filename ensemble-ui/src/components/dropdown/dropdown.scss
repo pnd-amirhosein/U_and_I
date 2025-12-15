@@ -20,7 +20,7 @@
     overflow-y: auto;
     font-size: var(--font-paragraph-fontSize);
     font-weight: var(--font-paragraph-fontWeight);
-    font-family: var(--font-paragraph-fontFamily);
+    font-family: inherit;
     opacity: 0;
     transform: translateY(calc(var(--space-sm) * -1));
     transition: opacity var(--transition-fast), transform var(--transition-fast);

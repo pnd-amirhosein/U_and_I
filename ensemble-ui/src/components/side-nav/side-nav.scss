@@ -92,7 +92,7 @@ eui-side-nav {
                     opacity: 0;
                     font-size: var(--font-form-fontSize);
                     font-weight: var(--font-form-fontWeight);
-                    font-family: var(--font-form-fontFamily);
+                    font-family: inherit;
                 }
             }
         }

@@ -18,20 +18,20 @@
         .quote {
             font-size: var(--font-h3-fontSize);
             font-weight: var(--font-h3-fontWeight);
-            font-family: var(--font-h3-fontFamily);
+            font-family: inherit;
             margin-bottom: var(--space-3xl);
         }
 
         .person {
             font-size: var(--font-paragraph-fontSize);
             font-weight: var(--font-paragraph-fontWeight);
-            font-family: var(--font-paragraph-fontFamily);
+            font-family: inherit;
         }
 
         .title {
             font-size: var(--font-caption-fontSize);
             font-weight: var(--font-caption-fontWeight);
-            font-family: var(--font-caption-fontFamily);
+            font-family: inherit;
         }
     }
 

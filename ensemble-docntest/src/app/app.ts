@@ -89,4 +89,7 @@ export class App {
   public openSidenav() {
     this.router.navigateByUrl("/sidenav")
   }
+  public openFonts() {
+    this.router.navigateByUrl("/font")
+  }
 }

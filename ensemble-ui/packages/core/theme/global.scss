@@ -1,11 +1,8 @@
 @use './tokens.scss';
-// @use '../../../src/components/button/button.scss';
-// @use '../../../src/components/input/input.scss';
 @use './fonts.scss';
 
 body {
-    font-family: "Hubot Sans", sans-serif;
-    // font-variation-settings: "wght" 700, "wdth" 100, "slnt" 0;
+    font-family: var(--font-all-fontFamily);
 }
 
 eui-icon {

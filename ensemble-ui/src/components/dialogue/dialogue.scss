@@ -13,7 +13,7 @@
         border-radius: var(--radius-lg) var(--radius-lg) 0 0;
         font-size: var(--font-h3-fontSize);
         font-weight: var(--font-h3-fontWeight);
-        font-family: var(--font-h3-fontFamily);
+        font-family: inherit;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -54,7 +54,7 @@
         padding: var(--space-xl);
         font-size: var(--font-paragraph-fontSize);
         font-weight: var(--font-paragraph-fontWeight);
-        font-family: var(--font-paragraph-fontFamily);
+        font-family: inherit;
     }
 
     .dlg--footer>div[slot="footer"] {

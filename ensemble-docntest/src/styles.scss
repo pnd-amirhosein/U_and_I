@@ -21,6 +21,22 @@ body * {
     justify-content: flex-start;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-2 {
+    gap: 2rem;
+}
+
+.rtl {
+    direction: rtl;
+}
+
 .w-full {
     width: 100%;
 }
@@ -205,6 +221,7 @@ app-button {
     align-items: center;
     grid-row: 1;
 }
+
 .simulator .body>span:nth-child(2) {
     width: 100%;
     display: flex;

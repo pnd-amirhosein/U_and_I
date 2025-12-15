@@ -27,7 +27,7 @@
         input {
             font-size: var(--font-form-fontSize);
             font-weight: var(--font-form-fontWeight);
-            font-family: var(--font-form-fontFamily);
+            font-family: inherit;
             background-color: transparent;
             padding: var(--space-xl) var(--space-2xl);
             border: none;
@@ -117,7 +117,7 @@
         gap: var(--space-md);
         font-size: var(--font-caption-fontSize);
         font-weight: var(--font-caption-fontWeight);
-        font-family: var(--font-caption-fontFamily);
+        font-family: inherit;
 
         &.danger {
             color: var(--color-danger-300);

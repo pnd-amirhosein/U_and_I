@@ -9,6 +9,9 @@ input {
     border-radius: var(--radius-md);
     background-color: var(--color-secondary-300);
     display: block;
+    font-size: var(--font-form-fontSize);
+    font-weight: var(--font-form-fontWeight);
+    font-family: inherit;
 
     & * {
         transition: unset !important;
