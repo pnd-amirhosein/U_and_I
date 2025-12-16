@@ -24,6 +24,7 @@ export const config: Config = {
 
   namespace: 'ensemble-ui',
   globalStyle: 'packages/core/theme/global.scss',
+  globalScript: 'packages/core/utils/global.ts',
   plugins: [
     sass(),
     postcss({ plugins: postcssPlugins })
@@ -33,7 +34,7 @@ export const config: Config = {
   minifyCss: true,
   outputTargets: [
     { type: 'dist', esmLoaderPath: '../loader', copy: [{ src: './fonts', dest: 'fonts' }] },
-    { type: 'dist-custom-elements', customElementsExportBehavior: 'auto-define-custom-elements', externalRuntime: false},
+    { type: 'dist-custom-elements', customElementsExportBehavior: 'auto-define-custom-elements', externalRuntime: false },
     // { type: 'dist-custom-elements' },
     { type: 'docs-readme' },
     { type: 'docs-json', file: 'dist/components.json' },
