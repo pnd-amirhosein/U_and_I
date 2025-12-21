@@ -20,6 +20,7 @@ import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/component
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
 import { defineCustomElement as defineEuiSideNav } from 'ensemble-ui/components/eui-side-nav.js';
 import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/eui-slider.js';
+import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
   inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
@@ -374,6 +375,34 @@ export class EuiSlider {
 export declare interface EuiSlider extends Components.EuiSlider {
 
   valueChange: EventEmitter<CustomEvent<number>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiStepper,
+  inputs: ['currentStep', 'orientation', 'steps', 'styleValue']
+})
+@Component({
+  selector: 'eui-stepper',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['currentStep', 'orientation', 'steps', 'styleValue'],
+  outputs: ['stepSelect'],
+})
+export class EuiStepper {
+  protected el: HTMLEuiStepperElement;
+  @Output() stepSelect = new EventEmitter<CustomEvent<number>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiStepper extends Components.EuiStepper {
+
+  stepSelect: EventEmitter<CustomEvent<number>>;
 }
 
 

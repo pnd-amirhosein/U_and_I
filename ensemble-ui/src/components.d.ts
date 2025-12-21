@@ -218,6 +218,21 @@ export namespace Components {
          */
         "value": number;
     }
+    interface EuiStepper {
+        /**
+          * @default 0
+         */
+        "currentStep": number;
+        /**
+          * @default "horizontal"
+         */
+        "orientation": "vertical" | "horizontal";
+        /**
+          * @default []
+         */
+        "steps": string[];
+        "styleValue"?: string;
+    }
 }
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -246,6 +261,10 @@ export interface EuiPaginatorCustomEvent<T> extends CustomEvent<T> {
 export interface EuiSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiSliderElement;
+}
+export interface EuiStepperCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiStepperElement;
 }
 declare global {
     interface HTMLEuiAutoCompleteElementEventMap {
@@ -409,6 +428,23 @@ declare global {
         prototype: HTMLEuiSliderElement;
         new (): HTMLEuiSliderElement;
     };
+    interface HTMLEuiStepperElementEventMap {
+        "stepSelect": number;
+    }
+    interface HTMLEuiStepperElement extends Components.EuiStepper, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiStepperElementEventMap>(type: K, listener: (this: HTMLEuiStepperElement, ev: EuiStepperCustomEvent<HTMLEuiStepperElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiStepperElementEventMap>(type: K, listener: (this: HTMLEuiStepperElement, ev: EuiStepperCustomEvent<HTMLEuiStepperElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiStepperElement: {
+        prototype: HTMLEuiStepperElement;
+        new (): HTMLEuiStepperElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
@@ -424,6 +460,7 @@ declare global {
         "eui-progressbar": HTMLEuiProgressbarElement;
         "eui-side-nav": HTMLEuiSideNavElement;
         "eui-slider": HTMLEuiSliderElement;
+        "eui-stepper": HTMLEuiStepperElement;
     }
 }
 declare namespace LocalJSX {
@@ -644,6 +681,22 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiStepper {
+        /**
+          * @default 0
+         */
+        "currentStep"?: number;
+        "onStepSelect"?: (event: EuiStepperCustomEvent<number>) => void;
+        /**
+          * @default "horizontal"
+         */
+        "orientation"?: "vertical" | "horizontal";
+        /**
+          * @default []
+         */
+        "steps"?: string[];
+        "styleValue"?: string;
+    }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
@@ -659,6 +712,7 @@ declare namespace LocalJSX {
         "eui-progressbar": EuiProgressbar;
         "eui-side-nav": EuiSideNav;
         "eui-slider": EuiSlider;
+        "eui-stepper": EuiStepper;
     }
 }
 export { LocalJSX as JSX };
@@ -679,6 +733,7 @@ declare module "@stencil/core" {
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
             "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
             "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
+            "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
         }
     }
 }

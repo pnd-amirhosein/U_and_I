@@ -1,0 +1,156 @@
+eui-stepper {
+    display: contents;
+
+    .stp {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .stp--horizontal {
+            flex-direction: row;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            flex-grow: 1;
+
+            .top {
+                height: calc(var(--space-3xl) + 2px + var(--space-2xl));
+                display: block;
+                width: calc(100% + var(--space-lg));
+                position: relative;
+                overflow: hidden;
+                padding: var(--space-lg);
+                box-sizing: border-box;
+
+                .checkbox-icon {
+                    height: var(--space-3xl);
+                    aspect-ratio: 1 / 1;
+                    display: block;
+                    border: 1px solid var(--color-secondary-300);
+                    border-radius: 99999px;
+
+                    eui-icon {
+                        height: var(--space-3xl);
+                        aspect-ratio: 1 / 1;
+
+                        svg {
+                            fill: var(--color-secondary-300);
+                        }
+                    }
+
+                }
+
+                &::after {
+                    content: '';
+                    width: 100%;
+                    position: absolute;
+                    top: calc(50% - 1px);
+                    left: calc(var(--space-3xl) + 1px + var(--space-lg));
+                    height: 1px;
+                    background: red;
+                }
+
+                &.pending::after {
+                    background: var(--color-neutral-300);
+                }
+
+                &.in-progress::after {
+                    background: var(--color-primary-300);
+                }
+
+                &.done::after {
+                    background: var(--color-secondary-300);
+                }
+
+                .pending,
+                .in-progress {
+                    border-radius: 9999999px;
+                    height: var(--space-3xl);
+                    aspect-ratio: 1/1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .in-progress {
+                    border: 1px solid var(--color-primary-300);
+
+                    .inner {
+                        border-radius: 9999999px;
+                        background-color: var(--color-primary-300);
+                        height: var(--space-lg);
+                        aspect-ratio: 1/1;
+                    }
+                }
+
+                .pending {
+                    border: 1px solid var(--color-neutral-300);
+                }
+
+            }
+
+            &:last-child {
+                flex-grow: unset;
+
+                .top::after {
+                    display: none;
+                }
+            }
+
+            .bottom {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-lg);
+                padding: var(--space-lg);
+                border-radius: var(--radius-lg);
+                width: fit-content;
+
+                .step-counter {
+                    font-size: var(--font-caption-fontSize);
+                    font-weight: var(--font-caption-fontWeight);
+                    text-wrap-mode: nowrap;
+                }
+
+                .title {
+                    font-size: var(--font-h4-fontSize);
+                    font-weight: var(--font-h4-fontWeight);
+                    text-wrap-mode: nowrap;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: var(--color-neutral-100);
+
+                    @media (prefers-color-scheme: dark) {
+                        background-color: var(--color-neutral-700);
+                    }
+                }
+            }
+        }
+
+        &.stp--vertical {
+            flex-direction: column;
+            width: fit-content;
+
+            .step {
+                flex-direction: row;
+                width: fit-content;
+                gap: var(--space-3xl);
+
+                .top {
+                    height: calc(100% + var(--space-lg));
+
+                    &::after {
+                        width: 1px;
+                        left: calc(50% - 1px);
+                        top: calc(var(--space-3xl) + 1px + var(--space-lg));
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -57,7 +57,6 @@ function numberToWords(n: number): string {
 
 export { };
 
-// 🪄 The magic: extend Number prototype
 declare global {
     interface Number {
         toWords(): string;

@@ -240,3 +240,16 @@ app-button {
     gap: 1rem;
     align-items: center;
 }
+
+.stepper-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 70vw;
+}
+
+.stepper-wrapper.vertical {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: 60vh;
+}

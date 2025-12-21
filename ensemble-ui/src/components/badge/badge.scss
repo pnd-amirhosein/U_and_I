@@ -9,7 +9,7 @@
 }
 
 .bdg:not(.bdg[type="text"], .bdg[type="text-icon"]) {
-    height: 2rem;
+    height: var(--space-3xl);
     aspect-ratio: 1/1;
     border-radius: 999999px;
 }

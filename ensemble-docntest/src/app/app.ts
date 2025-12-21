@@ -92,4 +92,7 @@ export class App {
   public openFonts() {
     this.router.navigateByUrl("/font")
   }
+  public openStepper() {
+    this.router.navigateByUrl("/stepper")
+  }
 }

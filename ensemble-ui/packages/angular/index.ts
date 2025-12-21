@@ -15,5 +15,6 @@ export const DIRECTIVES = [
   d.EuiPaginator,
   d.EuiProgressbar,
   d.EuiSideNav,
-  d.EuiSlider
+  d.EuiSlider,
+  d.EuiStepper
 ];

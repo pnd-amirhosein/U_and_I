@@ -25,6 +25,7 @@
  - [eui-dropdown](../dropdown)
  - [eui-input](../input)
  - [eui-paginator](../paginator)
+ - [eui-stepper](../stepper)
 
 ### Graph
 ```mermaid
@@ -36,6 +37,7 @@ graph TD;
   eui-dropdown --> eui-icon
   eui-input --> eui-icon
   eui-paginator --> eui-icon
+  eui-stepper --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

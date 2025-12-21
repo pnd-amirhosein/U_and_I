@@ -14,6 +14,19 @@
 | `type`       | `type`       |             | `"blank" \| "icon" \| "number" \| "text" \| "text-icon"`                                        | `'blank'`   |
 
 
+## Dependencies
+
+### Used by
+
+ - [eui-stepper](../stepper)
+
+### Graph
+```mermaid
+graph TD;
+  eui-stepper --> eui-badge
+  style eui-badge fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
