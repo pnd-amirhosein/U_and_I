@@ -20,6 +20,7 @@ import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/component
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
 import { defineCustomElement as defineEuiSideNav } from 'ensemble-ui/components/eui-side-nav.js';
 import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/eui-slider.js';
+import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui-stat.js';
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
@@ -376,6 +377,29 @@ export declare interface EuiSlider extends Components.EuiSlider {
 
   valueChange: EventEmitter<CustomEvent<number>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiStat,
+  inputs: ['data', 'orientation', 'styleValue']
+})
+@Component({
+  selector: 'eui-stat',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['data', 'orientation', 'styleValue'],
+})
+export class EuiStat {
+  protected el: HTMLEuiStatElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiStat extends Components.EuiStat {}
 
 
 @ProxyCmp({

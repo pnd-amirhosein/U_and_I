@@ -218,6 +218,17 @@ export namespace Components {
          */
         "value": number;
     }
+    interface EuiStat {
+        /**
+          * @default []
+         */
+        "data": any[];
+        /**
+          * @default "horizontal"
+         */
+        "orientation": "vertical" | "horizontal";
+        "styleValue"?: string;
+    }
     interface EuiStepper {
         /**
           * @default 0
@@ -428,6 +439,12 @@ declare global {
         prototype: HTMLEuiSliderElement;
         new (): HTMLEuiSliderElement;
     };
+    interface HTMLEuiStatElement extends Components.EuiStat, HTMLStencilElement {
+    }
+    var HTMLEuiStatElement: {
+        prototype: HTMLEuiStatElement;
+        new (): HTMLEuiStatElement;
+    };
     interface HTMLEuiStepperElementEventMap {
         "stepSelect": number;
     }
@@ -460,6 +477,7 @@ declare global {
         "eui-progressbar": HTMLEuiProgressbarElement;
         "eui-side-nav": HTMLEuiSideNavElement;
         "eui-slider": HTMLEuiSliderElement;
+        "eui-stat": HTMLEuiStatElement;
         "eui-stepper": HTMLEuiStepperElement;
     }
 }
@@ -681,6 +699,17 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiStat {
+        /**
+          * @default []
+         */
+        "data"?: any[];
+        /**
+          * @default "horizontal"
+         */
+        "orientation"?: "vertical" | "horizontal";
+        "styleValue"?: string;
+    }
     interface EuiStepper {
         /**
           * @default 0
@@ -712,6 +741,7 @@ declare namespace LocalJSX {
         "eui-progressbar": EuiProgressbar;
         "eui-side-nav": EuiSideNav;
         "eui-slider": EuiSlider;
+        "eui-stat": EuiStat;
         "eui-stepper": EuiStepper;
     }
 }
@@ -733,6 +763,7 @@ declare module "@stencil/core" {
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
             "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
             "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
+            "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
         }
     }

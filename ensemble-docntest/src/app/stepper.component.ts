@@ -40,6 +40,5 @@ export class StepperComponent {
 
     selected(e: number) {
         this.currentStep = e;
-
     }
 }

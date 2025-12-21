@@ -95,4 +95,7 @@ export class App {
   public openStepper() {
     this.router.navigateByUrl("/stepper")
   }
+  public openStat() {
+    this.router.navigateByUrl("/stat")
+  }
 }

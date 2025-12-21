@@ -15,6 +15,7 @@ import { SliderComponent } from './slider.component';
 import { SidenavComponent } from './sidenav.component';
 import { FontComponent } from './font.component';
 import { StepperComponent } from './stepper.component';
+import { StatComponent } from './stat.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -33,5 +34,6 @@ export const routes: Routes = [
     { path: "sidenav", component: SidenavComponent },
     { path: "font", component: FontComponent },
     { path: "stepper", component: StepperComponent },
+    { path: "stat", component: StatComponent },
 
 ];
