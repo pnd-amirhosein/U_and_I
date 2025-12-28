@@ -24,9 +24,13 @@
 
 ## Events
 
-| Event   | Description | Type               |
-| ------- | ----------- | ------------------ |
-| `clear` |             | `CustomEvent<any>` |
+| Event      | Description | Type               |
+| ---------- | ----------- | ------------------ |
+| `change`   |             | `CustomEvent<any>` |
+| `clear`    |             | `CustomEvent<any>` |
+| `keyDown`  |             | `CustomEvent<any>` |
+| `keyPress` |             | `CustomEvent<any>` |
+| `keyUp`    |             | `CustomEvent<any>` |
 
 
 ## Dependencies

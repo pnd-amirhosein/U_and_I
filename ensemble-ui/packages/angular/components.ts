@@ -16,6 +16,7 @@ import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
+import { defineCustomElement as defineEuiMonthCard } from 'ensemble-ui/components/eui-month-card.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
 import { defineCustomElement as defineEuiSideNav } from 'ensemble-ui/components/eui-side-nav.js';
@@ -259,11 +260,15 @@ export declare interface EuiIcon extends Components.EuiIcon {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alert', 'max', 'min', 'mode', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
-  outputs: ['clear'],
+  outputs: ['clear', 'change', 'keyUp', 'keyDown', 'keyPress'],
 })
 export class EuiInput {
   protected el: HTMLEuiInputElement;
   @Output() clear = new EventEmitter<CustomEvent<any>>();
+  @Output() change = new EventEmitter<CustomEvent<any>>();
+  @Output() keyUp = new EventEmitter<CustomEvent<any>>();
+  @Output() keyDown = new EventEmitter<CustomEvent<any>>();
+  @Output() keyPress = new EventEmitter<CustomEvent<any>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -274,6 +279,42 @@ export class EuiInput {
 export declare interface EuiInput extends Components.EuiInput {
 
   clear: EventEmitter<CustomEvent<any>>;
+
+  change: EventEmitter<CustomEvent<any>>;
+
+  keyUp: EventEmitter<CustomEvent<any>>;
+
+  keyDown: EventEmitter<CustomEvent<any>>;
+
+  keyPress: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiMonthCard,
+  inputs: ['density', 'interactive', 'month', 'selectedDate', 'year']
+})
+@Component({
+  selector: 'eui-month-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['density', 'interactive', { name: 'month', required: true }, 'selectedDate', { name: 'year', required: true }],
+  outputs: ['dayClick'],
+})
+export class EuiMonthCard {
+  protected el: HTMLEuiMonthCardElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiMonthCard extends Components.EuiMonthCard {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
 }
 
 

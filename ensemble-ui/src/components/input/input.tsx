@@ -5,7 +5,7 @@ import { Alert, Validation } from "packages/core/utils/helpers/types";
 @Component({
   tag: 'eui-input',
   styleUrl: './input.scss',
-  shadow: true,
+  shadow: false,
 })
 export class EUIInput {
   @Element() hostEl!: HTMLElement;
@@ -25,6 +25,10 @@ export class EUIInput {
   @Prop({ attribute: "styleValue" }) styleValue?: string;
 
   @Event() clear?: EventEmitter<any>;
+  @Event() change?: EventEmitter<any>;
+  @Event() keyUp?: EventEmitter<any>;
+  @Event() keyDown?: EventEmitter<any>;
+  @Event() keyPress?: EventEmitter<any>;
 
   private inputEl!: HTMLInputElement;
   @State() isValid: boolean = true;
@@ -75,6 +79,7 @@ export class EUIInput {
     let next = current + this.step;
     if (this.max !== undefined && next > this.max) next = this.max;
     this.value = next.toString();
+    this.change?.emit({ value: this.value });
   };
 
   private decrement = () => {
@@ -82,6 +87,7 @@ export class EUIInput {
     let next = current - this.step;
     if (this.min !== undefined && next < this.min) next = this.min;
     this.value = next.toString();
+    this.change?.emit({ value: this.value });
   };
 
   render() {
@@ -118,6 +124,10 @@ export class EUIInput {
               class={{
                 [`input--${this.mode}`]: this.mode !== 'normal',
               }}
+              onChange={this.change?.emit}
+              onKeyUp={this.keyUp?.emit}
+              onKeyDown={this.keyDown?.emit}
+              onKeyPress={this.keyPress?.emit}
               {...attrs}
             />
 

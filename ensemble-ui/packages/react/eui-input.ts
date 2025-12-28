@@ -12,13 +12,25 @@ import { createComponent } from '@stencil/react-output-target/runtime';
 import { EuiInput as EuiInputElement, defineCustomElement as defineEuiInput } from "ensemble-ui/dist/components/eui-input.js";
 import React from 'react';
 
-export type EuiInputEvents = { onClear: EventName<CustomEvent<any>> };
+export type EuiInputEvents = {
+    onClear: EventName<CustomEvent<any>>,
+    onChange: EventName<CustomEvent<any>>,
+    onKeyUp: EventName<CustomEvent<any>>,
+    onKeyDown: EventName<CustomEvent<any>>,
+    onKeyPress: EventName<CustomEvent<any>>
+};
 
 export const EuiInput: StencilReactComponent<EuiInputElement, EuiInputEvents> = /*@__PURE__*/ createComponent<EuiInputElement, EuiInputEvents>({
     tagName: 'eui-input',
     elementClass: EuiInputElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onClear: 'clear' } as EuiInputEvents,
+    events: {
+        onClear: 'clear',
+        onChange: 'change',
+        onKeyUp: 'keyUp',
+        onKeyDown: 'keyDown',
+        onKeyPress: 'keyPress'
+    } as EuiInputEvents,
     defineCustomElement: defineEuiInput
 });

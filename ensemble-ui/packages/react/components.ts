@@ -14,6 +14,7 @@ export { EuiDialogue } from "./eui-dialogue.js";
 export { EuiDropdown } from "./eui-dropdown.js";
 export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";
+export { EuiMonthCard } from "./eui-month-card.js";
 export { EuiPaginator } from "./eui-paginator.js";
 export { EuiProgressbar } from "./eui-progressbar.js";
 export { EuiSideNav } from "./eui-side-nav.js";

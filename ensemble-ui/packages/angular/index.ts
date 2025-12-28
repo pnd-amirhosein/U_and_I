@@ -12,6 +12,7 @@ export const DIRECTIVES = [
   d.EuiDropdown,
   d.EuiIcon,
   d.EuiInput,
+  d.EuiMonthCard,
   d.EuiPaginator,
   d.EuiProgressbar,
   d.EuiSideNav,
