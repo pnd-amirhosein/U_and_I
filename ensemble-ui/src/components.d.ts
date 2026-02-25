@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alert, Validation } from "../packages/core/utils/helpers/types";
-export { Alert, Validation } from "../packages/core/utils/helpers/types";
+import { Alert, CalendarEventType, HolidayEventType, Validation } from "../packages/core/utils/helpers/types";
+export { Alert, CalendarEventType, HolidayEventType, Validation } from "../packages/core/utils/helpers/types";
 export namespace Components {
     interface EuiAutoComplete {
         "displayField"?: string;
@@ -166,6 +166,38 @@ export namespace Components {
          */
         "value": string;
     }
+    interface EuiMonthCard {
+        /**
+          * @default "none"
+         */
+        "holidayEventType": HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        "month": number;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+        "year": number;
+    }
+    interface EuiMonthView {
+        /**
+          * @default []
+         */
+        "calendarEvents": CalendarEventType[];
+        /**
+          * @default "none"
+         */
+        "holidayEventType": HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        "month": number;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+        "year": number;
+    }
     interface EuiPaginator {
         /**
           * @default 1
@@ -244,6 +276,36 @@ export namespace Components {
         "steps": string[];
         "styleValue"?: string;
     }
+    interface EuiWeekView {
+        /**
+          * @default []
+         */
+        "calendarEvents": CalendarEventType[];
+        /**
+          * @default "none"
+         */
+        "holidayEventType": HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        "month": number;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+        "week": number;
+        "year": number;
+    }
+    interface EuiYear {
+        /**
+          * @default "none"
+         */
+        "holidayEventType": HolidayEventType;
+        "styleValue"?: string;
+        /**
+          * @default 2000
+         */
+        "year": number | string;
+    }
 }
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -265,6 +327,14 @@ export interface EuiInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiInputElement;
 }
+export interface EuiMonthCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiMonthCardElement;
+}
+export interface EuiMonthViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiMonthViewElement;
+}
 export interface EuiPaginatorCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiPaginatorElement;
@@ -276,6 +346,10 @@ export interface EuiSliderCustomEvent<T> extends CustomEvent<T> {
 export interface EuiStepperCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiStepperElement;
+}
+export interface EuiWeekViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiWeekViewElement;
 }
 declare global {
     interface HTMLEuiAutoCompleteElementEventMap {
@@ -378,6 +452,10 @@ declare global {
     };
     interface HTMLEuiInputElementEventMap {
         "clear": any;
+        "change": any;
+        "keyUp": any;
+        "keyDown": any;
+        "keyPress": any;
     }
     interface HTMLEuiInputElement extends Components.EuiInput, HTMLStencilElement {
         addEventListener<K extends keyof HTMLEuiInputElementEventMap>(type: K, listener: (this: HTMLEuiInputElement, ev: EuiInputCustomEvent<HTMLEuiInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -392,6 +470,40 @@ declare global {
     var HTMLEuiInputElement: {
         prototype: HTMLEuiInputElement;
         new (): HTMLEuiInputElement;
+    };
+    interface HTMLEuiMonthCardElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiMonthCardElement extends Components.EuiMonthCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiMonthCardElementEventMap>(type: K, listener: (this: HTMLEuiMonthCardElement, ev: EuiMonthCardCustomEvent<HTMLEuiMonthCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiMonthCardElementEventMap>(type: K, listener: (this: HTMLEuiMonthCardElement, ev: EuiMonthCardCustomEvent<HTMLEuiMonthCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiMonthCardElement: {
+        prototype: HTMLEuiMonthCardElement;
+        new (): HTMLEuiMonthCardElement;
+    };
+    interface HTMLEuiMonthViewElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiMonthViewElement extends Components.EuiMonthView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiMonthViewElementEventMap>(type: K, listener: (this: HTMLEuiMonthViewElement, ev: EuiMonthViewCustomEvent<HTMLEuiMonthViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiMonthViewElementEventMap>(type: K, listener: (this: HTMLEuiMonthViewElement, ev: EuiMonthViewCustomEvent<HTMLEuiMonthViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiMonthViewElement: {
+        prototype: HTMLEuiMonthViewElement;
+        new (): HTMLEuiMonthViewElement;
     };
     interface HTMLEuiPaginatorElementEventMap {
         "currentPage": any;
@@ -462,6 +574,29 @@ declare global {
         prototype: HTMLEuiStepperElement;
         new (): HTMLEuiStepperElement;
     };
+    interface HTMLEuiWeekViewElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiWeekViewElement extends Components.EuiWeekView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiWeekViewElementEventMap>(type: K, listener: (this: HTMLEuiWeekViewElement, ev: EuiWeekViewCustomEvent<HTMLEuiWeekViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiWeekViewElementEventMap>(type: K, listener: (this: HTMLEuiWeekViewElement, ev: EuiWeekViewCustomEvent<HTMLEuiWeekViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiWeekViewElement: {
+        prototype: HTMLEuiWeekViewElement;
+        new (): HTMLEuiWeekViewElement;
+    };
+    interface HTMLEuiYearElement extends Components.EuiYear, HTMLStencilElement {
+    }
+    var HTMLEuiYearElement: {
+        prototype: HTMLEuiYearElement;
+        new (): HTMLEuiYearElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
@@ -473,12 +608,16 @@ declare global {
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
+        "eui-month-card": HTMLEuiMonthCardElement;
+        "eui-month-view": HTMLEuiMonthViewElement;
         "eui-paginator": HTMLEuiPaginatorElement;
         "eui-progressbar": HTMLEuiProgressbarElement;
         "eui-side-nav": HTMLEuiSideNavElement;
         "eui-slider": HTMLEuiSliderElement;
         "eui-stat": HTMLEuiStatElement;
         "eui-stepper": HTMLEuiStepperElement;
+        "eui-week-view": HTMLEuiWeekViewElement;
+        "eui-year": HTMLEuiYearElement;
     }
 }
 declare namespace LocalJSX {
@@ -620,7 +759,11 @@ declare namespace LocalJSX {
           * @default 'normal'
          */
         "mode"?: 'normal' | 'outline' | 'text-input';
+        "onChange"?: (event: EuiInputCustomEvent<any>) => void;
         "onClear"?: (event: EuiInputCustomEvent<any>) => void;
+        "onKeyDown"?: (event: EuiInputCustomEvent<any>) => void;
+        "onKeyPress"?: (event: EuiInputCustomEvent<any>) => void;
+        "onKeyUp"?: (event: EuiInputCustomEvent<any>) => void;
         /**
           * @default ''
          */
@@ -644,6 +787,40 @@ declare namespace LocalJSX {
           * @default ''
          */
         "value"?: string;
+    }
+    interface EuiMonthCard {
+        /**
+          * @default "none"
+         */
+        "holidayEventType"?: HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "month": number;
+        "onDayClick"?: (event: EuiMonthCardCustomEvent<Date>) => void;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+        "year": number;
+    }
+    interface EuiMonthView {
+        /**
+          * @default []
+         */
+        "calendarEvents"?: CalendarEventType[];
+        /**
+          * @default "none"
+         */
+        "holidayEventType"?: HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "month": number;
+        "onDayClick"?: (event: EuiMonthViewCustomEvent<Date>) => void;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+        "year": number;
     }
     interface EuiPaginator {
         /**
@@ -726,6 +903,37 @@ declare namespace LocalJSX {
         "steps"?: string[];
         "styleValue"?: string;
     }
+    interface EuiWeekView {
+        /**
+          * @default []
+         */
+        "calendarEvents"?: CalendarEventType[];
+        /**
+          * @default "none"
+         */
+        "holidayEventType"?: HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "month": number;
+        "onDayClick"?: (event: EuiWeekViewCustomEvent<Date>) => void;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+        "week": number;
+        "year": number;
+    }
+    interface EuiYear {
+        /**
+          * @default "none"
+         */
+        "holidayEventType"?: HolidayEventType;
+        "styleValue"?: string;
+        /**
+          * @default 2000
+         */
+        "year"?: number | string;
+    }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
@@ -737,12 +945,16 @@ declare namespace LocalJSX {
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
+        "eui-month-card": EuiMonthCard;
+        "eui-month-view": EuiMonthView;
         "eui-paginator": EuiPaginator;
         "eui-progressbar": EuiProgressbar;
         "eui-side-nav": EuiSideNav;
         "eui-slider": EuiSlider;
         "eui-stat": EuiStat;
         "eui-stepper": EuiStepper;
+        "eui-week-view": EuiWeekView;
+        "eui-year": EuiYear;
     }
 }
 export { LocalJSX as JSX };
@@ -759,12 +971,16 @@ declare module "@stencil/core" {
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
+            "eui-month-card": LocalJSX.EuiMonthCard & JSXBase.HTMLAttributes<HTMLEuiMonthCardElement>;
+            "eui-month-view": LocalJSX.EuiMonthView & JSXBase.HTMLAttributes<HTMLEuiMonthViewElement>;
             "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
             "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
             "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
             "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
+            "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
+            "eui-year": LocalJSX.EuiYear & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
         }
     }
 }

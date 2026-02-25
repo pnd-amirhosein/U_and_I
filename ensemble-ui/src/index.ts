@@ -10,4 +10,3 @@
 
 export * from './components';       // exports all web components
 export type { Components } from './components'; // re-export the Components namespace
-export * from '../packages/core/utils/helpers/numberToText';

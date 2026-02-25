@@ -13,7 +13,9 @@
     "moduleResolution": "bundler",
     "module": "esnext",
     "target": "es2017",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
@@ -30,9 +32,6 @@
         "./dist/types/components.d.ts"
       ]
     },
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
@@ -40,7 +39,7 @@
   "include": [
     "src",
     "stencil.config.ts",
-    "packages/angular"
+    "packages/angular",
   ],
   "exclude": [
     "node_modules",

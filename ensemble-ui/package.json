@@ -91,6 +91,7 @@
     "@angular/common": "^20.3.0",
     "@angular/core": "^20.3.0",
     "@floating-ui/dom": "^1.7.4",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "jalali-moment": "^3.3.11"
   }
 }

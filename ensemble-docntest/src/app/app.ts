@@ -98,4 +98,7 @@ export class App {
   public openStat() {
     this.router.navigateByUrl("/stat")
   }
+  public openCalendar() {
+    this.router.navigateByUrl("/calendar")
+  }
 }

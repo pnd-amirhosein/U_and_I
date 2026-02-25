@@ -13,10 +13,13 @@ export const DIRECTIVES = [
   d.EuiIcon,
   d.EuiInput,
   d.EuiMonthCard,
+  d.EuiMonthView,
   d.EuiPaginator,
   d.EuiProgressbar,
   d.EuiSideNav,
   d.EuiSlider,
   d.EuiStat,
-  d.EuiStepper
+  d.EuiStepper,
+  d.EuiWeekView,
+  d.EuiYear
 ];

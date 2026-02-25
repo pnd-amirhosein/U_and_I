@@ -15,5 +15,6 @@ export const typography = {
   form: { fontSize: '16px', fontWeight: 400 },
   caption: { fontSize: '12px', fontWeight: 400 },
   button: { fontSize: '14px', fontWeight: 600 },
+  smallButton: { fontSize: '12px', fontWeight: 300 },
   nav: { fontSize: '14px', fontWeight: 500 },
 };

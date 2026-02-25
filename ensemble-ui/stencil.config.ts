@@ -24,7 +24,7 @@ export const config: Config = {
 
   namespace: 'ensemble-ui',
   globalStyle: 'packages/core/theme/global.scss',
-  globalScript: 'packages/core/utils/global.ts',
+  // globalScript: 'packages/core/utils/global.ts',
   plugins: [
     sass(),
     postcss({ plugins: postcssPlugins })

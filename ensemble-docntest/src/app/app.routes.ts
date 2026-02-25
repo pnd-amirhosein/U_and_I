@@ -16,6 +16,7 @@ import { SidenavComponent } from './sidenav.component';
 import { FontComponent } from './font.component';
 import { StepperComponent } from './stepper.component';
 import { StatComponent } from './stat.component';
+import { CalendarComponent } from './calendar.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -35,5 +36,6 @@ export const routes: Routes = [
     { path: "font", component: FontComponent },
     { path: "stepper", component: StepperComponent },
     { path: "stat", component: StatComponent },
+    { path: "calendar", component: CalendarComponent },
 
 ];

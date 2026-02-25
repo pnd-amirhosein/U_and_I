@@ -17,12 +17,15 @@ import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 import { defineCustomElement as defineEuiMonthCard } from 'ensemble-ui/components/eui-month-card.js';
+import { defineCustomElement as defineEuiMonthView } from 'ensemble-ui/components/eui-month-view.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
 import { defineCustomElement as defineEuiSideNav } from 'ensemble-ui/components/eui-side-nav.js';
 import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/eui-slider.js';
 import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui-stat.js';
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
+import { defineCustomElement as defineEuiWeekView } from 'ensemble-ui/components/eui-week-view.js';
+import { defineCustomElement as defineEuiYear } from 'ensemble-ui/components/eui-year.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
   inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
@@ -292,14 +295,14 @@ export declare interface EuiInput extends Components.EuiInput {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiMonthCard,
-  inputs: ['density', 'interactive', 'month', 'selectedDate', 'year']
+  inputs: ['holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'year']
 })
 @Component({
   selector: 'eui-month-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['density', 'interactive', { name: 'month', required: true }, 'selectedDate', { name: 'year', required: true }],
+  inputs: ['holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'styleValue', { name: 'year', required: true }],
   outputs: ['dayClick'],
 })
 export class EuiMonthCard {
@@ -313,6 +316,34 @@ export class EuiMonthCard {
 
 
 export declare interface EuiMonthCard extends Components.EuiMonthCard {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiMonthView,
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'year']
+})
+@Component({
+  selector: 'eui-month-view',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'styleValue', { name: 'year', required: true }],
+  outputs: ['dayClick'],
+})
+export class EuiMonthView {
+  protected el: HTMLEuiMonthViewElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiMonthView extends Components.EuiMonthView {
 
   dayClick: EventEmitter<CustomEvent<Date>>;
 }
@@ -469,5 +500,56 @@ export declare interface EuiStepper extends Components.EuiStepper {
 
   stepSelect: EventEmitter<CustomEvent<number>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiWeekView,
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'week', 'year']
+})
+@Component({
+  selector: 'eui-week-view',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'styleValue', { name: 'week', required: true }, { name: 'year', required: true }],
+  outputs: ['dayClick'],
+})
+export class EuiWeekView {
+  protected el: HTMLEuiWeekViewElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiWeekView extends Components.EuiWeekView {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiYear,
+  inputs: ['holidayEventType', 'styleValue', 'year']
+})
+@Component({
+  selector: 'eui-year',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['holidayEventType', 'styleValue', 'year'],
+})
+export class EuiYear {
+  protected el: HTMLEuiYearElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiYear extends Components.EuiYear {}
 
 

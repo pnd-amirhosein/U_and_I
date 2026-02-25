@@ -3,7 +3,7 @@ const teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "si
 const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
 const scales = ["", "thousand", "million", "billion"];
 
-function convertHundreds(n: number): string {
+export function convertHundreds(n: number): string {
     let words = "";
 
     if (n >= 100) {
@@ -27,7 +27,7 @@ function convertHundreds(n: number): string {
     return words;
 }
 
-function numberToWords(n: number): string {
+export function numberToWords(n: number): string {
     if (n === 0) return "zero";
     if (n < 0) return "minus " + numberToWords(-n);
     if (!Number.isSafeInteger(n)) return "number too large";
@@ -54,15 +54,3 @@ function numberToWords(n: number): string {
 
     return wordsArr.join(" ");
 }
-
-export { };
-
-declare global {
-    interface Number {
-        toWords(): string;
-    }
-}
-
-Number.prototype.toWords = function (): string {
-    return numberToWords(this as number);
-};
