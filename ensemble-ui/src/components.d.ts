@@ -93,6 +93,26 @@ export namespace Components {
          */
         "suggestions": any[];
     }
+    interface EuiDayView {
+        /**
+          * @default []
+         */
+        "calendarEvents": CalendarEventType[];
+        "day": number;
+        /**
+          * @default "none"
+         */
+        "holidayEventType": HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        "month": number;
+        "selectedDate": Date;
+        "styleValue"?: string;
+        "week": number;
+        "year": number;
+    }
     interface EuiDialogue {
         /**
           * @default "MESSAGE!"
@@ -319,6 +339,10 @@ export interface EuiChipsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiChipsElement;
 }
+export interface EuiDayViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiDayViewElement;
+}
 export interface EuiDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiDropdownElement;
@@ -420,6 +444,23 @@ declare global {
     var HTMLEuiChipsElement: {
         prototype: HTMLEuiChipsElement;
         new (): HTMLEuiChipsElement;
+    };
+    interface HTMLEuiDayViewElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiDayViewElement extends Components.EuiDayView, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiDayViewElementEventMap>(type: K, listener: (this: HTMLEuiDayViewElement, ev: EuiDayViewCustomEvent<HTMLEuiDayViewElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiDayViewElementEventMap>(type: K, listener: (this: HTMLEuiDayViewElement, ev: EuiDayViewCustomEvent<HTMLEuiDayViewElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiDayViewElement: {
+        prototype: HTMLEuiDayViewElement;
+        new (): HTMLEuiDayViewElement;
     };
     interface HTMLEuiDialogueElement extends Components.EuiDialogue, HTMLStencilElement {
     }
@@ -604,6 +645,7 @@ declare global {
         "eui-card": HTMLEuiCardElement;
         "eui-checkbox": HTMLEuiCheckboxElement;
         "eui-chips": HTMLEuiChipsElement;
+        "eui-day-view": HTMLEuiDayViewElement;
         "eui-dialogue": HTMLEuiDialogueElement;
         "eui-dropdown": HTMLEuiDropdownElement;
         "eui-icon": HTMLEuiIconElement;
@@ -708,6 +750,27 @@ declare namespace LocalJSX {
           * @default []
          */
         "suggestions"?: any[];
+    }
+    interface EuiDayView {
+        /**
+          * @default []
+         */
+        "calendarEvents"?: CalendarEventType[];
+        "day": number;
+        /**
+          * @default "none"
+         */
+        "holidayEventType"?: HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "month": number;
+        "onDayClick"?: (event: EuiDayViewCustomEvent<Date>) => void;
+        "selectedDate": Date;
+        "styleValue"?: string;
+        "week": number;
+        "year": number;
     }
     interface EuiDialogue {
         /**
@@ -941,6 +1004,7 @@ declare namespace LocalJSX {
         "eui-card": EuiCard;
         "eui-checkbox": EuiCheckbox;
         "eui-chips": EuiChips;
+        "eui-day-view": EuiDayView;
         "eui-dialogue": EuiDialogue;
         "eui-dropdown": EuiDropdown;
         "eui-icon": EuiIcon;
@@ -967,6 +1031,7 @@ declare module "@stencil/core" {
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
+            "eui-day-view": LocalJSX.EuiDayView & JSXBase.HTMLAttributes<HTMLEuiDayViewElement>;
             "eui-dialogue": LocalJSX.EuiDialogue & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;

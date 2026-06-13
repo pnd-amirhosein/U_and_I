@@ -12,6 +12,7 @@ import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/e
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
 import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components/eui-checkbox.js';
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
+import { defineCustomElement as defineEuiDayView } from 'ensemble-ui/components/eui-day-view.js';
 import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components/eui-dialogue.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
@@ -176,6 +177,34 @@ export class EuiChips {
 export declare interface EuiChips extends Components.EuiChips {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiDayView,
+  inputs: ['calendarEvents', 'day', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'week', 'year']
+})
+@Component({
+  selector: 'eui-day-view',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['calendarEvents', { name: 'day', required: true }, 'holidayEventType', 'interactive', { name: 'month', required: true }, { name: 'selectedDate', required: true }, 'styleValue', { name: 'week', required: true }, { name: 'year', required: true }],
+  outputs: ['dayClick'],
+})
+export class EuiDayView {
+  protected el: HTMLEuiDayViewElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiDayView extends Components.EuiDayView {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
 }
 
 

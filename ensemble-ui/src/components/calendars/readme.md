@@ -28,11 +28,13 @@
 
 ### Used by
 
+ - [eui-day-view](eui-calendar-body)
  - [eui-year](eui-calendar-body)
 
 ### Graph
 ```mermaid
 graph TD;
+  eui-day-view --> eui-month-card
   eui-year --> eui-month-card
   style eui-month-card fill:#f9f,stroke:#333,stroke-width:4px
 ```

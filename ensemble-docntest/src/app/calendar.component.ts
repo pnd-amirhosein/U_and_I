@@ -24,8 +24,12 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-month-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month"/> 
             </span>
+            <h4 class="title">calendar - week</h4>
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-week-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month" week="2"/> 
+            </span>
+            <span class="calendar-wrapper" style="width: 60vw;">
+                <eui-day-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month" week="2" day="12"/> 
             </span>
         </span>
     </div>
@@ -33,15 +37,17 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 })
 export class CalendarComponent {
 
-    month: number = 0;
+    month: number = 5;
     year: number = 2026;
     events: calEvent[] = [
         { startDate: new Date("2026-01-11 08:53:00"), dueDate: new Date("2026-01-11 10:53:00"), title: "First test!" },
         { startDate: new Date("2026-01-11 09:20:00"), dueDate: new Date("2026-01-11 15:20:00"), title: "Second test!" },
         { startDate: new Date("2026-01-11 09:20:00"), dueDate: new Date("2026-01-11 15:20:00"), title: "Fourth test!" },
         { startDate: new Date("2026-01-11 16:00:00"), dueDate: new Date("2026-01-11 18:20:00"), title: "Third test!" },
+        { startDate: new Date("2026-01-11 18:00:00"), dueDate: new Date("2026-01-11 18:20:00"), title: "Third test one!" },
         { startDate: new Date("2026-01-12 16:00:00"), dueDate: new Date("2026-01-12 18:20:00"), title: "Fifth test!" },
-        { startDate: new Date("2026-01-12 19:00:00"), dueDate: new Date("2026-01-13 10:20:00"), title: "Sixth test!" }
+        { startDate: new Date("2026-01-12 19:00:00"), dueDate: new Date("2026-01-13 10:20:00"), title: "Sixth test!" },
+        { startDate: new Date("2026-06-13 19:00:00"), dueDate: new Date("2026-06-13 20:20:00"), title: "seventh test!" },
     ]
 
 

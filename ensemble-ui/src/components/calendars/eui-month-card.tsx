@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Prop, h, Event, Element } from '@stencil/core';
+import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
 import { getCalendarDays } from 'packages/core/utils/helpers/date/calendar.utils';
 import { HolidayService } from 'packages/core/utils/helpers/date/holiday.service';
 import { HolidayEventType } from 'packages/core/utils/helpers/types';
@@ -21,7 +21,22 @@ export class EUIMonthCard {
 
     @Event() dayClick?: EventEmitter<Date>;
 
+    @State() selectedDay: Date = new Date();
+
+    componentWillLoad() {
+        this.selectedDay = this.selectedDate ?? new Date();
+    }
+
+    onClickEvent = (date: Date) => {
+        this.dayClick?.emit(date);
+        this.selectedDay = date;
+    }
+
     render() {
+
+        console.log(this.selectedDay);
+        
+
         const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const days = getCalendarDays(this.year, this.month);
 
@@ -66,8 +81,8 @@ export class EUIMonthCard {
                         const isPrevMonth = date < new Date(this.year, this.month, 1);
                         const isNextMonth = date > new Date(this.year, this.month + 1, 0);
                         const isSelected =
-                            this.selectedDate &&
-                            date.toDateString() === this.selectedDate.toDateString();
+                            this.selectedDay &&
+                            date.toDateString() === this.selectedDay.toDateString();
                         const isWeekend = (i + 1) % 7 === 0;
                         const key = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
                         const dayHolidays = holidayMap.get(key) ?? [];
@@ -84,7 +99,7 @@ export class EUIMonthCard {
                                     'is-holiday': dayHolidays.some(x => x.isHoliday) ?? false,
                                 }}
                                 title={dayHolidays.map(h => h.name).join(' • ')}
-                                onClick={() => this.dayClick?.emit(date)}
+                                onClick={() => this.onClickEvent(date)}
                             >
                                 {date.getDate()}
                             </div>

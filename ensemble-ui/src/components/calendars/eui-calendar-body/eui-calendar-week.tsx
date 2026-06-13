@@ -91,7 +91,6 @@ export class EUIWeekView {
 
                         const todayEvents = getEventsOfTheDay(this.calendarEvents, date)
                         const events = mergeEventsIntoPacks(todayEvents);
-                        // const events = mergeEventsIntoPacks(this.calendarEvents.filter(x => x.startDate.getDate() == date.getDate()));
 
                         console.log(events, this.calendarEvents.filter(x => x.startDate.getDate() == date.getDate()));
 
@@ -115,10 +114,6 @@ export class EUIWeekView {
                                     <span><span class="date-badge">{date.getDate()}</span></span>
                                 </div>
                                 <div class="day-box">
-                                    {/* {dayTimeHours.map(x =>
-                                    (<span class="day-time"
-                                    // style={{ "height": this.pxPerHour + "px" }}
-                                    >{x}</span>))} */}
                                     <span class="event-box">
                                         {events && events.map(pack => {
                                             const dayStart = new Date(date);
