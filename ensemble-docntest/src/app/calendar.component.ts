@@ -20,7 +20,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
             <span class="calendar-wrapper">
                 <eui-year holidayEventType="both" [year]="year"/> 
             </span>
-            <h4 class="title">calendar - year box:{{month}}</h4>
+            <h4 class="title">calendar - month box: month-{{month}}</h4>
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-month-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month"/> 
             </span>
@@ -36,13 +36,12 @@ export class CalendarComponent {
     month: number = 0;
     year: number = 2026;
     events: calEvent[] = [
-        { startDate: new Date("2025-10-10 13:00:00"), dueDate: new Date("2025-10-10 15:00:00"), title: "Test date from test project!" },
-        { startDate: new Date("2025-10-11 12:01:00"), dueDate: new Date("2025-10-11 14:01:00"), title: "Test date from test project!" },
-        { startDate: new Date("2025-10-12 12:00:00"), dueDate: new Date("2025-10-12 14:00:00"), title: "Test date from test project!" },
-        { startDate: new Date("2025-11-11 08:10:00"), dueDate: new Date("2025-11-13 13:10:00"), title: "Test date from test project!" },
-        { startDate: new Date("2025-12-11 19:00:00"), dueDate: new Date("2025-12-11 21:00:00"), title: "Test date from test project!" },
-        { startDate: new Date("2025-09-09 11:08:00"), dueDate: new Date("2025-12-09 13:08:00"), title: "Test date from test project!" },
-        { startDate: new Date("2025-10-08 21:53:00"), dueDate: new Date("2025-10-08 22:53:00"), title: "Test date from test project!" },
+        { startDate: new Date("2026-01-11 08:53:00"), dueDate: new Date("2026-01-11 10:53:00"), title: "First test!" },
+        { startDate: new Date("2026-01-11 09:20:00"), dueDate: new Date("2026-01-11 15:20:00"), title: "Second test!" },
+        { startDate: new Date("2026-01-11 09:20:00"), dueDate: new Date("2026-01-11 15:20:00"), title: "Fourth test!" },
+        { startDate: new Date("2026-01-11 16:00:00"), dueDate: new Date("2026-01-11 18:20:00"), title: "Third test!" },
+        { startDate: new Date("2026-01-12 16:00:00"), dueDate: new Date("2026-01-12 18:20:00"), title: "Fifth test!" },
+        { startDate: new Date("2026-01-12 19:00:00"), dueDate: new Date("2026-01-13 10:20:00"), title: "Sixth test!" }
     ]
 
 

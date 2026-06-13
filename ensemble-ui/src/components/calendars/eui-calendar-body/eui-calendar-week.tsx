@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
 import { formatHour12, getCalendarDays, removeExtraWeek } from 'packages/core/utils/helpers/date/calendar.utils';
+import { mergeEventsIntoPacks } from 'packages/core/utils/helpers/date/mergeEvents';
+import { getEventsOfTheDay } from 'packages/core/utils/helpers/date/eventsOfTheDay';
 import { HolidayService } from 'packages/core/utils/helpers/date/holiday.service';
 import { CalendarEventType, Holiday, HolidayEventType } from 'packages/core/utils/helpers/types';
 import { isToday } from 'packages/core/utils/helpers/date/isToday';
@@ -87,7 +89,11 @@ export class EUIWeekView {
                         const key = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
                         const dayHolidays = holidayMap.get(key) ?? [];
 
-                        const events = this.calendarEvents.filter(x => x.startDate.getDate() == date.getDate());
+                        const todayEvents = getEventsOfTheDay(this.calendarEvents, date)
+                        const events = mergeEventsIntoPacks(todayEvents);
+                        // const events = mergeEventsIntoPacks(this.calendarEvents.filter(x => x.startDate.getDate() == date.getDate()));
+
+                        console.log(events, this.calendarEvents.filter(x => x.startDate.getDate() == date.getDate()));
 
                         return (
                             <div
@@ -114,20 +120,47 @@ export class EUIWeekView {
                                     // style={{ "height": this.pxPerHour + "px" }}
                                     >{x}</span>))} */}
                                     <span class="event-box">
-                                        {events && (events.map(event => (<span class="event random-1"
-                                            style={{
-                                                "top": this.pxPerHour * event.startDate.getHours() + "px",
-                                                "height": this.pxPerHour * (event.dueDate.getHours() - event.startDate.getHours()) + "px"
-                                            }}
-                                            onClick={(ev) => {
-                                                ev.stopPropagation();
-                                                console.log("skjdgfkgsdfkjgsdkjf");
-                                                
-                                            }}
-                                        >
-                                            <span title={event.title} class="event-title">{event.title}</span>
-                                            <span>{formatHour12(event.startDate)}</span>
-                                        </span>)))}
+                                        {events && events.map(pack => {
+                                            const dayStart = new Date(date);
+                                            dayStart.setHours(0, 0, 0, 0);
+
+                                            const dayEnd = new Date(date);
+                                            dayEnd.setHours(23, 59, 59, 999);
+
+                                            const visualStart = pack.startDate < dayStart ? dayStart : pack.startDate;
+
+                                            const visualEnd = pack.dueDate > dayEnd ? dayEnd : pack.dueDate;
+
+                                            const top =
+                                                this.pxPerHour *
+                                                ((visualStart.getHours() * 60 + visualStart.getMinutes()) / 60);
+
+                                            const height =
+                                                this.pxPerHour *
+                                                ((visualEnd.getTime() - visualStart.getTime()) / (1000 * 60 * 60));
+
+                                            return (
+                                                <span
+                                                    class="event event-pack random-1"
+                                                    style={{
+                                                        top: top + "px",
+                                                        height: height + "px" // precise hours including minutes
+                                                    }}
+                                                    onClick={(ev) => {
+                                                        ev.stopPropagation();
+                                                        console.log("Clicked pack:", pack.calendarEvents);
+                                                    }}
+                                                >
+                                                    {/* Render each event inside the pack as a title/date pair */}
+                                                    {pack.calendarEvents.map((e, i) => (
+                                                        <div key={i} class="event">
+                                                            <span class="event-title" title={e.title}>{e.title}</span>
+                                                            <span class="event-time">{formatHour12(e.startDate)} - {formatHour12(e.dueDate)}</span>
+                                                        </div>
+                                                    ))}
+                                                </span>
+                                            )
+                                        })}
                                     </span>
                                 </div>
                             </div>

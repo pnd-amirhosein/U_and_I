@@ -25,3 +25,9 @@ export type CalendarEventType = {
     dueDate: Date
     title: string
 }
+
+export type CalendarEventPackType = {
+    startDate: Date;
+    dueDate: Date;
+    calendarEvents: CalendarEventType[];
+};

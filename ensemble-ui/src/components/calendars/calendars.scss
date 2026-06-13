@@ -474,21 +474,86 @@ eui-week-view {
                 align-items: start;
                 pointer-events: auto;
 
+                &.event-pack {
+                    display: flex;
+                    flex-direction: column;
+                    gap: var(--space-sm);
+                    overflow-y: auto;
+
+                    /* Chrome / Edge / Safari */
+                    &::-webkit-scrollbar {
+                        width: 6px;
+                        /* Always reserve space */
+                    }
+
+                    &::-webkit-scrollbar-track {
+                        background: transparent;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background: transparent;
+                        /* invisible by default */
+                        border-radius: 10px;
+                    }
+
+                    &:hover::-webkit-scrollbar-thumb {
+                        background: rgba(0, 0, 0, 0.3);
+                        /* visible on hover */
+                    }
+
+
+                    scrollbar-width: thin;
+                    scrollbar-color: transparent transparent;
+
+
+                    &:hover {
+                        scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+                    }
+
+                    .event {
+                        position: static;
+                        flex-direction: column;
+                        margin: unset;
+                        width: 100%;
+                        gap: var(--space-sm);
+                    }
+                }
+
+                &:not(.event-pack):hover {
+                    cursor: pointer;
+                }
+
                 &:nth-child(2n-1) {
                     background-color: color-mix(in srgb, var(--color-primary-300) 15%, transparent);
                     color: var(--color-primary-300);
 
+                    &:hover {
+                        background-color: color-mix(in srgb, var(--color-primary-300) 20%, transparent);
+                    }
+
                     @media (prefers-color-scheme: dark) {
                         background-color: color-mix(in srgb, var(--color-primary-300) 5%, transparent);
+
+                        &:hover {
+                            background-color: color-mix(in srgb, var(--color-primary-300) 10%, transparent);
+                        }
                     }
                 }
 
                 &:nth-child(2n) {
                     background-color: color-mix(in srgb, var(--color-secondary-300) 15%, transparent);
                     color: var(--color-secondary-300);
-                    
+
+                    &:hover {
+                        background-color: color-mix(in srgb, var(--color-secondary-300) 20%, transparent);
+                    }
+
                     @media (prefers-color-scheme: dark) {
                         background-color: color-mix(in srgb, var(--color-secondary-300) 5%, transparent);
+
+                        &:hover {
+                            background-color: color-mix(in srgb, var(--color-secondary-300) 10%, transparent);
+                        }
                     }
                 }
 
