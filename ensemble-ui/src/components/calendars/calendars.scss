@@ -592,7 +592,7 @@ eui-day-view {
     font-weight: var(--font-form-fontWeight);
     background-color: var(--color-neutral-50);
     border: 1px solid var(--color-neutral-100);
-    border-radius: var(--radius-lg);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     gap: var(--space-lg);
 
     @media (prefers-color-scheme: dark) {
@@ -886,4 +886,40 @@ eui-day-view {
             }
         }
     }
+}
+
+//********************** year-view
+//********************** year-view
+//********************** year-view
+//********************** year-view
+//********************** year-view
+
+eui-calendar-header {
+    width: 100%;
+}
+
+.eui--calendar-header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: var(--space-3xl);
+    padding: var(--space-3xl);
+
+    background-color: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
+    border-bottom: unset;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid var(--color-neutral-500);
+        background-color: var(--color-neutral-900);
+    }
+
+    .right-bar {
+        display: flex;
+        gap: var(--space-lg);
+        font-size: var(--font-h3-fontSize);
+        font-weight: var(--font-h3-fontWeight);
+    }
+
 }

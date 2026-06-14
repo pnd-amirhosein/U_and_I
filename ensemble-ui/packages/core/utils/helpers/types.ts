@@ -31,3 +31,10 @@ export type CalendarEventPackType = {
     dueDate: Date;
     calendarEvents: CalendarEventType[];
 };
+
+export interface NavigatorInfo {
+    min: number;
+    max: number;
+    value: number;
+    text: string;
+}

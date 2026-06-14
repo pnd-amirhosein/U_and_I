@@ -1,4 +1,4 @@
-import { Component, h, State, Element, Listen, Prop, EventEmitter, Event } from '@stencil/core';
+import { Component, h, State, Element, Listen, Prop, EventEmitter, Event, Watch } from '@stencil/core';
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom';
 import { deepGet } from '../../../packages/core/utils/helpers/deep'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
@@ -16,6 +16,8 @@ export class EUIDropdown {
     @Prop() placeholder: string = '';
     @Prop() data: any[] = [];
     @Prop() suggestions: any[] = [];
+    @Prop({ attribute: "defaultValue" }) defaultValue: string = ''
+    @Prop({ attribute: "noClearButton" }) noClearButton : boolean = false;
 
     @Event() itemSelected?: EventEmitter<any>;
 
@@ -27,6 +29,13 @@ export class EUIDropdown {
     private cleanupAutoUpdate?: () => void;
     public inputEl?: HTMLElement;
     private dropdownEl: HTMLUListElement | null = null;
+
+    @Watch('defaultValue')
+    defaultValueChanged(newValue: string) {
+        if (newValue !== undefined) {
+            this.value = newValue;
+        }
+    }
 
     // make openCloseDropdown an arrow so `this` is preserved
     private openCloseDropdown = (forceClose?: boolean) => {
@@ -219,7 +228,16 @@ export class EUIDropdown {
         this.clear();
     }
 
+    componentWillLoad() {
+        if (this.defaultValue !== undefined && this.defaultValue !== '') {
+            this.value = this.defaultValue;
+        }
+    }
+
     render() {
+
+        console.log(this.defaultValue, this.value);
+
 
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
@@ -245,6 +263,7 @@ export class EUIDropdown {
                     placeholder={this.placeholder}
                     onInput={(e: any) => this.onInput(e)}
                     onBlur={() => this.handleBlur()}
+                    noClearButton={this.noClearButton}
                     {...attrs}
                 >
                     <span class="icon-end" slot="icon-end">

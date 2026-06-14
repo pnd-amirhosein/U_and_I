@@ -9,6 +9,8 @@ import type { Components } from 'ensemble-ui/components';
 import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js';
 import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
+import { defineCustomElement as defineEuiCalendarHeader } from 'ensemble-ui/components/eui-calendar-header.js';
+import { defineCustomElement as defineEuiCalendarNavigator } from 'ensemble-ui/components/eui-calendar-navigator.js';
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
 import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components/eui-checkbox.js';
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
@@ -99,6 +101,62 @@ export class EuiButton {
 
 
 export declare interface EuiButton extends Components.EuiButton {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiCalendarHeader,
+  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue']
+})
+@Component({
+  selector: 'eui-calendar-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
+  outputs: ['dayClick'],
+})
+export class EuiCalendarHeader {
+  protected el: HTMLEuiCalendarHeaderElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiCalendarHeader extends Components.EuiCalendarHeader {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiCalendarNavigator,
+  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue']
+})
+@Component({
+  selector: 'eui-calendar-navigator',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
+  outputs: ['dayClick'],
+})
+export class EuiCalendarNavigator {
+  protected el: HTMLEuiCalendarNavigatorElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiCalendarNavigator extends Components.EuiCalendarNavigator {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
 
 
 @ProxyCmp({
@@ -233,14 +291,14 @@ export declare interface EuiDialogue extends Components.EuiDialogue {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDropdown,
-  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions']
+  inputs: ['data', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions']
 })
 @Component({
   selector: 'eui-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions'],
+  inputs: ['data', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
   outputs: ['itemSelected'],
 })
 export class EuiDropdown {
@@ -284,14 +342,14 @@ export declare interface EuiIcon extends Components.EuiIcon {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiInput,
-  inputs: ['alert', 'max', 'min', 'mode', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
+  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
 })
 @Component({
   selector: 'eui-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alert', 'max', 'min', 'mode', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
+  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
   outputs: ['clear', 'change', 'keyUp', 'keyDown', 'keyPress'],
 })
 export class EuiInput {

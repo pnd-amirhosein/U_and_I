@@ -5,7 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { CalendarViewEnum } from "../packages/core/utils/helpers/enums";
 import { Alert, CalendarEventType, HolidayEventType, Validation } from "../packages/core/utils/helpers/types";
+export { CalendarViewEnum } from "../packages/core/utils/helpers/enums";
 export { Alert, CalendarEventType, HolidayEventType, Validation } from "../packages/core/utils/helpers/types";
 export namespace Components {
     interface EuiAutoComplete {
@@ -42,6 +44,33 @@ export namespace Components {
           * @default 'primary'
          */
         "variant": 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info';
+    }
+    interface EuiCalendarHeader {
+        /**
+          * @default CalendarViewEnum.year
+         */
+        "calendarViewMode": CalendarViewEnum;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+    }
+    interface EuiCalendarNavigator {
+        /**
+          * @default CalendarViewEnum.year
+         */
+        "calendarViewMode": CalendarViewEnum;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        /**
+          * @default new Date()
+         */
+        "selectedDate": Date;
+        "styleValue"?: string;
     }
     interface EuiCard {
         /**
@@ -129,7 +158,15 @@ export namespace Components {
           * @default []
          */
         "data": any[];
+        /**
+          * @default ''
+         */
+        "defaultValue": string;
         "displayField"?: string;
+        /**
+          * @default false
+         */
+        "noClearButton": boolean;
         /**
           * @default ''
          */
@@ -162,6 +199,10 @@ export namespace Components {
           * @default 'normal'
          */
         "mode": 'normal' | 'outline' | 'text-input';
+        /**
+          * @default false
+         */
+        "noClearButton": boolean;
         /**
           * @default ''
          */
@@ -331,6 +372,14 @@ export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiAutoCompleteElement;
 }
+export interface EuiCalendarHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiCalendarHeaderElement;
+}
+export interface EuiCalendarNavigatorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiCalendarNavigatorElement;
+}
 export interface EuiCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiCheckboxElement;
@@ -404,6 +453,40 @@ declare global {
     var HTMLEuiButtonElement: {
         prototype: HTMLEuiButtonElement;
         new (): HTMLEuiButtonElement;
+    };
+    interface HTMLEuiCalendarHeaderElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiCalendarHeaderElement extends Components.EuiCalendarHeader, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiCalendarHeaderElementEventMap>(type: K, listener: (this: HTMLEuiCalendarHeaderElement, ev: EuiCalendarHeaderCustomEvent<HTMLEuiCalendarHeaderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiCalendarHeaderElementEventMap>(type: K, listener: (this: HTMLEuiCalendarHeaderElement, ev: EuiCalendarHeaderCustomEvent<HTMLEuiCalendarHeaderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiCalendarHeaderElement: {
+        prototype: HTMLEuiCalendarHeaderElement;
+        new (): HTMLEuiCalendarHeaderElement;
+    };
+    interface HTMLEuiCalendarNavigatorElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiCalendarNavigatorElement extends Components.EuiCalendarNavigator, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiCalendarNavigatorElementEventMap>(type: K, listener: (this: HTMLEuiCalendarNavigatorElement, ev: EuiCalendarNavigatorCustomEvent<HTMLEuiCalendarNavigatorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiCalendarNavigatorElementEventMap>(type: K, listener: (this: HTMLEuiCalendarNavigatorElement, ev: EuiCalendarNavigatorCustomEvent<HTMLEuiCalendarNavigatorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiCalendarNavigatorElement: {
+        prototype: HTMLEuiCalendarNavigatorElement;
+        new (): HTMLEuiCalendarNavigatorElement;
     };
     interface HTMLEuiCardElement extends Components.EuiCard, HTMLStencilElement {
     }
@@ -642,6 +725,8 @@ declare global {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
         "eui-button": HTMLEuiButtonElement;
+        "eui-calendar-header": HTMLEuiCalendarHeaderElement;
+        "eui-calendar-navigator": HTMLEuiCalendarNavigatorElement;
         "eui-card": HTMLEuiCardElement;
         "eui-checkbox": HTMLEuiCheckboxElement;
         "eui-chips": HTMLEuiChipsElement;
@@ -698,6 +783,35 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "variant"?: 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info';
+    }
+    interface EuiCalendarHeader {
+        /**
+          * @default CalendarViewEnum.year
+         */
+        "calendarViewMode"?: CalendarViewEnum;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "onDayClick"?: (event: EuiCalendarHeaderCustomEvent<Date>) => void;
+        "selectedDate"?: Date;
+        "styleValue"?: string;
+    }
+    interface EuiCalendarNavigator {
+        /**
+          * @default CalendarViewEnum.year
+         */
+        "calendarViewMode"?: CalendarViewEnum;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "onDayClick"?: (event: EuiCalendarNavigatorCustomEvent<Date>) => void;
+        /**
+          * @default new Date()
+         */
+        "selectedDate"?: Date;
+        "styleValue"?: string;
     }
     interface EuiCard {
         /**
@@ -788,7 +902,15 @@ declare namespace LocalJSX {
           * @default []
          */
         "data"?: any[];
+        /**
+          * @default ''
+         */
+        "defaultValue"?: string;
         "displayField"?: string;
+        /**
+          * @default false
+         */
+        "noClearButton"?: boolean;
         "onItemSelected"?: (event: EuiDropdownCustomEvent<any>) => void;
         /**
           * @default ''
@@ -822,6 +944,10 @@ declare namespace LocalJSX {
           * @default 'normal'
          */
         "mode"?: 'normal' | 'outline' | 'text-input';
+        /**
+          * @default false
+         */
+        "noClearButton"?: boolean;
         "onChange"?: (event: EuiInputCustomEvent<any>) => void;
         "onClear"?: (event: EuiInputCustomEvent<any>) => void;
         "onKeyDown"?: (event: EuiInputCustomEvent<any>) => void;
@@ -1001,6 +1127,8 @@ declare namespace LocalJSX {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
         "eui-button": EuiButton;
+        "eui-calendar-header": EuiCalendarHeader;
+        "eui-calendar-navigator": EuiCalendarNavigator;
         "eui-card": EuiCard;
         "eui-checkbox": EuiCheckbox;
         "eui-chips": EuiChips;
@@ -1028,6 +1156,8 @@ declare module "@stencil/core" {
             "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
             "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-calendar-header": LocalJSX.EuiCalendarHeader & JSXBase.HTMLAttributes<HTMLEuiCalendarHeaderElement>;
+            "eui-calendar-navigator": LocalJSX.EuiCalendarNavigator & JSXBase.HTMLAttributes<HTMLEuiCalendarNavigatorElement>;
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;

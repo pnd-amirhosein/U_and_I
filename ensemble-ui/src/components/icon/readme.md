@@ -19,6 +19,7 @@
 ### Used by
 
  - [eui-auto-complete](../autocomplete)
+ - [eui-calendar-navigator](../calendars)
  - [eui-checkbox](../checkbox)
  - [eui-chips](../chips)
  - [eui-dialogue](../dialogue)
@@ -31,6 +32,7 @@
 ```mermaid
 graph TD;
   eui-auto-complete --> eui-icon
+  eui-calendar-navigator --> eui-icon
   eui-checkbox --> eui-icon
   eui-chips --> eui-icon
   eui-dialogue --> eui-icon

@@ -27,8 +27,8 @@ export function removeExtraWeek(days: Date[], month: number): Date[] {
     return allOutside ? days.slice(0, -7) : days;
 }
 
-export function monthNumberToText(month: number, locale = "en-US") {
-    return new Date(2000, month).toLocaleString(locale, { month: "long" });
+export function monthNumberToText(month: number, locale = "en-US", format: "long" | "short" | "narrow" = "long") {
+    return new Date(2000, month).toLocaleString(locale, { month: format });
 }
 
 export function formatHour12(date: Date): string {
@@ -40,4 +40,42 @@ export function formatHour12(date: Date): string {
     const paddedHour = hours12.toString().padStart(2, '0');
 
     return `${paddedHour}${period}`;
+}
+
+export function weeksInMonth(date: Date) {
+
+    const year = date.getFullYear();
+    const month = date.getMonth();
+
+    const firstDay =
+        new Date(year, month, 1).getDay();
+
+    const daysInMonth =
+        new Date(year, month + 1, 0).getDate();
+
+    return Math.ceil(
+        (firstDay + daysInMonth) / 7
+    );
+}
+
+export function daysInMonth(date: Date) {
+
+    return new Date(
+        date.getFullYear(),
+        date.getMonth() + 1,
+        0
+    ).getDate();
+}
+
+export function getWeekOfMonth(date: Date) {
+
+    const firstDayOfMonth = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        1
+    );
+
+    return Math.ceil(
+        (date.getDate() + firstDayOfMonth.getDay()) / 7
+    );
 }

@@ -7,6 +7,8 @@
 export { EuiAutoComplete } from "./eui-auto-complete.js";
 export { EuiBadge } from "./eui-badge.js";
 export { EuiButton } from "./eui-button.js";
+export { EuiCalendarHeader } from "./eui-calendar-header.js";
+export { EuiCalendarNavigator } from "./eui-calendar-navigator.js";
 export { EuiCard } from "./eui-card.js";
 export { EuiCheckbox } from "./eui-checkbox.js";
 export { EuiChips } from "./eui-chips.js";

@@ -23,6 +23,8 @@ export class EUIInput {
   @Prop() max?: number;
   @Prop({ attribute: "showClear" }) showClear?: boolean = true;
   @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop({ attribute: "noClearButton" }) noClearButton: boolean = false;
+
 
   @Event() clear?: EventEmitter<any>;
   @Event() change?: EventEmitter<any>;
@@ -133,7 +135,7 @@ export class EUIInput {
 
             <span class="icon-bar">
               {/* Clear button */}
-              {this.value.length !== 0 && this.showClear && (
+              {this.value.length !== 0 && this.showClear && !this.noClearButton && (
                 <eui-icon
                   key="x-mark"
                   name='x-mark'

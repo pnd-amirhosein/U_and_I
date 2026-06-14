@@ -7,13 +7,15 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type                  | Default     |
-| -------------- | -------------- | ----------- | --------------------- | ----------- |
-| `data`         | `data`         |             | `any[]`               | `[]`        |
-| `displayField` | `displayfield` |             | `string \| undefined` | `undefined` |
-| `placeholder`  | `placeholder`  |             | `string`              | `''`        |
-| `styleValue`   | `stylevalue`   |             | `string \| undefined` | `undefined` |
-| `suggestions`  | `suggestions`  |             | `any[]`               | `[]`        |
+| Property        | Attribute       | Description | Type                  | Default     |
+| --------------- | --------------- | ----------- | --------------------- | ----------- |
+| `data`          | `data`          |             | `any[]`               | `[]`        |
+| `defaultValue`  | `defaultvalue`  |             | `string`              | `''`        |
+| `displayField`  | `displayfield`  |             | `string \| undefined` | `undefined` |
+| `noClearButton` | `noclearbutton` |             | `boolean`             | `false`     |
+| `placeholder`   | `placeholder`   |             | `string`              | `''`        |
+| `styleValue`    | `stylevalue`    |             | `string \| undefined` | `undefined` |
+| `suggestions`   | `suggestions`   |             | `any[]`               | `[]`        |
 
 
 ## Events
@@ -24,6 +26,10 @@
 
 
 ## Dependencies
+
+### Used by
+
+ - [eui-calendar-header](../calendars)
 
 ### Depends on
 
@@ -36,6 +42,7 @@ graph TD;
   eui-dropdown --> eui-icon
   eui-dropdown --> eui-input
   eui-input --> eui-icon
+  eui-calendar-header --> eui-dropdown
   style eui-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

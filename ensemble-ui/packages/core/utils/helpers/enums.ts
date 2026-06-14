@@ -4,3 +4,10 @@ export enum IconStyleEnum {
     mini = "mini",
     micro = "micro"
 }
+
+export enum CalendarViewEnum {
+    year = "year",
+    month = "month",
+    week = "week",
+    day = "day"
+}
