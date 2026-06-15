@@ -888,11 +888,11 @@ eui-day-view {
     }
 }
 
-//********************** year-view
-//********************** year-view
-//********************** year-view
-//********************** year-view
-//********************** year-view
+//********************** calendar-header
+//********************** calendar-header
+//********************** calendar-header
+//********************** calendar-header
+//********************** calendar-header
 
 eui-calendar-header {
     width: 100%;
@@ -922,4 +922,36 @@ eui-calendar-header {
         font-weight: var(--font-h3-fontWeight);
     }
 
+}
+
+
+//********************** calendar-navigator
+//********************** calendar-navigator
+//********************** calendar-navigator
+//********************** calendar-navigator
+//********************** calendar-navigator
+
+.eui--navigator {
+    display: flex;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-neutral-200);
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid var(--color-neutral-500);
+    }
+
+    &>* {
+        padding: var(--space-xl) var(--space-2xl);
+    }
+
+    .current-value {
+        border: 1px solid var(--color-neutral-200);
+
+        @media (prefers-color-scheme: dark) {
+            border: 1px solid var(--color-neutral-500);
+        }
+
+        border-top: unset;
+        border-bottom: unset;
+    }
 }

@@ -28,8 +28,17 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-week-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month" week="2"/> 
             </span>
+            <h4 class="title">calendar - day</h4>
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-day-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month" week="2" day="12"/> 
+            </span>
+            <h4 class="title">calendar - header</h4>
+            <span class="calendar-wrapper" style="width: 60vw;">
+                <eui-calendar-header selectedDate="2026-06-13 19:00:00" [calendarEvents]="events" holidayEventType="both" calendarViewMode="year"/> 
+            </span>
+            <h4 class="title">calendar - navigator</h4>
+            <span class="calendar-wrapper" style="width: 60vw;">
+                <eui-calendar-navigator selectedDate="2026-06-13 19:00:00" calendarViewMode="week"/> 
             </span>
         </span>
     </div>

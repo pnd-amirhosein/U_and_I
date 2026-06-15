@@ -122,7 +122,7 @@ export class EUICalendarNavigator {
                     min: 1,
                     max: weeksInMonth(date),
                     value: getWeekOfMonth(this.selectedDay),
-                    text: `Week ${getWeekOfMonth(this.selectedDay)}`
+                    text: `${getWeekOfMonth(this.selectedDay)}`
                 };
 
             case CalendarViewEnum.month:
@@ -170,7 +170,7 @@ export class EUICalendarNavigator {
                     <div class={`item previous-button ${+this.currentValue == MinMaxValue.min ? "disable" : ""}`} onClick={() => { this.prev(MinMaxValue.value) }}>
                         <eui-icon name="chevron-left" type="mini" />
                     </div>
-                    <div class="right-bar">
+                    <div class="current-value">
                         <span class="month">{MinMaxValue.text}</span>
                     </div>
                     <div class={`item next-button ${+this.currentValue == MinMaxValue.max ? "disable" : ""}`} onClick={() => { this.next(MinMaxValue.value) }}>
