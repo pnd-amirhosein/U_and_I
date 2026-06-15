@@ -7,14 +7,12 @@
 
 ## Properties
 
-| Property             | Attribute          | Description | Type                                               | Default     |
-| -------------------- | ------------------ | ----------- | -------------------------------------------------- | ----------- |
-| `holidayEventType`   | `holidayeventtype` |             | `"both" \| "international" \| "none" \| "persian"` | `"none"`    |
-| `interactive`        | `interactive`      |             | `boolean`                                          | `true`      |
-| `month` _(required)_ | `month`            |             | `number`                                           | `undefined` |
-| `selectedDate`       | `selecteddate`     |             | `Date \| undefined`                                | `undefined` |
-| `styleValue`         | `stylevalue`       |             | `string \| undefined`                              | `undefined` |
-| `year` _(required)_  | `year`             |             | `number`                                           | `undefined` |
+| Property           | Attribute          | Description | Type                                                                                               | Default                 |
+| ------------------ | ------------------ | ----------- | -------------------------------------------------------------------------------------------------- | ----------------------- |
+| `calendarViewMode` | `calendarviewmode` |             | `CalendarViewEnum.day \| CalendarViewEnum.month \| CalendarViewEnum.week \| CalendarViewEnum.year` | `CalendarViewEnum.year` |
+| `interactive`      | `interactive`      |             | `boolean`                                                                                          | `true`                  |
+| `selectedDate`     | `selecteddate`     |             | `Date \| undefined`                                                                                | `undefined`             |
+| `styleValue`       | `stylevalue`       |             | `string \| undefined`                                                                              | `undefined`             |
 
 
 ## Events
@@ -26,17 +24,21 @@
 
 ## Dependencies
 
-### Used by
+### Depends on
 
- - [eui-day-view](eui-calendar-body)
- - [eui-year](eui-calendar-body)
+- [eui-calendar-navigator](eui-calendar-body)
+- [eui-dropdown](../dropdown)
 
 ### Graph
 ```mermaid
 graph TD;
-  eui-day-view --> eui-month-card
-  eui-year --> eui-month-card
-  style eui-month-card fill:#f9f,stroke:#333,stroke-width:4px
+  eui-calendar --> eui-calendar-navigator
+  eui-calendar --> eui-dropdown
+  eui-calendar-navigator --> eui-icon
+  eui-dropdown --> eui-icon
+  eui-dropdown --> eui-input
+  eui-input --> eui-icon
+  style eui-calendar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -7,7 +7,7 @@ import { Holiday } from 'packages/core/utils/helpers/types';
 @Component({
     tag: 'eui-month-card',
     shadow: false,
-    styleUrl: "./calendars.scss"
+    styleUrl: "../calendars.scss"
 })
 export class EUIMonthCard {
     @Element() hostEl!: HTMLElement;

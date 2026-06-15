@@ -18,7 +18,7 @@
 
 ### Depends on
 
-- [eui-month-card](..)
+- [eui-month-card](.)
 
 ### Graph
 ```mermaid

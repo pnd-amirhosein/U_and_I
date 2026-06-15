@@ -19,7 +19,7 @@
 ### Used by
 
  - [eui-auto-complete](../autocomplete)
- - [eui-calendar-navigator](../calendars)
+ - [eui-calendar-navigator](../calendars/eui-calendar-body)
  - [eui-checkbox](../checkbox)
  - [eui-chips](../chips)
  - [eui-dialogue](../dialogue)

@@ -5,11 +5,11 @@ import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.uti
 import { EuiDropdownCustomEvent } from 'src/components';
 
 @Component({
-    tag: 'eui-calendar-header',
+    tag: 'eui-calendar',
     styleUrl: "./calendars.scss",
     shadow: false,
 })
-export class EUICalendarHeader {
+export class EUICalendar {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;

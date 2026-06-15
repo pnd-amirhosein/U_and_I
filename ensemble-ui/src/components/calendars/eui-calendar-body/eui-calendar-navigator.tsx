@@ -6,7 +6,7 @@ import { NavigatorInfo } from 'packages/core/utils/helpers/types';
 
 @Component({
     tag: 'eui-calendar-navigator',
-    styleUrl: "./calendars.scss",
+    styleUrl: "../calendars.scss",
     shadow: false,
 })
 export class EUICalendarNavigator {

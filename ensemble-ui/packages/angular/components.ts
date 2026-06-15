@@ -9,6 +9,7 @@ import type { Components } from 'ensemble-ui/components';
 import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js';
 import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
+import { defineCustomElement as defineEuiCalendar } from 'ensemble-ui/components/eui-calendar.js';
 import { defineCustomElement as defineEuiCalendarHeader } from 'ensemble-ui/components/eui-calendar-header.js';
 import { defineCustomElement as defineEuiCalendarNavigator } from 'ensemble-ui/components/eui-calendar-navigator.js';
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
@@ -101,6 +102,34 @@ export class EuiButton {
 
 
 export declare interface EuiButton extends Components.EuiButton {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiCalendar,
+  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue']
+})
+@Component({
+  selector: 'eui-calendar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
+  outputs: ['dayClick'],
+})
+export class EuiCalendar {
+  protected el: HTMLEuiCalendarElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiCalendar extends Components.EuiCalendar {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
 
 
 @ProxyCmp({

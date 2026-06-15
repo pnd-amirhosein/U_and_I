@@ -5,6 +5,7 @@ export const DIRECTIVES = [
   d.EuiAutoComplete,
   d.EuiBadge,
   d.EuiButton,
+  d.EuiCalendar,
   d.EuiCalendarHeader,
   d.EuiCalendarNavigator,
   d.EuiCard,
