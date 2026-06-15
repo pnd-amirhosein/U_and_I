@@ -20,16 +20,16 @@ export class EUICalendarNavigator {
 
     @Event() dayClick?: EventEmitter<Date>;
 
-    @State() selectedDay: Date = new Date();
+    @State() currentDate: Date = new Date();
     @State() currentValue: number = 0;
 
     componentWillLoad() {
-        this.selectedDay = new Date(this.selectedDate) ?? new Date();
+        this.currentDate = new Date(this.selectedDate) ?? new Date();
     }
 
     onClickEvent = (date: Date) => {
         this.dayClick?.emit(date);
-        this.selectedDay = date;
+        this.currentDate = date;
     }
 
     onViewChange = (event: Event) => {
@@ -37,31 +37,16 @@ export class EUICalendarNavigator {
     }
 
     next = (current: number) => {
-        this.selectedDay = this.createNewDate(current + 1)
+        this.currentDate = this.createNewDate(current + 1)
     }
 
     prev = (current: number) => {
-        this.selectedDay = this.createNewDate(current - 1)
+        this.currentDate = this.createNewDate(current - 1)
     }
-
-    // createNewDate = (value: number): Date => {
-    //     switch (this.calendarViewMode) {
-    //         case CalendarViewEnum.year:
-    //             return new Date(value, this.selectedDay.getMonth(), this.selectedDay.getDate())
-    //         case CalendarViewEnum.month:
-    //             return new Date(this.selectedDay.getFullYear(), value, this.selectedDay.getDate())
-    //         case CalendarViewEnum.day:
-    //             return new Date(this.selectedDay.getFullYear(), this.selectedDay.getMonth(), value)
-    //         case CalendarViewEnum.week:
-    //             return new Date(this.selectedDay.getFullYear(), this.selectedDay.getMonth(), value)
-    //         default:
-    //             return new Date(0);
-    //     }
-    // }
 
     createNewDate = (value: number): Date => {
 
-        const base = new Date(this.selectedDay);
+        const base = new Date(this.currentDate);
 
         switch (this.calendarViewMode) {
 
@@ -112,8 +97,8 @@ export class EUICalendarNavigator {
                 return {
                     min: 1,
                     max: daysInMonth(date),
-                    value: this.selectedDay.getDate(),
-                    text: this.selectedDay.getDate().toString()
+                    value: this.currentDate.getDate(),
+                    text: this.currentDate.getDate().toString()
                 };
 
             case CalendarViewEnum.week:
@@ -121,8 +106,8 @@ export class EUICalendarNavigator {
                 return {
                     min: 1,
                     max: weeksInMonth(date),
-                    value: getWeekOfMonth(this.selectedDay),
-                    text: `${getWeekOfMonth(this.selectedDay)}`
+                    value: getWeekOfMonth(this.currentDate),
+                    text: `${getWeekOfMonth(this.currentDate)}`
                 };
 
             case CalendarViewEnum.month:
@@ -130,8 +115,8 @@ export class EUICalendarNavigator {
                 return {
                     min: 0,
                     max: 11,
-                    value: this.selectedDay.getMonth(),
-                    text: monthNumberToText(this.selectedDay.getMonth(), "en-US")
+                    value: this.currentDate.getMonth(),
+                    text: monthNumberToText(this.currentDate.getMonth(), "en-US", "short")
                 };
 
             case CalendarViewEnum.year:
@@ -139,8 +124,8 @@ export class EUICalendarNavigator {
                 return {
                     min: Number.MIN_SAFE_INTEGER,
                     max: Number.MAX_SAFE_INTEGER,
-                    value: this.selectedDay.getFullYear(),
-                    text: this.selectedDay.getFullYear().toString()
+                    value: this.currentDate.getFullYear(),
+                    text: this.currentDate.getFullYear().toString()
                 };
         }
     }
@@ -154,9 +139,9 @@ export class EUICalendarNavigator {
                 return acc;
             }, {} as Record<string, string>);
 
-        console.log(this.selectedDay, typeof this.selectedDay, 93485798347);
+        console.log(this.currentDate, typeof this.currentDate, 93485798347);
 
-        const MinMaxValue: NavigatorInfo = this.getNavigatorInfo(this.selectedDay);
+        const MinMaxValue: NavigatorInfo = this.getNavigatorInfo(this.currentDate);
 
         return (
             <Host>

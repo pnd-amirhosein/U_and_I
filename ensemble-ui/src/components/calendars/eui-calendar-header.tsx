@@ -2,6 +2,7 @@ import { Component, EventEmitter, Prop, h, Event, Element, State, Host } from '@
 import { CalendarViewEnum } from 'packages/core/utils/helpers/enums'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils'
+import { EuiDropdownCustomEvent } from 'src/components';
 
 @Component({
     tag: 'eui-calendar-header',
@@ -19,19 +20,21 @@ export class EUICalendarHeader {
 
     @Event() dayClick?: EventEmitter<Date>;
 
-    @State() selectedDay: Date = new Date();
+    @State() currentDate: Date = new Date();
+    @State() currentViewMode: CalendarViewEnum = CalendarViewEnum.year;
 
     componentWillLoad() {
-        this.selectedDay = this.selectedDate ?? new Date();
+        this.currentDate = this.selectedDate ?? new Date();
+        this.currentViewMode = this.calendarViewMode ?? CalendarViewEnum.year;
     }
 
     onClickEvent = (date: Date) => {
         this.dayClick?.emit(date);
-        this.selectedDay = date;
+        this.currentDate = date;
     }
 
-    onViewChange = (event: Event) => {
-        console.log(event);
+    onViewChange = (event: EuiDropdownCustomEvent<any>) => {
+        this.currentViewMode = event.detail.name as CalendarViewEnum;
     }
 
     render() {
@@ -45,11 +48,11 @@ export class EUICalendarHeader {
 
         const data = Object.values(CalendarViewEnum).map(x => ({ name: x }));
 
-        console.log(this.selectedDay, typeof this.selectedDay, 93485798347);
+        console.log(this.currentDate, typeof this.currentDate, 93485798347);
 
-        const year = new Date(this.selectedDay).getFullYear();
-        const month = monthNumberToText(new Date(this.selectedDay).getMonth(), "short");
-        const day = new Date(this.selectedDay).getDate();
+        const year = new Date(this.currentDate).getFullYear();
+        const month = monthNumberToText(new Date(this.currentDate).getMonth(), "short");
+        const day = new Date(this.currentDate).getDate();
 
 
         return (
@@ -67,9 +70,10 @@ export class EUICalendarHeader {
                         <span class="year">{year}</span>
                     </div>
                     <span class="left-bar">
+                        <eui-calendar-navigator selectedDate={this.currentDate} calendarViewMode={this.currentViewMode} />
                         <eui-dropdown
                             data={data}
-                            defaultValue={this.calendarViewMode}
+                            defaultValue={this.currentViewMode}
                             displayField="name"
                             onItemSelected={this.onViewChange}
                             placeholder="Search views..."

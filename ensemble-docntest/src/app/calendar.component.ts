@@ -36,10 +36,10 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-calendar-header selectedDate="2026-06-13 19:00:00" [calendarEvents]="events" holidayEventType="both" calendarViewMode="year"/> 
             </span>
-            <h4 class="title">calendar - navigator</h4>
+            <!-- <h4 class="title">calendar - navigator</h4>
             <span class="calendar-wrapper" style="width: 60vw;">
                 <eui-calendar-navigator selectedDate="2026-06-13 19:00:00" calendarViewMode="week"/> 
-            </span>
+            </span> -->
         </span>
     </div>
     `
