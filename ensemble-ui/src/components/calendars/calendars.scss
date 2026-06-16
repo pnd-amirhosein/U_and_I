@@ -143,11 +143,11 @@ eui-month-view {
     font-weight: var(--font-form-fontWeight);
     background-color: var(--color-neutral-50);
     border: 1px solid var(--color-neutral-200);
-    border-radius: var(--radius-lg);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 
     @media (prefers-color-scheme: dark) {
         border: 1px solid var(--color-neutral-500);
-        background-color: var(--color-neutral-700);
+        background-color: var(--color-neutral-900);
     }
 
     .weekdays {
@@ -289,13 +289,12 @@ eui-week-view {
     font-size: var(--font-form-fontSize);
     font-weight: var(--font-form-fontWeight);
     background-color: var(--color-neutral-50);
-    border: 1px solid var(--color-neutral-100);
-    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 
     @media (prefers-color-scheme: dark) {
-        border: 1px solid var(--color-neutral-600);
+        border: 1px solid var(--color-neutral-500);
         background-color: var(--color-neutral-900);
-
     }
 
     .days-grid {
@@ -591,16 +590,14 @@ eui-day-view {
     font-size: var(--font-form-fontSize);
     font-weight: var(--font-form-fontWeight);
     background-color: var(--color-neutral-50);
-    border: 1px solid var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-200);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     gap: var(--space-lg);
 
     @media (prefers-color-scheme: dark) {
-        border: 1px solid var(--color-neutral-600);
+        border: 1px solid var(--color-neutral-500);
         background-color: var(--color-neutral-900);
-
     }
-
     .month-card-container {
         padding: var(--space-lg);
         height: fit-content;
@@ -916,7 +913,7 @@ eui-calendar-header {
 
         @media (prefers-color-scheme: dark) {
             border: 1px solid var(--color-neutral-500);
-            background-color: var(--color-neutral-900);
+            background-color: var(--color-neutral-700);
         }
 
         border-bottom: unset;
@@ -990,8 +987,4 @@ eui-calendar {
 .eui--calendar {
     display: flex;
     flex-direction: column;
-
-    .toolbar{
-        
-    }
 }

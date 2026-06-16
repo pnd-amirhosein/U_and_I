@@ -8,31 +8,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
     template: `
     <div class="doc">
         <span class="flex flex-col">
-            <!-- <label for="month">choose Year:</label>
-            <eui-input [value]="year" min="1950" max="2100" type="number" (change)="changedYear($event)" styleValue="width:25vw;" placeHolder="simple input"/>
-            <label for="month">choose Month:</label>
-            <eui-input [value]="month" min="0" max="11" type="number" (change)="changed($event)" styleValue="width:25vw;" placeHolder="simple input"/>
-            <h4 class="title">calendar - month card:</h4>
-            <span class="calendar-wrapper">
-                <eui-month-card holidayEventType="both" [year]="year" [month]="month"/> 
-            </span>
-            <h4 class="title">calendar - year box:</h4>
-            <span class="calendar-wrapper">
-                <eui-year holidayEventType="both" [year]="year"/> 
-            </span>
-            <h4 class="title">calendar - month box: month-{{month}}</h4>
-            <span class="calendar-wrapper" style="width: 60vw;">
-                <eui-month-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month"/> 
-            </span>
-            <h4 class="title">calendar - week</h4>
-            <span class="calendar-wrapper" style="width: 60vw;">
-                <eui-week-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month" week="2"/> 
-            </span>
-            <h4 class="title">calendar - day</h4>
-            <span class="calendar-wrapper" style="width: 60vw;">
-                <eui-day-view [calendarEvents]="events" holidayEventType="both" [year]="year" [month]="month" week="2" day="12"/> 
-            </span> -->
-            <h4 class="title">calendar - header</h4>
+            <h2 class="title">calendar</h2>
             <span class="calendar-wrapper" style="width: 80vw;">
                 <eui-calendar selectedDate="2026-06-13 19:00:00" [calendarEvents]="events" holidayEventType="both" calendarViewMode="month"/> 
             </span>
