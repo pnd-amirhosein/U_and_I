@@ -16,6 +16,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [eui-calendar](..)
+
 ### Depends on
 
 - [eui-month-card](.)
@@ -24,6 +28,7 @@
 ```mermaid
 graph TD;
   eui-year --> eui-month-card
+  eui-calendar --> eui-year
   style eui-year fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

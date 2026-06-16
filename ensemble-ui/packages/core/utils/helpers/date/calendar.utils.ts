@@ -9,6 +9,7 @@ export function getCalendarDays(year: number, month: number): Date[] {
     const startDate = new Date(firstOfMonth);
     startDate.setDate(firstOfMonth.getDate() - startDay);
 
+
     for (let i = 0; i < 42; i++) {
         const d = new Date(startDate);
         d.setDate(startDate.getDate() + i);
@@ -78,4 +79,26 @@ export function getWeekOfMonth(date: Date) {
     return Math.ceil(
         (date.getDate() + firstDayOfMonth.getDay()) / 7
     );
+}
+
+export function getCurrentWeekIndex(date: Date, correctGridInput?: Date[]): number {
+
+    let correctGrid;
+
+    if (correctGridInput)
+        correctGrid = correctGridInput
+    else {
+
+        const grid = getCalendarDays(date.getFullYear(), date.getMonth());
+        correctGrid = removeExtraWeek(grid, date.getMonth());
+    }
+
+    const weekAnchor = correctGrid.filter((_, index) => index % 7 === 0);
+
+    const index = weekAnchor.findIndex((_, index) => date <= weekAnchor[index + 1])
+
+    console.log("From getCurrentWeekIndex: ", weekAnchor, index);
+
+
+    return index;
 }

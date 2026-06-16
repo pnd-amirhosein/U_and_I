@@ -13,13 +13,13 @@ import { type EuiCalendarNavigatorCustomEvent } from "ensemble-ui";
 import { EuiCalendarNavigator as EuiCalendarNavigatorElement, defineCustomElement as defineEuiCalendarNavigator } from "ensemble-ui/dist/components/eui-calendar-navigator.js";
 import React from 'react';
 
-export type EuiCalendarNavigatorEvents = { onDayClick: EventName<EuiCalendarNavigatorCustomEvent<Date>> };
+export type EuiCalendarNavigatorEvents = { onDateChange: EventName<EuiCalendarNavigatorCustomEvent<Date>> };
 
 export const EuiCalendarNavigator: StencilReactComponent<EuiCalendarNavigatorElement, EuiCalendarNavigatorEvents> = /*@__PURE__*/ createComponent<EuiCalendarNavigatorElement, EuiCalendarNavigatorEvents>({
     tagName: 'eui-calendar-navigator',
     elementClass: EuiCalendarNavigatorElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onDayClick: 'dayClick' } as EuiCalendarNavigatorEvents,
+    events: { onDateChange: 'dateChange' } as EuiCalendarNavigatorEvents,
     defineCustomElement: defineEuiCalendarNavigator
 });

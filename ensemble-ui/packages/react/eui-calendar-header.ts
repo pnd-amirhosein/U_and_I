@@ -9,17 +9,23 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type EuiCalendarHeaderCustomEvent } from "ensemble-ui";
+import { type CalendarViewEnum, type EuiCalendarHeaderCustomEvent } from "ensemble-ui";
 import { EuiCalendarHeader as EuiCalendarHeaderElement, defineCustomElement as defineEuiCalendarHeader } from "ensemble-ui/dist/components/eui-calendar-header.js";
 import React from 'react';
 
-export type EuiCalendarHeaderEvents = { onDayClick: EventName<EuiCalendarHeaderCustomEvent<Date>> };
+export type EuiCalendarHeaderEvents = {
+    onDateChange: EventName<EuiCalendarHeaderCustomEvent<Date>>,
+    onViewChange: EventName<EuiCalendarHeaderCustomEvent<CalendarViewEnum>>
+};
 
 export const EuiCalendarHeader: StencilReactComponent<EuiCalendarHeaderElement, EuiCalendarHeaderEvents> = /*@__PURE__*/ createComponent<EuiCalendarHeaderElement, EuiCalendarHeaderEvents>({
     tagName: 'eui-calendar-header',
     elementClass: EuiCalendarHeaderElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onDayClick: 'dayClick' } as EuiCalendarHeaderEvents,
+    events: {
+        onDateChange: 'dateChange',
+        onViewChange: 'viewChange'
+    } as EuiCalendarHeaderEvents,
     defineCustomElement: defineEuiCalendarHeader
 });

@@ -89,7 +89,6 @@ export class EUIDayView {
             holidayMap.get(key)!.push(h);
         });
 
-        console.log(holidays);
 
         return (
             <div {...attrs} class="eui--day">
@@ -158,7 +157,6 @@ export class EUIDayView {
                                                         }}
                                                         onClick={(ev) => {
                                                             ev.stopPropagation();
-                                                            console.log("Clicked pack:", pack.calendarEvents);
                                                         }}
                                                     >
                                                         {/* Render each event inside the pack as a title/date pair */}

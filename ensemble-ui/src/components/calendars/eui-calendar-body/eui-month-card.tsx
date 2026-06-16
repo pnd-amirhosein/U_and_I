@@ -34,9 +34,6 @@ export class EUIMonthCard {
 
     render() {
 
-        console.log(this.selectedDay);
-        
-
         const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const days = getCalendarDays(this.year, this.month);
 

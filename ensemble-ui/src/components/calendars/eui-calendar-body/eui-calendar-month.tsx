@@ -24,9 +24,10 @@ export class EUIMonthView {
     @Event() dayClick?: EventEmitter<Date>;
 
     render() {
+        
         const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const days = getCalendarDays(this.year, this.month);
-
+        
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {

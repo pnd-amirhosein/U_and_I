@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State, Host } from '@stencil/core';
 import { CalendarViewEnum } from 'packages/core/utils/helpers/enums'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
-import { monthNumberToText, daysInMonth, weeksInMonth, getWeekOfMonth, getCalendarDays, removeExtraWeek } from 'packages/core/utils/helpers/date/calendar.utils'
+import { monthNumberToText, daysInMonth, weeksInMonth, getWeekOfMonth, getCurrentWeekIndex, getCalendarDays, removeExtraWeek } from 'packages/core/utils/helpers/date/calendar.utils'
 import { NavigatorInfo } from 'packages/core/utils/helpers/types';
 
 @Component({
@@ -18,7 +18,7 @@ export class EUICalendarNavigator {
     @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop({ attribute: "calendarViewMode" }) calendarViewMode: CalendarViewEnum = CalendarViewEnum.year;
 
-    @Event() dayClick?: EventEmitter<Date>;
+    @Event() dateChange?: EventEmitter<Date>;
 
     @State() currentDate: Date = new Date();
     @State() currentValue: number = 0;
@@ -27,21 +27,14 @@ export class EUICalendarNavigator {
         this.currentDate = new Date(this.selectedDate) ?? new Date();
     }
 
-    onClickEvent = (date: Date) => {
-        this.dayClick?.emit(date);
-        this.currentDate = date;
-    }
-
-    onViewChange = (event: Event) => {
-        console.log(event);
-    }
-
     next = (current: number) => {
         this.currentDate = this.createNewDate(current + 1)
+        this.dateChange?.emit(this.currentDate);
     }
 
     prev = (current: number) => {
         this.currentDate = this.createNewDate(current - 1)
+        this.dateChange?.emit(this.currentDate);
     }
 
     createNewDate = (value: number): Date => {
@@ -69,24 +62,30 @@ export class EUICalendarNavigator {
 
                 const grid = getCalendarDays(base.getFullYear(), base.getMonth());
 
-                const correctGrid = removeExtraWeek(grid, base.getMonth())
+                const correctGrid = removeExtraWeek(grid, base.getMonth());
 
-                const weekAnchors = correctGrid.filter((_, index) => index % 7 === 0);
+                const currentWeek = getCurrentWeekIndex(base, correctGrid)
 
-                const index = grid.findIndex(d =>
-                    d.toDateString() === base.toDateString()
-                );
+                console.log("IF CalendarViewEnum.week:", currentWeek, value, base);
 
-                const currentWeek = Math.floor(index / 7);
 
-                const targetAnchor = weekAnchors[currentWeek];
+                if (currentWeek == 0 && value == -1) return base;
 
-                return new Date(base.getFullYear(), base.getMonth(), targetAnchor.getDate());
+                const weekStart = (currentWeek + value) * 7;
+                const weekEnd = weekStart + 7;
+
+                const targetAnchor =
+                    correctGrid
+                        .slice(weekStart, weekEnd)
+                        .find(x => x.getMonth() === base.getMonth())
+                    ?? correctGrid[weekStart];
+
+                console.log("CalendarViewEnum.week:", currentWeek, value, targetAnchor, weekStart, weekEnd, correctGrid);
+
+                return new Date(targetAnchor);
             }
         }
-
     };
-
 
     getNavigatorInfo = (date: Date): NavigatorInfo => {
 
@@ -139,7 +138,7 @@ export class EUICalendarNavigator {
                 return acc;
             }, {} as Record<string, string>);
 
-        console.log(this.currentDate, typeof this.currentDate, 93485798347);
+        console.log(this.calendarViewMode, 93485798347);
 
         const MinMaxValue: NavigatorInfo = this.getNavigatorInfo(this.currentDate);
 
@@ -149,16 +148,18 @@ export class EUICalendarNavigator {
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                     {...attrs}
                     class={{
-                        "eui--navigator": true
+                        "eui--calendar-navigator": true
                     }}
                 >
-                    <div class={`item previous-button ${+this.currentValue == MinMaxValue.min ? "disable" : ""}`} onClick={() => { this.prev(MinMaxValue.value) }}>
+                    <div class={`item previous-button ${+this.currentValue == MinMaxValue.min ? "disable" : ""}`}
+                        onClick={() => { this.prev(this.calendarViewMode == CalendarViewEnum.week ? 0 : MinMaxValue.value) }}>
                         <eui-icon name="chevron-left" type="mini" />
                     </div>
                     <div class="current-value">
                         <span class="month">{MinMaxValue.text}</span>
                     </div>
-                    <div class={`item next-button ${+this.currentValue == MinMaxValue.max ? "disable" : ""}`} onClick={() => { this.next(MinMaxValue.value) }}>
+                    <div class={`item next-button ${+this.currentValue == MinMaxValue.max ? "disable" : ""}`}
+                        onClick={() => { this.next(this.calendarViewMode == CalendarViewEnum.week ? 0 : MinMaxValue.value) }}>
                         <eui-icon name="chevron-right" type="mini" />
                     </div>
                 </div>

@@ -106,19 +106,17 @@ export declare interface EuiButton extends Components.EuiButton {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCalendar,
-  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue']
+  inputs: ['calendarEvents', 'calendarViewMode', 'holidayEventType', 'interactive', 'selectedDate', 'styleValue']
 })
 @Component({
   selector: 'eui-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
-  outputs: ['dayClick'],
+  inputs: ['calendarEvents', 'calendarViewMode', 'holidayEventType', 'interactive', 'selectedDate', 'styleValue'],
 })
 export class EuiCalendar {
   protected el: HTMLEuiCalendarElement;
-  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -126,10 +124,7 @@ export class EuiCalendar {
 }
 
 
-export declare interface EuiCalendar extends Components.EuiCalendar {
-
-  dayClick: EventEmitter<CustomEvent<Date>>;
-}
+export declare interface EuiCalendar extends Components.EuiCalendar {}
 
 
 @ProxyCmp({
@@ -142,11 +137,12 @@ export declare interface EuiCalendar extends Components.EuiCalendar {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
-  outputs: ['dayClick'],
+  outputs: ['dateChange', 'viewChange'],
 })
 export class EuiCalendarHeader {
   protected el: HTMLEuiCalendarHeaderElement;
-  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  @Output() dateChange = new EventEmitter<CustomEvent<Date>>();
+  @Output() viewChange = new EventEmitter<CustomEvent<IEuiCalendarHeaderCalendarViewEnum>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -154,9 +150,13 @@ export class EuiCalendarHeader {
 }
 
 
+import type { CalendarViewEnum as IEuiCalendarHeaderCalendarViewEnum } from 'ensemble-ui/components';
+
 export declare interface EuiCalendarHeader extends Components.EuiCalendarHeader {
 
-  dayClick: EventEmitter<CustomEvent<Date>>;
+  dateChange: EventEmitter<CustomEvent<Date>>;
+
+  viewChange: EventEmitter<CustomEvent<IEuiCalendarHeaderCalendarViewEnum>>;
 }
 
 
@@ -170,11 +170,11 @@ export declare interface EuiCalendarHeader extends Components.EuiCalendarHeader 
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
-  outputs: ['dayClick'],
+  outputs: ['dateChange'],
 })
 export class EuiCalendarNavigator {
   protected el: HTMLEuiCalendarNavigatorElement;
-  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  @Output() dateChange = new EventEmitter<CustomEvent<Date>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -184,7 +184,7 @@ export class EuiCalendarNavigator {
 
 export declare interface EuiCalendarNavigator extends Components.EuiCalendarNavigator {
 
-  dayClick: EventEmitter<CustomEvent<Date>>;
+  dateChange: EventEmitter<CustomEvent<Date>>;
 }
 
 

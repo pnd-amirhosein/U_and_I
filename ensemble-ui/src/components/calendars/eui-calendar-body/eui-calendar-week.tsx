@@ -42,6 +42,9 @@ export class EUIWeekView {
         const trimmedDays = removeExtraWeek(days, this.month);
         const selectedWeek = trimmedDays.slice(this.week * 7, (this.week + 1) * 7);
 
+        console.log("Where is the selected week?", this.week, trimmedDays, selectedWeek);
+        
+
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {

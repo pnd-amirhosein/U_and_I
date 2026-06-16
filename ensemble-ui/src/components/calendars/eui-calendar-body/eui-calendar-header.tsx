@@ -2,7 +2,7 @@ import { Component, EventEmitter, Prop, h, Event, Element, State, Host } from '@
 import { CalendarViewEnum } from 'packages/core/utils/helpers/enums'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils'
-import { EuiDropdownCustomEvent } from 'src/components';
+import { EuiCalendarNavigatorCustomEvent, EuiDropdownCustomEvent } from 'src/components';
 
 @Component({
     tag: 'eui-calendar-header',
@@ -18,7 +18,8 @@ export class EUICalendarHeader {
     @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop({ attribute: "calendarViewMode" }) calendarViewMode: CalendarViewEnum = CalendarViewEnum.year;
 
-    @Event() dayClick?: EventEmitter<Date>;
+    @Event() dateChange?: EventEmitter<Date>;
+    @Event() viewChange?: EventEmitter<CalendarViewEnum>;
 
     @State() currentDate: Date = new Date();
     @State() currentViewMode: CalendarViewEnum = CalendarViewEnum.year;
@@ -28,13 +29,18 @@ export class EUICalendarHeader {
         this.currentViewMode = this.calendarViewMode ?? CalendarViewEnum.year;
     }
 
-    onClickEvent = (date: Date) => {
-        this.dayClick?.emit(date);
-        this.currentDate = date;
+    onViewChange = (event: EuiDropdownCustomEvent<any>) => {
+
+        const newView = event.detail.name as CalendarViewEnum;
+
+        this.currentViewMode = newView
+
+        this.viewChange?.emit(this.currentViewMode)
     }
 
-    onViewChange = (event: EuiDropdownCustomEvent<any>) => {
-        this.currentViewMode = event.detail.name as CalendarViewEnum;
+    changeDate = (e: EuiCalendarNavigatorCustomEvent<Date>) => {
+        this.currentDate = new Date(e.detail);
+        this.dateChange?.emit(this.currentDate)
     }
 
     render() {
@@ -47,8 +53,6 @@ export class EUICalendarHeader {
             }, {} as Record<string, string>);
 
         const data = Object.values(CalendarViewEnum).map(x => ({ name: x }));
-
-        console.log(this.currentDate, typeof this.currentDate, 93485798347);
 
         const year = new Date(this.currentDate).getFullYear();
         const month = monthNumberToText(new Date(this.currentDate).getMonth(), "short");
@@ -64,22 +68,24 @@ export class EUICalendarHeader {
                         "eui--calendar-header": true
                     }}
                 >
-                    <div class="right-bar">
-                        <span class="month">{month},</span>
-                        <span class="day">{day},</span>
-                        <span class="year">{year}</span>
+                    <div class="toolbar">
+                        <div class="right-bar">
+                            <span class="month">{month},</span>
+                            <span class="day">{day},</span>
+                            <span class="year">{year}</span>
+                        </div>
+                        <span class="left-bar">
+                            <eui-calendar-navigator onDateChange={this.changeDate} selectedDate={this.currentDate} calendarViewMode={this.currentViewMode} />
+                            <eui-dropdown
+                                data={data}
+                                defaultValue={this.currentViewMode}
+                                displayField="name"
+                                onItemSelected={this.onViewChange}
+                                placeholder="Search views..."
+                                noClearButton={true}
+                            />
+                        </span>
                     </div>
-                    <span class="left-bar">
-                        <eui-calendar-navigator selectedDate={this.currentDate} calendarViewMode={this.currentViewMode} />
-                        <eui-dropdown
-                            data={data}
-                            defaultValue={this.currentViewMode}
-                            displayField="name"
-                            onItemSelected={this.onViewChange}
-                            placeholder="Search views..."
-                            noClearButton={true}
-                        />
-                    </span>
                 </div>
             </Host>
         );

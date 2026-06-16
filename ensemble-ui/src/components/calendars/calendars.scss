@@ -899,34 +899,40 @@ eui-calendar-header {
 }
 
 .eui--calendar-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    align-items: center;
-    gap: var(--space-3xl);
-    padding: var(--space-3xl);
+    display: flex;
+    flex-direction: row;
 
-    background-color: var(--color-neutral-100);
-    border: 1px solid var(--color-neutral-200);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-
-    @media (prefers-color-scheme: dark) {
-        border: 1px solid var(--color-neutral-500);
-        background-color: var(--color-neutral-900);
-    }
-
-    border-bottom: unset;
-
-    .right-bar {
-        display: flex;
-        gap: var(--space-lg);
-        font-size: var(--font-h3-fontSize);
-        font-weight: var(--font-h3-fontWeight);
-    }
-
-    .left-bar {
+    .toolbar {
+        width: 100%;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-lg);
+        grid-template-columns: 2fr 1fr;
+        align-items: center;
+        gap: var(--space-3xl);
+        padding: var(--space-3xl);
+
+        background-color: var(--color-neutral-100);
+        border: 1px solid var(--color-neutral-200);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+
+        @media (prefers-color-scheme: dark) {
+            border: 1px solid var(--color-neutral-500);
+            background-color: var(--color-neutral-900);
+        }
+
+        border-bottom: unset;
+
+        .right-bar {
+            display: flex;
+            gap: var(--space-lg);
+            font-size: var(--font-h3-fontSize);
+            font-weight: var(--font-h3-fontWeight);
+        }
+
+        .left-bar {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
     }
 
 }
@@ -938,7 +944,11 @@ eui-calendar-header {
 //********************** calendar-navigator
 //********************** calendar-navigator
 
-.eui--navigator {
+eui-calendar-navigator {
+    width: 100%;
+}
+
+.eui--calendar-navigator {
     display: flex;
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-neutral-200);
@@ -964,5 +974,24 @@ eui-calendar-header {
 
         border-top: unset;
         border-bottom: unset;
+    }
+}
+
+//********************** calendar
+//********************** calendar
+//********************** calendar
+//********************** calendar
+//********************** calendar
+
+eui-calendar {
+    width: 100%;
+}
+
+.eui--calendar {
+    display: flex;
+    flex-direction: column;
+
+    .toolbar{
+        
     }
 }

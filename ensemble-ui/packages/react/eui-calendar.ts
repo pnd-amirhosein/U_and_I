@@ -7,19 +7,18 @@
 
 /* eslint-disable */
 
-import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
+import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type EuiCalendarCustomEvent } from "ensemble-ui";
 import { EuiCalendar as EuiCalendarElement, defineCustomElement as defineEuiCalendar } from "ensemble-ui/dist/components/eui-calendar.js";
 import React from 'react';
 
-export type EuiCalendarEvents = { onDayClick: EventName<EuiCalendarCustomEvent<Date>> };
+export type EuiCalendarEvents = NonNullable<unknown>;
 
 export const EuiCalendar: StencilReactComponent<EuiCalendarElement, EuiCalendarEvents> = /*@__PURE__*/ createComponent<EuiCalendarElement, EuiCalendarEvents>({
     tagName: 'eui-calendar',
     elementClass: EuiCalendarElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onDayClick: 'dayClick' } as EuiCalendarEvents,
+    events: {} as EuiCalendarEvents,
     defineCustomElement: defineEuiCalendar
 });

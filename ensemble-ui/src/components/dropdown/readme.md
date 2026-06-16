@@ -29,7 +29,6 @@
 
 ### Used by
 
- - [eui-calendar](../calendars)
  - [eui-calendar-header](../calendars/eui-calendar-body)
 
 ### Depends on
@@ -43,7 +42,6 @@ graph TD;
   eui-dropdown --> eui-icon
   eui-dropdown --> eui-input
   eui-input --> eui-icon
-  eui-calendar --> eui-dropdown
   eui-calendar-header --> eui-dropdown
   style eui-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
