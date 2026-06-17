@@ -11,3 +11,9 @@ export enum CalendarViewEnum {
     week = "week",
     day = "day"
 }
+
+export enum DatepickerViewEnum {
+    year = "year",
+    month = "month",
+    day = "day"
+}

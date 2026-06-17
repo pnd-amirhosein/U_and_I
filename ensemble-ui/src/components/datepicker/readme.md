@@ -29,6 +29,7 @@
 
 ### Depends on
 
+- [eui-year-card](../calendars/eui-calendar-body)
 - [eui-month-card](../calendars/eui-calendar-body)
 - [eui-input](../input)
 - [eui-icon](../icon)
@@ -36,6 +37,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  eui-datepicker --> eui-year-card
   eui-datepicker --> eui-month-card
   eui-datepicker --> eui-input
   eui-datepicker --> eui-icon

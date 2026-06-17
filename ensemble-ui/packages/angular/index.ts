@@ -26,5 +26,6 @@ export const DIRECTIVES = [
   d.EuiStat,
   d.EuiStepper,
   d.EuiWeekView,
-  d.EuiYear
+  d.EuiYear,
+  d.EuiYearCard
 ];

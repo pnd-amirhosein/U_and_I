@@ -31,6 +31,7 @@ import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
 import { defineCustomElement as defineEuiWeekView } from 'ensemble-ui/components/eui-week-view.js';
 import { defineCustomElement as defineEuiYear } from 'ensemble-ui/components/eui-year.js';
+import { defineCustomElement as defineEuiYearCard } from 'ensemble-ui/components/eui-year-card.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
   inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
@@ -696,5 +697,33 @@ export class EuiYear {
 
 
 export declare interface EuiYear extends Components.EuiYear {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiYearCard,
+  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue']
+})
+@Component({
+  selector: 'eui-year-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue'],
+  outputs: ['dayClick'],
+})
+export class EuiYearCard {
+  protected el: HTMLEuiYearCardElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiYearCard extends Components.EuiYearCard {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
 
 

@@ -420,6 +420,22 @@ export namespace Components {
          */
         "year": number | string;
     }
+    interface EuiYearCard {
+        /**
+          * @default "none"
+         */
+        "holidayEventType": HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive": boolean;
+        "selectedDate"?: Date;
+        /**
+          * @default true
+         */
+        "showHeader": boolean;
+        "styleValue"?: string;
+    }
 }
 export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -480,6 +496,10 @@ export interface EuiStepperCustomEvent<T> extends CustomEvent<T> {
 export interface EuiWeekViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiWeekViewElement;
+}
+export interface EuiYearCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiYearCardElement;
 }
 declare global {
     interface HTMLEuiAutoCompleteElementEventMap {
@@ -802,6 +822,23 @@ declare global {
         prototype: HTMLEuiYearElement;
         new (): HTMLEuiYearElement;
     };
+    interface HTMLEuiYearCardElementEventMap {
+        "dayClick": Date;
+    }
+    interface HTMLEuiYearCardElement extends Components.EuiYearCard, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiYearCardElementEventMap>(type: K, listener: (this: HTMLEuiYearCardElement, ev: EuiYearCardCustomEvent<HTMLEuiYearCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiYearCardElementEventMap>(type: K, listener: (this: HTMLEuiYearCardElement, ev: EuiYearCardCustomEvent<HTMLEuiYearCardElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiYearCardElement: {
+        prototype: HTMLEuiYearCardElement;
+        new (): HTMLEuiYearCardElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
@@ -828,6 +865,7 @@ declare global {
         "eui-stepper": HTMLEuiStepperElement;
         "eui-week-view": HTMLEuiWeekViewElement;
         "eui-year": HTMLEuiYearElement;
+        "eui-year-card": HTMLEuiYearCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -1259,6 +1297,23 @@ declare namespace LocalJSX {
          */
         "year"?: number | string;
     }
+    interface EuiYearCard {
+        /**
+          * @default "none"
+         */
+        "holidayEventType"?: HolidayEventType;
+        /**
+          * @default true
+         */
+        "interactive"?: boolean;
+        "onDayClick"?: (event: EuiYearCardCustomEvent<Date>) => void;
+        "selectedDate"?: Date;
+        /**
+          * @default true
+         */
+        "showHeader"?: boolean;
+        "styleValue"?: string;
+    }
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
@@ -1285,6 +1340,7 @@ declare namespace LocalJSX {
         "eui-stepper": EuiStepper;
         "eui-week-view": EuiWeekView;
         "eui-year": EuiYear;
+        "eui-year-card": EuiYearCard;
     }
 }
 export { LocalJSX as JSX };
@@ -1316,6 +1372,7 @@ declare module "@stencil/core" {
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
             "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
             "eui-year": LocalJSX.EuiYear & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
+            "eui-year-card": LocalJSX.EuiYearCard & JSXBase.HTMLAttributes<HTMLEuiYearCardElement>;
         }
     }
 }

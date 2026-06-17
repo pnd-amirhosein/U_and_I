@@ -10,26 +10,30 @@
 | Property           | Attribute          | Description | Type                                               | Default     |
 | ------------------ | ------------------ | ----------- | -------------------------------------------------- | ----------- |
 | `holidayEventType` | `holidayeventtype` |             | `"both" \| "international" \| "none" \| "persian"` | `"none"`    |
+| `interactive`      | `interactive`      |             | `boolean`                                          | `true`      |
+| `selectedDate`     | `selecteddate`     |             | `Date \| undefined`                                | `undefined` |
+| `showHeader`       | `show-header`      |             | `boolean`                                          | `true`      |
 | `styleValue`       | `stylevalue`       |             | `string \| undefined`                              | `undefined` |
-| `year`             | `year`             |             | `number \| string`                                 | `2000`      |
+
+
+## Events
+
+| Event      | Description | Type                |
+| ---------- | ----------- | ------------------- |
+| `dayClick` |             | `CustomEvent<Date>` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [eui-calendar](..)
-
-### Depends on
-
-- [eui-month-card](.)
+ - [eui-datepicker](../../datepicker)
 
 ### Graph
 ```mermaid
 graph TD;
-  eui-year --> eui-month-card
-  eui-calendar --> eui-year
-  style eui-year fill:#f9f,stroke:#333,stroke-width:4px
+  eui-datepicker --> eui-year-card
+  style eui-year-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

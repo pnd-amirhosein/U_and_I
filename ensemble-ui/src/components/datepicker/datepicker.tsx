@@ -2,7 +2,7 @@ import { Component, h, State, Element, Listen, Prop, EventEmitter, Event, Watch 
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom';
 // import { deepGet } from '../../../packages/core/utils/helpers/deep'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
-import { CalendarViewEnum } from 'packages/core/utils/helpers/enums';
+import { DatepickerViewEnum } from 'packages/core/utils/helpers/enums';
 
 @Component({
     tag: 'eui-datepicker',
@@ -15,17 +15,15 @@ export class EUIDatepicker {
     @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop({ attribute: "displayField" }) displayField?: string;
     @Prop() placeholder: string = '';
-    // @Prop() data: any[] = [];
     @Prop() suggestions: any[] = [];
     @Prop({ attribute: "defaultValue" }) defaultValue: string = ''
     @Prop({ attribute: "noClearButton" }) noClearButton: boolean = false;
     @Prop() date: Date = new Date();
 
-
     @Event() itemSelected?: EventEmitter<any>;
 
     @State() currentDate: Date = new Date();
-    @State() currentViewMode: CalendarViewEnum = CalendarViewEnum.day;
+    @State() currentViewMode: DatepickerViewEnum = DatepickerViewEnum.month;
     @State() loading: boolean = false;
     @State() value: string = '';
 
@@ -47,9 +45,7 @@ export class EUIDatepicker {
         if (forceClose) this.isOpen = true;
         if (!this.isOpen) {
             this.suggestions = [];
-            // if (this.suggestions.length) {
             this.renderDatepicker();
-            // }
             this.isOpen = true
         } else {
             this.suggestions = []
@@ -194,8 +190,11 @@ export class EUIDatepicker {
                         // const day = new Date(this.currentDate).getDate();
 
                         switch (this.currentViewMode) {
-                            case CalendarViewEnum.day:
-                            case CalendarViewEnum.week:
+                            case DatepickerViewEnum.month:
+                                return (
+                                    <eui-year-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                )
+                            case DatepickerViewEnum.day:
                             default:
                                 return (
                                     <eui-month-card showHeader={false} month={month} year={+year} onDayClick={this.changeDay} holidayEventType="both" />
