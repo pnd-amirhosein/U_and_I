@@ -1,14 +1,12 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
-import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils';
 import { HolidayEventType } from 'packages/core/utils/helpers/types';
-import { Holiday } from 'packages/core/utils/helpers/types';
 
 @Component({
-    tag: 'eui-year-card',
+    tag: 'eui-decade-card',
     shadow: false,
     styleUrl: "../calendars.scss"
 })
-export class EUIYearCard {
+export class EUIDecadeCard {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
@@ -32,8 +30,6 @@ export class EUIYearCard {
 
     render() {
 
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] as const;
-
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
@@ -42,31 +38,33 @@ export class EUIYearCard {
             }, {} as Record<string, string>);
 
 
-        const holidayMap = new Map<string, Holiday[]>();
+        const year = this.currentDate.getFullYear();
+        const decadeStart = Math.floor(year / 10) * 10;
+        const decade = Array.from(
+            { length: 12 },
+            (_, i) => decadeStart - 1 + i
+        );
+
 
         return (
-            <div {...attrs} class="eui--yrcard">
+            <div {...attrs} class="eui--dcdcard">
 
-                <div class="months-grid">
-                    {months.map((month, i) => {
-                        const isCurrentMonth = monthNumberToText(this.currentDate.getMonth()) === month;
-                        const isWeekend = (i + 1) % 7 === 0;
-                        const key = `${this.currentDate.getFullYear()}-${this.currentDate.getMonth()}-${this.currentDate.getDate()}`;
-                        const dayHolidays = holidayMap.get(key) ?? [];
+                <div class="decade-grid">
+                    {decade.map(year => {
+                        const isCurrentYear = this.currentDate.getFullYear() === year;
+                        const prepostYear = Math.floor(this.currentDate.getFullYear() / 10) !== Math.floor(year / 10);
 
                         return (
                             <div
                                 class={{
-                                    'day-cell': true,
-                                    'is-current': isCurrentMonth,
+                                    'year-cell': true,
+                                    'is-current': isCurrentYear,
                                     'is-selected': false,
-                                    'is-weekend': isWeekend,
-                                    'is-holiday': dayHolidays.some(x => x.isHoliday) ?? false,
+                                    'is-next': prepostYear
                                 }}
-                                title={dayHolidays.map(h => h.name).join(' • ')}
                                 onClick={() => this.onClickEvent(this.currentDate)}
                             >
-                                {month}
+                                {year}
                             </div>
 
                         );

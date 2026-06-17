@@ -13,6 +13,7 @@ export const DIRECTIVES = [
   d.EuiChips,
   d.EuiDatepicker,
   d.EuiDayView,
+  d.EuiDecadeCard,
   d.EuiDialogue,
   d.EuiDropdown,
   d.EuiIcon,

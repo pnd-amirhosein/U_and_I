@@ -17,6 +17,7 @@ import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
 import { defineCustomElement as defineEuiDatepicker } from 'ensemble-ui/components/eui-datepicker.js';
 import { defineCustomElement as defineEuiDayView } from 'ensemble-ui/components/eui-day-view.js';
+import { defineCustomElement as defineEuiDecadeCard } from 'ensemble-ui/components/eui-decade-card.js';
 import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components/eui-dialogue.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
@@ -320,6 +321,34 @@ export class EuiDayView {
 
 
 export declare interface EuiDayView extends Components.EuiDayView {
+
+  dayClick: EventEmitter<CustomEvent<Date>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiDecadeCard,
+  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue']
+})
+@Component({
+  selector: 'eui-decade-card',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue'],
+  outputs: ['dayClick'],
+})
+export class EuiDecadeCard {
+  protected el: HTMLEuiDecadeCardElement;
+  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiDecadeCard extends Components.EuiDecadeCard {
 
   dayClick: EventEmitter<CustomEvent<Date>>;
 }

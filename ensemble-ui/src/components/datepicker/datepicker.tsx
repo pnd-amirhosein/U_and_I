@@ -23,7 +23,7 @@ export class EUIDatepicker {
     @Event() itemSelected?: EventEmitter<any>;
 
     @State() currentDate: Date = new Date();
-    @State() currentViewMode: DatepickerViewEnum = DatepickerViewEnum.month;
+    @State() currentViewMode: DatepickerViewEnum = DatepickerViewEnum.year;
     @State() loading: boolean = false;
     @State() value: string = '';
 
@@ -190,6 +190,10 @@ export class EUIDatepicker {
                         // const day = new Date(this.currentDate).getDate();
 
                         switch (this.currentViewMode) {
+                            case DatepickerViewEnum.year:
+                                return (
+                                    <eui-decade-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                )
                             case DatepickerViewEnum.month:
                                 return (
                                     <eui-year-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
