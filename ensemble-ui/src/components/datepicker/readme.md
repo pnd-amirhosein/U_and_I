@@ -29,20 +29,20 @@
 
 ### Depends on
 
+- [eui-icon](../icon)
 - [eui-decade-card](../calendars/eui-calendar-body)
 - [eui-year-card](../calendars/eui-calendar-body)
 - [eui-month-card](../calendars/eui-calendar-body)
 - [eui-input](../input)
-- [eui-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  eui-datepicker --> eui-icon
   eui-datepicker --> eui-decade-card
   eui-datepicker --> eui-year-card
   eui-datepicker --> eui-month-card
   eui-datepicker --> eui-input
-  eui-datepicker --> eui-icon
   eui-input --> eui-icon
   style eui-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```

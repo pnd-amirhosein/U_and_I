@@ -158,6 +158,9 @@ export class EUIDatepicker {
 
     }
 
+    nextDecade = () => { }
+    previousDecade = () => { }
+
     render() {
 
         console.log(this.defaultValue, this.value);
@@ -189,19 +192,82 @@ export class EUIDatepicker {
                         const month = new Date(this.currentDate).getMonth();
                         // const day = new Date(this.currentDate).getDate();
 
+                        const startingDecade = Math.floor(this.currentDate.getFullYear() / 10) * 10;
+                        const endingDecade = startingDecade + 9;
+
                         switch (this.currentViewMode) {
                             case DatepickerViewEnum.year:
                                 return (
-                                    <eui-decade-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                    <div class="date-container">
+                                        <div class="topbar">
+                                            <eui-icon
+                                                name="arrow-left"
+                                                type="mini"
+                                                class="menu-opener"
+                                                onClick={this.previousDecade}
+                                            ></eui-icon>
+                                            <div class="decade-value">
+                                                <span class="start">{startingDecade}</span>
+                                                <span class="start">-</span>
+                                                <span class="start">{endingDecade}</span>
+                                            </div>
+                                            <eui-icon
+                                                name="arrow-right"
+                                                type="mini"
+                                                class="menu-opener"
+                                                onClick={this.nextDecade}
+                                            ></eui-icon>
+                                        </div>
+                                        <eui-decade-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                    </div>
                                 )
                             case DatepickerViewEnum.month:
                                 return (
-                                    <eui-year-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                    <div class="date-container">
+                                        <div class="topbar">
+                                            <eui-icon
+                                                name="arrow-left"
+                                                type="mini"
+                                                class="menu-opener"
+                                                onClick={this.previousDecade}
+                                            ></eui-icon>
+                                            <div class="decade-value">
+                                                <span class="year">{year}</span>
+                                            </div>
+                                            <eui-icon
+                                                name="arrow-right"
+                                                type="mini"
+                                                class="menu-opener"
+                                                onClick={this.nextDecade}
+                                            ></eui-icon>
+                                        </div>
+                                        <eui-year-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                    </div>
                                 )
                             case DatepickerViewEnum.day:
                             default:
                                 return (
-                                    <eui-month-card showHeader={false} month={month} year={+year} onDayClick={this.changeDay} holidayEventType="both" />
+                                    <div class="date-container">
+                                        <div class="topbar">
+                                            <eui-icon
+                                                name="arrow-left"
+                                                type="mini"
+                                                class="menu-opener"
+                                                onClick={this.previousDecade}
+                                            ></eui-icon>
+                                            <div class="decade-value">
+                                                <span class="year">{year}/{month}</span>
+                                            </div>
+                                            <eui-icon
+                                                name="arrow-right"
+                                                type="mini"
+                                                class="menu-opener"
+                                                onClick={this.nextDecade}
+                                            ></eui-icon>
+
+                                        </div>
+                                        <eui-month-card showHeader={false} month={month} year={+year} onDayClick={this.changeDay} holidayEventType="both" />
+                                    </div>
                                 )
                         }
 
@@ -216,15 +282,8 @@ export class EUIDatepicker {
                     {...attrs}
                 >
                     <span class="icon-end" slot="icon-end">
-                        {this.loading && (
-                            <eui-icon
-                                name="third-spinner"
-                                type="mini"
-                                class="rotate"
-                            ></eui-icon>
-                        )}
                         <eui-icon
-                            name="chevron-down"
+                            name="calendar"
                             type="mini"
                             class="menu-opener"
                             onClick={() => this.openCloseDatepicker()}

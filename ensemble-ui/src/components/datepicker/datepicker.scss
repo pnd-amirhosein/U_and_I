@@ -29,6 +29,24 @@
             background-color: var(--color-neutral-900);
         }
     }
+
+    .date-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md);
+
+            &>span {
+                font-size: var(--font-h4-fontSize);
+                font-weight: var(--font-h4-fontWeight);
+            }
+        }
+    }
 }
 
 .icon-end {
