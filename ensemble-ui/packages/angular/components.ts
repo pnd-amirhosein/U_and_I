@@ -15,6 +15,7 @@ import { defineCustomElement as defineEuiCalendarNavigator } from 'ensemble-ui/c
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
 import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components/eui-checkbox.js';
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
+import { defineCustomElement as defineEuiDatepicker } from 'ensemble-ui/components/eui-datepicker.js';
 import { defineCustomElement as defineEuiDayView } from 'ensemble-ui/components/eui-day-view.js';
 import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components/eui-dialogue.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
@@ -268,6 +269,34 @@ export declare interface EuiChips extends Components.EuiChips {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineEuiDatepicker,
+  inputs: ['date', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions']
+})
+@Component({
+  selector: 'eui-datepicker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['date', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
+  outputs: ['itemSelected'],
+})
+export class EuiDatepicker {
+  protected el: HTMLEuiDatepickerElement;
+  @Output() itemSelected = new EventEmitter<CustomEvent<any>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiDatepicker extends Components.EuiDatepicker {
+
+  itemSelected: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
   defineCustomElementFn: defineEuiDayView,
   inputs: ['calendarEvents', 'day', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'week', 'year']
 })
@@ -411,14 +440,14 @@ export declare interface EuiInput extends Components.EuiInput {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiMonthCard,
-  inputs: ['holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'year']
+  inputs: ['holidayEventType', 'interactive', 'month', 'selectedDate', 'showHeader', 'styleValue', 'year']
 })
 @Component({
   selector: 'eui-month-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'styleValue', { name: 'year', required: true }],
+  inputs: ['holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'showHeader', 'styleValue', { name: 'year', required: true }],
   outputs: ['dayClick'],
 })
 export class EuiMonthCard {

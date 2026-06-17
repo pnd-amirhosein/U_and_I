@@ -101,4 +101,7 @@ export class App {
   public openCalendar() {
     this.router.navigateByUrl("/calendar")
   }
+  public openDatepicker() {
+    this.router.navigateByUrl("/datepicker")
+  }
 }

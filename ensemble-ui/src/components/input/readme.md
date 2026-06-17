@@ -40,6 +40,7 @@
 
  - [eui-auto-complete](../autocomplete)
  - [eui-chips](../chips)
+ - [eui-datepicker](../datepicker)
  - [eui-dropdown](../dropdown)
 
 ### Depends on
@@ -52,6 +53,7 @@ graph TD;
   eui-input --> eui-icon
   eui-auto-complete --> eui-input
   eui-chips --> eui-input
+  eui-datepicker --> eui-input
   eui-dropdown --> eui-input
   style eui-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

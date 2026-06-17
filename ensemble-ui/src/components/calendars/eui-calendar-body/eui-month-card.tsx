@@ -18,6 +18,7 @@ export class EUIMonthCard {
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;
     @Prop() interactive: boolean = true;
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
+    @Prop() showHeader: boolean = true
 
     @Event() dayClick?: EventEmitter<Date>;
 
@@ -66,11 +67,15 @@ export class EUIMonthCard {
         return (
             <div {...attrs} class="eui--mntcard">
 
-                <div class="weekdays">
-                    {weekdays.map((day, i) => (
-                        <div class={`weekday ${((i + 1) === 7) ? "weekend" : ""}`}>{day}</div>
-                    ))}
-                </div>
+                {(() => {
+                    if (this.showHeader)
+                        return (<div class="weekdays">
+                            {weekdays.map((day, i) => (
+                                <div class={`weekday ${((i + 1) === 7) ? "weekend" : ""}`}>{day}</div>
+                            ))}
+                        </div>)
+                    else return (<></>)
+                })()}
 
                 <div class="days-grid">
                     {days.map((date, i) => {

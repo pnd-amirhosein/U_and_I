@@ -147,6 +147,30 @@ export namespace Components {
          */
         "suggestions": any[];
     }
+    interface EuiDatepicker {
+        /**
+          * @default new Date()
+         */
+        "date": Date;
+        /**
+          * @default ''
+         */
+        "defaultValue": string;
+        "displayField"?: string;
+        /**
+          * @default false
+         */
+        "noClearButton": boolean;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        "styleValue"?: string;
+        /**
+          * @default []
+         */
+        "suggestions": any[];
+    }
     interface EuiDayView {
         /**
           * @default []
@@ -263,6 +287,10 @@ export namespace Components {
         "interactive": boolean;
         "month": number;
         "selectedDate"?: Date;
+        /**
+          * @default true
+         */
+        "showHeader": boolean;
         "styleValue"?: string;
         "year": number;
     }
@@ -413,6 +441,10 @@ export interface EuiChipsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiChipsElement;
 }
+export interface EuiDatepickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiDatepickerElement;
+}
 export interface EuiDayViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiDayViewElement;
@@ -559,6 +591,23 @@ declare global {
     var HTMLEuiChipsElement: {
         prototype: HTMLEuiChipsElement;
         new (): HTMLEuiChipsElement;
+    };
+    interface HTMLEuiDatepickerElementEventMap {
+        "itemSelected": any;
+    }
+    interface HTMLEuiDatepickerElement extends Components.EuiDatepicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiDatepickerElementEventMap>(type: K, listener: (this: HTMLEuiDatepickerElement, ev: EuiDatepickerCustomEvent<HTMLEuiDatepickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiDatepickerElementEventMap>(type: K, listener: (this: HTMLEuiDatepickerElement, ev: EuiDatepickerCustomEvent<HTMLEuiDatepickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiDatepickerElement: {
+        prototype: HTMLEuiDatepickerElement;
+        new (): HTMLEuiDatepickerElement;
     };
     interface HTMLEuiDayViewElementEventMap {
         "dayClick": Date;
@@ -763,6 +812,7 @@ declare global {
         "eui-card": HTMLEuiCardElement;
         "eui-checkbox": HTMLEuiCheckboxElement;
         "eui-chips": HTMLEuiChipsElement;
+        "eui-datepicker": HTMLEuiDatepickerElement;
         "eui-day-view": HTMLEuiDayViewElement;
         "eui-dialogue": HTMLEuiDialogueElement;
         "eui-dropdown": HTMLEuiDropdownElement;
@@ -922,6 +972,31 @@ declare namespace LocalJSX {
          */
         "suggestions"?: any[];
     }
+    interface EuiDatepicker {
+        /**
+          * @default new Date()
+         */
+        "date"?: Date;
+        /**
+          * @default ''
+         */
+        "defaultValue"?: string;
+        "displayField"?: string;
+        /**
+          * @default false
+         */
+        "noClearButton"?: boolean;
+        "onItemSelected"?: (event: EuiDatepickerCustomEvent<any>) => void;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        "styleValue"?: string;
+        /**
+          * @default []
+         */
+        "suggestions"?: any[];
+    }
     interface EuiDayView {
         /**
           * @default []
@@ -1046,6 +1121,10 @@ declare namespace LocalJSX {
         "month": number;
         "onDayClick"?: (event: EuiMonthCardCustomEvent<Date>) => void;
         "selectedDate"?: Date;
+        /**
+          * @default true
+         */
+        "showHeader"?: boolean;
         "styleValue"?: string;
         "year": number;
     }
@@ -1190,6 +1269,7 @@ declare namespace LocalJSX {
         "eui-card": EuiCard;
         "eui-checkbox": EuiCheckbox;
         "eui-chips": EuiChips;
+        "eui-datepicker": EuiDatepicker;
         "eui-day-view": EuiDayView;
         "eui-dialogue": EuiDialogue;
         "eui-dropdown": EuiDropdown;
@@ -1220,6 +1300,7 @@ declare module "@stencil/core" {
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
+            "eui-datepicker": LocalJSX.EuiDatepicker & JSXBase.HTMLAttributes<HTMLEuiDatepickerElement>;
             "eui-day-view": LocalJSX.EuiDayView & JSXBase.HTMLAttributes<HTMLEuiDayViewElement>;
             "eui-dialogue": LocalJSX.EuiDialogue & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;

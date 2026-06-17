@@ -22,6 +22,7 @@
  - [eui-calendar-navigator](../calendars/eui-calendar-body)
  - [eui-checkbox](../checkbox)
  - [eui-chips](../chips)
+ - [eui-datepicker](../datepicker)
  - [eui-dialogue](../dialogue)
  - [eui-dropdown](../dropdown)
  - [eui-input](../input)
@@ -35,6 +36,7 @@ graph TD;
   eui-calendar-navigator --> eui-icon
   eui-checkbox --> eui-icon
   eui-chips --> eui-icon
+  eui-datepicker --> eui-icon
   eui-dialogue --> eui-icon
   eui-dropdown --> eui-icon
   eui-input --> eui-icon

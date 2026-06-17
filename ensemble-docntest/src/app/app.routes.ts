@@ -17,6 +17,7 @@ import { FontComponent } from './font.component';
 import { StepperComponent } from './stepper.component';
 import { StatComponent } from './stat.component';
 import { CalendarComponent } from './calendar.component';
+import { DatepickerComponent } from './datepicker.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -36,6 +37,7 @@ export const routes: Routes = [
     { path: "font", component: FontComponent },
     { path: "stepper", component: StepperComponent },
     { path: "stat", component: StatComponent },
-    { path: "calendar", component: CalendarComponent },
+    { path: "calendar", component: CalendarComponent }, 
+    { path: "datepicker", component: DatepickerComponent }, 
 
 ];

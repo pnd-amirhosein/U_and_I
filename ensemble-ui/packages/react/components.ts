@@ -13,6 +13,7 @@ export { EuiCalendar } from "./eui-calendar.js";
 export { EuiCard } from "./eui-card.js";
 export { EuiCheckbox } from "./eui-checkbox.js";
 export { EuiChips } from "./eui-chips.js";
+export { EuiDatepicker } from "./eui-datepicker.js";
 export { EuiDayView } from "./eui-day-view.js";
 export { EuiDialogue } from "./eui-dialogue.js";
 export { EuiDropdown } from "./eui-dropdown.js";

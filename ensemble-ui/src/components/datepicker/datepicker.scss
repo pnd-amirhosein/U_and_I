@@ -1,0 +1,37 @@
+.date-context-menu {
+    background: var(--color-neutral-50);
+    color: var(--color-neutral-900);
+    border: 1px solid var(--color-neutral-500);
+    border-radius: var(--radius-lg);
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    padding: 0;
+    overflow-y: auto;
+    font-size: var(--font-paragraph-fontSize);
+    font-weight: var(--font-paragraph-fontWeight);
+    font-family: inherit;
+    opacity: 0;
+    transform: translateY(calc(var(--space-sm) * -1));
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+
+    &[style*="visibility: visible"] {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .eui--mntcard {
+        border: unset !important;
+    }
+}
+
+.icon-end {
+    display: flex;
+}
+
+@media (prefers-color-scheme: dark) {
+    .date-context-menu {
+        background: var(--color-neutral-900);
+        color: var(--color-neutral-50);
+    }
+}
