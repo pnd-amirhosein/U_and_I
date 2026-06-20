@@ -11,6 +11,7 @@ export class EUIDecadeCard {
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;
+    @Prop({ attribute: "startingYear" }) startingYear?: number;
     @Prop() interactive: boolean = true;
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
     @Prop() showHeader: boolean = true
@@ -30,6 +31,8 @@ export class EUIDecadeCard {
 
     render() {
 
+
+
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
@@ -39,12 +42,13 @@ export class EUIDecadeCard {
 
 
         const year = this.currentDate.getFullYear();
-        const decadeStart = Math.floor(year / 10) * 10;
+        const decadeStart = this.startingYear ?? Math.floor(year / 10) * 10;
         const decade = Array.from(
             { length: 12 },
             (_, i) => decadeStart - 1 + i
         );
 
+        console.log(this.currentDate, this.startingYear, year, decadeStart, decade, this.startingYear);
 
         return (
             <div {...attrs} class="eui--dcdcard">
@@ -52,7 +56,7 @@ export class EUIDecadeCard {
                 <div class="decade-grid">
                     {decade.map(year => {
                         const isCurrentYear = this.currentDate.getFullYear() === year;
-                        const prepostYear = Math.floor(this.currentDate.getFullYear() / 10) !== Math.floor(year / 10);
+                        const prepostYear = Math.floor(decadeStart / 10) !== Math.floor(year / 10);
 
                         return (
                             <div

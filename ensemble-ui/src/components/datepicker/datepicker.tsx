@@ -3,6 +3,7 @@ import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/d
 // import { deepGet } from '../../../packages/core/utils/helpers/deep'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { DatepickerViewEnum } from 'packages/core/utils/helpers/enums';
+import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils';
 
 @Component({
     tag: 'eui-datepicker',
@@ -26,6 +27,7 @@ export class EUIDatepicker {
     @State() currentViewMode: DatepickerViewEnum = DatepickerViewEnum.year;
     @State() loading: boolean = false;
     @State() value: string = '';
+    @State() currentDecade: number[] = [1900 - 1909]
 
     private datepickerClicked = false;
     private isOpen = false;
@@ -152,6 +154,10 @@ export class EUIDatepicker {
         if (this.defaultValue !== undefined && this.defaultValue !== '') {
             this.value = this.defaultValue;
         }
+
+        const startingDecade = Math.floor(this.currentDate.getFullYear() / 10) * 10;
+        const endingDecade = startingDecade + 9;
+        this.currentDecade = [startingDecade, endingDecade]
     }
 
     changeDay = () => {
@@ -170,12 +176,23 @@ export class EUIDatepicker {
         this.currentViewMode = DatepickerViewEnum.year;
     }
 
-    nextDecade = () => { }
-    previousDecade = () => { }
+    nextDecade = () => {
+        this.currentDecade = [this.currentDecade[0] + 10, this.currentDecade[1] + 10];
+    }
+    previousDecade = () => {
+        this.currentDecade = [this.currentDecade[0] - 10, this.currentDecade[1] - 10];
+    }
+
+    nextDay = () => {
+        this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() + 1)
+    }
+    previousDay = () => {
+        this.currentDate = new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), this.currentDate.getDate() - 1)
+    }
 
     render() {
 
-        console.log(this.defaultValue, this.value);
+        console.log("currentDecade: ", this.currentDecade);
 
 
         // Grab all native attributes except props we handle
@@ -204,9 +221,6 @@ export class EUIDatepicker {
                         const month = new Date(this.currentDate).getMonth();
                         // const day = new Date(this.currentDate).getDate();
 
-                        const startingDecade = Math.floor(this.currentDate.getFullYear() / 10) * 10;
-                        const endingDecade = startingDecade + 9;
-
                         switch (this.currentViewMode) {
                             case DatepickerViewEnum.year:
                                 return (
@@ -218,10 +232,10 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="decade-value" onClick={this.changeToDay}>
-                                                <span class="start">{startingDecade}</span>
+                                            <div class="central-value" onClick={this.changeToDay}>
+                                                <span class="start">{this.currentDecade[0]}</span>
                                                 <span class="start">-</span>
-                                                <span class="start">{endingDecade}</span>
+                                                <span class="start">{this.currentDecade[1]}</span>
                                             </div>
                                             <eui-icon
                                                 name="arrow-right"
@@ -230,7 +244,7 @@ export class EUIDatepicker {
                                                 onClick={this.nextDecade}
                                             ></eui-icon>
                                         </div>
-                                        <eui-decade-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                        <eui-decade-card showHeader={false} startingYear={this.currentDecade[0]} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
                                     </div>
                                 )
                             case DatepickerViewEnum.month:
@@ -243,7 +257,7 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="decade-value" onClick={this.changeToYear}>
+                                            <div class="central-value" onClick={this.changeToYear}>
                                                 <span class="year">{year}</span>
                                             </div>
                                             <eui-icon
@@ -267,8 +281,8 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="decade-value" onClick={this.changeToMonth}>
-                                                <span class="year">{year}/{month}</span>
+                                            <div class="central-value" onClick={this.changeToMonth}>
+                                                <span class="year">{year}, {monthNumberToText(month, "short")}</span>
                                             </div>
                                             <eui-icon
                                                 name="arrow-right"

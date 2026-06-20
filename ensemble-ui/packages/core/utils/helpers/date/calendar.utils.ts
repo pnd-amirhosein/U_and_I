@@ -97,8 +97,5 @@ export function getCurrentWeekIndex(date: Date, correctGridInput?: Date[]): numb
 
     const index = weekAnchor.findIndex((_, index) => date <= weekAnchor[index + 1])
 
-    console.log("From getCurrentWeekIndex: ", weekAnchor, index);
-
-
     return index;
 }

@@ -328,14 +328,14 @@ export declare interface EuiDayView extends Components.EuiDayView {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDecadeCard,
-  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue']
+  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'startingYear', 'styleValue']
 })
 @Component({
   selector: 'eui-decade-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue'],
+  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'startingYear', 'styleValue'],
   outputs: ['dayClick'],
 })
 export class EuiDecadeCard {

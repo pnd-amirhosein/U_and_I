@@ -205,6 +205,7 @@ export namespace Components {
           * @default true
          */
         "showHeader": boolean;
+        "startingYear"?: number;
         "styleValue"?: string;
     }
     interface EuiDialogue {
@@ -1109,6 +1110,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "showHeader"?: boolean;
+        "startingYear"?: number;
         "styleValue"?: string;
     }
     interface EuiDialogue {
