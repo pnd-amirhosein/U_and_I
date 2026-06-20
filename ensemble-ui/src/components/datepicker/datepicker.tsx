@@ -4,6 +4,7 @@ import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/d
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { DatepickerViewEnum } from 'packages/core/utils/helpers/enums';
 import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils';
+import { EuiYearCardCustomEvent } from 'src/components';
 
 @Component({
     tag: 'eui-datepicker',
@@ -163,8 +164,9 @@ export class EUIDatepicker {
         this.currentYear = this.date.getFullYear();
     }
 
-    changeDay = () => {
-
+    changeDay = (e: EuiYearCardCustomEvent<Date>) => {
+        this.currentDate = new Date(e.detail);
+        this.openCloseDatepicker()
     }
 
     changeToDay = () => {
