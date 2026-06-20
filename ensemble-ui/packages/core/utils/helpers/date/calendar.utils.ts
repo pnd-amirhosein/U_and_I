@@ -28,8 +28,18 @@ export function removeExtraWeek(days: Date[], month: number): Date[] {
     return allOutside ? days.slice(0, -7) : days;
 }
 
-export function monthNumberToText(month: number, locale = "en-US", format: "long" | "short" | "narrow" = "long") {
+export function monthNumberToText(month: number, format: "long" | "short" | "narrow" = "long",locale = "en-US") {
     return new Date(2000, month).toLocaleString(locale, { month: format });
+}
+
+export const MONTHS = Array.from({ length: 12 }, (_, i) =>
+    new Date(2000, i).toLocaleString("en-US", { month: "long" })
+);
+
+export function monthTextToNumber(monthName: string): number {
+    return MONTHS.findIndex(
+        m => m.toLowerCase() === monthName.toLowerCase()
+    );
 }
 
 export function formatHour12(date: Date): string {

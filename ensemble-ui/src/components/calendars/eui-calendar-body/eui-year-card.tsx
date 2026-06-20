@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
-import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils';
+import { monthNumberToText, monthTextToNumber } from 'packages/core/utils/helpers/date/calendar.utils';
 import { HolidayEventType } from 'packages/core/utils/helpers/types';
 import { Holiday } from 'packages/core/utils/helpers/types';
 
@@ -17,7 +17,7 @@ export class EUIYearCard {
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
     @Prop() showHeader: boolean = true
 
-    @Event() dayClick?: EventEmitter<Date>;
+    @Event() monthClick?: EventEmitter<Date>;
 
     @State() currentDate: Date = new Date();
 
@@ -25,9 +25,10 @@ export class EUIYearCard {
         this.currentDate = this.selectedDate ?? new Date();
     }
 
-    onClickEvent = (date: Date) => {
-        this.dayClick?.emit(date);
-        this.currentDate = date;
+    onClickEvent = (month: number) => {
+
+        this.currentDate = new Date(this.currentDate.getFullYear(), month, this.currentDate.getDate());
+        this.monthClick?.emit(this.currentDate);
     }
 
     render() {
@@ -64,7 +65,7 @@ export class EUIYearCard {
                                     'is-holiday': dayHolidays.some(x => x.isHoliday) ?? false,
                                 }}
                                 title={dayHolidays.map(h => h.name).join(' • ')}
-                                onClick={() => this.onClickEvent(this.currentDate)}
+                                onClick={() => this.onClickEvent(monthTextToNumber(month))}
                             >
                                 {month}
                             </div>

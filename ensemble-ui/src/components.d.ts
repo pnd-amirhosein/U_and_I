@@ -634,7 +634,7 @@ declare global {
         new (): HTMLEuiChipsElement;
     };
     interface HTMLEuiDatepickerElementEventMap {
-        "itemSelected": any;
+        "dateChanged": Date;
     }
     interface HTMLEuiDatepickerElement extends Components.EuiDatepicker, HTMLStencilElement {
         addEventListener<K extends keyof HTMLEuiDatepickerElementEventMap>(type: K, listener: (this: HTMLEuiDatepickerElement, ev: EuiDatepickerCustomEvent<HTMLEuiDatepickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -668,7 +668,7 @@ declare global {
         new (): HTMLEuiDayViewElement;
     };
     interface HTMLEuiDecadeCardElementEventMap {
-        "dayClick": Date;
+        "yearClick": Date;
     }
     interface HTMLEuiDecadeCardElement extends Components.EuiDecadeCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLEuiDecadeCardElementEventMap>(type: K, listener: (this: HTMLEuiDecadeCardElement, ev: EuiDecadeCardCustomEvent<HTMLEuiDecadeCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -861,7 +861,7 @@ declare global {
         new (): HTMLEuiYearElement;
     };
     interface HTMLEuiYearCardElementEventMap {
-        "dayClick": Date;
+        "monthClick": Date;
     }
     interface HTMLEuiYearCardElement extends Components.EuiYearCard, HTMLStencilElement {
         addEventListener<K extends keyof HTMLEuiYearCardElementEventMap>(type: K, listener: (this: HTMLEuiYearCardElement, ev: EuiYearCardCustomEvent<HTMLEuiYearCardElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1063,7 +1063,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "noClearButton"?: boolean;
-        "onItemSelected"?: (event: EuiDatepickerCustomEvent<any>) => void;
+        "onDateChanged"?: (event: EuiDatepickerCustomEvent<Date>) => void;
         /**
           * @default ''
          */
@@ -1104,7 +1104,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
-        "onDayClick"?: (event: EuiDecadeCardCustomEvent<Date>) => void;
+        "onYearClick"?: (event: EuiDecadeCardCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         /**
           * @default true
@@ -1363,7 +1363,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
-        "onDayClick"?: (event: EuiYearCardCustomEvent<Date>) => void;
+        "onMonthClick"?: (event: EuiYearCardCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         /**
           * @default true

@@ -13,13 +13,13 @@ import { type EuiYearCardCustomEvent } from "ensemble-ui";
 import { EuiYearCard as EuiYearCardElement, defineCustomElement as defineEuiYearCard } from "ensemble-ui/dist/components/eui-year-card.js";
 import React from 'react';
 
-export type EuiYearCardEvents = { onDayClick: EventName<EuiYearCardCustomEvent<Date>> };
+export type EuiYearCardEvents = { onMonthClick: EventName<EuiYearCardCustomEvent<Date>> };
 
 export const EuiYearCard: StencilReactComponent<EuiYearCardElement, EuiYearCardEvents> = /*@__PURE__*/ createComponent<EuiYearCardElement, EuiYearCardEvents>({
     tagName: 'eui-year-card',
     elementClass: EuiYearCardElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onDayClick: 'dayClick' } as EuiYearCardEvents,
+    events: { onMonthClick: 'monthClick' } as EuiYearCardEvents,
     defineCustomElement: defineEuiYearCard
 });

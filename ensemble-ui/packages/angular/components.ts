@@ -280,11 +280,11 @@ export declare interface EuiChips extends Components.EuiChips {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['date', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
-  outputs: ['itemSelected'],
+  outputs: ['dateChanged'],
 })
 export class EuiDatepicker {
   protected el: HTMLEuiDatepickerElement;
-  @Output() itemSelected = new EventEmitter<CustomEvent<any>>();
+  @Output() dateChanged = new EventEmitter<CustomEvent<Date>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -294,7 +294,7 @@ export class EuiDatepicker {
 
 export declare interface EuiDatepicker extends Components.EuiDatepicker {
 
-  itemSelected: EventEmitter<CustomEvent<any>>;
+  dateChanged: EventEmitter<CustomEvent<Date>>;
 }
 
 
@@ -336,11 +336,11 @@ export declare interface EuiDayView extends Components.EuiDayView {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'startingYear', 'styleValue'],
-  outputs: ['dayClick'],
+  outputs: ['yearClick'],
 })
 export class EuiDecadeCard {
   protected el: HTMLEuiDecadeCardElement;
-  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  @Output() yearClick = new EventEmitter<CustomEvent<Date>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -350,7 +350,7 @@ export class EuiDecadeCard {
 
 export declare interface EuiDecadeCard extends Components.EuiDecadeCard {
 
-  dayClick: EventEmitter<CustomEvent<Date>>;
+  yearClick: EventEmitter<CustomEvent<Date>>;
 }
 
 
@@ -738,11 +738,11 @@ export declare interface EuiYear extends Components.EuiYear {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue'],
-  outputs: ['dayClick'],
+  outputs: ['monthClick'],
 })
 export class EuiYearCard {
   protected el: HTMLEuiYearCardElement;
-  @Output() dayClick = new EventEmitter<CustomEvent<Date>>();
+  @Output() monthClick = new EventEmitter<CustomEvent<Date>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -752,7 +752,7 @@ export class EuiYearCard {
 
 export declare interface EuiYearCard extends Components.EuiYearCard {
 
-  dayClick: EventEmitter<CustomEvent<Date>>;
+  monthClick: EventEmitter<CustomEvent<Date>>;
 }
 
 

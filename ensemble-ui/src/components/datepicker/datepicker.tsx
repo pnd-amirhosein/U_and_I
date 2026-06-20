@@ -4,7 +4,7 @@ import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/d
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { DatepickerViewEnum } from 'packages/core/utils/helpers/enums';
 import { monthNumberToText } from 'packages/core/utils/helpers/date/calendar.utils';
-import { EuiYearCardCustomEvent } from 'src/components';
+import { EuiDecadeCardCustomEvent, EuiYearCardCustomEvent } from 'src/components';
 
 @Component({
     tag: 'eui-datepicker',
@@ -22,10 +22,10 @@ export class EUIDatepicker {
     @Prop({ attribute: "noClearButton" }) noClearButton: boolean = false;
     @Prop() date: Date = new Date();
 
-    @Event() itemSelected?: EventEmitter<any>;
+    @Event() dateChanged?: EventEmitter<Date>;
 
     @State() currentDate: Date = new Date();
-    @State() currentViewMode: DatepickerViewEnum = DatepickerViewEnum.year;
+    @State() currentViewMode: DatepickerViewEnum = DatepickerViewEnum.day;
     @State() loading: boolean = false;
     @State() currentDecade: number[] = [1900 - 1909]
     @State() currentMonth?: number
@@ -165,19 +165,27 @@ export class EUIDatepicker {
     }
 
     changeDay = (e: EuiYearCardCustomEvent<Date>) => {
-        this.currentDate = new Date(e.detail);
+        this.currentDate = new Date(this.currentYear ?? this.currentDate.getFullYear(),
+            this.currentMonth ?? this.currentDate.getMonth(), e.detail.getDate());
+        this.dateChanged?.emit(this.currentDate)
         this.openCloseDatepicker()
     }
+    changeMonth = (e: EuiYearCardCustomEvent<Date>) => {
+        this.currentMonth = e.detail.getMonth() ?? this.currentDate.getMonth()
+        this.changeViewToDay()
+    }
+    changeYear = (e: EuiDecadeCardCustomEvent<Date>) => {
+        this.currentYear = e.detail.getFullYear() ?? this.currentDate.getFullYear()
+        this.changeViewToMonth()
+    }
 
-    changeToDay = () => {
+    changeViewToDay = () => {
         this.currentViewMode = DatepickerViewEnum.day;
     }
-
-    changeToMonth = () => {
+    changeViewToMonth = () => {
         this.currentViewMode = DatepickerViewEnum.month;
     }
-
-    changeToYear = () => {
+    changeViewToYear = () => {
         this.currentViewMode = DatepickerViewEnum.year;
     }
 
@@ -244,7 +252,7 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="central-value" onClick={this.changeToDay}>
+                                            <div class="central-value" onClick={this.changeViewToDay}>
                                                 <span class="start">{this.currentDecade[0]}</span>
                                                 <span class="start">-</span>
                                                 <span class="start">{this.currentDecade[1]}</span>
@@ -256,7 +264,7 @@ export class EUIDatepicker {
                                                 onClick={this.nextDecade}
                                             ></eui-icon>
                                         </div>
-                                        <eui-decade-card showHeader={false} startingYear={this.currentDecade[0]} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                        <eui-decade-card showHeader={false} startingYear={this.currentDecade[0]} selectedDate={this.currentDate} onYearClick={this.changeYear} holidayEventType="both" />
                                     </div>
                                 )
                             case DatepickerViewEnum.month:
@@ -269,7 +277,7 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousYear}
                                             ></eui-icon>
-                                            <div class="central-value" onClick={this.changeToYear}>
+                                            <div class="central-value" onClick={this.changeViewToYear}>
                                                 <span class="year">{year}</span>
                                             </div>
                                             <eui-icon
@@ -279,7 +287,7 @@ export class EUIDatepicker {
                                                 onClick={this.nextYear}
                                             ></eui-icon>
                                         </div>
-                                        <eui-year-card showHeader={false} selectedDate={this.currentDate} onDayClick={this.changeDay} holidayEventType="both" />
+                                        <eui-year-card showHeader={false} selectedDate={this.currentDate} onMonthClick={this.changeMonth} holidayEventType="both" />
                                     </div>
                                 )
                             case DatepickerViewEnum.day:
@@ -293,8 +301,8 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousMonth}
                                             ></eui-icon>
-                                            <div class="central-value" onClick={this.changeToMonth}>
-                                                <span class="year">{year}, {monthNumberToText(month)}</span>
+                                            <div class="central-value" onClick={this.changeViewToMonth}>
+                                                <span class="year">{year}, {monthNumberToText(month, "short")}</span>
                                             </div>
                                             <eui-icon
                                                 name="arrow-right"

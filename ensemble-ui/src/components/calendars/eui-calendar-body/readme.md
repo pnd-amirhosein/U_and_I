@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event      | Description | Type                |
-| ---------- | ----------- | ------------------- |
-| `dayClick` |             | `CustomEvent<Date>` |
+| Event        | Description | Type                |
+| ------------ | ----------- | ------------------- |
+| `monthClick` |             | `CustomEvent<Date>` |
 
 
 ## Dependencies

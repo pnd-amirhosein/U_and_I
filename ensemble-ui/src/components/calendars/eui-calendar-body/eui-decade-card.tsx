@@ -16,7 +16,7 @@ export class EUIDecadeCard {
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
     @Prop() showHeader: boolean = true
 
-    @Event() dayClick?: EventEmitter<Date>;
+    @Event() yearClick?: EventEmitter<Date>;
 
     @State() currentDate: Date = new Date();
 
@@ -24,9 +24,9 @@ export class EUIDecadeCard {
         this.currentDate = this.selectedDate ?? new Date();
     }
 
-    onClickEvent = (date: Date) => {
-        this.dayClick?.emit(date);
-        this.currentDate = date;
+    onClickEvent = (year: number) => {
+        this.currentDate = new Date(year, this.currentDate.getMonth(), this.currentDate.getDate());
+        this.yearClick?.emit(this.currentDate);
     }
 
     render() {
@@ -66,7 +66,7 @@ export class EUIDecadeCard {
                                     'is-selected': false,
                                     'is-next': prepostYear
                                 }}
-                                onClick={() => this.onClickEvent(this.currentDate)}
+                                onClick={() => this.onClickEvent(year)}
                             >
                                 {year}
                             </div>

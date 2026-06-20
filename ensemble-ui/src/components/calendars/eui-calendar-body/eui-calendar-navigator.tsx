@@ -115,7 +115,7 @@ export class EUICalendarNavigator {
                     min: 0,
                     max: 11,
                     value: this.currentDate.getMonth(),
-                    text: monthNumberToText(this.currentDate.getMonth(), "en-US", "short")
+                    text: monthNumberToText(this.currentDate.getMonth(), "short")
                 };
 
             case CalendarViewEnum.year:

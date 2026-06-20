@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event          | Description | Type               |
-| -------------- | ----------- | ------------------ |
-| `itemSelected` |             | `CustomEvent<any>` |
+| Event         | Description | Type                |
+| ------------- | ----------- | ------------------- |
+| `dateChanged` |             | `CustomEvent<Date>` |
 
 
 ## Dependencies
