@@ -7,7 +7,7 @@ import { fakeProduct } from "./fakeData.const";
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   standalone: true,
   template: `
-    <div class="doc">
+    <div class="doc" style="height: 30vh;">
       <span class="flex">
         <h4 class="title">Dropdown by title</h4>
         <eui-datepicker

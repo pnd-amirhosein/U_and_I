@@ -158,6 +158,18 @@ export class EUIDatepicker {
 
     }
 
+    changeToDay = () => {
+        this.currentViewMode = DatepickerViewEnum.day;
+    }
+
+    changeToMonth = () => {
+        this.currentViewMode = DatepickerViewEnum.month;
+    }
+
+    changeToYear = () => {
+        this.currentViewMode = DatepickerViewEnum.year;
+    }
+
     nextDecade = () => { }
     previousDecade = () => { }
 
@@ -206,7 +218,7 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="decade-value">
+                                            <div class="decade-value" onClick={this.changeToDay}>
                                                 <span class="start">{startingDecade}</span>
                                                 <span class="start">-</span>
                                                 <span class="start">{endingDecade}</span>
@@ -231,7 +243,7 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="decade-value">
+                                            <div class="decade-value" onClick={this.changeToYear}>
                                                 <span class="year">{year}</span>
                                             </div>
                                             <eui-icon
@@ -255,7 +267,7 @@ export class EUIDatepicker {
                                                 class="menu-opener"
                                                 onClick={this.previousDecade}
                                             ></eui-icon>
-                                            <div class="decade-value">
+                                            <div class="decade-value" onClick={this.changeToMonth}>
                                                 <span class="year">{year}/{month}</span>
                                             </div>
                                             <eui-icon

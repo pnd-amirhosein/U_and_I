@@ -97,11 +97,11 @@
     }
 }
 
-//********************** month-card
-//********************** month-card
-//********************** month-card
-//********************** month-card
-//********************** month-card
+//********************** year-card
+//********************** year-card
+//********************** year-card
+//********************** year-card
+//********************** year-card
 
 .eui--yrcard {
     display: flex;
@@ -132,7 +132,7 @@
                 background-color: var(--color-neutral-100);
 
                 @media (prefers-color-scheme: dark) {
-                    background-color: var(--color-neutral-800);
+                    background-color: var(--color-neutral-700);
                 }
             }
 
@@ -173,11 +173,11 @@
 }
 
 
-//********************** month-card
-//********************** month-card
-//********************** month-card
-//********************** month-card
-//********************** month-card
+//********************** decade-card
+//********************** decade-card
+//********************** decade-card
+//********************** decade-card
+//********************** decade-card
 
 .eui--dcdcard {
     display: flex;
@@ -208,7 +208,7 @@
                 background-color: var(--color-neutral-100);
 
                 @media (prefers-color-scheme: dark) {
-                    background-color: var(--color-neutral-800);
+                    background-color: var(--color-neutral-700);
                 }
             }
 
