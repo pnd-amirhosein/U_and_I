@@ -9,13 +9,11 @@ import { fakeProduct } from "./fakeData.const";
   template: `
     <div class="doc" style="height: 30vh;">
       <span class="flex">
-        <h4 class="title">Dropdown by title</h4>
+        <h4 class="title">Basic datepicker</h4>
         <eui-datepicker
           [date]="date"
-          displayField="title" 
-          (itemSelected)="onProductSelected($event)"
+          (dateChanged)="onDateSelected($event)"
           styleValue="width: 25vw;"
-          placeholder="Search products..."
         />
       </span>
     </div>
@@ -23,17 +21,12 @@ import { fakeProduct } from "./fakeData.const";
 })
 export class DatepickerComponent {
 
-  public data = fakeProduct.products;
   public date = new Date();
 
   /**
    * This method will be called by the (itemSelected) event
    */
-  onProductSelected(event: Event) {
-    const product = (event as CustomEvent).detail;
+  onDateSelected(event: Event) {
 
-    console.log('Product selected from Angular!', product);
-    // Now you have the full object:
-    // { id: 1, title: "Essence Mascara...", ... }
   }
 }
