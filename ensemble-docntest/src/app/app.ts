@@ -107,4 +107,7 @@ export class App {
   public openFeed() {
     this.router.navigateByUrl("/feed")
   }
+  public openSnackbar() {
+    this.router.navigateByUrl("/snackbar")
+  }
 }

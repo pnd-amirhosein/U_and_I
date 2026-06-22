@@ -25,6 +25,7 @@ export const DIRECTIVES = [
   d.EuiProgressbar,
   d.EuiSideNav,
   d.EuiSlider,
+  d.EuiSnackbar,
   d.EuiStat,
   d.EuiStepper,
   d.EuiWeekView,

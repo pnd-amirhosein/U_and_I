@@ -392,6 +392,28 @@ export namespace Components {
          */
         "value": number;
     }
+    interface EuiSnackbar {
+        "awakeTime"?: number;
+        /**
+          * @default false
+         */
+        "dismiss": boolean;
+        "header"?: string;
+        "icon"?: string;
+        /**
+          * @default "Placeholder for message"
+         */
+        "message": string;
+        /**
+          * @default false
+         */
+        "open": boolean;
+        "styleValue"?: string;
+        /**
+          * @default 'info'
+         */
+        "variant": 'danger' | 'success' | 'warning' | 'neutral' | 'info';
+    }
     interface EuiStat {
         /**
           * @default []
@@ -831,6 +853,12 @@ declare global {
         prototype: HTMLEuiSliderElement;
         new (): HTMLEuiSliderElement;
     };
+    interface HTMLEuiSnackbarElement extends Components.EuiSnackbar, HTMLStencilElement {
+    }
+    var HTMLEuiSnackbarElement: {
+        prototype: HTMLEuiSnackbarElement;
+        new (): HTMLEuiSnackbarElement;
+    };
     interface HTMLEuiStatElement extends Components.EuiStat, HTMLStencilElement {
     }
     var HTMLEuiStatElement: {
@@ -918,6 +946,7 @@ declare global {
         "eui-progressbar": HTMLEuiProgressbarElement;
         "eui-side-nav": HTMLEuiSideNavElement;
         "eui-slider": HTMLEuiSliderElement;
+        "eui-snackbar": HTMLEuiSnackbarElement;
         "eui-stat": HTMLEuiStatElement;
         "eui-stepper": HTMLEuiStepperElement;
         "eui-week-view": HTMLEuiWeekViewElement;
@@ -1325,6 +1354,28 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiSnackbar {
+        "awakeTime"?: number;
+        /**
+          * @default false
+         */
+        "dismiss"?: boolean;
+        "header"?: string;
+        "icon"?: string;
+        /**
+          * @default "Placeholder for message"
+         */
+        "message"?: string;
+        /**
+          * @default false
+         */
+        "open"?: boolean;
+        "styleValue"?: string;
+        /**
+          * @default 'info'
+         */
+        "variant"?: 'danger' | 'success' | 'warning' | 'neutral' | 'info';
+    }
     interface EuiStat {
         /**
           * @default []
@@ -1424,6 +1475,7 @@ declare namespace LocalJSX {
         "eui-progressbar": EuiProgressbar;
         "eui-side-nav": EuiSideNav;
         "eui-slider": EuiSlider;
+        "eui-snackbar": EuiSnackbar;
         "eui-stat": EuiStat;
         "eui-stepper": EuiStepper;
         "eui-week-view": EuiWeekView;
@@ -1458,6 +1510,7 @@ declare module "@stencil/core" {
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
             "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
             "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
+            "eui-snackbar": LocalJSX.EuiSnackbar & JSXBase.HTMLAttributes<HTMLEuiSnackbarElement>;
             "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
             "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;

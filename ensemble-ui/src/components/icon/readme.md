@@ -28,6 +28,7 @@
  - [eui-feed](../feed)
  - [eui-input](../input)
  - [eui-paginator](../paginator)
+ - [eui-snackbar](../snackbar)
  - [eui-stepper](../stepper)
 
 ### Graph
@@ -43,6 +44,7 @@ graph TD;
   eui-feed --> eui-icon
   eui-input --> eui-icon
   eui-paginator --> eui-icon
+  eui-snackbar --> eui-icon
   eui-stepper --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

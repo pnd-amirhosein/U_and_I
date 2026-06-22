@@ -27,6 +27,7 @@ export { EuiPaginator } from "./eui-paginator.js";
 export { EuiProgressbar } from "./eui-progressbar.js";
 export { EuiSideNav } from "./eui-side-nav.js";
 export { EuiSlider } from "./eui-slider.js";
+export { EuiSnackbar } from "./eui-snackbar.js";
 export { EuiStat } from "./eui-stat.js";
 export { EuiStepper } from "./eui-stepper.js";
 export { EuiWeekView } from "./eui-week-view.js";

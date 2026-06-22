@@ -22,6 +22,19 @@ examples:
 | `variant`    | `variant`    |             | `"danger" \| "info" \| "neutral" \| "primary" \| "success" \| "warning"` | `'primary'` |
 
 
+## Dependencies
+
+### Used by
+
+ - [eui-snackbar](../snackbar)
+
+### Graph
+```mermaid
+graph TD;
+  eui-snackbar --> eui-button
+  style eui-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

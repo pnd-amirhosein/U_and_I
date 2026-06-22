@@ -45,11 +45,6 @@ export class EUIFeed {
                                     </div>
                                 )
                             case FeedMode.events:
-
-                                // const icon = document.createElement('eui-icon');
-                                // icon.type = "mini";
-                                // icon.name = feedItem.icon ?? "x-mark"
-
                                 return (
                                     <div class="fd--events">
                                         <div class="icon" style={{ "backgroundColor": feedItem.iconColor }}>
