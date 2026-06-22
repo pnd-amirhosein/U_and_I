@@ -28,7 +28,7 @@ export function removeExtraWeek(days: Date[], month: number): Date[] {
     return allOutside ? days.slice(0, -7) : days;
 }
 
-export function monthNumberToText(month: number, format: "long" | "short" | "narrow" = "long",locale = "en-US") {
+export function monthNumberToText(month: number, format: "long" | "short" | "narrow" = "long", locale = "en-US") {
     return new Date(2000, month).toLocaleString(locale, { month: format });
 }
 
@@ -108,4 +108,39 @@ export function getCurrentWeekIndex(date: Date, correctGridInput?: Date[]): numb
     const index = weekAnchor.findIndex((_, index) => date <= weekAnchor[index + 1])
 
     return index;
+}
+
+export function getRelativeDate(start: Date | string, end?: Date | string | null): string {
+
+    const startDate = new Date(start);
+
+    const endDate =
+        end != null &&
+            new Date(end).getTime() >= startDate.getTime() ? new Date(end) : new Date();
+
+    const diffMs = endDate.getTime() - startDate.getTime();
+
+    const diffMinutes = Math.floor(diffMs / (1000 * 60));
+
+    if (diffMinutes < 1) return "Just now";
+    if (diffMinutes < 60) return `${diffMinutes}m`;
+
+    const diffHours = Math.floor(diffMinutes / 60);
+    if (diffHours < 24) return `${diffHours}h`;
+
+    const diffDays = Math.floor(diffHours / 24);
+    if (diffDays < 7) return `${diffDays}d`;
+
+    const diffWeeks = Math.floor(diffDays / 7);
+    if (diffWeeks < 4) return `${diffWeeks}w`;
+
+    const diffMonths = Math.floor(diffDays / 30);
+    if (diffMonths < 12) return `${diffMonths}mo`;
+
+    const diffYears = Math.floor(diffMonths / 12);
+    return `${diffYears}y`;
+}
+
+export function formatMonthYear(date: Date | string, locale = "en-US"): string {
+    return new Intl.DateTimeFormat(locale, { month: "short", year: "numeric" }).format(new Date(date));
 }

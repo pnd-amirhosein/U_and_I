@@ -20,6 +20,7 @@ import { defineCustomElement as defineEuiDayView } from 'ensemble-ui/components/
 import { defineCustomElement as defineEuiDecadeCard } from 'ensemble-ui/components/eui-decade-card.js';
 import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components/eui-dialogue.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
+import { defineCustomElement as defineEuiFeed } from 'ensemble-ui/components/eui-feed.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
 import { defineCustomElement as defineEuiMonthCard } from 'ensemble-ui/components/eui-month-card.js';
@@ -403,6 +404,29 @@ export declare interface EuiDropdown extends Components.EuiDropdown {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiFeed,
+  inputs: ['data', 'mode', 'styleValue']
+})
+@Component({
+  selector: 'eui-feed',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['data', 'mode', 'styleValue'],
+})
+export class EuiFeed {
+  protected el: HTMLEuiFeedElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiFeed extends Components.EuiFeed {}
 
 
 @ProxyCmp({

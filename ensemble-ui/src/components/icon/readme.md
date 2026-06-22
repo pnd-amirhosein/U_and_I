@@ -25,6 +25,7 @@
  - [eui-datepicker](../datepicker)
  - [eui-dialogue](../dialogue)
  - [eui-dropdown](../dropdown)
+ - [eui-feed](../feed)
  - [eui-input](../input)
  - [eui-paginator](../paginator)
  - [eui-stepper](../stepper)
@@ -39,6 +40,7 @@ graph TD;
   eui-datepicker --> eui-icon
   eui-dialogue --> eui-icon
   eui-dropdown --> eui-icon
+  eui-feed --> eui-icon
   eui-input --> eui-icon
   eui-paginator --> eui-icon
   eui-stepper --> eui-icon

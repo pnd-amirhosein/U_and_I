@@ -38,3 +38,21 @@ export interface NavigatorInfo {
     value: number;
     text: string;
 }
+
+export interface FeedData {
+    Title: string,
+    description: string
+    icon?: string,
+    iconColor?: string,
+    avatar?: string
+    date?: Date | string
+    dueDate?: Date | string
+    jobType?: string
+    careerData?: CareerData[]
+}
+
+export interface CareerData {
+    Title: string,
+    start: Date | string,
+    end: Date | string
+}

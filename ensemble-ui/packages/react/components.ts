@@ -18,6 +18,7 @@ export { EuiDayView } from "./eui-day-view.js";
 export { EuiDecadeCard } from "./eui-decade-card.js";
 export { EuiDialogue } from "./eui-dialogue.js";
 export { EuiDropdown } from "./eui-dropdown.js";
+export { EuiFeed } from "./eui-feed.js";
 export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";
 export { EuiMonthCard } from "./eui-month-card.js";

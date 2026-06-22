@@ -6,11 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
-import { CalendarViewEnum } from "../packages/core/utils/helpers/enums";
-import { Alert, CalendarEventType as CalendarEventType1, HolidayEventType as HolidayEventType1, Validation } from "../packages/core/utils/helpers/types";
+import { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
+import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, Validation } from "../packages/core/utils/helpers/types";
 export { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
-export { CalendarViewEnum } from "../packages/core/utils/helpers/enums";
-export { Alert, CalendarEventType as CalendarEventType1, HolidayEventType as HolidayEventType1, Validation } from "../packages/core/utils/helpers/types";
+export { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
+export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, Validation } from "../packages/core/utils/helpers/types";
 export namespace Components {
     interface EuiAutoComplete {
         "displayField"?: string;
@@ -242,6 +242,17 @@ export namespace Components {
           * @default []
          */
         "suggestions": any[];
+    }
+    interface EuiFeed {
+        /**
+          * @default [{ Title: "placeholder", description: "A placeholder description for" }]
+         */
+        "data": FeedData[];
+        /**
+          * @default FeedMode.timeLine
+         */
+        "mode": FeedMode;
+        "styleValue"?: string;
     }
     interface EuiIcon {
         /**
@@ -707,6 +718,12 @@ declare global {
         prototype: HTMLEuiDropdownElement;
         new (): HTMLEuiDropdownElement;
     };
+    interface HTMLEuiFeedElement extends Components.EuiFeed, HTMLStencilElement {
+    }
+    var HTMLEuiFeedElement: {
+        prototype: HTMLEuiFeedElement;
+        new (): HTMLEuiFeedElement;
+    };
     interface HTMLEuiIconElement extends Components.EuiIcon, HTMLStencilElement {
     }
     var HTMLEuiIconElement: {
@@ -892,6 +909,7 @@ declare global {
         "eui-decade-card": HTMLEuiDecadeCardElement;
         "eui-dialogue": HTMLEuiDialogueElement;
         "eui-dropdown": HTMLEuiDropdownElement;
+        "eui-feed": HTMLEuiFeedElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
         "eui-month-card": HTMLEuiMonthCardElement;
@@ -1149,6 +1167,17 @@ declare namespace LocalJSX {
          */
         "suggestions"?: any[];
     }
+    interface EuiFeed {
+        /**
+          * @default [{ Title: "placeholder", description: "A placeholder description for" }]
+         */
+        "data"?: FeedData[];
+        /**
+          * @default FeedMode.timeLine
+         */
+        "mode"?: FeedMode;
+        "styleValue"?: string;
+    }
     interface EuiIcon {
         /**
           * @default ''
@@ -1386,6 +1415,7 @@ declare namespace LocalJSX {
         "eui-decade-card": EuiDecadeCard;
         "eui-dialogue": EuiDialogue;
         "eui-dropdown": EuiDropdown;
+        "eui-feed": EuiFeed;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
         "eui-month-card": EuiMonthCard;
@@ -1419,6 +1449,7 @@ declare module "@stencil/core" {
             "eui-decade-card": LocalJSX.EuiDecadeCard & JSXBase.HTMLAttributes<HTMLEuiDecadeCardElement>;
             "eui-dialogue": LocalJSX.EuiDialogue & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
+            "eui-feed": LocalJSX.EuiFeed & JSXBase.HTMLAttributes<HTMLEuiFeedElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
             "eui-month-card": LocalJSX.EuiMonthCard & JSXBase.HTMLAttributes<HTMLEuiMonthCardElement>;

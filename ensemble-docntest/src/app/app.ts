@@ -104,4 +104,7 @@ export class App {
   public openDatepicker() {
     this.router.navigateByUrl("/datepicker")
   }
+  public openFeed() {
+    this.router.navigateByUrl("/feed")
+  }
 }

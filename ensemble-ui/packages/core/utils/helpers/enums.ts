@@ -17,3 +17,10 @@ export enum DatepickerViewEnum {
     month = "month",
     day = "day"
 }
+
+export enum FeedMode {
+    timeLine = "timeLine",
+    events = "events",
+    comment = "comment",
+    career = "career"
+}
