@@ -110,4 +110,7 @@ export class App {
   public openSnackbar() {
     this.router.navigateByUrl("/snackbar")
   }
+  public openTable() {
+    this.router.navigateByUrl("/table")
+  }
 }

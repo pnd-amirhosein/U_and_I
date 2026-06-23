@@ -1,0 +1,126 @@
+.eui--table {
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+    border-spacing: 0;
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid var(--color-neutral-500);
+    }
+
+    th,
+    td {
+        padding: var(--space-xl) var(--space-2xl);
+    }
+
+    &.eui--simple-table thead {
+        position: relative;
+
+        tr:after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            right: -1px;
+            height: 1px;
+            width: calc(100% + 2px);
+            background: var(--color-neutral-200);
+
+            @media (prefers-color-scheme: dark) {
+                background: var(--color-neutral-500);
+            }
+        }
+    }
+
+    &.eui--semi-striped-table {
+
+        tr:not(:last-of-type),
+        thead tr {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                right: -1px;
+                height: 1px;
+                width: calc(100% + 2px);
+                background: var(--color-neutral-200);
+
+                @media (prefers-color-scheme: dark) {
+                    background: var(--color-neutral-500);
+                }
+            }
+        }
+    }
+
+    &.eui--full-lined-table {
+        
+        tr:not(:last-of-type),
+        thead tr {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                right: -1px;
+                height: 1px;
+                width: calc(100% + 2px);
+                background: var(--color-neutral-200);
+
+                @media (prefers-color-scheme: dark) {
+                    background: var(--color-neutral-500);
+                }
+            }
+        }
+
+        tr {
+
+            td:not(:last-of-type),
+            th:not(:last-of-type) {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -1px;
+                    right: 0px;
+                    width: 1px;
+                    height: calc(100% + 2px);
+                    background: var(--color-neutral-200);
+
+                    @media (prefers-color-scheme: dark) {
+                        background: var(--color-neutral-500);
+                    }
+                }
+            }
+        }
+    }
+
+    &.eui--full-striped-table {
+        thead {
+            position: relative;
+
+            tr:after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                right: -1px;
+                height: 1px;
+                width: calc(100% + 2px);
+                background: var(--color-neutral-200);
+
+                @media (prefers-color-scheme: dark) {
+                    background: var(--color-neutral-500);
+                }
+            }
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: var(--color-neutral-100);
+
+            @media (prefers-color-scheme: dark) {
+                background-color: var(--color-neutral-700);
+            }
+        }
+    }
+}

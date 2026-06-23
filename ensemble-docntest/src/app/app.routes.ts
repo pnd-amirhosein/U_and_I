@@ -20,6 +20,7 @@ import { CalendarComponent } from './calendar.component';
 import { DatepickerComponent } from './datepicker.component';
 import { FeedComponent } from './feed.component';
 import { SnackabrComponent } from './snackbar.component';
+import { TableComponent } from './table.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -43,5 +44,6 @@ export const routes: Routes = [
     { path: "datepicker", component: DatepickerComponent },
     { path: "feed", component: FeedComponent },
     { path: "snackbar", component: SnackabrComponent },
+    { path: "table", component: TableComponent },
 
 ];
