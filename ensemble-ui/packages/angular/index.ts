@@ -28,6 +28,7 @@ export const DIRECTIVES = [
   d.EuiSnackbar,
   d.EuiStat,
   d.EuiStepper,
+  d.EuiTab,
   d.EuiWeekView,
   d.EuiYear,
   d.EuiYearCard

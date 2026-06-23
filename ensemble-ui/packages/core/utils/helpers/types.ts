@@ -56,3 +56,9 @@ export interface CareerData {
     start: Date | string,
     end: Date | string
 }
+
+export interface TabData {
+    Title: string,
+    Icon?: string,
+    badgeCounter?: string
+}

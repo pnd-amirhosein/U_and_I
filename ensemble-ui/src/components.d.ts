@@ -7,10 +7,10 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 import { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
-import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, Validation } from "../packages/core/utils/helpers/types";
+import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, Validation } from "../packages/core/utils/helpers/types";
 export { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 export { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
-export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, Validation } from "../packages/core/utils/helpers/types";
+export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, Validation } from "../packages/core/utils/helpers/types";
 export namespace Components {
     interface EuiAutoComplete {
         "displayField"?: string;
@@ -438,6 +438,25 @@ export namespace Components {
           * @default []
          */
         "steps": string[];
+        "styleValue"?: string;
+    }
+    interface EuiTab {
+        /**
+          * @default false
+         */
+        "collapse": boolean;
+        /**
+          * @default []
+         */
+        "data": TabData[];
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * @default 0
+         */
+        "selectedTab": number;
         "styleValue"?: string;
     }
     interface EuiWeekView {
@@ -882,6 +901,12 @@ declare global {
         prototype: HTMLEuiStepperElement;
         new (): HTMLEuiStepperElement;
     };
+    interface HTMLEuiTabElement extends Components.EuiTab, HTMLStencilElement {
+    }
+    var HTMLEuiTabElement: {
+        prototype: HTMLEuiTabElement;
+        new (): HTMLEuiTabElement;
+    };
     interface HTMLEuiWeekViewElementEventMap {
         "dayClick": Date;
     }
@@ -949,6 +974,7 @@ declare global {
         "eui-snackbar": HTMLEuiSnackbarElement;
         "eui-stat": HTMLEuiStatElement;
         "eui-stepper": HTMLEuiStepperElement;
+        "eui-tab": HTMLEuiTabElement;
         "eui-week-view": HTMLEuiWeekViewElement;
         "eui-year": HTMLEuiYearElement;
         "eui-year-card": HTMLEuiYearCardElement;
@@ -1403,6 +1429,25 @@ declare namespace LocalJSX {
         "steps"?: string[];
         "styleValue"?: string;
     }
+    interface EuiTab {
+        /**
+          * @default false
+         */
+        "collapse"?: boolean;
+        /**
+          * @default []
+         */
+        "data"?: TabData[];
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * @default 0
+         */
+        "selectedTab"?: number;
+        "styleValue"?: string;
+    }
     interface EuiWeekView {
         /**
           * @default []
@@ -1478,6 +1523,7 @@ declare namespace LocalJSX {
         "eui-snackbar": EuiSnackbar;
         "eui-stat": EuiStat;
         "eui-stepper": EuiStepper;
+        "eui-tab": EuiTab;
         "eui-week-view": EuiWeekView;
         "eui-year": EuiYear;
         "eui-year-card": EuiYearCard;
@@ -1513,6 +1559,7 @@ declare module "@stencil/core" {
             "eui-snackbar": LocalJSX.EuiSnackbar & JSXBase.HTMLAttributes<HTMLEuiSnackbarElement>;
             "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
+            "eui-tab": LocalJSX.EuiTab & JSXBase.HTMLAttributes<HTMLEuiTabElement>;
             "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
             "eui-year": LocalJSX.EuiYear & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
             "eui-year-card": LocalJSX.EuiYearCard & JSXBase.HTMLAttributes<HTMLEuiYearCardElement>;

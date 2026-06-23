@@ -32,6 +32,7 @@ import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/e
 import { defineCustomElement as defineEuiSnackbar } from 'ensemble-ui/components/eui-snackbar.js';
 import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui-stat.js';
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
+import { defineCustomElement as defineEuiTab } from 'ensemble-ui/components/eui-tab.js';
 import { defineCustomElement as defineEuiWeekView } from 'ensemble-ui/components/eui-week-view.js';
 import { defineCustomElement as defineEuiYear } from 'ensemble-ui/components/eui-year.js';
 import { defineCustomElement as defineEuiYearCard } from 'ensemble-ui/components/eui-year-card.js';
@@ -723,6 +724,29 @@ export declare interface EuiStepper extends Components.EuiStepper {
 
   stepSelect: EventEmitter<CustomEvent<number>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiTab,
+  inputs: ['collapse', 'data', 'disabled', 'selectedTab', 'styleValue']
+})
+@Component({
+  selector: 'eui-tab',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['collapse', 'data', 'disabled', 'selectedTab', 'styleValue'],
+})
+export class EuiTab {
+  protected el: HTMLEuiTabElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiTab extends Components.EuiTab {}
 
 
 @ProxyCmp({

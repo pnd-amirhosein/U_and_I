@@ -113,4 +113,7 @@ export class App {
   public openTable() {
     this.router.navigateByUrl("/table")
   }
+  public openTab() {
+    this.router.navigateByUrl("/tab")
+  }
 }

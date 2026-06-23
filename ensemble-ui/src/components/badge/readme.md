@@ -19,11 +19,13 @@
 ### Used by
 
  - [eui-stepper](../stepper)
+ - [eui-tab](../tab)
 
 ### Graph
 ```mermaid
 graph TD;
   eui-stepper --> eui-badge
+  eui-tab --> eui-badge
   style eui-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
