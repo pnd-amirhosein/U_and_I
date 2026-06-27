@@ -1,0 +1,95 @@
+.tb {
+    display: flex;
+    gap: 20px;
+    padding: var(--space-lg) var(--space-xl);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+
+    @media (prefers-color-scheme: dark) {
+        border: 1px solid var(--color-neutral-500);
+    }
+
+    .tab-item {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        gap: var(--space-lg);
+        padding: var(--space-lg);
+        border-radius: var(--radius-lg);
+
+        &:hover {
+            cursor: pointer;
+            background-color: var(--color-neutral-100);
+
+            @media (prefers-color-scheme: dark) {
+                background-color: var(--color-neutral-600);
+            }
+        }
+
+        &.selected-tab {
+            width: 100%;
+            background-color: var(--color-secondary-100);
+            color: var(--color-secondary-400);
+
+            @media (prefers-color-scheme: dark) {
+                background-color: var(--color-secondary-400);
+                color: var(--color-secondary-100);
+            }
+
+            &:hover {
+                filter: brightness(0.9);
+
+                @media (prefers-color-scheme: dark) {
+                    filter: brightness(1.1);
+                }
+            }
+        }
+
+        .title {
+            max-width: 99999px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: unset;
+        }
+
+        .icon {
+            width: 24px;
+        }
+    }
+
+
+    &.tb--collapse {
+        .tab-item:not(.selected-tab) {
+            gap: unset;
+
+            .title {
+                max-width: 0px;
+                opacity: 0;
+            }
+        }
+    }
+
+    &.tb--disabled {
+        .tab-item {
+            color: var(--color-neutral-300);
+
+            @media (prefers-color-scheme: dark) {
+                color: var(--color-neutral-500);
+            }
+
+            &:hover {
+                cursor: default;
+                background-color: unset;
+            }
+
+            &.selected-tab {
+                background-color: var(--color-neutral-100);
+
+                @media (prefers-color-scheme: dark) {
+                    background-color: var(--color-neutral-600);
+                }
+            }
+        }
+    }
+}

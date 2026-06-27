@@ -11,6 +11,18 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
             <h4 class="title">TABS:</h4>
             <eui-tab [data]="data"/>
         </span>
+        <span class="flex">
+            <h4 class="title">TABS collapse:</h4>
+            <eui-tab [data]="data" collapse/>
+        </span>
+        <span class="flex">
+            <h4 class="title">TABS disabled:</h4>
+            <eui-tab [data]="data" disabled/>
+        </span>
+        <span class="flex">
+            <h4 class="title">TABS collapse and disabled:</h4>
+            <eui-tab [data]="data" collapse disabled/>
+        </span>
     </div>
     `
 })

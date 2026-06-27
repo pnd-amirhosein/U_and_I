@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host, Element } from '@stencil/core';
+import { Component, Prop, h, Host, Element, State, Event, EventEmitter } from '@stencil/core';
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { TabData } from 'packages/core/utils/helpers/types';
 
@@ -16,6 +16,20 @@ export class EUITab {
     @Prop() data: TabData[] = [];
     @Prop({ attribute: "selectedTab" }) selectedTab: number = 0;
 
+    @State() currentTab: number = 0;
+
+    @Event() itemSelected?: EventEmitter<any>;
+
+    changeSelected = (i: number) => {
+        if (this.disabled) return;
+        this.currentTab = i;
+        this.itemSelected?.emit(this.currentTab);
+    }
+
+    componentWillLoad() {
+        this.currentTab = this.selectedTab
+    }
+
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
@@ -32,16 +46,16 @@ export class EUITab {
                     {...attrs}
                     class={{
                         tb: true,
-                        [`tb--${this.disabled}`]: true,
-                        [`tb--${this.collapse}`]: true,
+                        [`tb--disabled`]: this.disabled,
+                        [`tb--collapse`]: this.collapse,
                     }}
                 >
                     {this.data && this.data.map((item, i) => {
 
-                        const selected = i == this.selectedTab;
+                        const selected = i == this.currentTab;
 
                         return (
-                            <div class={`tab-item ${selected ? "selected-tab" : ""}`}>
+                            <div class={`tab-item ${selected ? "selected-tab" : ""}`} onClick={() => this.changeSelected(i)}>
                                 {item.Icon && (<div class="icon"><eui-icon name={item.Icon} type="outline" class="hydrated" /></div>)}
                                 <div class="title">{item.Title}</div>
                                 {item.badgeCounter && (<div class="badge"><eui-badge type="number" color={selected ? "success" : "pending"}>{item.badgeCounter}</eui-badge></div>)}
