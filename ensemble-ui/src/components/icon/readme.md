@@ -32,6 +32,7 @@
  - [eui-stepper](../stepper)
  - [eui-tab](../tab)
  - [eui-toggle](../toggle)
+ - [eui-tree](../tree)
 
 ### Graph
 ```mermaid
@@ -50,6 +51,7 @@ graph TD;
   eui-stepper --> eui-icon
   eui-tab --> eui-icon
   eui-toggle --> eui-icon
+  eui-tree --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -62,3 +62,10 @@ export interface TabData {
     Icon?: string,
     badgeCounter?: string
 }
+
+export interface TreeData {
+    id?: string;
+    Title: string;
+    Action?: () => void;
+    Children?: TreeData[];
+}

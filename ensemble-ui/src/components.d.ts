@@ -7,11 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 import { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
-import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, Validation } from "../packages/core/utils/helpers/types";
+import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 import { ToggleItem } from "./components/toggle/toggle";
 export { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 export { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
-export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, Validation } from "../packages/core/utils/helpers/types";
+export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 export { ToggleItem } from "./components/toggle/toggle";
 export namespace Components {
     interface EuiAutoComplete {
@@ -475,6 +475,17 @@ export namespace Components {
           * @default 0
          */
         "value": number;
+    }
+    interface EuiTree {
+        /**
+          * @default false
+         */
+        "collapse": boolean;
+        /**
+          * @default []
+         */
+        "data": TreeData[];
+        "styleValue"?: string;
     }
     interface EuiWeekView {
         /**
@@ -960,6 +971,12 @@ declare global {
         prototype: HTMLEuiToggleElement;
         new (): HTMLEuiToggleElement;
     };
+    interface HTMLEuiTreeElement extends Components.EuiTree, HTMLStencilElement {
+    }
+    var HTMLEuiTreeElement: {
+        prototype: HTMLEuiTreeElement;
+        new (): HTMLEuiTreeElement;
+    };
     interface HTMLEuiWeekViewElementEventMap {
         "dayClick": Date;
     }
@@ -1029,6 +1046,7 @@ declare global {
         "eui-stepper": HTMLEuiStepperElement;
         "eui-tab": HTMLEuiTabElement;
         "eui-toggle": HTMLEuiToggleElement;
+        "eui-tree": HTMLEuiTreeElement;
         "eui-week-view": HTMLEuiWeekViewElement;
         "eui-year": HTMLEuiYearElement;
         "eui-year-card": HTMLEuiYearCardElement;
@@ -1519,6 +1537,17 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiTree {
+        /**
+          * @default false
+         */
+        "collapse"?: boolean;
+        /**
+          * @default []
+         */
+        "data"?: TreeData[];
+        "styleValue"?: string;
+    }
     interface EuiWeekView {
         /**
           * @default []
@@ -1596,6 +1625,7 @@ declare namespace LocalJSX {
         "eui-stepper": EuiStepper;
         "eui-tab": EuiTab;
         "eui-toggle": EuiToggle;
+        "eui-tree": EuiTree;
         "eui-week-view": EuiWeekView;
         "eui-year": EuiYear;
         "eui-year-card": EuiYearCard;
@@ -1633,6 +1663,7 @@ declare module "@stencil/core" {
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
             "eui-tab": LocalJSX.EuiTab & JSXBase.HTMLAttributes<HTMLEuiTabElement>;
             "eui-toggle": LocalJSX.EuiToggle & JSXBase.HTMLAttributes<HTMLEuiToggleElement>;
+            "eui-tree": LocalJSX.EuiTree & JSXBase.HTMLAttributes<HTMLEuiTreeElement>;
             "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
             "eui-year": LocalJSX.EuiYear & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
             "eui-year-card": LocalJSX.EuiYearCard & JSXBase.HTMLAttributes<HTMLEuiYearCardElement>;

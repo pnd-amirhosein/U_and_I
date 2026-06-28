@@ -23,6 +23,7 @@ import { SnackabrComponent } from './snackbar.component';
 import { TableComponent } from './table.component';
 import { TabComponent } from './tab.component';
 import { ToggleComponent } from './toggle.component';
+import { TreeComponent } from './tree.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -49,5 +50,6 @@ export const routes: Routes = [
     { path: "table", component: TableComponent },
     { path: "tab", component: TabComponent },
     { path: "toggle", component: ToggleComponent },
+    { path: "tree", component: TreeComponent },
 
 ];

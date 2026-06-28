@@ -89,15 +89,11 @@ export class EUIToggle {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
-
     @Prop() data: ToggleItem[] = [];
-
     @Prop({ mutable: true }) value = 0;
-
     @Prop() disabled = false;
 
     @State() islandX = 0;
-
     @State() islandWidth = 0;
 
     @Event() valueChanged!: EventEmitter<number>;
@@ -120,28 +116,18 @@ export class EUIToggle {
 
     private select(index: number) {
 
-        if (this.disabled)
-            return;
-
-        if (this.data[index]?.disabled)
-            return;
+        if (this.disabled) return;
+        if (this.data[index]?.disabled) return;
 
         this.value = index;
-
         this.moveIsland();
-
         this.valueChanged.emit(index);
     }
 
     private moveIsland() {
-
         const selected = this.itemRefs[this.value];
-
-        if (!selected)
-            return;
-
+        if (!selected) return;
         this.islandX = selected.offsetLeft;
-
         this.islandWidth = selected.offsetWidth;
     }
 
@@ -177,42 +163,20 @@ export class EUIToggle {
 
                     {this.data.map((item, index) => (
 
-                        <div
-
-                            ref={el => {
-                                if (el)
-                                    this.itemRefs[index] = el;
-                            }}
-
+                        <div ref={el => { if (el) this.itemRefs[index] = el; }}
                             class={{
                                 "item": true,
                                 "selected": this.value === index,
                                 "disabled": item.disabled ?? false
                             }}
+                            onClick={() => this.select(index)}>
 
-                            onClick={() => this.select(index)}
-                        >
-
-                            {item.icon &&
-                                <eui-icon
-                                    name={item.icon}
-                                    type="mini"
-                                />
-                            }
-
-                            <span>
-                                {item.text}
-                            </span>
-
+                            {item.icon && <eui-icon name={item.icon} type="mini" />}
+                            <span>{item.text}</span>
                         </div>
-
                     ))}
-
                 </div>
-
             </Host>
-
         );
     }
-
 }

@@ -119,4 +119,7 @@ export class App {
   public openToggle() {
     this.router.navigateByUrl("/toggle")
   }
+  public openTree() {
+    this.router.navigateByUrl("/tree")
+  }
 }

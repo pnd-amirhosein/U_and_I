@@ -32,6 +32,7 @@ export { EuiStat } from "./eui-stat.js";
 export { EuiStepper } from "./eui-stepper.js";
 export { EuiTab } from "./eui-tab.js";
 export { EuiToggle } from "./eui-toggle.js";
+export { EuiTree } from "./eui-tree.js";
 export { EuiWeekView } from "./eui-week-view.js";
 export { EuiYearCard } from "./eui-year-card.js";
 export { EuiYear } from "./eui-year.js";

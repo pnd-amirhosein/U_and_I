@@ -34,6 +34,7 @@ import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
 import { defineCustomElement as defineEuiTab } from 'ensemble-ui/components/eui-tab.js';
 import { defineCustomElement as defineEuiToggle } from 'ensemble-ui/components/eui-toggle.js';
+import { defineCustomElement as defineEuiTree } from 'ensemble-ui/components/eui-tree.js';
 import { defineCustomElement as defineEuiWeekView } from 'ensemble-ui/components/eui-week-view.js';
 import { defineCustomElement as defineEuiYear } from 'ensemble-ui/components/eui-year.js';
 import { defineCustomElement as defineEuiYearCard } from 'ensemble-ui/components/eui-year-card.js';
@@ -781,6 +782,29 @@ export declare interface EuiToggle extends Components.EuiToggle {
 
   valueChanged: EventEmitter<CustomEvent<number>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiTree,
+  inputs: ['collapse', 'data', 'styleValue']
+})
+@Component({
+  selector: 'eui-tree',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['collapse', 'data', 'styleValue'],
+})
+export class EuiTree {
+  protected el: HTMLEuiTreeElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiTree extends Components.EuiTree {}
 
 
 @ProxyCmp({
