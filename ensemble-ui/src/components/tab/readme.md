@@ -16,6 +16,13 @@
 | `styleValue`  | `stylevalue`  |             | `string \| undefined` | `undefined` |
 
 
+## Events
+
+| Event          | Description | Type               |
+| -------------- | ----------- | ------------------ |
+| `itemSelected` |             | `CustomEvent<any>` |
+
+
 ## Dependencies
 
 ### Depends on

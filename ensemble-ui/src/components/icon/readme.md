@@ -31,6 +31,7 @@
  - [eui-snackbar](../snackbar)
  - [eui-stepper](../stepper)
  - [eui-tab](../tab)
+ - [eui-toggle](../toggle)
 
 ### Graph
 ```mermaid
@@ -48,6 +49,7 @@ graph TD;
   eui-snackbar --> eui-icon
   eui-stepper --> eui-icon
   eui-tab --> eui-icon
+  eui-toggle --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

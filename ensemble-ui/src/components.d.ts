@@ -8,9 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 import { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
 import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, Validation } from "../packages/core/utils/helpers/types";
+import { ToggleItem } from "./components/toggle/toggle";
 export { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 export { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
 export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, Validation } from "../packages/core/utils/helpers/types";
+export { ToggleItem } from "./components/toggle/toggle";
 export namespace Components {
     interface EuiAutoComplete {
         "displayField"?: string;
@@ -459,6 +461,21 @@ export namespace Components {
         "selectedTab": number;
         "styleValue"?: string;
     }
+    interface EuiToggle {
+        /**
+          * @default []
+         */
+        "data": ToggleItem[];
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "styleValue"?: string;
+        /**
+          * @default 0
+         */
+        "value": number;
+    }
     interface EuiWeekView {
         /**
           * @default []
@@ -565,6 +582,14 @@ export interface EuiSliderCustomEvent<T> extends CustomEvent<T> {
 export interface EuiStepperCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiStepperElement;
+}
+export interface EuiTabCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiTabElement;
+}
+export interface EuiToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiToggleElement;
 }
 export interface EuiWeekViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -901,11 +926,39 @@ declare global {
         prototype: HTMLEuiStepperElement;
         new (): HTMLEuiStepperElement;
     };
+    interface HTMLEuiTabElementEventMap {
+        "itemSelected": any;
+    }
     interface HTMLEuiTabElement extends Components.EuiTab, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiTabElementEventMap>(type: K, listener: (this: HTMLEuiTabElement, ev: EuiTabCustomEvent<HTMLEuiTabElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiTabElementEventMap>(type: K, listener: (this: HTMLEuiTabElement, ev: EuiTabCustomEvent<HTMLEuiTabElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEuiTabElement: {
         prototype: HTMLEuiTabElement;
         new (): HTMLEuiTabElement;
+    };
+    interface HTMLEuiToggleElementEventMap {
+        "valueChanged": number;
+    }
+    interface HTMLEuiToggleElement extends Components.EuiToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiToggleElementEventMap>(type: K, listener: (this: HTMLEuiToggleElement, ev: EuiToggleCustomEvent<HTMLEuiToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiToggleElementEventMap>(type: K, listener: (this: HTMLEuiToggleElement, ev: EuiToggleCustomEvent<HTMLEuiToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiToggleElement: {
+        prototype: HTMLEuiToggleElement;
+        new (): HTMLEuiToggleElement;
     };
     interface HTMLEuiWeekViewElementEventMap {
         "dayClick": Date;
@@ -975,6 +1028,7 @@ declare global {
         "eui-stat": HTMLEuiStatElement;
         "eui-stepper": HTMLEuiStepperElement;
         "eui-tab": HTMLEuiTabElement;
+        "eui-toggle": HTMLEuiToggleElement;
         "eui-week-view": HTMLEuiWeekViewElement;
         "eui-year": HTMLEuiYearElement;
         "eui-year-card": HTMLEuiYearCardElement;
@@ -1442,11 +1496,28 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "onItemSelected"?: (event: EuiTabCustomEvent<any>) => void;
         /**
           * @default 0
          */
         "selectedTab"?: number;
         "styleValue"?: string;
+    }
+    interface EuiToggle {
+        /**
+          * @default []
+         */
+        "data"?: ToggleItem[];
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onValueChanged"?: (event: EuiToggleCustomEvent<number>) => void;
+        "styleValue"?: string;
+        /**
+          * @default 0
+         */
+        "value"?: number;
     }
     interface EuiWeekView {
         /**
@@ -1524,6 +1595,7 @@ declare namespace LocalJSX {
         "eui-stat": EuiStat;
         "eui-stepper": EuiStepper;
         "eui-tab": EuiTab;
+        "eui-toggle": EuiToggle;
         "eui-week-view": EuiWeekView;
         "eui-year": EuiYear;
         "eui-year-card": EuiYearCard;
@@ -1560,6 +1632,7 @@ declare module "@stencil/core" {
             "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
             "eui-tab": LocalJSX.EuiTab & JSXBase.HTMLAttributes<HTMLEuiTabElement>;
+            "eui-toggle": LocalJSX.EuiToggle & JSXBase.HTMLAttributes<HTMLEuiToggleElement>;
             "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
             "eui-year": LocalJSX.EuiYear & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
             "eui-year-card": LocalJSX.EuiYearCard & JSXBase.HTMLAttributes<HTMLEuiYearCardElement>;

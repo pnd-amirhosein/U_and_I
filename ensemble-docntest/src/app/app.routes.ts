@@ -22,6 +22,7 @@ import { FeedComponent } from './feed.component';
 import { SnackabrComponent } from './snackbar.component';
 import { TableComponent } from './table.component';
 import { TabComponent } from './tab.component';
+import { ToggleComponent } from './toggle.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -47,5 +48,6 @@ export const routes: Routes = [
     { path: "snackbar", component: SnackabrComponent },
     { path: "table", component: TableComponent },
     { path: "tab", component: TabComponent },
+    { path: "toggle", component: ToggleComponent },
 
 ];

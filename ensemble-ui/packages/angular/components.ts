@@ -33,6 +33,7 @@ import { defineCustomElement as defineEuiSnackbar } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui-stat.js';
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
 import { defineCustomElement as defineEuiTab } from 'ensemble-ui/components/eui-tab.js';
+import { defineCustomElement as defineEuiToggle } from 'ensemble-ui/components/eui-toggle.js';
 import { defineCustomElement as defineEuiWeekView } from 'ensemble-ui/components/eui-week-view.js';
 import { defineCustomElement as defineEuiYear } from 'ensemble-ui/components/eui-year.js';
 import { defineCustomElement as defineEuiYearCard } from 'ensemble-ui/components/eui-year-card.js';
@@ -736,9 +737,11 @@ export declare interface EuiStepper extends Components.EuiStepper {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['collapse', 'data', 'disabled', 'selectedTab', 'styleValue'],
+  outputs: ['itemSelected'],
 })
 export class EuiTab {
   protected el: HTMLEuiTabElement;
+  @Output() itemSelected = new EventEmitter<CustomEvent<any>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -746,7 +749,38 @@ export class EuiTab {
 }
 
 
-export declare interface EuiTab extends Components.EuiTab {}
+export declare interface EuiTab extends Components.EuiTab {
+
+  itemSelected: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiToggle,
+  inputs: ['data', 'disabled', 'styleValue', 'value']
+})
+@Component({
+  selector: 'eui-toggle',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['data', 'disabled', 'styleValue', 'value'],
+  outputs: ['valueChanged'],
+})
+export class EuiToggle {
+  protected el: HTMLEuiToggleElement;
+  @Output() valueChanged = new EventEmitter<CustomEvent<number>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiToggle extends Components.EuiToggle {
+
+  valueChanged: EventEmitter<CustomEvent<number>>;
+}
 
 
 @ProxyCmp({

@@ -116,4 +116,7 @@ export class App {
   public openTab() {
     this.router.navigateByUrl("/tab")
   }
+  public openToggle() {
+    this.router.navigateByUrl("/toggle")
+  }
 }
