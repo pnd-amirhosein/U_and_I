@@ -122,4 +122,7 @@ export class App {
   public openTree() {
     this.router.navigateByUrl("/tree")
   }
+  public openKnob() {
+    this.router.navigateByUrl("/knob")
+  }
 }

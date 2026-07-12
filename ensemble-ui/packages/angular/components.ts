@@ -23,6 +23,7 @@ import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiFeed } from 'ensemble-ui/components/eui-feed.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
+import { defineCustomElement as defineEuiKnob } from 'ensemble-ui/components/eui-knob.js';
 import { defineCustomElement as defineEuiMonthCard } from 'ensemble-ui/components/eui-month-card.js';
 import { defineCustomElement as defineEuiMonthView } from 'ensemble-ui/components/eui-month-view.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
@@ -494,6 +495,29 @@ export declare interface EuiInput extends Components.EuiInput {
 
   keyPress: EventEmitter<CustomEvent<any>>;
 }
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiKnob,
+  inputs: ['isPercent', 'max', 'min', 'value']
+})
+@Component({
+  selector: 'eui-knob',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['isPercent', 'max', 'min', 'value'],
+})
+export class EuiKnob {
+  protected el: HTMLEuiKnobElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiKnob extends Components.EuiKnob {}
 
 
 @ProxyCmp({

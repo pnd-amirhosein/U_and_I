@@ -21,6 +21,7 @@ export { EuiDropdown } from "./eui-dropdown.js";
 export { EuiFeed } from "./eui-feed.js";
 export { EuiIcon } from "./eui-icon.js";
 export { EuiInput } from "./eui-input.js";
+export { EuiKnob } from "./eui-knob.js";
 export { EuiMonthCard } from "./eui-month-card.js";
 export { EuiMonthView } from "./eui-month-view.js";
 export { EuiPaginator } from "./eui-paginator.js";

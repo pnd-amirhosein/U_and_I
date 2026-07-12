@@ -306,6 +306,24 @@ export namespace Components {
          */
         "value": string;
     }
+    interface EuiKnob {
+        /**
+          * @default false
+         */
+        "isPercent": boolean;
+        /**
+          * @default 100
+         */
+        "max": number;
+        /**
+          * @default 0
+         */
+        "min": number;
+        /**
+          * @default 75
+         */
+        "value": number;
+    }
     interface EuiMonthCard {
         /**
           * @default "none"
@@ -828,6 +846,12 @@ declare global {
         prototype: HTMLEuiInputElement;
         new (): HTMLEuiInputElement;
     };
+    interface HTMLEuiKnobElement extends Components.EuiKnob, HTMLStencilElement {
+    }
+    var HTMLEuiKnobElement: {
+        prototype: HTMLEuiKnobElement;
+        new (): HTMLEuiKnobElement;
+    };
     interface HTMLEuiMonthCardElementEventMap {
         "dayClick": Date;
     }
@@ -1035,6 +1059,7 @@ declare global {
         "eui-feed": HTMLEuiFeedElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
+        "eui-knob": HTMLEuiKnobElement;
         "eui-month-card": HTMLEuiMonthCardElement;
         "eui-month-view": HTMLEuiMonthViewElement;
         "eui-paginator": HTMLEuiPaginatorElement;
@@ -1360,6 +1385,24 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface EuiKnob {
+        /**
+          * @default false
+         */
+        "isPercent"?: boolean;
+        /**
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * @default 0
+         */
+        "min"?: number;
+        /**
+          * @default 75
+         */
+        "value"?: number;
+    }
     interface EuiMonthCard {
         /**
           * @default "none"
@@ -1614,6 +1657,7 @@ declare namespace LocalJSX {
         "eui-feed": EuiFeed;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
+        "eui-knob": EuiKnob;
         "eui-month-card": EuiMonthCard;
         "eui-month-view": EuiMonthView;
         "eui-paginator": EuiPaginator;
@@ -1652,6 +1696,7 @@ declare module "@stencil/core" {
             "eui-feed": LocalJSX.EuiFeed & JSXBase.HTMLAttributes<HTMLEuiFeedElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
+            "eui-knob": LocalJSX.EuiKnob & JSXBase.HTMLAttributes<HTMLEuiKnobElement>;
             "eui-month-card": LocalJSX.EuiMonthCard & JSXBase.HTMLAttributes<HTMLEuiMonthCardElement>;
             "eui-month-view": LocalJSX.EuiMonthView & JSXBase.HTMLAttributes<HTMLEuiMonthViewElement>;
             "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;

@@ -24,6 +24,7 @@ import { TableComponent } from './table.component';
 import { TabComponent } from './tab.component';
 import { ToggleComponent } from './toggle.component';
 import { TreeComponent } from './tree.component';
+import { KnobComponent } from './knob.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -51,5 +52,6 @@ export const routes: Routes = [
     { path: "tab", component: TabComponent },
     { path: "toggle", component: ToggleComponent },
     { path: "tree", component: TreeComponent },
+    { path: "knob", component: KnobComponent },
 
 ];
