@@ -125,4 +125,7 @@ export class App {
   public openKnob() {
     this.router.navigateByUrl("/knob")
   }
+  public openBreadcrumb() {
+    this.router.navigateByUrl("/bread")
+  }
 }

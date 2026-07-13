@@ -1,6 +1,10 @@
 eui-knob {
     position: relative;
 
+    * {
+        transition-timing-function: ease-out !important;
+    }
+
     svg {
 
         .track,
