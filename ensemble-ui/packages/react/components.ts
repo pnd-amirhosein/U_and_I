@@ -6,6 +6,7 @@
 /* eslint-disable */
 export { EuiAutoComplete } from "./eui-auto-complete.js";
 export { EuiBadge } from "./eui-badge.js";
+export { EuiBreadcrumb } from "./eui-breadcrumb.js";
 export { EuiButton } from "./eui-button.js";
 export { EuiCalendarHeader } from "./eui-calendar-header.js";
 export { EuiCalendarNavigator } from "./eui-calendar-navigator.js";

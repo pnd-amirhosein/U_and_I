@@ -5,13 +5,13 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Alert, BreadcrumbData, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 import { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 import { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
-import { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 import { ToggleItem } from "./components/toggle/toggle";
+export { Alert, BreadcrumbData, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 export { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
 export { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
-export { Alert, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 export { ToggleItem } from "./components/toggle/toggle";
 export namespace Components {
     interface EuiAutoComplete {
@@ -33,6 +33,13 @@ export namespace Components {
           * @default 'blank'
          */
         "type": 'blank' | 'icon' | 'number' | 'text-icon' | 'text';
+    }
+    interface EuiBreadcrumb {
+        /**
+          * @default undefined
+         */
+        "data"?: BreadcrumbData[];
+        "styleValue"?: string;
     }
     interface EuiButton {
         /**
@@ -556,6 +563,10 @@ export interface EuiAutoCompleteCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiAutoCompleteElement;
 }
+export interface EuiBreadcrumbCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiBreadcrumbElement;
+}
 export interface EuiCalendarHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiCalendarHeaderElement;
@@ -651,6 +662,23 @@ declare global {
     var HTMLEuiBadgeElement: {
         prototype: HTMLEuiBadgeElement;
         new (): HTMLEuiBadgeElement;
+    };
+    interface HTMLEuiBreadcrumbElementEventMap {
+        "itemClick": BreadcrumbData;
+    }
+    interface HTMLEuiBreadcrumbElement extends Components.EuiBreadcrumb, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiBreadcrumbElementEventMap>(type: K, listener: (this: HTMLEuiBreadcrumbElement, ev: EuiBreadcrumbCustomEvent<HTMLEuiBreadcrumbElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiBreadcrumbElementEventMap>(type: K, listener: (this: HTMLEuiBreadcrumbElement, ev: EuiBreadcrumbCustomEvent<HTMLEuiBreadcrumbElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiBreadcrumbElement: {
+        prototype: HTMLEuiBreadcrumbElement;
+        new (): HTMLEuiBreadcrumbElement;
     };
     interface HTMLEuiButtonElement extends Components.EuiButton, HTMLStencilElement {
     }
@@ -1044,6 +1072,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "eui-auto-complete": HTMLEuiAutoCompleteElement;
         "eui-badge": HTMLEuiBadgeElement;
+        "eui-breadcrumb": HTMLEuiBreadcrumbElement;
         "eui-button": HTMLEuiButtonElement;
         "eui-calendar": HTMLEuiCalendarElement;
         "eui-calendar-header": HTMLEuiCalendarHeaderElement;
@@ -1098,6 +1127,14 @@ declare namespace LocalJSX {
           * @default 'blank'
          */
         "type"?: 'blank' | 'icon' | 'number' | 'text-icon' | 'text';
+    }
+    interface EuiBreadcrumb {
+        /**
+          * @default undefined
+         */
+        "data"?: BreadcrumbData[];
+        "onItemClick"?: (event: EuiBreadcrumbCustomEvent<BreadcrumbData>) => void;
+        "styleValue"?: string;
     }
     interface EuiButton {
         /**
@@ -1642,6 +1679,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "eui-auto-complete": EuiAutoComplete;
         "eui-badge": EuiBadge;
+        "eui-breadcrumb": EuiBreadcrumb;
         "eui-button": EuiButton;
         "eui-calendar": EuiCalendar;
         "eui-calendar-header": EuiCalendarHeader;
@@ -1681,6 +1719,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
             "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
+            "eui-breadcrumb": LocalJSX.EuiBreadcrumb & JSXBase.HTMLAttributes<HTMLEuiBreadcrumbElement>;
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
             "eui-calendar": LocalJSX.EuiCalendar & JSXBase.HTMLAttributes<HTMLEuiCalendarElement>;
             "eui-calendar-header": LocalJSX.EuiCalendarHeader & JSXBase.HTMLAttributes<HTMLEuiCalendarHeaderElement>;

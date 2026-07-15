@@ -8,6 +8,7 @@ import type { Components } from 'ensemble-ui/components';
 
 import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js';
 import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js';
+import { defineCustomElement as defineEuiBreadcrumb } from 'ensemble-ui/components/eui-breadcrumb.js';
 import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js';
 import { defineCustomElement as defineEuiCalendar } from 'ensemble-ui/components/eui-calendar.js';
 import { defineCustomElement as defineEuiCalendarHeader } from 'ensemble-ui/components/eui-calendar-header.js';
@@ -88,6 +89,36 @@ export class EuiBadge {
 
 
 export declare interface EuiBadge extends Components.EuiBadge {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiBreadcrumb,
+  inputs: ['data', 'styleValue']
+})
+@Component({
+  selector: 'eui-breadcrumb',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['data', 'styleValue'],
+  outputs: ['itemClick'],
+})
+export class EuiBreadcrumb {
+  protected el: HTMLEuiBreadcrumbElement;
+  @Output() itemClick = new EventEmitter<CustomEvent<IEuiBreadcrumbBreadcrumbData>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+import type { BreadcrumbData as IEuiBreadcrumbBreadcrumbData } from 'ensemble-ui/components';
+
+export declare interface EuiBreadcrumb extends Components.EuiBreadcrumb {
+
+  itemClick: EventEmitter<CustomEvent<IEuiBreadcrumbBreadcrumbData>>;
+}
 
 
 @ProxyCmp({

@@ -1,0 +1,22 @@
+.brd {
+    display: flex;
+    gap: var(--space-lg);
+
+    .brd--item {
+        display: flex;
+        gap: var(--space-lg);
+        padding: var(--space-sm);
+        border-radius: var(--radius-md);
+        align-items: center;
+        justify-content: center;
+
+        &:last-of-type {
+            color: var(--color-secondary-300);
+        }
+
+        &:hover{
+            cursor: pointer;
+            background-color: var(--color-neutral);
+        }
+    }
+}

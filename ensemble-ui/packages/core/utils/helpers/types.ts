@@ -69,3 +69,10 @@ export interface TreeData {
     Action?: () => void;
     Children?: TreeData[];
 }
+
+export interface BreadcrumbData {
+    id: number
+    icon?: string;
+    title: string;
+    action?: () => void;
+}

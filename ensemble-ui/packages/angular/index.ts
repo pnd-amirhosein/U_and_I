@@ -4,6 +4,7 @@ import * as d from './components';
 export const DIRECTIVES = [
   d.EuiAutoComplete,
   d.EuiBadge,
+  d.EuiBreadcrumb,
   d.EuiButton,
   d.EuiCalendar,
   d.EuiCalendarHeader,
