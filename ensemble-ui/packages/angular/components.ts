@@ -35,6 +35,7 @@ import { defineCustomElement as defineEuiSnackbar } from 'ensemble-ui/components
 import { defineCustomElement as defineEuiStat } from 'ensemble-ui/components/eui-stat.js';
 import { defineCustomElement as defineEuiStepper } from 'ensemble-ui/components/eui-stepper.js';
 import { defineCustomElement as defineEuiTab } from 'ensemble-ui/components/eui-tab.js';
+import { defineCustomElement as defineEuiTextarea } from 'ensemble-ui/components/eui-textarea.js';
 import { defineCustomElement as defineEuiToggle } from 'ensemble-ui/components/eui-toggle.js';
 import { defineCustomElement as defineEuiTree } from 'ensemble-ui/components/eui-tree.js';
 import { defineCustomElement as defineEuiWeekView } from 'ensemble-ui/components/eui-week-view.js';
@@ -808,6 +809,46 @@ export class EuiTab {
 export declare interface EuiTab extends Components.EuiTab {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiTextarea,
+  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
+})
+@Component({
+  selector: 'eui-textarea',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
+  outputs: ['clear', 'change', 'keyUp', 'keyDown', 'keyPress'],
+})
+export class EuiTextarea {
+  protected el: HTMLEuiTextareaElement;
+  @Output() clear = new EventEmitter<CustomEvent<any>>();
+  @Output() change = new EventEmitter<CustomEvent<any>>();
+  @Output() keyUp = new EventEmitter<CustomEvent<any>>();
+  @Output() keyDown = new EventEmitter<CustomEvent<any>>();
+  @Output() keyPress = new EventEmitter<CustomEvent<any>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiTextarea extends Components.EuiTextarea {
+
+  clear: EventEmitter<CustomEvent<any>>;
+
+  change: EventEmitter<CustomEvent<any>>;
+
+  keyUp: EventEmitter<CustomEvent<any>>;
+
+  keyDown: EventEmitter<CustomEvent<any>>;
+
+  keyPress: EventEmitter<CustomEvent<any>>;
 }
 
 

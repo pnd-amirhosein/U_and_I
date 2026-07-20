@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ButtonComponent } from './button.component';
-import { InputComponent } from './input.component.ts';
+import { InputComponent } from './input.component';
 import { IconComponent } from './icon.component';
 import { AutoCompleteComponent } from './autocomplete.component';
 import { BadgeComponent } from './badge.component';
@@ -8,7 +8,7 @@ import { DropdownComponent } from './dropdown.component';
 import { ChipsComponent } from './chips.component';
 import { CardComponent } from './card.component';
 import { CheckboxComponent } from './checkbox.component';
-import { PaginatorComponent } from './paginator.component.';
+import { PaginatorComponent } from './paginator.component';
 import { DialogueComponent } from './dialogue.component';
 import { ProgressbarComponent } from './progressbar.component';
 import { SliderComponent } from './slider.component';
@@ -26,6 +26,7 @@ import { ToggleComponent } from './toggle.component';
 import { TreeComponent } from './tree.component';
 import { KnobComponent } from './knob.component';
 import { BreadcrumbComponent } from './breadcrumb.component';
+import { TextareaComponent } from './textarea.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -55,5 +56,6 @@ export const routes: Routes = [
     { path: "tree", component: TreeComponent },
     { path: "knob", component: KnobComponent },
     { path: "bread", component: BreadcrumbComponent },
+    { path: "textarea", component: TextareaComponent },
 
 ];

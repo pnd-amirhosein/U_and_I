@@ -1,6 +1,6 @@
 :host {
 
-    .input,
+    .textarea,
     .icon-bar {
         display: block;
         background-color: inherit;
@@ -8,13 +8,17 @@
     }
 }
 
-.input-wrapper {
+.textarea-wrapper {
     position: relative;
 
-    .input {
+    $icon-height: var(--space-5xl);
+    $icon-padding: var(--space-lg);
+    $textarea-right-padding: calc(#{$icon-height} + (2 * #{$icon-padding}) + 2px);
+
+    .textarea {
         position: relative;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         gap: var(--space-sm);
         border: 1px solid var(--color-neutral-500);
@@ -24,20 +28,18 @@
         color: var(--color-neutral-800);
         transition: all 0.2s ease;
 
-        $icon-min-width: var(--space-5xl);
-        $icon-padding: var(--space-lg);
-        $input-right-padding: calc(#{$icon-min-width} + (2 * #{$icon-padding}) + 2px);
-
-        input {
+        textarea {
             font-size: var(--font-form-fontSize);
             font-weight: var(--font-form-fontWeight);
             font-family: inherit;
             background-color: transparent;
             padding: var(--space-xl) var(--space-2xl);
-            // padding-right: $input-right-padding;
+            padding-right: $textarea-right-padding;
             border: none;
             color: inherit;
             width: 100%;
+            transition: none;
+
 
             &:focus-visible {
                 outline: none !important;
@@ -58,7 +60,7 @@
 
         }
 
-        &:has(input:focus-visible) {
+        &:has(textarea:focus-visible) {
             border-color: var(--color-primary-300);
         }
 
@@ -72,14 +74,15 @@
 
         .icon-bar {
             position: absolute;
-            top: 2px;
-            right: 2px;
-            height: calc(100% - 4px);
+            top: 0;
+            right: 0;
+            border-radius: var(--radius-full);
+            height: $icon-height;
             display: flex;
             align-items: center;
             background-color: inherit;
             color: inherit;
-            padding-right: var(--space-lg);
+            padding: $icon-padding;
             background-color: inherit;
 
             eui-icon {
@@ -143,7 +146,7 @@
     }
 
     @media (prefers-color-scheme: dark) {
-        .input {
+        .textarea {
             background-color: var(--color-neutral-900);
             color: var(--color-neutral-100);
 

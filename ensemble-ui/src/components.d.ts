@@ -486,6 +486,45 @@ export namespace Components {
         "selectedTab": number;
         "styleValue"?: string;
     }
+    interface EuiTextarea {
+        /**
+          * @default { message: "There's an error!", type: "danger" }
+         */
+        "alert": Alert;
+        "max"?: number;
+        "min"?: number;
+        /**
+          * @default 'normal'
+         */
+        "mode": 'normal' | 'outline' | 'text-textarea';
+        /**
+          * @default false
+         */
+        "noClearButton": boolean;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * @default true
+         */
+        "showClear"?: boolean;
+        /**
+          * @default 1
+         */
+        "step": number;
+        "styleValue"?: string;
+        /**
+          * @default 'text'
+         */
+        "type": HTMLTextAreaElement['type'];
+        "validation"?: Validation;
+        /**
+          * External value prop (mutable so it can be updated from parent)
+          * @default ''
+         */
+        "value": string;
+    }
     interface EuiToggle {
         /**
           * @default []
@@ -626,6 +665,10 @@ export interface EuiStepperCustomEvent<T> extends CustomEvent<T> {
 export interface EuiTabCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiTabElement;
+}
+export interface EuiTextareaCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiTextareaElement;
 }
 export interface EuiToggleCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1006,6 +1049,27 @@ declare global {
         prototype: HTMLEuiTabElement;
         new (): HTMLEuiTabElement;
     };
+    interface HTMLEuiTextareaElementEventMap {
+        "clear": any;
+        "change": any;
+        "keyUp": any;
+        "keyDown": any;
+        "keyPress": any;
+    }
+    interface HTMLEuiTextareaElement extends Components.EuiTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiTextareaElementEventMap>(type: K, listener: (this: HTMLEuiTextareaElement, ev: EuiTextareaCustomEvent<HTMLEuiTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiTextareaElementEventMap>(type: K, listener: (this: HTMLEuiTextareaElement, ev: EuiTextareaCustomEvent<HTMLEuiTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiTextareaElement: {
+        prototype: HTMLEuiTextareaElement;
+        new (): HTMLEuiTextareaElement;
+    };
     interface HTMLEuiToggleElementEventMap {
         "valueChanged": number;
     }
@@ -1099,6 +1163,7 @@ declare global {
         "eui-stat": HTMLEuiStatElement;
         "eui-stepper": HTMLEuiStepperElement;
         "eui-tab": HTMLEuiTabElement;
+        "eui-textarea": HTMLEuiTextareaElement;
         "eui-toggle": HTMLEuiToggleElement;
         "eui-tree": HTMLEuiTreeElement;
         "eui-week-view": HTMLEuiWeekViewElement;
@@ -1601,6 +1666,50 @@ declare namespace LocalJSX {
         "selectedTab"?: number;
         "styleValue"?: string;
     }
+    interface EuiTextarea {
+        /**
+          * @default { message: "There's an error!", type: "danger" }
+         */
+        "alert"?: Alert;
+        "max"?: number;
+        "min"?: number;
+        /**
+          * @default 'normal'
+         */
+        "mode"?: 'normal' | 'outline' | 'text-textarea';
+        /**
+          * @default false
+         */
+        "noClearButton"?: boolean;
+        "onChange"?: (event: EuiTextareaCustomEvent<any>) => void;
+        "onClear"?: (event: EuiTextareaCustomEvent<any>) => void;
+        "onKeyDown"?: (event: EuiTextareaCustomEvent<any>) => void;
+        "onKeyPress"?: (event: EuiTextareaCustomEvent<any>) => void;
+        "onKeyUp"?: (event: EuiTextareaCustomEvent<any>) => void;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * @default true
+         */
+        "showClear"?: boolean;
+        /**
+          * @default 1
+         */
+        "step"?: number;
+        "styleValue"?: string;
+        /**
+          * @default 'text'
+         */
+        "type"?: HTMLTextAreaElement['type'];
+        "validation"?: Validation;
+        /**
+          * External value prop (mutable so it can be updated from parent)
+          * @default ''
+         */
+        "value"?: string;
+    }
     interface EuiToggle {
         /**
           * @default []
@@ -1706,6 +1815,7 @@ declare namespace LocalJSX {
         "eui-stat": EuiStat;
         "eui-stepper": EuiStepper;
         "eui-tab": EuiTab;
+        "eui-textarea": EuiTextarea;
         "eui-toggle": EuiToggle;
         "eui-tree": EuiTree;
         "eui-week-view": EuiWeekView;
@@ -1746,6 +1856,7 @@ declare module "@stencil/core" {
             "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
             "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
             "eui-tab": LocalJSX.EuiTab & JSXBase.HTMLAttributes<HTMLEuiTabElement>;
+            "eui-textarea": LocalJSX.EuiTextarea & JSXBase.HTMLAttributes<HTMLEuiTextareaElement>;
             "eui-toggle": LocalJSX.EuiToggle & JSXBase.HTMLAttributes<HTMLEuiToggleElement>;
             "eui-tree": LocalJSX.EuiTree & JSXBase.HTMLAttributes<HTMLEuiTreeElement>;
             "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;

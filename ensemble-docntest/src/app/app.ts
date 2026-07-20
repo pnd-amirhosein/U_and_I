@@ -128,4 +128,7 @@ export class App {
   public openBreadcrumb() {
     this.router.navigateByUrl("/bread")
   }
+  public openTextarea() {
+    this.router.navigateByUrl("/textarea")
+  }
 }

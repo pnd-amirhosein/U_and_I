@@ -31,6 +31,7 @@ export const DIRECTIVES = [
   d.EuiStat,
   d.EuiStepper,
   d.EuiTab,
+  d.EuiTextarea,
   d.EuiToggle,
   d.EuiTree,
   d.EuiWeekView,

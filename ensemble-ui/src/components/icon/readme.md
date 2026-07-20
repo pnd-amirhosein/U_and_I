@@ -32,6 +32,7 @@
  - [eui-snackbar](../snackbar)
  - [eui-stepper](../stepper)
  - [eui-tab](../tab)
+ - [eui-textarea](../textarea)
  - [eui-toggle](../toggle)
  - [eui-tree](../tree)
 
@@ -52,6 +53,7 @@ graph TD;
   eui-snackbar --> eui-icon
   eui-stepper --> eui-icon
   eui-tab --> eui-icon
+  eui-textarea --> eui-icon
   eui-toggle --> eui-icon
   eui-tree --> eui-icon
   style eui-icon fill:#f9f,stroke:#333,stroke-width:4px
