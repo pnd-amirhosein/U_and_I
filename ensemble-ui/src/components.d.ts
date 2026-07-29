@@ -393,6 +393,30 @@ export namespace Components {
          */
         "value": number;
     }
+    interface EuiRadio {
+        /**
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * @default false
+         */
+        "disabled": boolean;
+        "styleValue"?: string;
+        "value": string;
+    }
+    interface EuiRadioGroup {
+        /**
+          * @default "horizontal"
+         */
+        "alignment": "horizontal" | "vertical";
+        "selected"?: string;
+        /**
+          * @default false
+         */
+        "stacked": boolean;
+        "styleValue"?: string;
+    }
     interface EuiSideNav {
         /**
           * @default "ltr"
@@ -653,6 +677,14 @@ export interface EuiMonthViewCustomEvent<T> extends CustomEvent<T> {
 export interface EuiPaginatorCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiPaginatorElement;
+}
+export interface EuiRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiRadioElement;
+}
+export interface EuiRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiRadioGroupElement;
 }
 export interface EuiSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -980,6 +1012,40 @@ declare global {
         prototype: HTMLEuiProgressbarElement;
         new (): HTMLEuiProgressbarElement;
     };
+    interface HTMLEuiRadioElementEventMap {
+        "selected": string;
+    }
+    interface HTMLEuiRadioElement extends Components.EuiRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiRadioElementEventMap>(type: K, listener: (this: HTMLEuiRadioElement, ev: EuiRadioCustomEvent<HTMLEuiRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiRadioElementEventMap>(type: K, listener: (this: HTMLEuiRadioElement, ev: EuiRadioCustomEvent<HTMLEuiRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiRadioElement: {
+        prototype: HTMLEuiRadioElement;
+        new (): HTMLEuiRadioElement;
+    };
+    interface HTMLEuiRadioGroupElementEventMap {
+        "changed": string;
+    }
+    interface HTMLEuiRadioGroupElement extends Components.EuiRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiRadioGroupElementEventMap>(type: K, listener: (this: HTMLEuiRadioGroupElement, ev: EuiRadioGroupCustomEvent<HTMLEuiRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiRadioGroupElementEventMap>(type: K, listener: (this: HTMLEuiRadioGroupElement, ev: EuiRadioGroupCustomEvent<HTMLEuiRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiRadioGroupElement: {
+        prototype: HTMLEuiRadioGroupElement;
+        new (): HTMLEuiRadioGroupElement;
+    };
     interface HTMLEuiSideNavElement extends Components.EuiSideNav, HTMLStencilElement {
     }
     var HTMLEuiSideNavElement: {
@@ -1157,6 +1223,8 @@ declare global {
         "eui-month-view": HTMLEuiMonthViewElement;
         "eui-paginator": HTMLEuiPaginatorElement;
         "eui-progressbar": HTMLEuiProgressbarElement;
+        "eui-radio": HTMLEuiRadioElement;
+        "eui-radio-group": HTMLEuiRadioGroupElement;
         "eui-side-nav": HTMLEuiSideNavElement;
         "eui-slider": HTMLEuiSliderElement;
         "eui-snackbar": HTMLEuiSnackbarElement;
@@ -1570,6 +1638,32 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface EuiRadio {
+        /**
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * @default false
+         */
+        "disabled"?: boolean;
+        "onSelected"?: (event: EuiRadioCustomEvent<string>) => void;
+        "styleValue"?: string;
+        "value": string;
+    }
+    interface EuiRadioGroup {
+        /**
+          * @default "horizontal"
+         */
+        "alignment"?: "horizontal" | "vertical";
+        "onChanged"?: (event: EuiRadioGroupCustomEvent<string>) => void;
+        "selected"?: string;
+        /**
+          * @default false
+         */
+        "stacked"?: boolean;
+        "styleValue"?: string;
+    }
     interface EuiSideNav {
         /**
           * @default "ltr"
@@ -1809,6 +1903,8 @@ declare namespace LocalJSX {
         "eui-month-view": EuiMonthView;
         "eui-paginator": EuiPaginator;
         "eui-progressbar": EuiProgressbar;
+        "eui-radio": EuiRadio;
+        "eui-radio-group": EuiRadioGroup;
         "eui-side-nav": EuiSideNav;
         "eui-slider": EuiSlider;
         "eui-snackbar": EuiSnackbar;
@@ -1850,6 +1946,8 @@ declare module "@stencil/core" {
             "eui-month-view": LocalJSX.EuiMonthView & JSXBase.HTMLAttributes<HTMLEuiMonthViewElement>;
             "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
             "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
+            "eui-radio": LocalJSX.EuiRadio & JSXBase.HTMLAttributes<HTMLEuiRadioElement>;
+            "eui-radio-group": LocalJSX.EuiRadioGroup & JSXBase.HTMLAttributes<HTMLEuiRadioGroupElement>;
             "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
             "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
             "eui-snackbar": LocalJSX.EuiSnackbar & JSXBase.HTMLAttributes<HTMLEuiSnackbarElement>;

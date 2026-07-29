@@ -131,4 +131,7 @@ export class App {
   public openTextarea() {
     this.router.navigateByUrl("/textarea")
   }
+  public openRadio() {
+    this.router.navigateByUrl("/radio")
+  }
 }

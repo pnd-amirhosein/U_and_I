@@ -1,0 +1,97 @@
+.rdo--group {
+    display: flex;
+    border-radius: var(--radius-lg);
+
+    &.rdo--horizontal {
+        flex-direction: row;
+    }
+
+    &.rdo--vertical {
+        flex-direction: column;
+    }
+
+    eui-radio {
+        flex-grow: 1;
+        cursor: pointer;
+    }
+
+    &.rdo--stacked {
+
+        gap: 0;
+
+        .rdo {
+            border-radius: 0;
+        }
+
+        eui-radio:last-of-type .rdo {
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+
+        eui-radio:first-of-type .rdo {
+            border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        }
+    }
+
+    &.rdo--stacked.rdo--vertical {
+        eui-radio:last-of-type .rdo {
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        }
+        
+        eui-radio:first-of-type .rdo {
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+    }
+
+    &.rdo--separate {
+        gap: var(--space-lg);
+
+        .rdo {
+            border-radius: var(--radius-lg);
+        }
+    }
+
+    .rdo {
+        flex-grow: 1;
+        border: 1px solid var(--color-neutral-200);
+
+        @media (prefers-color-scheme: dark) {
+            border: 1px solid var(--color-neutral-500);
+        }
+
+        &:hover {
+            border: 1px solid var(--color-neutral-300);
+
+            @media (prefers-color-scheme: dark) {
+                border: 1px solid var(--color-neutral-400);
+            }
+        }
+
+        &.rdo--selected {
+            border: 1px solid var(--color-secondary-300);
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+            padding: var(--space-lg) var(--space-xl);
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .icon {
+            color: var(--color-secondary-300);
+        }
+
+        &:not(.rdo--selected) {
+            .icon {
+                opacity: 0;
+            }
+        }
+    }
+}

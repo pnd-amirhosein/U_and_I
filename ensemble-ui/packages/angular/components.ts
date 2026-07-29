@@ -29,6 +29,8 @@ import { defineCustomElement as defineEuiMonthCard } from 'ensemble-ui/component
 import { defineCustomElement as defineEuiMonthView } from 'ensemble-ui/components/eui-month-view.js';
 import { defineCustomElement as defineEuiPaginator } from 'ensemble-ui/components/eui-paginator.js';
 import { defineCustomElement as defineEuiProgressbar } from 'ensemble-ui/components/eui-progressbar.js';
+import { defineCustomElement as defineEuiRadio } from 'ensemble-ui/components/eui-radio.js';
+import { defineCustomElement as defineEuiRadioGroup } from 'ensemble-ui/components/eui-radio-group.js';
 import { defineCustomElement as defineEuiSideNav } from 'ensemble-ui/components/eui-side-nav.js';
 import { defineCustomElement as defineEuiSlider } from 'ensemble-ui/components/eui-slider.js';
 import { defineCustomElement as defineEuiSnackbar } from 'ensemble-ui/components/eui-snackbar.js';
@@ -657,6 +659,62 @@ export class EuiProgressbar {
 
 
 export declare interface EuiProgressbar extends Components.EuiProgressbar {}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiRadio,
+  inputs: ['checked', 'disabled', 'styleValue', 'value']
+})
+@Component({
+  selector: 'eui-radio',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['checked', 'disabled', 'styleValue', { name: 'value', required: true }],
+  outputs: ['selected'],
+})
+export class EuiRadio {
+  protected el: HTMLEuiRadioElement;
+  @Output() selected = new EventEmitter<CustomEvent<string>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiRadio extends Components.EuiRadio {
+
+  selected: EventEmitter<CustomEvent<string>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiRadioGroup,
+  inputs: ['alignment', 'selected', 'stacked', 'styleValue']
+})
+@Component({
+  selector: 'eui-radio-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['alignment', 'selected', 'stacked', 'styleValue'],
+  outputs: ['changed'],
+})
+export class EuiRadioGroup {
+  protected el: HTMLEuiRadioGroupElement;
+  @Output() changed = new EventEmitter<CustomEvent<string>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiRadioGroup extends Components.EuiRadioGroup {
+
+  changed: EventEmitter<CustomEvent<string>>;
+}
 
 
 @ProxyCmp({

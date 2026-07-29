@@ -27,6 +27,7 @@ import { TreeComponent } from './tree.component';
 import { KnobComponent } from './knob.component';
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { TextareaComponent } from './textarea.component';
+import { RadioComponent } from './radio.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -57,5 +58,6 @@ export const routes: Routes = [
     { path: "knob", component: KnobComponent },
     { path: "bread", component: BreadcrumbComponent },
     { path: "textarea", component: TextareaComponent },
+    { path: "radio", component: RadioComponent },
 
 ];

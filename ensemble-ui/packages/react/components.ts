@@ -27,6 +27,8 @@ export { EuiMonthCard } from "./eui-month-card.js";
 export { EuiMonthView } from "./eui-month-view.js";
 export { EuiPaginator } from "./eui-paginator.js";
 export { EuiProgressbar } from "./eui-progressbar.js";
+export { EuiRadioGroup } from "./eui-radio-group.js";
+export { EuiRadio } from "./eui-radio.js";
 export { EuiSideNav } from "./eui-side-nav.js";
 export { EuiSlider } from "./eui-slider.js";
 export { EuiSnackbar } from "./eui-snackbar.js";

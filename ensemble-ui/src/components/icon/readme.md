@@ -29,6 +29,7 @@
  - [eui-feed](../feed)
  - [eui-input](../input)
  - [eui-paginator](../paginator)
+ - [eui-radio](../radio-group)
  - [eui-snackbar](../snackbar)
  - [eui-stepper](../stepper)
  - [eui-tab](../tab)
@@ -50,6 +51,7 @@ graph TD;
   eui-feed --> eui-icon
   eui-input --> eui-icon
   eui-paginator --> eui-icon
+  eui-radio --> eui-icon
   eui-snackbar --> eui-icon
   eui-stepper --> eui-icon
   eui-tab --> eui-icon
