@@ -26,11 +26,13 @@ examples:
 
 ### Used by
 
+ - [eui-empty-state](../empty-state)
  - [eui-snackbar](../snackbar)
 
 ### Graph
 ```mermaid
 graph TD;
+  eui-empty-state --> eui-button
   eui-snackbar --> eui-button
   style eui-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

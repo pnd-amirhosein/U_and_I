@@ -28,6 +28,7 @@ import { KnobComponent } from './knob.component';
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { TextareaComponent } from './textarea.component';
 import { RadioComponent } from './radio.component';
+import { EmptyStateComponent } from './empty-state.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -59,5 +60,6 @@ export const routes: Routes = [
     { path: "bread", component: BreadcrumbComponent },
     { path: "textarea", component: TextareaComponent },
     { path: "radio", component: RadioComponent },
+    { path: "empty", component: EmptyStateComponent },
 
 ];

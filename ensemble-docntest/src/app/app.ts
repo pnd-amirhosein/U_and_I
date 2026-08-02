@@ -134,4 +134,7 @@ export class App {
   public openRadio() {
     this.router.navigateByUrl("/radio")
   }
+  public openEmpty() {
+    this.router.navigateByUrl("/empty")
+  }
 }

@@ -252,6 +252,12 @@ export namespace Components {
          */
         "suggestions": any[];
     }
+    interface EuiEmptyState {
+        "icon"?: string;
+        "primaryAction"?: string;
+        "secondaryAction"?: string;
+        "styleValue"?: string;
+    }
     interface EuiFeed {
         /**
           * @default [{ Title: "placeholder", description: "A placeholder description for" }]
@@ -662,6 +668,10 @@ export interface EuiDropdownCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiDropdownElement;
 }
+export interface EuiEmptyStateCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiEmptyStateElement;
+}
 export interface EuiInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiInputElement;
@@ -915,6 +925,24 @@ declare global {
     var HTMLEuiDropdownElement: {
         prototype: HTMLEuiDropdownElement;
         new (): HTMLEuiDropdownElement;
+    };
+    interface HTMLEuiEmptyStateElementEventMap {
+        "primaryClick": any;
+        "secondaryClick": any;
+    }
+    interface HTMLEuiEmptyStateElement extends Components.EuiEmptyState, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiEmptyStateElementEventMap>(type: K, listener: (this: HTMLEuiEmptyStateElement, ev: EuiEmptyStateCustomEvent<HTMLEuiEmptyStateElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiEmptyStateElementEventMap>(type: K, listener: (this: HTMLEuiEmptyStateElement, ev: EuiEmptyStateCustomEvent<HTMLEuiEmptyStateElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiEmptyStateElement: {
+        prototype: HTMLEuiEmptyStateElement;
+        new (): HTMLEuiEmptyStateElement;
     };
     interface HTMLEuiFeedElement extends Components.EuiFeed, HTMLStencilElement {
     }
@@ -1215,6 +1243,7 @@ declare global {
         "eui-decade-card": HTMLEuiDecadeCardElement;
         "eui-dialogue": HTMLEuiDialogueElement;
         "eui-dropdown": HTMLEuiDropdownElement;
+        "eui-empty-state": HTMLEuiEmptyStateElement;
         "eui-feed": HTMLEuiFeedElement;
         "eui-icon": HTMLEuiIconElement;
         "eui-input": HTMLEuiInputElement;
@@ -1488,6 +1517,14 @@ declare namespace LocalJSX {
           * @default []
          */
         "suggestions"?: any[];
+    }
+    interface EuiEmptyState {
+        "icon"?: string;
+        "onPrimaryClick"?: (event: EuiEmptyStateCustomEvent<any>) => void;
+        "onSecondaryClick"?: (event: EuiEmptyStateCustomEvent<any>) => void;
+        "primaryAction"?: string;
+        "secondaryAction"?: string;
+        "styleValue"?: string;
     }
     interface EuiFeed {
         /**
@@ -1895,6 +1932,7 @@ declare namespace LocalJSX {
         "eui-decade-card": EuiDecadeCard;
         "eui-dialogue": EuiDialogue;
         "eui-dropdown": EuiDropdown;
+        "eui-empty-state": EuiEmptyState;
         "eui-feed": EuiFeed;
         "eui-icon": EuiIcon;
         "eui-input": EuiInput;
@@ -1938,6 +1976,7 @@ declare module "@stencil/core" {
             "eui-decade-card": LocalJSX.EuiDecadeCard & JSXBase.HTMLAttributes<HTMLEuiDecadeCardElement>;
             "eui-dialogue": LocalJSX.EuiDialogue & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
             "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
+            "eui-empty-state": LocalJSX.EuiEmptyState & JSXBase.HTMLAttributes<HTMLEuiEmptyStateElement>;
             "eui-feed": LocalJSX.EuiFeed & JSXBase.HTMLAttributes<HTMLEuiFeedElement>;
             "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
             "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;

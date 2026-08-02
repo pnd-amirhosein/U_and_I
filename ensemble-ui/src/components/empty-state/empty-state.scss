@@ -1,0 +1,22 @@
+.empst {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3xl);
+
+    .icon {
+        width: fit-content;
+    }
+
+    .content {
+        font-size: var(--font-h4-fontSize);
+        font-weight: var(--font-h4-fontWeight);
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+}

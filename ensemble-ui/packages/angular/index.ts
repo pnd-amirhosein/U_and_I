@@ -17,6 +17,7 @@ export const DIRECTIVES = [
   d.EuiDecadeCard,
   d.EuiDialogue,
   d.EuiDropdown,
+  d.EuiEmptyState,
   d.EuiFeed,
   d.EuiIcon,
   d.EuiInput,

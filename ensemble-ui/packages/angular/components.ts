@@ -21,6 +21,7 @@ import { defineCustomElement as defineEuiDayView } from 'ensemble-ui/components/
 import { defineCustomElement as defineEuiDecadeCard } from 'ensemble-ui/components/eui-decade-card.js';
 import { defineCustomElement as defineEuiDialogue } from 'ensemble-ui/components/eui-dialogue.js';
 import { defineCustomElement as defineEuiDropdown } from 'ensemble-ui/components/eui-dropdown.js';
+import { defineCustomElement as defineEuiEmptyState } from 'ensemble-ui/components/eui-empty-state.js';
 import { defineCustomElement as defineEuiFeed } from 'ensemble-ui/components/eui-feed.js';
 import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js';
 import { defineCustomElement as defineEuiInput } from 'ensemble-ui/components/eui-input.js';
@@ -442,6 +443,37 @@ export class EuiDropdown {
 export declare interface EuiDropdown extends Components.EuiDropdown {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiEmptyState,
+  inputs: ['icon', 'primaryAction', 'secondaryAction', 'styleValue']
+})
+@Component({
+  selector: 'eui-empty-state',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['icon', 'primaryAction', 'secondaryAction', 'styleValue'],
+  outputs: ['primaryClick', 'secondaryClick'],
+})
+export class EuiEmptyState {
+  protected el: HTMLEuiEmptyStateElement;
+  @Output() primaryClick = new EventEmitter<CustomEvent<any>>();
+  @Output() secondaryClick = new EventEmitter<CustomEvent<any>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiEmptyState extends Components.EuiEmptyState {
+
+  primaryClick: EventEmitter<CustomEvent<any>>;
+
+  secondaryClick: EventEmitter<CustomEvent<any>>;
 }
 
 
