@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ensemble-docntest": {
+    "ensemble-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -67,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ensemble-docntest:build:production"
+              "buildTarget": "ensemble-angular:build:production"
             },
             "development": {
-              "buildTarget": "ensemble-docntest:build:development"
+              "buildTarget": "ensemble-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
