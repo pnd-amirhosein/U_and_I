@@ -16,6 +16,7 @@ import { defineCustomElement as defineEuiCalendarNavigator } from 'ensemble-ui/c
 import { defineCustomElement as defineEuiCard } from 'ensemble-ui/components/eui-card.js';
 import { defineCustomElement as defineEuiCheckbox } from 'ensemble-ui/components/eui-checkbox.js';
 import { defineCustomElement as defineEuiChips } from 'ensemble-ui/components/eui-chips.js';
+import { defineCustomElement as defineEuiColorPicker } from 'ensemble-ui/components/eui-color-picker.js';
 import { defineCustomElement as defineEuiDatepicker } from 'ensemble-ui/components/eui-datepicker.js';
 import { defineCustomElement as defineEuiDayView } from 'ensemble-ui/components/eui-day-view.js';
 import { defineCustomElement as defineEuiDecadeCard } from 'ensemble-ui/components/eui-decade-card.js';
@@ -308,6 +309,34 @@ export class EuiChips {
 export declare interface EuiChips extends Components.EuiChips {
 
   itemSelected: EventEmitter<CustomEvent<any>>;
+}
+
+
+@ProxyCmp({
+  defineCustomElementFn: defineEuiColorPicker,
+  inputs: ['mode']
+})
+@Component({
+  selector: 'eui-color-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['mode'],
+  outputs: ['changed'],
+})
+export class EuiColorPicker {
+  protected el: HTMLEuiColorPickerElement;
+  @Output() changed = new EventEmitter<CustomEvent<string>>();
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface EuiColorPicker extends Components.EuiColorPicker {
+
+  changed: EventEmitter<CustomEvent<string>>;
 }
 
 

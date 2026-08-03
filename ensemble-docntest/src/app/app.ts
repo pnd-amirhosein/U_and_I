@@ -137,4 +137,7 @@ export class App {
   public openEmpty() {
     this.router.navigateByUrl("/empty")
   }
+  public openColorPicker() {
+    this.router.navigateByUrl("/color")
+  }
 }

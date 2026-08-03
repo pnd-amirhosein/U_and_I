@@ -12,6 +12,7 @@ export const DIRECTIVES = [
   d.EuiCard,
   d.EuiCheckbox,
   d.EuiChips,
+  d.EuiColorPicker,
   d.EuiDatepicker,
   d.EuiDayView,
   d.EuiDecadeCard,

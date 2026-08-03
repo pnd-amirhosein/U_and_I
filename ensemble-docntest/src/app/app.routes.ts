@@ -29,6 +29,7 @@ import { BreadcrumbComponent } from './breadcrumb.component';
 import { TextareaComponent } from './textarea.component';
 import { RadioComponent } from './radio.component';
 import { EmptyStateComponent } from './empty-state.component';
+import { ColorPickerComponent } from './color-picker.component';
 
 export const routes: Routes = [
     { path: "button", component: ButtonComponent },
@@ -61,5 +62,6 @@ export const routes: Routes = [
     { path: "textarea", component: TextareaComponent },
     { path: "radio", component: RadioComponent },
     { path: "empty", component: EmptyStateComponent },
+    { path: "color", component: ColorPickerComponent },
 
 ];

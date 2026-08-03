@@ -14,6 +14,7 @@ export { EuiCalendar } from "./eui-calendar.js";
 export { EuiCard } from "./eui-card.js";
 export { EuiCheckbox } from "./eui-checkbox.js";
 export { EuiChips } from "./eui-chips.js";
+export { EuiColorPicker } from "./eui-color-picker.js";
 export { EuiDatepicker } from "./eui-datepicker.js";
 export { EuiDayView } from "./eui-day-view.js";
 export { EuiDecadeCard } from "./eui-decade-card.js";

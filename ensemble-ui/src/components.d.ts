@@ -156,6 +156,12 @@ export namespace Components {
          */
         "suggestions": any[];
     }
+    interface EuiColorPicker {
+        /**
+          * @default "compact"
+         */
+        "mode": "compact" | "standard" | "full";
+    }
     interface EuiDatepicker {
         /**
           * @default new Date()
@@ -652,6 +658,10 @@ export interface EuiChipsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiChipsElement;
 }
+export interface EuiColorPickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiColorPickerElement;
+}
 export interface EuiDatepickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiDatepickerElement;
@@ -851,6 +861,23 @@ declare global {
     var HTMLEuiChipsElement: {
         prototype: HTMLEuiChipsElement;
         new (): HTMLEuiChipsElement;
+    };
+    interface HTMLEuiColorPickerElementEventMap {
+        "changed": string;
+    }
+    interface HTMLEuiColorPickerElement extends Components.EuiColorPicker, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiColorPickerElementEventMap>(type: K, listener: (this: HTMLEuiColorPickerElement, ev: EuiColorPickerCustomEvent<HTMLEuiColorPickerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiColorPickerElementEventMap>(type: K, listener: (this: HTMLEuiColorPickerElement, ev: EuiColorPickerCustomEvent<HTMLEuiColorPickerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLEuiColorPickerElement: {
+        prototype: HTMLEuiColorPickerElement;
+        new (): HTMLEuiColorPickerElement;
     };
     interface HTMLEuiDatepickerElementEventMap {
         "dateChanged": Date;
@@ -1238,6 +1265,7 @@ declare global {
         "eui-card": HTMLEuiCardElement;
         "eui-checkbox": HTMLEuiCheckboxElement;
         "eui-chips": HTMLEuiChipsElement;
+        "eui-color-picker": HTMLEuiColorPickerElement;
         "eui-datepicker": HTMLEuiDatepickerElement;
         "eui-day-view": HTMLEuiDayViewElement;
         "eui-decade-card": HTMLEuiDecadeCardElement;
@@ -1417,6 +1445,13 @@ declare namespace LocalJSX {
           * @default []
          */
         "suggestions"?: any[];
+    }
+    interface EuiColorPicker {
+        /**
+          * @default "compact"
+         */
+        "mode"?: "compact" | "standard" | "full";
+        "onChanged"?: (event: EuiColorPickerCustomEvent<string>) => void;
     }
     interface EuiDatepicker {
         /**
@@ -1927,6 +1962,7 @@ declare namespace LocalJSX {
         "eui-card": EuiCard;
         "eui-checkbox": EuiCheckbox;
         "eui-chips": EuiChips;
+        "eui-color-picker": EuiColorPicker;
         "eui-datepicker": EuiDatepicker;
         "eui-day-view": EuiDayView;
         "eui-decade-card": EuiDecadeCard;
@@ -1971,6 +2007,7 @@ declare module "@stencil/core" {
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
             "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
+            "eui-color-picker": LocalJSX.EuiColorPicker & JSXBase.HTMLAttributes<HTMLEuiColorPickerElement>;
             "eui-datepicker": LocalJSX.EuiDatepicker & JSXBase.HTMLAttributes<HTMLEuiDatepickerElement>;
             "eui-day-view": LocalJSX.EuiDayView & JSXBase.HTMLAttributes<HTMLEuiDayViewElement>;
             "eui-decade-card": LocalJSX.EuiDecadeCard & JSXBase.HTMLAttributes<HTMLEuiDecadeCardElement>;
