@@ -154,12 +154,8 @@ export class EUIColorPicker {
                 </div>
 
 
-                <input
-                    class="hex-input"
-                    value="${this.hex}"
-                />
-
-
+                <eui-input class="hex-input" value="${this.hex}" placeHolder="hex code"></eui-input>
+                
                 <div class="color-actions">
                 <eui-button class="confirm" size='sm' variant='primary' variant='primary'>save</eui-button>
                 <eui-button class="cancel" size='sm' mode='text-button' variant='danger'>cancel</eui-button>
@@ -170,13 +166,10 @@ export class EUIColorPicker {
                 `;
 
 
-            // <button class="confirm">
-            //     Confirm
-            // </button>
-
-            // <button class="cancel">
-            //     Cancel
-            // </button>
+            // <input
+            //     class="hex-input"
+            //     value="${this.hex}"
+            // />
 
             document.body.appendChild(
                 this.popupEl
