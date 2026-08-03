@@ -82,7 +82,7 @@ export class EUIColorPicker {
                 </div>
                 <eui-input class="hex-input" value="${this.hex}" placeHolder="hex code"></eui-input>
                 <div class="color-actions">
-                    <eui-button class="confirm" size='sm' variant='primary' variant='primary'>save</eui-button>
+                    <eui-button class="confirm" size='sm' variant='primary'>save</eui-button>
                     <eui-button class="cancel" size='sm' mode='text-button' variant='danger'>cancel</eui-button>
                 </div>
                 `;
