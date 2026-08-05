@@ -2,10 +2,13 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import { EuiButton, EuiChips, EuiColorPicker, EuiStat } from 'ensemble-ui/react'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const value = { 'Amir H. Mardani': 'FSD', 'months of experience': "100<", 'Projects': "+17", 'Jobs': "+10" };
 
   return (
     <>
@@ -28,6 +31,11 @@ function App() {
         >
           Count is {count}
         </button>
+        <EuiButton size='sm' variant='primary'>Hello</EuiButton>
+
+        <EuiColorPicker mode="full" />
+
+        <EuiStat orientation="vertical" data={value}/>
       </section>
 
       <div className="ticks"></div>
@@ -120,3 +128,6 @@ function App() {
 }
 
 export default App
+
+
+

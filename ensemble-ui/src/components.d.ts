@@ -478,10 +478,7 @@ export namespace Components {
         "variant": 'danger' | 'success' | 'warning' | 'neutral' | 'info';
     }
     interface EuiStat {
-        /**
-          * @default []
-         */
-        "data": any[];
+        "data": any;
         /**
           * @default "horizontal"
          */
@@ -1786,10 +1783,7 @@ declare namespace LocalJSX {
         "variant"?: 'danger' | 'success' | 'warning' | 'neutral' | 'info';
     }
     interface EuiStat {
-        /**
-          * @default []
-         */
-        "data"?: any[];
+        "data"?: any;
         /**
           * @default "horizontal"
          */

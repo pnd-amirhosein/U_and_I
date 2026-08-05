@@ -9,7 +9,7 @@
 
 | Property      | Attribute     | Description | Type                         | Default        |
 | ------------- | ------------- | ----------- | ---------------------------- | -------------- |
-| `data`        | `data`        |             | `any[]`                      | `[]`           |
+| `data`        | `data`        |             | `any`                        | `undefined`    |
 | `orientation` | `orientation` |             | `"horizontal" \| "vertical"` | `"horizontal"` |
 | `styleValue`  | `stylevalue`  |             | `string \| undefined`        | `undefined`    |
 

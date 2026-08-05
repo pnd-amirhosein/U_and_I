@@ -23,9 +23,14 @@
       "import": "./dist/components/*",
       "types": "./dist/components/*"
     },
+    "./styles.css": "./dist/ensemble-ui/ensemble-ui.css",
     "./my-component": {
       "import": "./dist/components/my-component.js",
       "types": "./dist/components/my-component.d.ts"
+    },
+    "./react": {
+      "import": "./packages/react/components.js",
+      "types": "./packages/react/components.d.ts"
     },
     "./loader": {
       "import": "./loader/index.js",
@@ -56,7 +61,8 @@
     "clean": "rimraf dist dist-tokens node_modules/.stencil .stencil",
     "clean:build": "node scripts/clean-output.js",
     "delete:old": "node scripts/delete-old.js",
-    "dev:smart": "node scripts/dev-orchestrator.js"
+    "dev:ng": "node scripts/angular-orchestrator.js",
+    "dev:rc": "node scripts/react-orchestrator.js"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",

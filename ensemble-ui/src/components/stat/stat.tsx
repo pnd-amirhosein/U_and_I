@@ -10,7 +10,7 @@ export class EUIStat {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
-    @Prop() data: any[] = [];
+    @Prop() data: any;
     @Prop() orientation: "vertical" | "horizontal" = "horizontal";
 
     @State() localData: any = {}
