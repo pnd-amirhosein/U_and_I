@@ -72,8 +72,6 @@ export class EUICalendar {
                     <eui-calendar-header onDateChange={this.onDateChange} onViewChange={this.onViewChange} selectedDate={this.currentDate} calendarViewMode={this.currentViewMode} />
                     {
                         (() => {
-                            console.log("From cal:", this.currentViewMode, this.currentViewMode == CalendarViewEnum.year);
-
                             switch (this.currentViewMode) {
                                 case CalendarViewEnum.year:
                                     return (<eui-year holidayEventType={this.holidayEventType} year={year} />);

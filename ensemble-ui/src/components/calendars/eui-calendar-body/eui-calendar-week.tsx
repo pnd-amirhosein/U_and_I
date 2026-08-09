@@ -44,9 +44,6 @@ export class EUIWeekView {
         const trimmedDays = removeExtraWeek(days, this.month);
         const selectedWeek = trimmedDays.slice(this.week * 7, (this.week + 1) * 7);
 
-        console.log("Where is the selected week?", this.week, trimmedDays, selectedWeek);
-
-
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => ![
                 'class',
@@ -111,8 +108,6 @@ export class EUIWeekView {
                         const todayEvents = getEventsOfTheDay(this.calendarEvents, date)
                         const events = mergeEventsIntoPacks(todayEvents);
 
-                        console.log(events, this.calendarEvents.filter(x => x.startDate.getDate() == date.getDate()));
-
                         return (
                             <div
                                 class={{
@@ -162,7 +157,6 @@ export class EUIWeekView {
                                                     }}
                                                     onClick={(ev) => {
                                                         ev.stopPropagation();
-                                                        console.log("Clicked pack:", pack.calendarEvents);
                                                     }}
                                                 >
                                                     {/* Render each event inside the pack as a title/date pair */}

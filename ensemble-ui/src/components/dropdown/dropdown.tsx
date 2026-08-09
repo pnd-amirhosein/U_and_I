@@ -237,9 +237,6 @@ export class EUIDropdown {
 
     render() {
 
-        console.log(this.defaultValue, this.value);
-
-
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => ![

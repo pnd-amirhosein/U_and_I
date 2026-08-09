@@ -58,8 +58,6 @@ export class EUIDecadeCard {
             (_, i) => decadeStart - 1 + i
         );
 
-        console.log(this.currentDate, this.startingYear, year, decadeStart, decade, this.startingYear);
-
         return (
             <div
                 style={this.styleValue ? parseStyleString(this.styleValue) : undefined}

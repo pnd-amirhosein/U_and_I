@@ -213,9 +213,6 @@ export class EUIDatepicker {
 
     render() {
 
-        console.log("currentDecade: ", this.currentDecade);
-
-
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => ![

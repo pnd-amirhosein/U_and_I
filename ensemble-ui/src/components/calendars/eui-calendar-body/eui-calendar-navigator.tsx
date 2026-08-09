@@ -67,9 +67,6 @@ export class EUICalendarNavigator {
 
                 const currentWeek = getCurrentWeekIndex(base, correctGrid)
 
-                console.log("IF CalendarViewEnum.week:", currentWeek, value, base);
-
-
                 if (currentWeek == 0 && value == -1) return base;
 
                 const weekStart = (currentWeek + value) * 7;
@@ -144,8 +141,6 @@ export class EUICalendarNavigator {
                 acc[attr.name] = attr.value;
                 return acc;
             }, {} as Record<string, string>);
-
-        console.log(this.calendarViewMode, 93485798347);
 
         const MinMaxValue: NavigatorInfo = this.getNavigatorInfo(this.currentDate);
 
