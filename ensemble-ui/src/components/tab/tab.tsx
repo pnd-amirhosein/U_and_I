@@ -34,7 +34,15 @@ export class EUITab {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['disabled', 'collapse', 'data', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'disabled',
+                'collapse',
+                'data',
+                'selectedTab'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

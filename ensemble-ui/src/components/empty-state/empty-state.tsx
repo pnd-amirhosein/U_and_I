@@ -21,7 +21,16 @@ export class EUIEmptyState {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['icon', 'primaryAction', 'secondaryAction', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'icon',
+                'primaryAction',
+                'secondaryAction',
+                'primaryClick',
+                'secondaryClick'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

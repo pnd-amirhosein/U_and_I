@@ -86,8 +86,13 @@ export class EUITree {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr =>
-                !['collapse', 'data', 'class', 'stylevalue'].includes(attr.name)
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'collapse',
+                'data'
+            ].includes(attr.name)
             )
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;

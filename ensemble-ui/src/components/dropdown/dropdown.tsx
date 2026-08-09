@@ -243,12 +243,16 @@ export class EUIDropdown {
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => ![
-                "styleValue",
-                "class",
+                'class',
+                'styleValue',
+                'nativeAttrs',
                 'displayField',
                 'placeholder',
                 'data',
-                'suggestions'
+                'suggestions',
+                'defaultValue',
+                'noClearButton',
+                'itemSelected'
             ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;

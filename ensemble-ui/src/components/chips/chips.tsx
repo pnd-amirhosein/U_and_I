@@ -356,15 +356,16 @@ export class EUIChips {
 
     render() {
 
-        // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => ![
-                "styleValue",
-                "class",
-                "displayField",
-                "placeholder",
-                "data",
-                "suggestions",
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'displayField',
+                'placeholder',
+                'data',
+                'suggestions',
+                'itemSelected'
             ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;

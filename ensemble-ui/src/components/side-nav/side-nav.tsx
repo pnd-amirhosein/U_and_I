@@ -59,7 +59,13 @@ export class EUISidenav {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['size', 'class', 'direction', 'stylevalue', 'mode'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'nativeAttrs',
+                'size',
+                'mode',
+                'direction'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

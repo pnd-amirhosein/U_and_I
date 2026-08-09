@@ -27,7 +27,12 @@ export class EUIBreadcrumb {
         if (!this.data) return (<></>);
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['data', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'attribute',
+                'nativeAttrs',
+                'data',
+                'itemClick'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

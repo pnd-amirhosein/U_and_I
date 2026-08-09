@@ -27,7 +27,15 @@ export class EUIStepper {
         else if (this.currentStep < 0) this.currentStep = 0
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['orientation', 'steps', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'orientation',
+                'steps',
+                'currentStep',
+                'stepSelect'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

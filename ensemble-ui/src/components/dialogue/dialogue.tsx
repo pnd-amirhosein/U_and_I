@@ -14,13 +14,6 @@ export class EUIDialogue {
     @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' | 'info' = 'primary';
     @Prop({ attribute: 'headerMessage' }) headerMessage: string = "MESSAGE!"
 
-    // componentWillLoad() {
-    //     if (this.styleValue) {
-    //         this.hostEl.setAttribute('style', this.styleValue);
-    //     }
-    // }
-
-
     render() {
 
         const variantIcons = {
@@ -32,7 +25,13 @@ export class EUIDialogue {
         };
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['variant', 'class', 'headerMessage', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'variant',
+                'headerMessage'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

@@ -21,7 +21,13 @@ export class EUIStat {
         this.localData = this.data;
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['orientation', 'class', 'stylevalue', 'data'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'data',
+                'orientation'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

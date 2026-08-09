@@ -21,7 +21,8 @@ export class EUIFeed {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['data', 'mode', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class', 'data', 'mode', 'stylevalue', 'nativeAttrs'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

@@ -24,8 +24,7 @@ export class EUIRadioGroup {
 
   componentDidLoad() {
 
-    const radios =
-      this.hostEl.querySelectorAll("eui-radio");
+    const radios = this.hostEl.querySelectorAll("eui-radio");
 
     radios.forEach(radio => {
 
@@ -35,13 +34,9 @@ export class EUIRadioGroup {
           (e as CustomEvent<string>).detail;
 
         this.updateSelection();
-
         this.changed.emit(this.selected);
-
       });
-
     });
-
   }
 
   private updateSelection() {
@@ -61,7 +56,14 @@ export class EUIRadioGroup {
   render() {
 
     const attrs = Array.from(this.hostEl.attributes)
-      .filter(attr => !['alignment', 'stacked', 'class', 'stylevalue'].includes(attr.name))
+      .filter(attr => ![
+        'class',
+        'styleValue',
+        'nativeAttrs',
+        'alignment',
+        'stacked',
+        'selected'
+      ].includes(attr.name))
       .reduce((acc, attr) => {
         acc[attr.name] = attr.value;
         return acc;

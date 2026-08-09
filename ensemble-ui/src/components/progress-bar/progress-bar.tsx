@@ -17,13 +17,17 @@ export class EUIProgressbar {
     @State() value_state: number = 0
 
     render() {
-        console.log(this.value, typeof this.value);
-
         if (0 > this.value || this.value > 1) throw "Value must be between 0 and 1!"
         else this.value_state = this.value;
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['size', 'value', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'size',
+                'value'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
 
                 acc[attr.name] = attr.value;

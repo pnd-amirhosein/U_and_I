@@ -67,7 +67,20 @@ export class EUIDayView {
 
     render() {
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'year',
+                'month',
+                'week',
+                'day',
+                'selectedDate',
+                'interactive',
+                'holidayEventType',
+                'calendarEvents',
+                'dayClick'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

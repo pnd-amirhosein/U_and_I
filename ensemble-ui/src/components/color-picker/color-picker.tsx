@@ -332,8 +332,24 @@ export class EUIColorPicker {
     }
 
     render() {
+
+        const attrs = Array.from(this.hostEl.attributes)
+            .filter(attr => ![
+                'class',
+                'changed',
+                'styleValue',
+                'nativeAttrs',
+                'mode'
+            ].includes(attr.name))
+            .reduce((acc, attr) => {
+                acc[attr.name] = attr.value;
+                return acc;
+            }, {} as Record<string, string>);
+
         return (
             <span
+                {...attrs}
+                {...this.nativeAttrs}
                 style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                 class={{
                     clp: true,

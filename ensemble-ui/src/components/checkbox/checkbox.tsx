@@ -59,7 +59,15 @@ export class EUICheckbox {
     render() {
         // Grab all native attributes except props we handle
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['value', 'states', 'class', 'size', 'mode', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'mutable',
+                'states',
+                'size',
+                'mode'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

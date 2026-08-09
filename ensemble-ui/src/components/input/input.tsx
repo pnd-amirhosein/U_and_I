@@ -97,14 +97,25 @@ export class EUIInput {
 
     const attrs = Array.from(this.hostEl.attributes)
       .filter(attr => ![
-        'stylevalue',
+        'class',
         'validation',
         'alert',
         'mode',
         'type',
+        'placeholder',
         'step',
         'min',
-        'max',].includes(attr.name))
+        'max',
+        'showClear',
+        'styleValue',
+        'nativeAttrs',
+        'noClearButton',
+        'clear',
+        'change',
+        'keyUp',
+        'keyDown',
+        'keyPress'
+      ].includes(attr.name))
       .reduce((acc, attr) => {
         acc[attr.name] = attr.value;
         return acc;

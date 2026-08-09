@@ -48,7 +48,16 @@ export class EUICalendarHeader {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'selectedDate',
+                'interactive',
+                'styleValue',
+                'nativeAttrs',
+                'calendarViewMode',
+                'dateChange',
+                'viewChange',
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

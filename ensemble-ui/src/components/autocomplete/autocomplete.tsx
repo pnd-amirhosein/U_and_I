@@ -184,11 +184,14 @@ export class EUIAutoComplete {
 
     const attrs = Array.from(this.hostEl.attributes)
       .filter(attr => ![
-        'stylevalue',
-        'placeholder',
         'class',
-        'fetchsuggestions',
-        'displayfield'].includes(attr.name))
+        'placeholder',
+        'fetchSuggestions',
+        'displayField',
+        'styleValue',
+        'nativeAttrs',
+        'itemSelected'
+      ].includes(attr.name))
       .reduce((acc, attr) => {
         acc[attr.name] = attr.value;
         return acc;

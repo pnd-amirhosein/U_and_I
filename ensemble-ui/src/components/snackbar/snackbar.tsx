@@ -31,7 +31,17 @@ export class EUISnackbar {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['dismiss', 'variant', 'message', 'header', 'icon', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'nativeAttrs',
+                'dismiss',
+                'variant',
+                'header',
+                'icon',
+                'message',
+                'awakeTime',
+                'open'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

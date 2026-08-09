@@ -24,7 +24,14 @@ export class EUICard {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['orientation', 'mode', 'class', 'img', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'styleValue',
+                'nativeAttrs',
+                'img',
+                'orientation',
+                'mode'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

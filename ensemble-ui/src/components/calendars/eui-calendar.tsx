@@ -39,22 +39,25 @@ export class EUICalendar {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'selectedDate',
+                'interactive',
+                'holidayEventType',
+                'calendarEvents',
+                'styleValue',
+                'nativeAttrs',
+                'calendarViewMode'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
             }, {} as Record<string, string>);
 
-        // const data = Object.values(CalendarViewEnum).map(x => ({ name: x }));
-
         const year = new Date(this.currentDate).getFullYear();
         const month = new Date(this.currentDate).getMonth();
         const week = getCurrentWeekIndex(this.currentDate);
         const day = new Date(this.currentDate).getDate();
-
-        console.log("From render: ", year, month, week, day);
-
-
 
         return (
             <Host>

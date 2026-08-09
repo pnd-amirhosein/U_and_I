@@ -78,7 +78,14 @@ export class EUIKnob {
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['size', 'variant', 'mode', 'class', 'stylevalue'].includes(attr.name))
+            .filter(attr => ![
+                'class',
+                'nativeAttrs',
+                'value',
+                'min',
+                'max',
+                'isPercent'
+            ].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;

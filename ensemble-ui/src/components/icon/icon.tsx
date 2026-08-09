@@ -32,8 +32,10 @@ export class EUIIcon {
     // Grab all native attributes except props we handle
     const attrs = Array.from(this.hostEl.attributes)
       .filter(attr => ![
-        "styleValue",
-        "class",
+        'class',
+        'styleValue',
+        'nativeAttrs',
+        'name',
         'type'
       ].includes(attr.name))
       .reduce((acc, attr) => {
