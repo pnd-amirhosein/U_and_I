@@ -46,6 +46,7 @@ export namespace Components {
           * @default "normal"
          */
         "mode": "normal" | "outline" | "text-button";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "md"
          */
@@ -1328,6 +1329,7 @@ declare namespace LocalJSX {
           * @default "normal"
          */
         "mode"?: "normal" | "outline" | "text-button";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "md"
          */

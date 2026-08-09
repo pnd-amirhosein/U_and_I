@@ -10,6 +10,7 @@ export class EUIButton {
   @Element() hostEl!: HTMLElement;
 
   @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop() nativeAttrs?: Record<string, any>;
   @Prop() size: "sm" | "md" | "lg" = "md";
   @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info' = 'primary';
   @Prop() mode: "normal" | "outline" | "text-button" = "normal";
@@ -28,6 +29,7 @@ export class EUIButton {
         <button
           style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
           {...attrs}
+          {...this.nativeAttrs}
           class={{
             btn: true,
             [`btn--${this.size}`]: true,

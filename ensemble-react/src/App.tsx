@@ -1,133 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { EuiButton, EuiChips, EuiColorPicker, EuiStat } from 'ensemble-ui/react'
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router'
+
+import { EuiButton } from 'ensemble-ui/react'
+
+import { docs } from './docs'
+
+
 import './App.css'
+import ButtonPage from './pages/button'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  const value = { 'Amir H. Mardani': 'FSD', 'months of experience': "100<", 'Projects': "+17", 'Jobs': "+10" };
+  const showClose = location.pathname !== '/'
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-        <EuiButton size='sm' variant='primary'>Hello</EuiButton>
+    <main className="main">
 
-        <EuiColorPicker mode="full" />
+      {/* TOP AREA */}
+      <section className="home">
+        <h1>
+          Welcome to EUI's very first React documentation page!
+        </h1>
 
-        <EuiStat orientation="vertical" data={value}/>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
+        <div className="links">
+          {docs.map((doc) => (
+            <EuiButton
+              key={doc.path}
+              size="md"
+              variant={doc.variant}
+              onClick={() => navigate(doc.path)}
+            >
+              {doc.label}
+            </EuiButton>
+          ))}
         </div>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+
+      {/* CLOSE BUTTON */}
+      {showClose && (
+        <div className="closer">
+          <div
+            className="icon"
+            onClick={() => navigate('/')}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
+        </div>
+      )}
+
+
+      {/* ANGULAR'S <router-outlet> EQUIVALENT */}
+      <Routes>
+        <Route path="/button" element={<ButtonPage />} />
+      </Routes>
+
+    </main>
   )
 }
 
 export default App
-
-
-

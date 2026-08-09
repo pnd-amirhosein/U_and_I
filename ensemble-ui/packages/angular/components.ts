@@ -128,14 +128,14 @@ export declare interface EuiBreadcrumb extends Components.EuiBreadcrumb {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiButton,
-  inputs: ['mode', 'size', 'styleValue', 'variant']
+  inputs: ['mode', 'nativeAttrs', 'size', 'styleValue', 'variant']
 })
 @Component({
   selector: 'eui-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['mode', 'size', 'styleValue', 'variant'],
+  inputs: ['mode', 'nativeAttrs', 'size', 'styleValue', 'variant'],
 })
 export class EuiButton {
   protected el: HTMLEuiButtonElement;
