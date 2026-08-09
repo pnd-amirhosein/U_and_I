@@ -7,13 +7,14 @@
 
 ## Properties
 
-| Property      | Attribute     | Description | Type                  | Default     |
-| ------------- | ------------- | ----------- | --------------------- | ----------- |
-| `collapse`    | `collapse`    |             | `boolean`             | `false`     |
-| `data`        | `data`        |             | `TabData[]`           | `[]`        |
-| `disabled`    | `disabled`    |             | `boolean`             | `false`     |
-| `selectedTab` | `selectedtab` |             | `number`              | `0`         |
-| `styleValue`  | `stylevalue`  |             | `string \| undefined` | `undefined` |
+| Property      | Attribute      | Description | Type                                 | Default     |
+| ------------- | -------------- | ----------- | ------------------------------------ | ----------- |
+| `collapse`    | `collapse`     |             | `boolean`                            | `false`     |
+| `data`        | `data`         |             | `TabData[]`                          | `[]`        |
+| `disabled`    | `disabled`     |             | `boolean`                            | `false`     |
+| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
+| `selectedTab` | `selectedtab`  |             | `number`                             | `0`         |
+| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined` |
 
 
 ## Events

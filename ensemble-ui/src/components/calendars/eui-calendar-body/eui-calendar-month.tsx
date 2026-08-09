@@ -3,6 +3,7 @@ import { formatHour12, getCalendarDays } from 'packages/core/utils/helpers/date/
 import { HolidayService } from 'packages/core/utils/helpers/date/holiday.service';
 import { CalendarEventType, Holiday, HolidayEventType } from 'packages/core/utils/helpers/types';
 import { isToday } from 'packages/core/utils/helpers/date/isToday';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 
 @Component({
@@ -14,6 +15,7 @@ export class EUIMonthView {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() year!: number;
     @Prop() month!: number; // 0-based
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;
@@ -24,10 +26,10 @@ export class EUIMonthView {
     @Event() dayClick?: EventEmitter<Date>;
 
     render() {
-        
+
         const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         const days = getCalendarDays(this.year, this.month);
-        
+
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
@@ -54,7 +56,9 @@ export class EUIMonthView {
         });
 
         return (
-            <div {...attrs} class="eui--mnv">
+            <div
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+                {...attrs} {...this.nativeAttrs} class="eui--mnv">
 
                 <div class="weekdays">
                     {weekdays.map((day, i) => (

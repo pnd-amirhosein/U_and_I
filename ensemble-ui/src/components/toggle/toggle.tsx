@@ -1,64 +1,3 @@
-// import { Component, Prop, h, Host, Element, State, Event, EventEmitter } from '@stencil/core';
-// import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
-
-// @Component({
-//     tag: 'eui-toggle',
-//     styleUrl: "./toggle.scss",
-//     shadow: false,
-// })
-// export class EUIToggle {
-//     @Element() hostEl!: HTMLElement;
-
-//     @Prop({ attribute: "styleValue" }) styleValue?: string;
-//     @Prop({ attribute: "selectedValue" }) selectedValue: 0 | 1 = 0;
-//     @Prop() disabled: boolean = false;
-
-//     @State() currentValue: 0 | 1 = 0
-
-//     @Event() valueChanged?: EventEmitter<any>
-
-//     componentWillLoad() {
-//         this.currentValue = this.selectedValue
-//     }
-
-//     selectChanged = (index: number) => {
-//         console.log("298374983274987", index);
-
-//         this.valueChanged?.emit(this.currentValue)
-//     }
-
-//     render() {
-
-//         const attrs = Array.from(this.hostEl.attributes)
-//             .filter(attr => !['data', 'class', 'stylevalue'].includes(attr.name))
-//             .reduce((acc, attr) => {
-//                 acc[attr.name] = attr.value;
-//                 return acc;
-//             }, {} as Record<string, string>);
-
-//         return (
-//             <Host>
-//                 <div
-//                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-//                     {...attrs}
-//                     class={{
-//                         tgl: true,
-//                         [`tgl--disabled`]: this.disabled,
-//                     }}
-//                 >
-//                     <div class="island"></div>
-//                     <div class="first" onClick={() => this.selectChanged(0)}>
-//                         <slot name="first" />
-//                     </div>
-//                     <div class="second" onClick={() => this.selectChanged(1)}>
-//                         <slot name="second" />
-//                     </div>
-//                 </div>
-//             </Host>
-//         );
-//     }
-// }
-
 import {
     Component,
     Prop,
@@ -89,6 +28,7 @@ export class EUIToggle {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() data: ToggleItem[] = [];
     @Prop({ mutable: true }) value = 0;
     @Prop() disabled = false;
@@ -145,7 +85,7 @@ export class EUIToggle {
             <Host>
 
                 <div
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                     class={{
                         "tgl": true,

@@ -12,6 +12,7 @@ export class EUIYearView {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() year: number | string = 2000;
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
 
@@ -37,7 +38,7 @@ export class EUIYearView {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         "eui--yrv": true
                     }}

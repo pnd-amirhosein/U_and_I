@@ -23,6 +23,7 @@ export class EUIInput {
   @Prop() max?: number;
   @Prop({ attribute: "showClear" }) showClear?: boolean = true;
   @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop() nativeAttrs?: Record<string, any>;
   @Prop({ attribute: "noClearButton" }) noClearButton: boolean = false;
 
 
@@ -130,7 +131,7 @@ export class EUIInput {
               onKeyUp={this.keyUp?.emit}
               onKeyDown={this.keyDown?.emit}
               onKeyPress={this.keyPress?.emit}
-              {...attrs}
+              {...attrs} {...this.nativeAttrs}
             />
 
             <span class="icon-bar">

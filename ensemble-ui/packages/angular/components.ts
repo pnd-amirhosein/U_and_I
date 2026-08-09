@@ -47,14 +47,14 @@ import { defineCustomElement as defineEuiYear } from 'ensemble-ui/components/eui
 import { defineCustomElement as defineEuiYearCard } from 'ensemble-ui/components/eui-year-card.js';
 @ProxyCmp({
   defineCustomElementFn: defineEuiAutoComplete,
-  inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue']
+  inputs: ['displayField', 'fetchSuggestions', 'nativeAttrs', 'placeholder', 'styleValue']
 })
 @Component({
   selector: 'eui-auto-complete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['displayField', 'fetchSuggestions', 'placeholder', 'styleValue'],
+  inputs: ['displayField', 'fetchSuggestions', 'nativeAttrs', 'placeholder', 'styleValue'],
   outputs: ['itemSelected'],
 })
 export class EuiAutoComplete {
@@ -75,14 +75,14 @@ export declare interface EuiAutoComplete extends Components.EuiAutoComplete {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiBadge,
-  inputs: ['color', 'styleValue', 'type']
+  inputs: ['color', 'nativeAttrs', 'styleValue', 'type']
 })
 @Component({
   selector: 'eui-badge',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['color', 'styleValue', 'type'],
+  inputs: ['color', 'nativeAttrs', 'styleValue', 'type'],
 })
 export class EuiBadge {
   protected el: HTMLEuiBadgeElement;
@@ -98,14 +98,14 @@ export declare interface EuiBadge extends Components.EuiBadge {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiBreadcrumb,
-  inputs: ['data', 'styleValue']
+  inputs: ['data', 'nativeAttrs', 'styleValue']
 })
 @Component({
   selector: 'eui-breadcrumb',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'styleValue'],
+  inputs: ['data', 'nativeAttrs', 'styleValue'],
   outputs: ['itemClick'],
 })
 export class EuiBreadcrumb {
@@ -151,14 +151,14 @@ export declare interface EuiButton extends Components.EuiButton {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCalendar,
-  inputs: ['calendarEvents', 'calendarViewMode', 'holidayEventType', 'interactive', 'selectedDate', 'styleValue']
+  inputs: ['calendarEvents', 'calendarViewMode', 'holidayEventType', 'interactive', 'nativeAttrs', 'selectedDate', 'styleValue']
 })
 @Component({
   selector: 'eui-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarEvents', 'calendarViewMode', 'holidayEventType', 'interactive', 'selectedDate', 'styleValue'],
+  inputs: ['calendarEvents', 'calendarViewMode', 'holidayEventType', 'interactive', 'nativeAttrs', 'selectedDate', 'styleValue'],
 })
 export class EuiCalendar {
   protected el: HTMLEuiCalendarElement;
@@ -174,14 +174,14 @@ export declare interface EuiCalendar extends Components.EuiCalendar {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCalendarHeader,
-  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue']
+  inputs: ['calendarViewMode', 'interactive', 'nativeAttrs', 'selectedDate', 'styleValue']
 })
 @Component({
   selector: 'eui-calendar-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
+  inputs: ['calendarViewMode', 'interactive', 'nativeAttrs', 'selectedDate', 'styleValue'],
   outputs: ['dateChange', 'viewChange'],
 })
 export class EuiCalendarHeader {
@@ -207,14 +207,14 @@ export declare interface EuiCalendarHeader extends Components.EuiCalendarHeader 
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCalendarNavigator,
-  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue']
+  inputs: ['calendarViewMode', 'interactive', 'nativeAttrs', 'selectedDate', 'styleValue']
 })
 @Component({
   selector: 'eui-calendar-navigator',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarViewMode', 'interactive', 'selectedDate', 'styleValue'],
+  inputs: ['calendarViewMode', 'interactive', 'nativeAttrs', 'selectedDate', 'styleValue'],
   outputs: ['dateChange'],
 })
 export class EuiCalendarNavigator {
@@ -235,14 +235,14 @@ export declare interface EuiCalendarNavigator extends Components.EuiCalendarNavi
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCard,
-  inputs: ['img', 'mode', 'orientation', 'styleValue']
+  inputs: ['img', 'mode', 'nativeAttrs', 'orientation', 'styleValue']
 })
 @Component({
   selector: 'eui-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['img', 'mode', 'orientation', 'styleValue'],
+  inputs: ['img', 'mode', 'nativeAttrs', 'orientation', 'styleValue'],
 })
 export class EuiCard {
   protected el: HTMLEuiCardElement;
@@ -258,14 +258,14 @@ export declare interface EuiCard extends Components.EuiCard {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiCheckbox,
-  inputs: ['mode', 'size', 'states', 'styleValue', 'value']
+  inputs: ['mode', 'nativeAttrs', 'size', 'states', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['mode', 'size', 'states', 'styleValue', 'value'],
+  inputs: ['mode', 'nativeAttrs', 'size', 'states', 'styleValue', 'value'],
   outputs: ['valueChange'],
 })
 export class EuiCheckbox {
@@ -286,14 +286,14 @@ export declare interface EuiCheckbox extends Components.EuiCheckbox {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiChips,
-  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions']
+  inputs: ['data', 'displayField', 'nativeAttrs', 'placeholder', 'styleValue', 'suggestions']
 })
 @Component({
   selector: 'eui-chips',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'displayField', 'placeholder', 'styleValue', 'suggestions'],
+  inputs: ['data', 'displayField', 'nativeAttrs', 'placeholder', 'styleValue', 'suggestions'],
   outputs: ['itemSelected'],
 })
 export class EuiChips {
@@ -314,14 +314,14 @@ export declare interface EuiChips extends Components.EuiChips {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiColorPicker,
-  inputs: ['mode']
+  inputs: ['mode', 'nativeAttrs', 'styleValue']
 })
 @Component({
   selector: 'eui-color-picker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['mode'],
+  inputs: ['mode', 'nativeAttrs', 'styleValue'],
   outputs: ['changed'],
 })
 export class EuiColorPicker {
@@ -342,14 +342,14 @@ export declare interface EuiColorPicker extends Components.EuiColorPicker {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDatepicker,
-  inputs: ['date', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions']
+  inputs: ['date', 'defaultValue', 'displayField', 'nativeAttrs', 'noClearButton', 'placeholder', 'styleValue', 'suggestions']
 })
 @Component({
   selector: 'eui-datepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['date', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
+  inputs: ['date', 'defaultValue', 'displayField', 'nativeAttrs', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
   outputs: ['dateChanged'],
 })
 export class EuiDatepicker {
@@ -370,14 +370,14 @@ export declare interface EuiDatepicker extends Components.EuiDatepicker {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDayView,
-  inputs: ['calendarEvents', 'day', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'week', 'year']
+  inputs: ['calendarEvents', 'day', 'holidayEventType', 'interactive', 'month', 'nativeAttrs', 'selectedDate', 'styleValue', 'week', 'year']
 })
 @Component({
   selector: 'eui-day-view',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarEvents', { name: 'day', required: true }, 'holidayEventType', 'interactive', { name: 'month', required: true }, { name: 'selectedDate', required: true }, 'styleValue', { name: 'week', required: true }, { name: 'year', required: true }],
+  inputs: ['calendarEvents', { name: 'day', required: true }, 'holidayEventType', 'interactive', { name: 'month', required: true }, 'nativeAttrs', { name: 'selectedDate', required: true }, 'styleValue', { name: 'week', required: true }, { name: 'year', required: true }],
   outputs: ['dayClick'],
 })
 export class EuiDayView {
@@ -398,14 +398,14 @@ export declare interface EuiDayView extends Components.EuiDayView {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDecadeCard,
-  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'startingYear', 'styleValue']
+  inputs: ['holidayEventType', 'interactive', 'nativeAttrs', 'selectedDate', 'showHeader', 'startingYear', 'styleValue']
 })
 @Component({
   selector: 'eui-decade-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'startingYear', 'styleValue'],
+  inputs: ['holidayEventType', 'interactive', 'nativeAttrs', 'selectedDate', 'showHeader', 'startingYear', 'styleValue'],
   outputs: ['yearClick'],
 })
 export class EuiDecadeCard {
@@ -426,14 +426,14 @@ export declare interface EuiDecadeCard extends Components.EuiDecadeCard {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDialogue,
-  inputs: ['headerMessage', 'styleValue', 'variant']
+  inputs: ['headerMessage', 'nativeAttrs', 'styleValue', 'variant']
 })
 @Component({
   selector: 'eui-dialogue',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['headerMessage', 'styleValue', 'variant'],
+  inputs: ['headerMessage', 'nativeAttrs', 'styleValue', 'variant'],
 })
 export class EuiDialogue {
   protected el: HTMLEuiDialogueElement;
@@ -449,14 +449,14 @@ export declare interface EuiDialogue extends Components.EuiDialogue {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiDropdown,
-  inputs: ['data', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions']
+  inputs: ['data', 'defaultValue', 'displayField', 'nativeAttrs', 'noClearButton', 'placeholder', 'styleValue', 'suggestions']
 })
 @Component({
   selector: 'eui-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'defaultValue', 'displayField', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
+  inputs: ['data', 'defaultValue', 'displayField', 'nativeAttrs', 'noClearButton', 'placeholder', 'styleValue', 'suggestions'],
   outputs: ['itemSelected'],
 })
 export class EuiDropdown {
@@ -477,14 +477,14 @@ export declare interface EuiDropdown extends Components.EuiDropdown {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiEmptyState,
-  inputs: ['icon', 'primaryAction', 'secondaryAction', 'styleValue']
+  inputs: ['icon', 'nativeAttrs', 'primaryAction', 'secondaryAction', 'styleValue']
 })
 @Component({
   selector: 'eui-empty-state',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['icon', 'primaryAction', 'secondaryAction', 'styleValue'],
+  inputs: ['icon', 'nativeAttrs', 'primaryAction', 'secondaryAction', 'styleValue'],
   outputs: ['primaryClick', 'secondaryClick'],
 })
 export class EuiEmptyState {
@@ -508,14 +508,14 @@ export declare interface EuiEmptyState extends Components.EuiEmptyState {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiFeed,
-  inputs: ['data', 'mode', 'styleValue']
+  inputs: ['data', 'mode', 'nativeAttrs', 'styleValue']
 })
 @Component({
   selector: 'eui-feed',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'mode', 'styleValue'],
+  inputs: ['data', 'mode', 'nativeAttrs', 'styleValue'],
 })
 export class EuiFeed {
   protected el: HTMLEuiFeedElement;
@@ -531,14 +531,14 @@ export declare interface EuiFeed extends Components.EuiFeed {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiIcon,
-  inputs: ['name', 'styleValue', 'type']
+  inputs: ['name', 'nativeAttrs', 'styleValue', 'type']
 })
 @Component({
   selector: 'eui-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['name', 'styleValue', 'type'],
+  inputs: ['name', 'nativeAttrs', 'styleValue', 'type'],
 })
 export class EuiIcon {
   protected el: HTMLEuiIconElement;
@@ -554,14 +554,14 @@ export declare interface EuiIcon extends Components.EuiIcon {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiInput,
-  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
+  inputs: ['alert', 'max', 'min', 'mode', 'nativeAttrs', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
 })
 @Component({
   selector: 'eui-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
+  inputs: ['alert', 'max', 'min', 'mode', 'nativeAttrs', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
   outputs: ['clear', 'change', 'keyUp', 'keyDown', 'keyPress'],
 })
 export class EuiInput {
@@ -594,14 +594,14 @@ export declare interface EuiInput extends Components.EuiInput {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiKnob,
-  inputs: ['isPercent', 'max', 'min', 'value']
+  inputs: ['isPercent', 'max', 'min', 'nativeAttrs', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-knob',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['isPercent', 'max', 'min', 'value'],
+  inputs: ['isPercent', 'max', 'min', 'nativeAttrs', 'styleValue', 'value'],
 })
 export class EuiKnob {
   protected el: HTMLEuiKnobElement;
@@ -617,14 +617,14 @@ export declare interface EuiKnob extends Components.EuiKnob {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiMonthCard,
-  inputs: ['holidayEventType', 'interactive', 'month', 'selectedDate', 'showHeader', 'styleValue', 'year']
+  inputs: ['holidayEventType', 'interactive', 'month', 'nativeAttrs', 'selectedDate', 'showHeader', 'styleValue', 'year']
 })
 @Component({
   selector: 'eui-month-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'showHeader', 'styleValue', { name: 'year', required: true }],
+  inputs: ['holidayEventType', 'interactive', { name: 'month', required: true }, 'nativeAttrs', 'selectedDate', 'showHeader', 'styleValue', { name: 'year', required: true }],
   outputs: ['dayClick'],
 })
 export class EuiMonthCard {
@@ -645,14 +645,14 @@ export declare interface EuiMonthCard extends Components.EuiMonthCard {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiMonthView,
-  inputs: ['calendarEvents', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'year']
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', 'month', 'nativeAttrs', 'selectedDate', 'styleValue', 'year']
 })
 @Component({
   selector: 'eui-month-view',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarEvents', 'holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'styleValue', { name: 'year', required: true }],
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', { name: 'month', required: true }, 'nativeAttrs', 'selectedDate', 'styleValue', { name: 'year', required: true }],
   outputs: ['dayClick'],
 })
 export class EuiMonthView {
@@ -673,14 +673,14 @@ export declare interface EuiMonthView extends Components.EuiMonthView {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiPaginator,
-  inputs: ['defaultCurrentPage', 'disabled', 'styleValue', 'totalPages']
+  inputs: ['defaultCurrentPage', 'disabled', 'nativeAttrs', 'styleValue', 'totalPages']
 })
 @Component({
   selector: 'eui-paginator',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['defaultCurrentPage', 'disabled', 'styleValue', 'totalPages'],
+  inputs: ['defaultCurrentPage', 'disabled', 'nativeAttrs', 'styleValue', 'totalPages'],
   outputs: ['currentPage'],
 })
 export class EuiPaginator {
@@ -701,14 +701,14 @@ export declare interface EuiPaginator extends Components.EuiPaginator {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiProgressbar,
-  inputs: ['size', 'styleValue', 'value']
+  inputs: ['nativeAttrs', 'size', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-progressbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['size', 'styleValue', 'value'],
+  inputs: ['nativeAttrs', 'size', 'styleValue', 'value'],
 })
 export class EuiProgressbar {
   protected el: HTMLEuiProgressbarElement;
@@ -724,14 +724,14 @@ export declare interface EuiProgressbar extends Components.EuiProgressbar {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiRadio,
-  inputs: ['checked', 'disabled', 'styleValue', 'value']
+  inputs: ['checked', 'disabled', 'nativeAttrs', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['checked', 'disabled', 'styleValue', { name: 'value', required: true }],
+  inputs: ['checked', 'disabled', 'nativeAttrs', 'styleValue', { name: 'value', required: true }],
   outputs: ['selected'],
 })
 export class EuiRadio {
@@ -752,14 +752,14 @@ export declare interface EuiRadio extends Components.EuiRadio {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiRadioGroup,
-  inputs: ['alignment', 'selected', 'stacked', 'styleValue']
+  inputs: ['alignment', 'nativeAttrs', 'selected', 'stacked', 'styleValue']
 })
 @Component({
   selector: 'eui-radio-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alignment', 'selected', 'stacked', 'styleValue'],
+  inputs: ['alignment', 'nativeAttrs', 'selected', 'stacked', 'styleValue'],
   outputs: ['changed'],
 })
 export class EuiRadioGroup {
@@ -780,14 +780,14 @@ export declare interface EuiRadioGroup extends Components.EuiRadioGroup {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiSideNav,
-  inputs: ['direction', 'mode', 'size', 'styleValue']
+  inputs: ['direction', 'mode', 'nativeAttrs', 'size', 'styleValue']
 })
 @Component({
   selector: 'eui-side-nav',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['direction', 'mode', 'size', 'styleValue'],
+  inputs: ['direction', 'mode', 'nativeAttrs', 'size', 'styleValue'],
 })
 export class EuiSideNav {
   protected el: HTMLEuiSideNavElement;
@@ -803,14 +803,14 @@ export declare interface EuiSideNav extends Components.EuiSideNav {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiSlider,
-  inputs: ['size', 'styleValue', 'value']
+  inputs: ['nativeAttrs', 'size', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-slider',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['size', 'styleValue', 'value'],
+  inputs: ['nativeAttrs', 'size', 'styleValue', 'value'],
   outputs: ['valueChange'],
 })
 export class EuiSlider {
@@ -831,14 +831,14 @@ export declare interface EuiSlider extends Components.EuiSlider {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiSnackbar,
-  inputs: ['awakeTime', 'dismiss', 'header', 'icon', 'message', 'open', 'styleValue', 'variant']
+  inputs: ['awakeTime', 'dismiss', 'header', 'icon', 'message', 'nativeAttrs', 'open', 'styleValue', 'variant']
 })
 @Component({
   selector: 'eui-snackbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['awakeTime', 'dismiss', 'header', 'icon', 'message', 'open', 'styleValue', 'variant'],
+  inputs: ['awakeTime', 'dismiss', 'header', 'icon', 'message', 'nativeAttrs', 'open', 'styleValue', 'variant'],
 })
 export class EuiSnackbar {
   protected el: HTMLEuiSnackbarElement;
@@ -854,14 +854,14 @@ export declare interface EuiSnackbar extends Components.EuiSnackbar {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiStat,
-  inputs: ['data', 'orientation', 'styleValue']
+  inputs: ['data', 'nativeAttrs', 'orientation', 'styleValue']
 })
 @Component({
   selector: 'eui-stat',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'orientation', 'styleValue'],
+  inputs: ['data', 'nativeAttrs', 'orientation', 'styleValue'],
 })
 export class EuiStat {
   protected el: HTMLEuiStatElement;
@@ -877,14 +877,14 @@ export declare interface EuiStat extends Components.EuiStat {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiStepper,
-  inputs: ['currentStep', 'orientation', 'steps', 'styleValue']
+  inputs: ['currentStep', 'nativeAttrs', 'orientation', 'steps', 'styleValue']
 })
 @Component({
   selector: 'eui-stepper',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['currentStep', 'orientation', 'steps', 'styleValue'],
+  inputs: ['currentStep', 'nativeAttrs', 'orientation', 'steps', 'styleValue'],
   outputs: ['stepSelect'],
 })
 export class EuiStepper {
@@ -905,14 +905,14 @@ export declare interface EuiStepper extends Components.EuiStepper {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiTab,
-  inputs: ['collapse', 'data', 'disabled', 'selectedTab', 'styleValue']
+  inputs: ['collapse', 'data', 'disabled', 'nativeAttrs', 'selectedTab', 'styleValue']
 })
 @Component({
   selector: 'eui-tab',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['collapse', 'data', 'disabled', 'selectedTab', 'styleValue'],
+  inputs: ['collapse', 'data', 'disabled', 'nativeAttrs', 'selectedTab', 'styleValue'],
   outputs: ['itemSelected'],
 })
 export class EuiTab {
@@ -933,14 +933,14 @@ export declare interface EuiTab extends Components.EuiTab {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiTextarea,
-  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
+  inputs: ['alert', 'max', 'min', 'mode', 'nativeAttrs', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value']
 })
 @Component({
   selector: 'eui-textarea',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alert', 'max', 'min', 'mode', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
+  inputs: ['alert', 'max', 'min', 'mode', 'nativeAttrs', 'noClearButton', 'placeholder', 'showClear', 'step', 'styleValue', 'type', 'validation', 'value'],
   outputs: ['clear', 'change', 'keyUp', 'keyDown', 'keyPress'],
 })
 export class EuiTextarea {
@@ -973,14 +973,14 @@ export declare interface EuiTextarea extends Components.EuiTextarea {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiToggle,
-  inputs: ['data', 'disabled', 'styleValue', 'value']
+  inputs: ['data', 'disabled', 'nativeAttrs', 'styleValue', 'value']
 })
 @Component({
   selector: 'eui-toggle',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['data', 'disabled', 'styleValue', 'value'],
+  inputs: ['data', 'disabled', 'nativeAttrs', 'styleValue', 'value'],
   outputs: ['valueChanged'],
 })
 export class EuiToggle {
@@ -1001,14 +1001,14 @@ export declare interface EuiToggle extends Components.EuiToggle {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiTree,
-  inputs: ['collapse', 'data', 'styleValue']
+  inputs: ['collapse', 'data', 'nativeAttrs', 'styleValue']
 })
 @Component({
   selector: 'eui-tree',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['collapse', 'data', 'styleValue'],
+  inputs: ['collapse', 'data', 'nativeAttrs', 'styleValue'],
 })
 export class EuiTree {
   protected el: HTMLEuiTreeElement;
@@ -1024,14 +1024,14 @@ export declare interface EuiTree extends Components.EuiTree {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiWeekView,
-  inputs: ['calendarEvents', 'holidayEventType', 'interactive', 'month', 'selectedDate', 'styleValue', 'week', 'year']
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', 'month', 'nativeAttrs', 'selectedDate', 'styleValue', 'week', 'year']
 })
 @Component({
   selector: 'eui-week-view',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['calendarEvents', 'holidayEventType', 'interactive', { name: 'month', required: true }, 'selectedDate', 'styleValue', { name: 'week', required: true }, { name: 'year', required: true }],
+  inputs: ['calendarEvents', 'holidayEventType', 'interactive', { name: 'month', required: true }, 'nativeAttrs', 'selectedDate', 'styleValue', { name: 'week', required: true }, { name: 'year', required: true }],
   outputs: ['dayClick'],
 })
 export class EuiWeekView {
@@ -1052,14 +1052,14 @@ export declare interface EuiWeekView extends Components.EuiWeekView {
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiYear,
-  inputs: ['holidayEventType', 'styleValue', 'year']
+  inputs: ['holidayEventType', 'nativeAttrs', 'styleValue', 'year']
 })
 @Component({
   selector: 'eui-year',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['holidayEventType', 'styleValue', 'year'],
+  inputs: ['holidayEventType', 'nativeAttrs', 'styleValue', 'year'],
 })
 export class EuiYear {
   protected el: HTMLEuiYearElement;
@@ -1075,14 +1075,14 @@ export declare interface EuiYear extends Components.EuiYear {}
 
 @ProxyCmp({
   defineCustomElementFn: defineEuiYearCard,
-  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue']
+  inputs: ['holidayEventType', 'interactive', 'nativeAttrs', 'selectedDate', 'showHeader', 'styleValue']
 })
 @Component({
   selector: 'eui-year-card',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['holidayEventType', 'interactive', 'selectedDate', 'showHeader', 'styleValue'],
+  inputs: ['holidayEventType', 'interactive', 'nativeAttrs', 'selectedDate', 'showHeader', 'styleValue'],
   outputs: ['monthClick'],
 })
 export class EuiYearCard {

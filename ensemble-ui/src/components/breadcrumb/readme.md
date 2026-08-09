@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                            | Default     |
-| ------------ | ------------ | ----------- | ------------------------------- | ----------- |
-| `data`       | `data`       |             | `BreadcrumbData[] \| undefined` | `undefined` |
-| `styleValue` | `stylevalue` |             | `string \| undefined`           | `undefined` |
+| Property      | Attribute      | Description | Type                                 | Default     |
+| ------------- | -------------- | ----------- | ------------------------------------ | ----------- |
+| `data`        | `data`         |             | `BreadcrumbData[] \| undefined`      | `undefined` |
+| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
+| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined` |
 
 
 ## Events

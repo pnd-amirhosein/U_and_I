@@ -10,6 +10,7 @@ export class EUICheckbox {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ mutable: true }) value: 'null' | 'false' | 'partial' | 'true' = 'null';
     @Prop() states: Array<'null' | 'false' | 'partial' | 'true'> = ['null', 'false', 'partial', 'true'];
     @Prop() size: "sm" | "md" | "lg" = "md"
@@ -93,7 +94,7 @@ export class EUICheckbox {
                     <input
                         type="checkbox"
                         checked={this.value === 'true'}
-                        {...attrs}
+                        {...attrs} {...this.nativeAttrs}
                         aria-checked={ariaChecked}
                         onClick={this.toggle}
                     />

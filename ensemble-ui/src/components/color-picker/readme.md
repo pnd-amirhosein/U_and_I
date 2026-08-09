@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                | Default     |
-| -------- | --------- | ----------- | ----------------------------------- | ----------- |
-| `mode`   | `mode`    |             | `"compact" \| "full" \| "standard"` | `"compact"` |
+| Property      | Attribute      | Description | Type                                 | Default     |
+| ------------- | -------------- | ----------- | ------------------------------------ | ----------- |
+| `mode`        | `mode`         |             | `"compact" \| "full" \| "standard"`  | `"compact"` |
+| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
+| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined` |
 
 
 ## Events

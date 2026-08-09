@@ -14,6 +14,7 @@ export class EUIAutoComplete {
   @Prop({ attribute: "fetchSuggestions" }) fetchSuggestions?: (query: string) => Promise<any[]>;
   @Prop({ attribute: "displayField" }) displayField?: string;
   @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop() nativeAttrs?: Record<string, any>;
 
   @Event() itemSelected?: EventEmitter<any>;
 
@@ -202,7 +203,8 @@ export class EUIAutoComplete {
           placeholder={this.placeholder}
           onInput={(e: any) => this.onInput(e)}
           onBlur={() => this.handleBlur()}
-          {...attrs}
+          {...attrs} {...this.nativeAttrs}
+
         >
           <span class="icon-end" slot='icon-end'>
             {this.loading && (

@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                         | Default        |
-| ------------- | -------------- | ----------- | ---------------------------- | -------------- |
-| `currentStep` | `current-step` |             | `number`                     | `0`            |
-| `orientation` | `orientation`  |             | `"horizontal" \| "vertical"` | `"horizontal"` |
-| `steps`       | `steps`        |             | `string[]`                   | `[]`           |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`        | `undefined`    |
+| Property      | Attribute      | Description | Type                                 | Default        |
+| ------------- | -------------- | ----------- | ------------------------------------ | -------------- |
+| `currentStep` | `current-step` |             | `number`                             | `0`            |
+| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined`    |
+| `orientation` | `orientation`  |             | `"horizontal" \| "vertical"`         | `"horizontal"` |
+| `steps`       | `steps`        |             | `string[]`                           | `[]`           |
+| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined`    |
 
 
 ## Events

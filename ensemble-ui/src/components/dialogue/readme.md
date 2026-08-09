@@ -10,6 +10,7 @@
 | Property        | Attribute       | Description | Type                                                        | Default      |
 | --------------- | --------------- | ----------- | ----------------------------------------------------------- | ------------ |
 | `headerMessage` | `headermessage` |             | `string`                                                    | `"MESSAGE!"` |
+| `nativeAttrs`   | `native-attrs`  |             | `undefined \| { [x: string]: any; }`                        | `undefined`  |
 | `styleValue`    | `stylevalue`    |             | `string \| undefined`                                       | `undefined`  |
 | `variant`       | `variant`       |             | `"danger" \| "info" \| "primary" \| "success" \| "warning"` | `'primary'`  |
 

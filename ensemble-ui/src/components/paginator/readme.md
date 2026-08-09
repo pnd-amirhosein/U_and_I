@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property             | Attribute            | Description | Type                  | Default     |
-| -------------------- | -------------------- | ----------- | --------------------- | ----------- |
-| `defaultCurrentPage` | `defaultcurrentpage` |             | `number`              | `1`         |
-| `disabled`           | `disabled`           |             | `boolean`             | `false`     |
-| `styleValue`         | `stylevalue`         |             | `string \| undefined` | `undefined` |
-| `totalPages`         | `totalpages`         |             | `number`              | `1`         |
+| Property             | Attribute            | Description | Type                                 | Default     |
+| -------------------- | -------------------- | ----------- | ------------------------------------ | ----------- |
+| `defaultCurrentPage` | `defaultcurrentpage` |             | `number`                             | `1`         |
+| `disabled`           | `disabled`           |             | `boolean`                            | `false`     |
+| `nativeAttrs`        | `native-attrs`       |             | `undefined \| { [x: string]: any; }` | `undefined` |
+| `styleValue`         | `stylevalue`         |             | `string \| undefined`                | `undefined` |
+| `totalPages`         | `totalpages`         |             | `number`                             | `1`         |
 
 
 ## Events

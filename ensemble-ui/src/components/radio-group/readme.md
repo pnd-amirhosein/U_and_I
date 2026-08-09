@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                         | Default        |
-| ------------ | ------------ | ----------- | ---------------------------- | -------------- |
-| `alignment`  | `alignment`  |             | `"horizontal" \| "vertical"` | `"horizontal"` |
-| `selected`   | `selected`   |             | `string \| undefined`        | `undefined`    |
-| `stacked`    | `stacked`    |             | `boolean`                    | `false`        |
-| `styleValue` | `stylevalue` |             | `string \| undefined`        | `undefined`    |
+| Property      | Attribute      | Description | Type                                 | Default        |
+| ------------- | -------------- | ----------- | ------------------------------------ | -------------- |
+| `alignment`   | `alignment`    |             | `"horizontal" \| "vertical"`         | `"horizontal"` |
+| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined`    |
+| `selected`    | `selected`     |             | `string \| undefined`                | `undefined`    |
+| `stacked`     | `stacked`      |             | `boolean`                            | `false`        |
+| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined`    |
 
 
 ## Events

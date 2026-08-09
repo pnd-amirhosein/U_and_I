@@ -12,6 +12,7 @@ export class EUITree {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() collapse = false;
     @Prop() data: TreeData[] = [];
 
@@ -96,7 +97,7 @@ export class EUITree {
         return (
             <Host>
                 <div
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                     class={{
                         tre: true,

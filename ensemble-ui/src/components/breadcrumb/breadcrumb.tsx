@@ -11,6 +11,7 @@ export class EUIBreadcrumb {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() data?: BreadcrumbData[] = undefined;
 
     @Event() itemClick?: EventEmitter<BreadcrumbData>;
@@ -23,10 +24,6 @@ export class EUIBreadcrumb {
     }
 
     render() {
-
-        console.log(this.data);
-
-
         if (!this.data) return (<></>);
 
         const attrs = Array.from(this.hostEl.attributes)
@@ -40,7 +37,8 @@ export class EUIBreadcrumb {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
+
                     class={{
                         brd: true
                     }}

@@ -10,6 +10,7 @@ export class EUISlider {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() size: "sm" | "md" | "lg" = "md";
     @Prop() value: number = 0;
 
@@ -74,7 +75,7 @@ export class EUISlider {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         sld: true,
                         [`sld--${this.size}`]: true,

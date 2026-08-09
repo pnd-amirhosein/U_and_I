@@ -13,6 +13,8 @@ export class EUIFeed {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
+
     @Prop() mode: FeedMode = FeedMode.timeLine
     @Prop() data: FeedData[] = [{ Title: "placeholder", description: "A placeholder description for" }]
 
@@ -29,7 +31,7 @@ export class EUIFeed {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         fd: true
                     }}

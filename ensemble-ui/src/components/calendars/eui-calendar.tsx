@@ -17,6 +17,7 @@ export class EUICalendar {
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
     @Prop({ attribute: "calendarEvents" }) calendarEvents: CalendarEventType[] = [];
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "calendarViewMode" }) calendarViewMode: CalendarViewEnum = CalendarViewEnum.year;
 
     @State() currentDate: Date = new Date();
@@ -59,7 +60,8 @@ export class EUICalendar {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
+
                     class={{
                         "eui--calendar": true
                     }}

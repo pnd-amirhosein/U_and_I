@@ -6,6 +6,7 @@ import { HolidayService } from 'packages/core/utils/helpers/date/holiday.service
 import { CalendarEventType, Holiday, HolidayEventType } from 'packages/core/utils/helpers/types';
 import { isToday } from 'packages/core/utils/helpers/date/isToday';
 import { dayTimeHours } from 'packages/core/utils/helpers/date/holiday.data';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class EUIWeekView {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() year!: number;
     @Prop() month!: number; // 0-based
     @Prop() week!: number; // 0-based
@@ -43,7 +45,7 @@ export class EUIWeekView {
         const selectedWeek = trimmedDays.slice(this.week * 7, (this.week + 1) * 7);
 
         console.log("Where is the selected week?", this.week, trimmedDays, selectedWeek);
-        
+
 
         const attrs = Array.from(this.hostEl.attributes)
             .filter(attr => !['year', 'month', 'selectedDate', 'interactive', 'class', 'stylevalue'].includes(attr.name))
@@ -71,7 +73,9 @@ export class EUIWeekView {
         });
 
         return (
-            <div {...attrs} class="eui--wkv">
+            <div
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+                {...attrs} {...this.nativeAttrs} class="eui--wkv">
                 <div class="days-grid">
                     <span class='day-cell'>
                         <div class="week-days hide">

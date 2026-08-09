@@ -10,6 +10,7 @@ export class EUIEmptyState {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() icon?: string;
     @Prop({ attribute: "primaryAction" }) primaryAction?: string;
     @Prop({ attribute: "secondaryAction" }) secondaryAction?: string;
@@ -30,7 +31,7 @@ export class EUIEmptyState {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         empst: true
                     }}

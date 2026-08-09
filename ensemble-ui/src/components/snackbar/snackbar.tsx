@@ -10,6 +10,7 @@ export class EUISnackbar {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() dismiss: boolean = false;
     @Prop() variant: 'danger' | 'success' | 'warning' | 'neutral' | 'info' = 'info';
     @Prop() header?: string;
@@ -40,7 +41,7 @@ export class EUISnackbar {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         snck: true,
                         [`snck--${this.variant}`]: true,

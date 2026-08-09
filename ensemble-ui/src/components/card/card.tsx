@@ -10,6 +10,7 @@ export class EUICard {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() img: string = "";
     @Prop() orientation: "horizontal" | "vertical" = "vertical";
     @Prop() mode: "classic" | "belt" | "lollipop" | "gem" | "Flag" = 'classic';
@@ -33,7 +34,7 @@ export class EUICard {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         crd: true,
                         [`crd--${this.orientation}`]: true,

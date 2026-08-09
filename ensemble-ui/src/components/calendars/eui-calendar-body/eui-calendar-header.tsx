@@ -16,6 +16,8 @@ export class EUICalendarHeader {
     @Prop() interactive: boolean = true;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
+
     @Prop({ attribute: "calendarViewMode" }) calendarViewMode: CalendarViewEnum = CalendarViewEnum.year;
 
     @Event() dateChange?: EventEmitter<Date>;
@@ -63,7 +65,7 @@ export class EUICalendarHeader {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         "eui--calendar-header": true
                     }}

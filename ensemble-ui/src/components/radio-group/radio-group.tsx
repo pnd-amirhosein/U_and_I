@@ -10,6 +10,7 @@ export class EUIRadioGroup {
   @Element() hostEl!: HTMLElement;
 
   @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop() nativeAttrs?: Record<string, any>;
   @Prop() alignment: "horizontal" | "vertical" = "horizontal"
   @Prop() stacked: boolean = false
   @Prop({ mutable: true }) selected?: string;
@@ -70,7 +71,7 @@ export class EUIRadioGroup {
       <Host>
         <div
           style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-          {...attrs}
+          {...attrs} {...this.nativeAttrs}
           class={{
             ["rdo--group"]: true,
             [`rdo--${this.alignment}`]: true,

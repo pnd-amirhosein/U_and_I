@@ -15,6 +15,7 @@ export class EUIDatepicker {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "displayField" }) displayField?: string;
     @Prop() placeholder: string = '';
     @Prop() suggestions: any[] = [];
@@ -325,7 +326,7 @@ export class EUIDatepicker {
                     placeholder={this.placeholder}
                     onBlur={() => this.handleBlur()}
                     noClearButton={this.noClearButton}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                 >
                     <span class="icon-end" slot="icon-end">
                         <eui-icon

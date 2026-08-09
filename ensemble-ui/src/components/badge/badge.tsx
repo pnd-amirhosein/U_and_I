@@ -10,13 +10,14 @@ export class EUIBadge {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() type: 'blank' | 'icon' | 'number' | 'text-icon' | 'text' = 'blank';
     @Prop() color: 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending' = 'primary';
 
     render() {
 
         const attrs = Array.from(this.hostEl.attributes)
-            .filter(attr => !['type', 'color', 'class','stylevalue'].includes(attr.name))
+            .filter(attr => !['type', 'color', 'class', 'stylevalue'].includes(attr.name))
             .reduce((acc, attr) => {
                 acc[attr.name] = attr.value;
                 return acc;
@@ -25,8 +26,9 @@ export class EUIBadge {
         return (
             <Host>
                 <div
-                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+                    {...attrs} {...this.nativeAttrs}
+
                     class={{
                         bdg: true,
                         [`bdg--${this.type}`]: true,

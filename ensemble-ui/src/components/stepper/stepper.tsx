@@ -11,6 +11,7 @@ export class EUIStepper {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() orientation: "vertical" | "horizontal" = "horizontal";
     @Prop() steps: string[] = [];
     @Prop() currentStep: number = 0;
@@ -36,7 +37,7 @@ export class EUIStepper {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         stp: true,
                         [`stp--${this.orientation}`]: true,

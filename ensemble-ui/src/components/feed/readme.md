@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                                                                          | Default                                                                    |
-| ------------ | ------------ | ----------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `data`       | `data`       |             | `FeedData[]`                                                                  | `[{ Title: "placeholder", description: "A placeholder description for" }]` |
-| `mode`       | `mode`       |             | `FeedMode.career \| FeedMode.comment \| FeedMode.events \| FeedMode.timeLine` | `FeedMode.timeLine`                                                        |
-| `styleValue` | `stylevalue` |             | `string \| undefined`                                                         | `undefined`                                                                |
+| Property      | Attribute      | Description | Type                                                                          | Default                                                                    |
+| ------------- | -------------- | ----------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `data`        | `data`         |             | `FeedData[]`                                                                  | `[{ Title: "placeholder", description: "A placeholder description for" }]` |
+| `mode`        | `mode`         |             | `FeedMode.career \| FeedMode.comment \| FeedMode.events \| FeedMode.timeLine` | `FeedMode.timeLine`                                                        |
+| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }`                                          | `undefined`                                                                |
+| `styleValue`  | `stylevalue`   |             | `string \| undefined`                                                         | `undefined`                                                                |
 
 
 ## Dependencies

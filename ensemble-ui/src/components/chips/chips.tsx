@@ -12,6 +12,7 @@ export class EUIChips {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "displayField" }) displayField?: string;
     @Prop() placeholder: string = '';
     @Prop() data: any[] = [];
@@ -398,7 +399,7 @@ export class EUIChips {
                     onBlur={() => this.handleBlur()}
                     onClick={() => this.typingModeEnabled}
                     showClear={false}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                 >
                     <span class="icon-end" slot="icon-end">
                         {this.loading && (

@@ -13,6 +13,7 @@
 | `calendarViewMode` | `calendarviewmode` |             | `CalendarViewEnum.day \| CalendarViewEnum.month \| CalendarViewEnum.week \| CalendarViewEnum.year` | `CalendarViewEnum.year` |
 | `holidayEventType` | `holidayeventtype` |             | `HolidayEventType`                                                                                 | `"none"`                |
 | `interactive`      | `interactive`      |             | `boolean`                                                                                          | `true`                  |
+| `nativeAttrs`      | `native-attrs`     |             | `undefined \| { [x: string]: any; }`                                                               | `undefined`             |
 | `selectedDate`     | `selecteddate`     |             | `Date`                                                                                             | `new Date()`            |
 | `styleValue`       | `stylevalue`       |             | `string \| undefined`                                                                              | `undefined`             |
 

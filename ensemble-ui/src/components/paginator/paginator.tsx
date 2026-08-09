@@ -10,6 +10,7 @@ export class EUIPaginator {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "defaultCurrentPage" }) defaultCurrentPage: number = 1;
     @Prop({ attribute: "totalPages" }) totalPages: number = 1;
     @Prop() disabled: boolean = false;
@@ -92,7 +93,7 @@ export class EUIPaginator {
                 {this.paginatorFormat && (
                     <div
                         style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                        {...attrs}
+                        {...attrs} {...this.nativeAttrs}
                         class={{
                             pg: true,
                             [`pg--disabled`]: this.disabled == true

@@ -6,7 +6,9 @@ import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 export class EUIIcon {
   @Element() hostEl!: HTMLElement;
 
-  @Prop({ attribute: "styleValue" }) styleValue?: string; @Prop() name: string = '';
+  @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop() nativeAttrs?: Record<string, any>;
+  @Prop() name: string = '';
   @Prop() type: 'solid' | 'outline' | 'mini' | 'micro' = 'micro';
 
   @State() svg: string = '';
@@ -40,7 +42,7 @@ export class EUIIcon {
       }, {} as Record<string, string>);
 
     return this.svg
-      ? <div {...attrs} style={this.styleValue ? parseStyleString(this.styleValue) : undefined} class={`icon-wrapper icon-${this.type}`} innerHTML={this.svg}></div>
+      ? <div {...attrs} {...this.nativeAttrs} style={this.styleValue ? parseStyleString(this.styleValue) : undefined} class={`icon-wrapper icon-${this.type}`} innerHTML={this.svg}></div>
       : <div class={`icon-wrapper icon-${this.type}`} style={{ color: 'gray', fontSize: '0.8em' }}>Icon not found</div>;
   }
 }

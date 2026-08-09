@@ -12,12 +12,13 @@ export class EUIDropdown {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "displayField" }) displayField?: string;
     @Prop() placeholder: string = '';
     @Prop() data: any[] = [];
     @Prop() suggestions: any[] = [];
     @Prop({ attribute: "defaultValue" }) defaultValue: string = ''
-    @Prop({ attribute: "noClearButton" }) noClearButton : boolean = false;
+    @Prop({ attribute: "noClearButton" }) noClearButton: boolean = false;
 
     @Event() itemSelected?: EventEmitter<any>;
 
@@ -264,7 +265,7 @@ export class EUIDropdown {
                     onInput={(e: any) => this.onInput(e)}
                     onBlur={() => this.handleBlur()}
                     noClearButton={this.noClearButton}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                 >
                     <span class="icon-end" slot="icon-end">
                         {this.loading && (

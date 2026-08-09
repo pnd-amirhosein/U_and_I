@@ -1,5 +1,6 @@
 import { Component, h, Element, Event, EventEmitter, State, Prop } from "@stencil/core";
 import { computePosition, autoUpdate, offset, flip, shift } from "@floating-ui/dom";
+import { parseStyleString } from "packages/core/utils/helpers/parseStyle";
 
 @Component({
     tag: "eui-color-picker",
@@ -11,6 +12,9 @@ export class EUIColorPicker {
     @Element() hostEl!: HTMLElement;
 
     @Event() changed!: EventEmitter<string>;
+
+    @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
 
     @Prop() mode: "compact" | "standard" | "full" = "compact"
 
@@ -330,6 +334,7 @@ export class EUIColorPicker {
     render() {
         return (
             <span
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                 class={{
                     clp: true,
                     [`clp--${this.mode}`]: true

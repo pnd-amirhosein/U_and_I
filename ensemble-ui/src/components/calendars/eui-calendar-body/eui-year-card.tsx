@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
 import { monthNumberToText, monthTextToNumber } from 'packages/core/utils/helpers/date/calendar.utils';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { HolidayEventType } from 'packages/core/utils/helpers/types';
 import { Holiday } from 'packages/core/utils/helpers/types';
 
@@ -12,6 +13,7 @@ export class EUIYearCard {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;
     @Prop() interactive: boolean = true;
     @Prop({ attribute: "holidayEventType" }) holidayEventType: HolidayEventType = "none";
@@ -46,7 +48,9 @@ export class EUIYearCard {
         const holidayMap = new Map<string, Holiday[]>();
 
         return (
-            <div {...attrs} class="eui--yrcard">
+            <div
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+                {...attrs} {...this.nativeAttrs} class="eui--yrcard">
 
                 <div class="months-grid">
                     {months.map((month, i) => {

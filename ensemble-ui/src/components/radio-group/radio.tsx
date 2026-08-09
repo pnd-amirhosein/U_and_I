@@ -10,6 +10,7 @@ export class EUIRadio {
   @Element() hostEl!: HTMLElement;
 
   @Prop({ attribute: "styleValue" }) styleValue?: string;
+  @Prop() nativeAttrs?: Record<string, any>;
   @Prop() value!: string;
   @Prop({ mutable: true }) checked = false;
   @Prop() disabled = false;
@@ -29,7 +30,7 @@ export class EUIRadio {
       <Host>
         <div
           style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-          {...attrs}
+          {...attrs} {...this.nativeAttrs}
           class={{
             ["rdo"]: true,
             ["rdo--selected"]: this.checked,

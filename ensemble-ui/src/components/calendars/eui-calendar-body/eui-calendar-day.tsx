@@ -6,6 +6,7 @@ import { HolidayService } from 'packages/core/utils/helpers/date/holiday.service
 import { CalendarEventType, Holiday, HolidayEventType } from 'packages/core/utils/helpers/types';
 import { dayTimeHours } from 'packages/core/utils/helpers/date/holiday.data';
 import { EuiMonthCardCustomEvent } from 'src/components';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class EUIDayView {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() year!: number;
     @Prop() month!: number; // 0-based
     @Prop() week!: number; // 0-based
@@ -91,13 +93,9 @@ export class EUIDayView {
 
 
         return (
-            <div {...attrs} class="eui--day">
+            <div {...attrs} {...this.nativeAttrs} class="eui--day">
                 <div class="days-grid">
                     <span class='day-cell'>
-                        {/* <div class="week-days hide">
-                            <div class="weekday">/</div>
-                            <span><span class="date-badge">/</span></span>
-                        </div> */}
                         {dayTimeHours.map(x => (<span class="day-time static show">{x}</span>))}
                     </span>
                     {
@@ -109,24 +107,13 @@ export class EUIDayView {
 
 
                             return (
-                                <div
+                                <div style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
                                     class={{
                                         'day-cell': true,
-                                        // 'is-today': IsToday,
-                                        // 'is-prev': isPrevMonth,
-                                        // 'is-next': isNextMonth,
-                                        // 'is-selected': isSelected ?? false,
-                                        // 'is-weekend': isWeekend,
-                                        // 'is-holiday': dayHolidays.some(x => x.isHoliday) ?? false,
                                     }}
                                     title={dayHolidays.map(h => h.name).join(' • ')}
                                     onClick={() => this.dayClick?.emit(new Date(this.year, this.month, this.currentDay + 1))}
                                 >
-                                    {/* <div class="week-days">
-                                    <div class={`weekday ${{ "weekend": ((i + 1) == 7) }}`}>{weekdays[i]}</div>
-                                    <span><span class="date-badge">{date.getDate()}</span></span>
-                                </div> */}
-
                                     <div class="day-box">
                                         <span class="event-box">
                                             {events && events.map(pack => {

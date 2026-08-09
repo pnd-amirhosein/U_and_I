@@ -10,6 +10,7 @@ export class EUIStat {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() data: any;
     @Prop() orientation: "vertical" | "horizontal" = "horizontal";
 
@@ -30,7 +31,7 @@ export class EUIStat {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         stt: true,
                         [`stt--${this.orientation}`]: true,

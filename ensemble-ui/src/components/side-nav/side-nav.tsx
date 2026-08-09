@@ -10,6 +10,7 @@ export class EUISidenav {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() size: "full" | "compact" = "full"
     @Prop() mode: "middle" | "start" = "middle"
     @Prop() direction: "rtl" | "ltr" = "ltr";
@@ -68,7 +69,7 @@ export class EUISidenav {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         snv: true,
                         [`snv--${this.size}`]: true,

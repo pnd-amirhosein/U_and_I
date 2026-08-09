@@ -28,8 +28,8 @@ export class EUIButton {
       <Host>
         <button
           style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-          {...attrs}
-          {...this.nativeAttrs}
+          {...attrs} {...this.nativeAttrs}
+
           class={{
             btn: true,
             [`btn--${this.size}`]: true,

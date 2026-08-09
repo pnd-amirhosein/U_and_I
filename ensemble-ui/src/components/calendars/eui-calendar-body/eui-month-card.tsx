@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
 import { getCalendarDays } from 'packages/core/utils/helpers/date/calendar.utils';
 import { HolidayService } from 'packages/core/utils/helpers/date/holiday.service';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { HolidayEventType } from 'packages/core/utils/helpers/types';
 import { Holiday } from 'packages/core/utils/helpers/types';
 
@@ -13,6 +14,7 @@ export class EUIMonthCard {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() year!: number;
     @Prop() month!: number; // 0-based
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;
@@ -65,7 +67,9 @@ export class EUIMonthCard {
 
 
         return (
-            <div {...attrs} class="eui--mntcard">
+            <div
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+                {...attrs} {...this.nativeAttrs} class="eui--mntcard">
 
                 {(() => {
                     if (this.showHeader)

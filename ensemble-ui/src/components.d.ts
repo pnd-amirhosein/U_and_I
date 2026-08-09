@@ -17,6 +17,7 @@ export namespace Components {
     interface EuiAutoComplete {
         "displayField"?: string;
         "fetchSuggestions"?: (query: string) => Promise<any[]>;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default ''
          */
@@ -28,6 +29,7 @@ export namespace Components {
           * @default 'primary'
          */
         "color": 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending';
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 'blank'
@@ -39,6 +41,7 @@ export namespace Components {
           * @default undefined
          */
         "data"?: BreadcrumbData[];
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
     }
     interface EuiButton {
@@ -74,6 +77,7 @@ export namespace Components {
           * @default true
          */
         "interactive": boolean;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default new Date()
          */
@@ -89,6 +93,7 @@ export namespace Components {
           * @default true
          */
         "interactive": boolean;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate"?: Date;
         "styleValue"?: string;
     }
@@ -101,6 +106,7 @@ export namespace Components {
           * @default true
          */
         "interactive": boolean;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default new Date()
          */
@@ -116,6 +122,7 @@ export namespace Components {
           * @default 'classic'
          */
         "mode": "classic" | "belt" | "lollipop" | "gem" | "Flag";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "vertical"
          */
@@ -127,6 +134,7 @@ export namespace Components {
           * @default "fill"
          */
         "mode": "fill" | "outline";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "md"
          */
@@ -147,6 +155,7 @@ export namespace Components {
          */
         "data": any[];
         "displayField"?: string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default ''
          */
@@ -162,6 +171,8 @@ export namespace Components {
           * @default "compact"
          */
         "mode": "compact" | "standard" | "full";
+        "nativeAttrs"?: Record<string, any>;
+        "styleValue"?: string;
     }
     interface EuiDatepicker {
         /**
@@ -173,6 +184,7 @@ export namespace Components {
          */
         "defaultValue": string;
         "displayField"?: string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -202,6 +214,7 @@ export namespace Components {
          */
         "interactive": boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate": Date;
         "styleValue"?: string;
         "week": number;
@@ -216,6 +229,7 @@ export namespace Components {
           * @default true
          */
         "interactive": boolean;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate"?: Date;
         /**
           * @default true
@@ -229,6 +243,7 @@ export namespace Components {
           * @default "MESSAGE!"
          */
         "headerMessage": string;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 'primary'
@@ -245,6 +260,7 @@ export namespace Components {
          */
         "defaultValue": string;
         "displayField"?: string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -261,6 +277,7 @@ export namespace Components {
     }
     interface EuiEmptyState {
         "icon"?: string;
+        "nativeAttrs"?: Record<string, any>;
         "primaryAction"?: string;
         "secondaryAction"?: string;
         "styleValue"?: string;
@@ -274,6 +291,7 @@ export namespace Components {
           * @default FeedMode.timeLine
          */
         "mode": FeedMode;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
     }
     interface EuiIcon {
@@ -281,6 +299,7 @@ export namespace Components {
           * @default ''
          */
         "name": string;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 'micro'
@@ -298,6 +317,7 @@ export namespace Components {
           * @default 'normal'
          */
         "mode": 'normal' | 'outline' | 'text-input';
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -339,6 +359,8 @@ export namespace Components {
           * @default 0
          */
         "min": number;
+        "nativeAttrs"?: Record<string, any>;
+        "styleValue"?: string;
         /**
           * @default 75
          */
@@ -354,6 +376,7 @@ export namespace Components {
          */
         "interactive": boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate"?: Date;
         /**
           * @default true
@@ -376,6 +399,7 @@ export namespace Components {
          */
         "interactive": boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate"?: Date;
         "styleValue"?: string;
         "year": number;
@@ -389,6 +413,7 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 1
@@ -396,6 +421,7 @@ export namespace Components {
         "totalPages": number;
     }
     interface EuiProgressbar {
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "md"
          */
@@ -415,6 +441,7 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         "value": string;
     }
@@ -423,6 +450,7 @@ export namespace Components {
           * @default "horizontal"
          */
         "alignment": "horizontal" | "vertical";
+        "nativeAttrs"?: Record<string, any>;
         "selected"?: string;
         /**
           * @default false
@@ -439,6 +467,7 @@ export namespace Components {
           * @default "middle"
          */
         "mode": "middle" | "start";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "full"
          */
@@ -446,6 +475,7 @@ export namespace Components {
         "styleValue"?: string;
     }
     interface EuiSlider {
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "md"
          */
@@ -468,6 +498,7 @@ export namespace Components {
           * @default "Placeholder for message"
          */
         "message": string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -480,6 +511,7 @@ export namespace Components {
     }
     interface EuiStat {
         "data": any;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "horizontal"
          */
@@ -491,6 +523,7 @@ export namespace Components {
           * @default 0
          */
         "currentStep": number;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "horizontal"
          */
@@ -514,6 +547,7 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default 0
          */
@@ -531,6 +565,7 @@ export namespace Components {
           * @default 'normal'
          */
         "mode": 'normal' | 'outline' | 'text-textarea';
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -568,6 +603,7 @@ export namespace Components {
           * @default false
          */
         "disabled": boolean;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 0
@@ -583,6 +619,7 @@ export namespace Components {
           * @default []
          */
         "data": TreeData[];
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
     }
     interface EuiWeekView {
@@ -599,6 +636,7 @@ export namespace Components {
          */
         "interactive": boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate"?: Date;
         "styleValue"?: string;
         "week": number;
@@ -609,6 +647,7 @@ export namespace Components {
           * @default "none"
          */
         "holidayEventType": HolidayEventType;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 2000
@@ -624,6 +663,7 @@ export namespace Components {
           * @default true
          */
         "interactive": boolean;
+        "nativeAttrs"?: Record<string, any>;
         "selectedDate"?: Date;
         /**
           * @default true
@@ -1298,6 +1338,7 @@ declare namespace LocalJSX {
     interface EuiAutoComplete {
         "displayField"?: string;
         "fetchSuggestions"?: (query: string) => Promise<any[]>;
+        "nativeAttrs"?: Record<string, any>;
         "onItemSelected"?: (event: EuiAutoCompleteCustomEvent<any>) => void;
         /**
           * @default ''
@@ -1310,6 +1351,7 @@ declare namespace LocalJSX {
           * @default 'primary'
          */
         "color"?: 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending';
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 'blank'
@@ -1321,6 +1363,7 @@ declare namespace LocalJSX {
           * @default undefined
          */
         "data"?: BreadcrumbData[];
+        "nativeAttrs"?: Record<string, any>;
         "onItemClick"?: (event: EuiBreadcrumbCustomEvent<BreadcrumbData>) => void;
         "styleValue"?: string;
     }
@@ -1357,6 +1400,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default new Date()
          */
@@ -1372,6 +1416,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onDateChange"?: (event: EuiCalendarHeaderCustomEvent<Date>) => void;
         "onViewChange"?: (event: EuiCalendarHeaderCustomEvent<CalendarViewEnum>) => void;
         "selectedDate"?: Date;
@@ -1386,6 +1431,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onDateChange"?: (event: EuiCalendarNavigatorCustomEvent<Date>) => void;
         /**
           * @default new Date()
@@ -1402,6 +1448,7 @@ declare namespace LocalJSX {
           * @default 'classic'
          */
         "mode"?: "classic" | "belt" | "lollipop" | "gem" | "Flag";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "vertical"
          */
@@ -1413,6 +1460,7 @@ declare namespace LocalJSX {
           * @default "fill"
          */
         "mode"?: "fill" | "outline";
+        "nativeAttrs"?: Record<string, any>;
         "onValueChange"?: (event: EuiCheckboxCustomEvent<'null' | 'false' | 'partial' | 'true'>) => void;
         /**
           * @default "md"
@@ -1434,6 +1482,7 @@ declare namespace LocalJSX {
          */
         "data"?: any[];
         "displayField"?: string;
+        "nativeAttrs"?: Record<string, any>;
         "onItemSelected"?: (event: EuiChipsCustomEvent<any>) => void;
         /**
           * @default ''
@@ -1450,7 +1499,9 @@ declare namespace LocalJSX {
           * @default "compact"
          */
         "mode"?: "compact" | "standard" | "full";
+        "nativeAttrs"?: Record<string, any>;
         "onChanged"?: (event: EuiColorPickerCustomEvent<string>) => void;
+        "styleValue"?: string;
     }
     interface EuiDatepicker {
         /**
@@ -1462,6 +1513,7 @@ declare namespace LocalJSX {
          */
         "defaultValue"?: string;
         "displayField"?: string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -1492,6 +1544,7 @@ declare namespace LocalJSX {
          */
         "interactive"?: boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "onDayClick"?: (event: EuiDayViewCustomEvent<Date>) => void;
         "selectedDate": Date;
         "styleValue"?: string;
@@ -1507,6 +1560,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onYearClick"?: (event: EuiDecadeCardCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         /**
@@ -1521,6 +1575,7 @@ declare namespace LocalJSX {
           * @default "MESSAGE!"
          */
         "headerMessage"?: string;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 'primary'
@@ -1537,6 +1592,7 @@ declare namespace LocalJSX {
          */
         "defaultValue"?: string;
         "displayField"?: string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -1554,6 +1610,7 @@ declare namespace LocalJSX {
     }
     interface EuiEmptyState {
         "icon"?: string;
+        "nativeAttrs"?: Record<string, any>;
         "onPrimaryClick"?: (event: EuiEmptyStateCustomEvent<any>) => void;
         "onSecondaryClick"?: (event: EuiEmptyStateCustomEvent<any>) => void;
         "primaryAction"?: string;
@@ -1569,6 +1626,7 @@ declare namespace LocalJSX {
           * @default FeedMode.timeLine
          */
         "mode"?: FeedMode;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
     }
     interface EuiIcon {
@@ -1576,6 +1634,7 @@ declare namespace LocalJSX {
           * @default ''
          */
         "name"?: string;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 'micro'
@@ -1593,6 +1652,7 @@ declare namespace LocalJSX {
           * @default 'normal'
          */
         "mode"?: 'normal' | 'outline' | 'text-input';
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -1639,6 +1699,8 @@ declare namespace LocalJSX {
           * @default 0
          */
         "min"?: number;
+        "nativeAttrs"?: Record<string, any>;
+        "styleValue"?: string;
         /**
           * @default 75
          */
@@ -1654,6 +1716,7 @@ declare namespace LocalJSX {
          */
         "interactive"?: boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "onDayClick"?: (event: EuiMonthCardCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         /**
@@ -1677,6 +1740,7 @@ declare namespace LocalJSX {
          */
         "interactive"?: boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "onDayClick"?: (event: EuiMonthViewCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         "styleValue"?: string;
@@ -1691,6 +1755,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onCurrentPage"?: (event: EuiPaginatorCustomEvent<any>) => void;
         "styleValue"?: string;
         /**
@@ -1699,6 +1764,7 @@ declare namespace LocalJSX {
         "totalPages"?: number;
     }
     interface EuiProgressbar {
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "md"
          */
@@ -1718,6 +1784,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onSelected"?: (event: EuiRadioCustomEvent<string>) => void;
         "styleValue"?: string;
         "value": string;
@@ -1727,6 +1794,7 @@ declare namespace LocalJSX {
           * @default "horizontal"
          */
         "alignment"?: "horizontal" | "vertical";
+        "nativeAttrs"?: Record<string, any>;
         "onChanged"?: (event: EuiRadioGroupCustomEvent<string>) => void;
         "selected"?: string;
         /**
@@ -1744,6 +1812,7 @@ declare namespace LocalJSX {
           * @default "middle"
          */
         "mode"?: "middle" | "start";
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "full"
          */
@@ -1751,6 +1820,7 @@ declare namespace LocalJSX {
         "styleValue"?: string;
     }
     interface EuiSlider {
+        "nativeAttrs"?: Record<string, any>;
         "onValueChange"?: (event: EuiSliderCustomEvent<number>) => void;
         /**
           * @default "md"
@@ -1774,6 +1844,7 @@ declare namespace LocalJSX {
           * @default "Placeholder for message"
          */
         "message"?: string;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -1786,6 +1857,7 @@ declare namespace LocalJSX {
     }
     interface EuiStat {
         "data"?: any;
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default "horizontal"
          */
@@ -1797,6 +1869,7 @@ declare namespace LocalJSX {
           * @default 0
          */
         "currentStep"?: number;
+        "nativeAttrs"?: Record<string, any>;
         "onStepSelect"?: (event: EuiStepperCustomEvent<number>) => void;
         /**
           * @default "horizontal"
@@ -1821,6 +1894,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onItemSelected"?: (event: EuiTabCustomEvent<any>) => void;
         /**
           * @default 0
@@ -1839,6 +1913,7 @@ declare namespace LocalJSX {
           * @default 'normal'
          */
         "mode"?: 'normal' | 'outline' | 'text-textarea';
+        "nativeAttrs"?: Record<string, any>;
         /**
           * @default false
          */
@@ -1881,6 +1956,7 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onValueChanged"?: (event: EuiToggleCustomEvent<number>) => void;
         "styleValue"?: string;
         /**
@@ -1897,6 +1973,7 @@ declare namespace LocalJSX {
           * @default []
          */
         "data"?: TreeData[];
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
     }
     interface EuiWeekView {
@@ -1913,6 +1990,7 @@ declare namespace LocalJSX {
          */
         "interactive"?: boolean;
         "month": number;
+        "nativeAttrs"?: Record<string, any>;
         "onDayClick"?: (event: EuiWeekViewCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         "styleValue"?: string;
@@ -1924,6 +2002,7 @@ declare namespace LocalJSX {
           * @default "none"
          */
         "holidayEventType"?: HolidayEventType;
+        "nativeAttrs"?: Record<string, any>;
         "styleValue"?: string;
         /**
           * @default 2000
@@ -1939,6 +2018,7 @@ declare namespace LocalJSX {
           * @default true
          */
         "interactive"?: boolean;
+        "nativeAttrs"?: Record<string, any>;
         "onMonthClick"?: (event: EuiYearCardCustomEvent<Date>) => void;
         "selectedDate"?: Date;
         /**

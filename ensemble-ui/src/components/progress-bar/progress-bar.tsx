@@ -10,6 +10,7 @@ export class EUIProgressbar {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() size: "sm" | "md" | "lg" = "md";
     @Prop() value: number = 0;
 
@@ -33,7 +34,7 @@ export class EUIProgressbar {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         prg: true,
                         [`prg--${this.size}`]: true,

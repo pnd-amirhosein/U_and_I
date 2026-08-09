@@ -11,6 +11,7 @@ export class EUITab {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() disabled: boolean = false;
     @Prop() collapse: boolean = false;
     @Prop() data: TabData[] = [];
@@ -43,7 +44,7 @@ export class EUITab {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         tb: true,
                         [`tb--disabled`]: this.disabled,

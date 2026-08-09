@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Prop, h, Event, Element, State } from '@stencil/core';
+import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { HolidayEventType } from 'packages/core/utils/helpers/types';
 
 @Component({
@@ -10,6 +11,7 @@ export class EUIDecadeCard {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop({ attribute: "selectedDate" }) selectedDate?: Date;
     @Prop({ attribute: "startingYear" }) startingYear?: number;
     @Prop() interactive: boolean = true;
@@ -51,7 +53,9 @@ export class EUIDecadeCard {
         console.log(this.currentDate, this.startingYear, year, decadeStart, decade, this.startingYear);
 
         return (
-            <div {...attrs} class="eui--dcdcard">
+            <div
+                style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
+                {...attrs} {...this.nativeAttrs} class="eui--dcdcard">
 
                 <div class="decade-grid">
                     {decade.map(year => {

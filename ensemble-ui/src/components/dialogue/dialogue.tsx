@@ -10,6 +10,7 @@ export class EUIDialogue {
     @Element() hostEl!: HTMLElement;
 
     @Prop({ attribute: "styleValue" }) styleValue?: string;
+    @Prop() nativeAttrs?: Record<string, any>;
     @Prop() variant: 'primary' | 'danger' | 'success' | 'warning' | 'info' = 'primary';
     @Prop({ attribute: 'headerMessage' }) headerMessage: string = "MESSAGE!"
 
@@ -41,7 +42,7 @@ export class EUIDialogue {
             <Host>
                 <div
                     style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
-                    {...attrs}
+                    {...attrs} {...this.nativeAttrs}
                     class={{
                         dlg: true,
                         [`dlg--${this.variant}`]: true,
