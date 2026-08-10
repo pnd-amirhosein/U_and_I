@@ -1,6 +1,7 @@
 import { Config } from '@stencil/core';
 import { reactOutputTarget } from '@stencil/react-output-target';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import { vueOutputTarget } from '@stencil/vue-output-target';
 import { sass } from '@stencil/sass';
 import { postcss } from '@stencil/postcss';
 
@@ -53,6 +54,11 @@ export const config: Config = {
       directivesProxyFile: './packages/angular/components.ts',
       directivesArrayFile: './packages/angular/index.ts'
     }),
+    vueOutputTarget({
+      componentCorePackage: 'ensemble-ui',
+      proxiesFile: './packages/vue/components.ts',
+      includeImportCustomElements: true
+    })
   ],
   testing: { browserHeadless: "shell" },
 };

@@ -47,6 +47,10 @@
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
+    },
+    "./vue": {
+      "import": "./packages/vue/components.js",
+      "types": "./packages/vue/components.d.ts"
     }
   },
   "repository": {
@@ -56,10 +60,10 @@
   "files": [
     "dist/",
     "loader/",
-    "packages/react/"
+    "packages/react/",
+    "packages/vue/"
   ],
   "scripts": {
-    "build:OLD": "npm run build:all && stencil build && npm run fix:ng",
     "build": "npm run build:all && stencil build",
     "build:all": "npm run delete:old && npm run clean:build && npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
     "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
@@ -75,7 +79,8 @@
     "clean:build": "node scripts/clean-output.js",
     "delete:old": "node scripts/delete-old.js",
     "dev:ng": "node scripts/angular-orchestrator.js",
-    "dev:rc": "node scripts/react-orchestrator.js"
+    "dev:rc": "node scripts/react-orchestrator.js",
+    "dev:vu": "node scripts/vue-orchestrator.js"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",
@@ -85,6 +90,7 @@
     "@stencil/postcss": "^2.1.0",
     "@stencil/react-output-target": "^1.2.0",
     "@stencil/sass": "^3.2.2",
+    "@stencil/vue-output-target": "^0.14.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.18.8",
     "@types/react": "^19.1.13",
