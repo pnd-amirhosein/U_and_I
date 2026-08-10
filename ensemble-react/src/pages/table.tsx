@@ -1,14 +1,11 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { EuiBadge } from 'ensemble-ui/react'
 
-@Component({
-  selector: 'app-root',
-  styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  standalone: true,
-  template: `
-    <div class="doc">
-      <span class="flex">
-        <table class="eui--table eui--simple-table">
+export default function TablePage() {
+  return (
+    <div className="doc">
+
+      <span className="flex">
+        <table className="eui--table eui--simple-table">
           <thead>
             <tr>
               <th>#</th>
@@ -17,30 +14,47 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <th>State</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>1</td>
               <td>@Spades</td>
               <td>Daniel</td>
-              <td><eui-badge type="text" color="success">Online</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="success">
+                  Online
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>2</td>
               <td>@Poker</td>
               <td>Isabella</td>
-              <td><eui-badge type="text" color="pending">Offline</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="pending">
+                  Offline
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>3</td>
               <td>@GoFish</td>
               <td>Idris</td>
-              <td><eui-badge type="text" color="danger">Banned</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="danger">
+                  Banned
+                </EuiBadge>
+              </td>
             </tr>
           </tbody>
         </table>
       </span>
-      <span class="flex">
-        <table class="eui--table eui--semi-striped-table">
+
+
+      <span className="flex">
+        <table className="eui--table eui--semi-striped-table">
           <thead>
             <tr>
               <th>#</th>
@@ -49,30 +63,47 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <th>State</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>1</td>
               <td>@Spades</td>
               <td>Daniel</td>
-              <td><eui-badge type="text" color="success">Online</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="success">
+                  Online
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>2</td>
               <td>@Poker</td>
               <td>Isabella</td>
-              <td><eui-badge type="text" color="pending">Offline</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="pending">
+                  Offline
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>3</td>
               <td>@GoFish</td>
               <td>Idris</td>
-              <td><eui-badge type="text" color="danger">Banned</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="danger">
+                  Banned
+                </EuiBadge>
+              </td>
             </tr>
           </tbody>
         </table>
       </span>
-      <span class="flex">
-        <table class="eui--table eui--full-lined-table">
+
+
+      <span className="flex">
+        <table className="eui--table eui--full-lined-table">
           <thead>
             <tr>
               <th>#</th>
@@ -81,30 +112,47 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <th>State</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>1</td>
               <td>@Spades</td>
               <td>Daniel</td>
-              <td><eui-badge type="text" color="success">Online</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="success">
+                  Online
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>2</td>
               <td>@Poker</td>
               <td>Isabella</td>
-              <td><eui-badge type="text" color="pending">Offline</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="pending">
+                  Offline
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>3</td>
               <td>@GoFish</td>
               <td>Idris</td>
-              <td><eui-badge type="text" color="danger">Banned</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="danger">
+                  Banned
+                </EuiBadge>
+              </td>
             </tr>
           </tbody>
         </table>
       </span>
-      <span class="flex">
-        <table class="eui--table eui--full-striped-table">
+
+
+      <span className="flex">
+        <table className="eui--table eui--full-striped-table">
           <thead>
             <tr>
               <th>#</th>
@@ -113,31 +161,44 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <th>State</th>
             </tr>
           </thead>
+
           <tbody>
             <tr>
               <td>1</td>
               <td>@Spades</td>
               <td>Daniel</td>
-              <td><eui-badge type="text" color="success">Online</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="success">
+                  Online
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>2</td>
               <td>@Poker</td>
               <td>Isabella</td>
-              <td><eui-badge type="text" color="pending">Offline</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="pending">
+                  Offline
+                </EuiBadge>
+              </td>
             </tr>
+
             <tr>
               <td>3</td>
               <td>@GoFish</td>
               <td>Idris</td>
-              <td><eui-badge type="text" color="danger">Banned</eui-badge></td>
+              <td>
+                <EuiBadge type="text" color="danger">
+                  Banned
+                </EuiBadge>
+              </td>
             </tr>
           </tbody>
         </table>
       </span>
+
     </div>
-    `
-})
-export class TableComponent {
-
+  )
 }

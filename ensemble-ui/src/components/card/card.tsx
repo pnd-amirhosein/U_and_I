@@ -13,7 +13,7 @@ export class EUICard {
     @Prop() nativeAttrs?: Record<string, any>;
     @Prop() img: string = "";
     @Prop() orientation: "horizontal" | "vertical" = "vertical";
-    @Prop() mode: "classic" | "belt" | "lollipop" | "gem" | "Flag" = 'classic';
+    @Prop() mode: "classic" | "belt" | "lollipop" | "gem" | "flag" = 'classic';
 
     componentWillLoad() {
         if (this.styleValue) {

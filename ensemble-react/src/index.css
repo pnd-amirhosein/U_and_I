@@ -27,3 +27,163 @@ h6 {
     color: var(--color-neutral-50);
   }
 }
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-neutral-900);
+    color: white;
+  }
+}
+
+main,
+.doc {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.doc {
+  margin-bottom: 30vh;
+}
+
+.doc>* {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.doc.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+
+.side-nav-holder {
+  height: 80vh;
+  width: 80vw;
+  display: flex;
+  border: 1px solid var(--color-primary-300);
+  border-radius: 8px;
+}
+
+
+.simulator {
+  padding: 1rem;
+  gap: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.simulator .header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  box-sizing: border-box;
+  align-items: center;
+  border: 1px solid var(--color-neutral-200);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .simulator .header {
+    border: 1px solid var(--color-neutral-600);
+  }
+}
+
+.simulator .header .user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.simulator .body {
+  padding: 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-neutral-200);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  box-sizing: border-box;
+  flex-direction: column;
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+  .simulator .body {
+
+    border: 1px solid var(--color-neutral-600);
+  }
+}
+
+.simulator .body>span:nth-child(1) {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-sizing: border-box;
+  align-content: flex-start;
+  align-items: center;
+  grid-row: 1;
+}
+
+.simulator .body>span:nth-child(2) {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+
+.simulator .body>span>*:not(eui-button) {
+  height: fit-content;
+  width: 23%;
+}
+
+.simulator .checkbox-boy {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.stepper-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+}
+
+.stepper-wrapper.vertical {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 60vh;
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;
+}

@@ -121,7 +121,7 @@ export namespace Components {
         /**
           * @default 'classic'
          */
-        "mode": "classic" | "belt" | "lollipop" | "gem" | "Flag";
+        "mode": "classic" | "belt" | "lollipop" | "gem" | "flag";
         "nativeAttrs"?: Record<string, any>;
         /**
           * @default "vertical"
@@ -1447,7 +1447,7 @@ declare namespace LocalJSX {
         /**
           * @default 'classic'
          */
-        "mode"?: "classic" | "belt" | "lollipop" | "gem" | "Flag";
+        "mode"?: "classic" | "belt" | "lollipop" | "gem" | "flag";
         "nativeAttrs"?: Record<string, any>;
         /**
           * @default "vertical"

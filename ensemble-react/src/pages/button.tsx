@@ -114,7 +114,6 @@ export default function ButtonPage() {
         <EuiButton nativeAttrs={{ "disabled": "true" }}>Medium Primary</EuiButton>
         <EuiButton nativeAttrs={{ "disabled": "true" }}>large Primary</EuiButton>
       </span>
-
     </div>
   )
 }
