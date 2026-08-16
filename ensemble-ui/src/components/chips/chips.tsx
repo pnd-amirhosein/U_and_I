@@ -58,9 +58,6 @@ export class EUIChips {
 
     }
     private openCloseChipsMenu = (forceClose: boolean = false) => {
-
-
-
         if (forceClose) this.isChipsMenuOpen = true;
         if (!this.isChipsMenuOpen) {
 
@@ -69,8 +66,8 @@ export class EUIChips {
             this.isChipsMenuOpen = true
         } else {
             if (this.chipsMenuEl) {
-                this.chipsMenuEl.style.display = 'none';
-                this.chipsMenuEl.innerHTML = '';
+                this.chipsMenuEl.remove()
+                this.chipsMenuEl = null;
             }
             this.isChipsMenuOpen = false
         }
@@ -294,8 +291,8 @@ export class EUIChips {
             this.cleanupAutoUpdate = undefined;
         }
         if (this.chipsEl) {
-            this.chipsEl.style.display = 'none';
-            this.chipsEl.innerHTML = '';
+            this.chipsEl.remove()
+            this.chipsEl = null;
         }
     }
 

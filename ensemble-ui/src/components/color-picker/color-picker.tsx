@@ -306,8 +306,8 @@ export class EUIColorPicker {
         this.cleanupAutoUpdate?.();
 
         if (this.popupEl) {
-            this.popupEl.style.display = "none";
-            this.popupEl.style.visibility = "hidden";
+            this.popupEl.remove()
+            this.popupEl = null;
         }
     }
 

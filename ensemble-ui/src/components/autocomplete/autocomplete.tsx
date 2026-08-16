@@ -105,7 +105,8 @@ export class EUIAutoComplete {
     });
 
     if (this.suggestions.length === 0) {
-      this.dropdownEl.style.display = 'none';
+      this.dropdownEl.remove()
+      this.dropdownEl = null;
       return;
     }
 
@@ -156,8 +157,8 @@ export class EUIAutoComplete {
       this.cleanupAutoUpdate = undefined;
     }
     if (this.dropdownEl) {
-      this.dropdownEl.style.display = 'none';
-      this.dropdownEl.innerHTML = '';
+      this.dropdownEl.remove()
+      this.dropdownEl = null;
     }
   }
 

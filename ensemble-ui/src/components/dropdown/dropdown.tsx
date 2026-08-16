@@ -194,8 +194,8 @@ export class EUIDropdown {
             this.cleanupAutoUpdate = undefined;
         }
         if (this.dropdownEl) {
-            this.dropdownEl.style.display = 'none';
-            this.dropdownEl.innerHTML = '';
+            this.dropdownEl.remove()
+            this.dropdownEl = null;
         }
     }
 
