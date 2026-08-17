@@ -839,9 +839,11 @@ export declare interface EuiSlider extends Components.EuiSlider {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['awakeTime', 'dismiss', 'header', 'icon', 'message', 'nativeAttrs', 'open', 'styleValue', 'variant'],
+  outputs: ['dismissing'],
 })
 export class EuiSnackbar {
   protected el: HTMLEuiSnackbarElement;
+  @Output() dismissing = new EventEmitter<CustomEvent<void>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -849,7 +851,10 @@ export class EuiSnackbar {
 }
 
 
-export declare interface EuiSnackbar extends Components.EuiSnackbar {}
+export declare interface EuiSnackbar extends Components.EuiSnackbar {
+
+  dismissing: EventEmitter<CustomEvent<void>>;
+}
 
 
 @ProxyCmp({

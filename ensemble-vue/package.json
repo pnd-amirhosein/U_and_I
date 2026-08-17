@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "ensemble-ui": "file:../ensemble-ui",
-    "vue": "^3.5.40"
+    "vue": "^3.5.40",
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

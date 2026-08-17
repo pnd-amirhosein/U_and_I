@@ -27,13 +27,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[1]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="info"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[1]} onDismissing={() => open[1] = false} awakeTime={3000} dismiss={false} variant="info" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -47,13 +41,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[2]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="warning"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[2]} onDismissing={() => open[2] = false} awakeTime={3000} dismiss={false} variant="warning" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -67,13 +55,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[3]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="danger"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[3]} onDismissing={() => open[3] = false} awakeTime={3000} dismiss={false} variant="danger" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -87,13 +69,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[4]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="success"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[4]} onDismissing={() => open[4] = false} awakeTime={3000} dismiss={false} variant="success" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -109,14 +85,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[5]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="info"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[5]} onDismissing={() => open[5] = false} awakeTime={3000} dismiss={false} variant="info" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -130,14 +99,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[6]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="warning"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[6]} onDismissing={() => open[6] = false} awakeTime={3000} dismiss={false} variant="warning" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -151,14 +113,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[7]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="danger"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[7]} onDismissing={() => open[7] = false} awakeTime={3000} dismiss={false} variant="danger" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -172,14 +127,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[8]}
-            awakeTime={3000}
-            dismiss={false}
-            variant="success"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[8]} onDismissing={() => open[8] = false} awakeTime={3000} dismiss={false} variant="success" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -195,14 +143,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[9]}
-            awakeTime={3000}
-            dismiss={true}
-            variant="info"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[9]} onDismissing={() => open[9] = false} awakeTime={3000} dismiss={true} variant="info" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -216,14 +157,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[10]}
-            awakeTime={3000}
-            dismiss={true}
-            variant="warning"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[10]} onDismissing={() => open[10] = false} awakeTime={3000} dismiss={true} variant="warning" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -237,14 +171,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[11]}
-            awakeTime={3000}
-            dismiss={true}
-            variant="danger"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[11]} onDismissing={() => open[11] = false} awakeTime={3000} dismiss={true} variant="danger" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -258,14 +185,7 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar
-            open={open[12]}
-            awakeTime={3000}
-            dismiss={true}
-            variant="success"
-            header="New Update!"
-            message="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-          />
+          <EuiSnackbar open={open[12]} onDismissing={() => open[12] = false} awakeTime={3000} dismiss={true} variant="success" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 

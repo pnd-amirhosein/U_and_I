@@ -408,7 +408,10 @@ export const EuiSnackbar: StencilVueComponent<JSX.EuiSnackbar> = /*@__PURE__*/ d
   'icon',
   'message',
   'awakeTime',
-  'open'
+  'open',
+  'dismissing'
+], [
+  'dismissing'
 ]);
 
 

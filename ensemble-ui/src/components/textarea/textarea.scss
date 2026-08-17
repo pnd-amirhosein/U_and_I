@@ -84,6 +84,7 @@
             color: inherit;
             padding: $icon-padding;
             background-color: inherit;
+            box-sizing: content-box;
 
             eui-icon {
                 border-radius: var(--radius-md);

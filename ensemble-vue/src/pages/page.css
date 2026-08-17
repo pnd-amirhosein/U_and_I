@@ -1,0 +1,32 @@
+.doc {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.doc > .flex {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.doc .title {
+  margin: 0;
+  user-select: none;
+}
+
+.divider {
+  width: 90%;
+  height: 3px;
+  border-radius: 10px;
+  background-color: rgb(194, 190, 190);
+}

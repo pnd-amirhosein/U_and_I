@@ -7,18 +7,18 @@
 
 /* eslint-disable */
 
-import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
+import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import { EuiSnackbar as EuiSnackbarElement, defineCustomElement as defineEuiSnackbar } from "ensemble-ui/dist/components/eui-snackbar.js";
 import React from 'react';
 
-export type EuiSnackbarEvents = NonNullable<unknown>;
+export type EuiSnackbarEvents = { onDismissing: EventName<CustomEvent<void>> };
 
 export const EuiSnackbar: StencilReactComponent<EuiSnackbarElement, EuiSnackbarEvents> = /*@__PURE__*/ createComponent<EuiSnackbarElement, EuiSnackbarEvents>({
     tagName: 'eui-snackbar',
     elementClass: EuiSnackbarElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: {} as EuiSnackbarEvents,
+    events: { onDismissing: 'dismissing' } as EuiSnackbarEvents,
     defineCustomElement: defineEuiSnackbar
 });

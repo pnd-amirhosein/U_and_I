@@ -487,7 +487,10 @@ export namespace Components {
         "value": number;
     }
     interface EuiSnackbar {
-        "awakeTime"?: number;
+        /**
+          * @default 1000
+         */
+        "awakeTime": number;
         /**
           * @default false
          */
@@ -495,7 +498,7 @@ export namespace Components {
         "header"?: string;
         "icon"?: string;
         /**
-          * @default "Placeholder for message"
+          * @default 'Placeholder for message'
          */
         "message": string;
         "nativeAttrs"?: Record<string, any>;
@@ -747,6 +750,10 @@ export interface EuiRadioGroupCustomEvent<T> extends CustomEvent<T> {
 export interface EuiSliderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLEuiSliderElement;
+}
+export interface EuiSnackbarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEuiSnackbarElement;
 }
 export interface EuiStepperCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1162,7 +1169,18 @@ declare global {
         prototype: HTMLEuiSliderElement;
         new (): HTMLEuiSliderElement;
     };
+    interface HTMLEuiSnackbarElementEventMap {
+        "dismissing": void;
+    }
     interface HTMLEuiSnackbarElement extends Components.EuiSnackbar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLEuiSnackbarElementEventMap>(type: K, listener: (this: HTMLEuiSnackbarElement, ev: EuiSnackbarCustomEvent<HTMLEuiSnackbarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLEuiSnackbarElementEventMap>(type: K, listener: (this: HTMLEuiSnackbarElement, ev: EuiSnackbarCustomEvent<HTMLEuiSnackbarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLEuiSnackbarElement: {
         prototype: HTMLEuiSnackbarElement;
@@ -1833,6 +1851,9 @@ declare namespace LocalJSX {
         "value"?: number;
     }
     interface EuiSnackbar {
+        /**
+          * @default 1000
+         */
         "awakeTime"?: number;
         /**
           * @default false
@@ -1841,10 +1862,11 @@ declare namespace LocalJSX {
         "header"?: string;
         "icon"?: string;
         /**
-          * @default "Placeholder for message"
+          * @default 'Placeholder for message'
          */
         "message"?: string;
         "nativeAttrs"?: Record<string, any>;
+        "onDismissing"?: (event: EuiSnackbarCustomEvent<void>) => void;
         /**
           * @default false
          */

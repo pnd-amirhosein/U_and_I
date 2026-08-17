@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,20 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
     </div>
     `
 })
-export class TextareaComponent {
+export class TextareaComponent implements AfterViewInit {
+
+  ngAfterViewInit(): void {
+    console.log("ksjhfdksdkj");
+    
+    var el = getComputedStyle(document.documentElement).fontSize
+    console.log(el);
+    if (el)
+      console.log("LOGGGGG",el
+        // getComputedStyle(el)
+        //   .getPropertyValue('--space-5xl')
+        )
+  }
+
   sell = "1"
   checkMate(e: any): boolean {
 
