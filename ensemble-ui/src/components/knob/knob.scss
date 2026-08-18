@@ -39,7 +39,8 @@ eui-knob {
 
     .value {
         position: absolute;
-        z-index: -1;
+        z-index: 0;
+        pointer-events: none;
         top: 0;
         right: 0;
         width: 100%;
