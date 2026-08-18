@@ -11,3 +11,25 @@ eui-icon {
     align-items: center;
     justify-content: center;
 }
+
+// force change auto-fill sugly style:
+// somehow it works here not inside the component's style
+// maybe rendering priority!
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: inherit !important;
+    -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+    box-shadow: 0 0 0 1000px transparent inset !important;
+    transition: background-color 9999s ease-out 0s;
+    font-size: var(--font-form-fontSize) !important;
+    font-weight: var(--font-form-fontWeight) !important;
+    font-family: inherit !important;
+    -webkit-text-fill-color: var(--color-neutral-800) !important;
+
+    @media (prefers-color-scheme: dark) {
+        -webkit-text-fill-color: #fff !important;
+    }
+}
