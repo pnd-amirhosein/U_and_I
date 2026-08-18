@@ -393,9 +393,9 @@ export const EuiSlider: StencilVueComponent<JSX.EuiSlider> = /*@__PURE__*/ defin
   'nativeAttrs',
   'size',
   'value',
-  'valueChange'
+  'change'
 ], [
-  'valueChange'
+  'change'
 ]);
 
 

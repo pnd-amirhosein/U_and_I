@@ -13,14 +13,14 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
                         <div class="weight">Weight:</div>
                         <div class="weight">{{weight}}</div>
                     </div>
-                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (valueChange)="weightCalc($event.detail)"/>
+                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (change)="weightCalc($event.detail)"/>
                 </div>
                 <div class="tool">
                     <div class="flex justify-between">
                         <div class="weight">stretch:</div>
                         <div class="weight">{{stretch}}</div>
                     </div>
-                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (valueChange)="StretchCalc($event.detail)"/>
+                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (change)="StretchCalc($event.detail)"/>
                 </div>
             </div>
         </div>
@@ -32,14 +32,14 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
                         <div class="weight">Weight:</div>
                         <div class="weight">{{weightPersian}}</div>
                     </div>
-                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (valueChange)="weightCalcPersian($event.detail)"/>
+                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (change)="weightCalcPersian($event.detail)"/>
                 </div>
                 <div class="tool">
                     <div class="flex justify-between">
                         <div class="weight">stretch:</div>
                         <div class="weight">{{stretchPersian}}</div>
                     </div>
-                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (valueChange)="StretchCalcPersian($event.detail)"/>
+                    <eui-slider styleValue="width:40vw;" size='md' [value]="0.5" (change)="StretchCalcPersian($event.detail)"/>
                 </div>
             </div>
         </div>

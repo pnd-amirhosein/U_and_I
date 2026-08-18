@@ -22,7 +22,7 @@ export default function SliderPage() {
           styleValue="width:25vw;"
           size="sm"
           value={0.5}
-          onValueChange={event => updateValue(0, event.detail)}
+          onChange={event => updateValue(0, event.detail)}
         />
 
         <span style={{ width: '50px' }}>
@@ -37,7 +37,7 @@ export default function SliderPage() {
           styleValue="width:25vw;"
           size="md"
           value={0.5}
-          onValueChange={event => updateValue(1, event.detail)}
+          onChange={event => updateValue(1, event.detail)}
         />
 
         <span style={{ width: '50px' }}>
@@ -52,7 +52,7 @@ export default function SliderPage() {
           styleValue="width:25vw;"
           size="lg"
           value={0.5}
-          onValueChange={event => updateValue(2, event.detail)}
+          onChange={event => updateValue(2, event.detail)}
         />
 
         <span style={{ width: '50px' }}>

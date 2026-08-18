@@ -14,7 +14,7 @@ export class EUISlider {
     @Prop() size: "sm" | "md" | "lg" = "md";
     @Prop() value: number = 0;
 
-    @Event() valueChange!: EventEmitter<number>;
+    @Event() change!: EventEmitter<number>;
 
     @State() value_state: number = 0
     @State() dragging: boolean = false;
@@ -35,9 +35,9 @@ export class EUISlider {
         const x = ev.clientX - rect.left;
         const percent = this.clamp(x / rect.width);
 
-        this.value_state = percent;
+        this.value_state = percent;        
 
-        this.valueChange.emit(Number((+percent).toFixed(2)));
+        this.change.emit(Number((+percent).toFixed(2)));
     }
 
     onMouseDown = (ev: MouseEvent) => {

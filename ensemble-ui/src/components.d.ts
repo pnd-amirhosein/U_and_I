@@ -1153,7 +1153,7 @@ declare global {
         new (): HTMLEuiSideNavElement;
     };
     interface HTMLEuiSliderElementEventMap {
-        "valueChange": number;
+        "change": number;
     }
     interface HTMLEuiSliderElement extends Components.EuiSlider, HTMLStencilElement {
         addEventListener<K extends keyof HTMLEuiSliderElementEventMap>(type: K, listener: (this: HTMLEuiSliderElement, ev: EuiSliderCustomEvent<HTMLEuiSliderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -1839,7 +1839,7 @@ declare namespace LocalJSX {
     }
     interface EuiSlider {
         "nativeAttrs"?: Record<string, any>;
-        "onValueChange"?: (event: EuiSliderCustomEvent<number>) => void;
+        "onChange"?: (event: EuiSliderCustomEvent<number>) => void;
         /**
           * @default "md"
          */

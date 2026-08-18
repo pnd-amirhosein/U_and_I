@@ -12,13 +12,13 @@ import { createComponent } from '@stencil/react-output-target/runtime';
 import { EuiSlider as EuiSliderElement, defineCustomElement as defineEuiSlider } from "ensemble-ui/dist/components/eui-slider.js";
 import React from 'react';
 
-export type EuiSliderEvents = { onValueChange: EventName<CustomEvent<number>> };
+export type EuiSliderEvents = { onChange: EventName<CustomEvent<number>> };
 
 export const EuiSlider: StencilReactComponent<EuiSliderElement, EuiSliderEvents> = /*@__PURE__*/ createComponent<EuiSliderElement, EuiSliderEvents>({
     tagName: 'eui-slider',
     elementClass: EuiSliderElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.
     react: React,
-    events: { onValueChange: 'valueChange' } as EuiSliderEvents,
+    events: { onChange: 'change' } as EuiSliderEvents,
     defineCustomElement: defineEuiSlider
 });

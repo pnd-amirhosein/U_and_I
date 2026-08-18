@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event         | Description | Type                  |
-| ------------- | ----------- | --------------------- |
-| `valueChange` |             | `CustomEvent<number>` |
+| Event    | Description | Type                  |
+| -------- | ----------- | --------------------- |
+| `change` |             | `CustomEvent<number>` |
 
 
 ----------------------------------------------

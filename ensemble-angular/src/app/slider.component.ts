@@ -9,17 +9,17 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
     <div class="doc">
       <span class="flex">
         <h4 class="title">Slider - sm:</h4>
-       <eui-slider styleValue="width:25vw;" size='sm' [value]="0.5" (valueChange)="values[0] = $event.detail"/>
+       <eui-slider styleValue="width:25vw;" size='sm' [value]="0.5" (change)="values[0] = $event.detail"/>
        <span style="width: 50px;">{{values[0]}}</span>
       </span>
       <span class="flex">
         <h4 class="title">Slider - md:</h4>
-       <eui-slider styleValue="width:25vw;" size='md' [value]="0.5" (valueChange)="values[1] = $event.detail"/>
+       <eui-slider styleValue="width:25vw;" size='md' [value]="0.5" (change)="values[1] = $event.detail"/>
        <span style="width: 50px;">{{values[1]}}</span>
       </span>
       <span class="flex">
         <h4 class="title">Slider - lg:</h4>
-       <eui-slider styleValue="width:25vw;" size='lg' [value]="0.5" (valueChange)="values[2] = $event.detail"/>
+       <eui-slider styleValue="width:25vw;" size='lg' [value]="0.5" (change)="values[2] = $event.detail"/>
        <span style="width: 50px;">{{values[2]}}</span>
       </span>
     </div>

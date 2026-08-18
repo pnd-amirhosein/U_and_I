@@ -49,7 +49,7 @@ export default function FontPage() {
               styleValue="width:40vw;"
               size="md"
               value={0.5}
-              onValueChange={event => weightCalc(event.detail)}
+              onChange={event => weightCalc(event.detail)}
             />
           </div>
 
@@ -63,7 +63,7 @@ export default function FontPage() {
               styleValue="width:40vw;"
               size="md"
               value={0.5}
-              onValueChange={event => stretchCalc(event.detail)}
+              onChange={event => stretchCalc(event.detail)}
             />
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function FontPage() {
               styleValue="width:40vw;"
               size="md"
               value={0.5}
-              onValueChange={event => weightCalcPersian(event.detail)}
+              onChange={event => weightCalcPersian(event.detail)}
             />
           </div>
 
@@ -106,7 +106,7 @@ export default function FontPage() {
               styleValue="width:40vw;"
               size="md"
               value={0.5}
-              onValueChange={event => stretchCalcPersian(event.detail)}
+              onChange={event => stretchCalcPersian(event.detail)}
             />
           </div>
         </div>

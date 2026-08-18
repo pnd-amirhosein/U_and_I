@@ -811,11 +811,11 @@ export declare interface EuiSideNav extends Components.EuiSideNav {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['nativeAttrs', 'size', 'styleValue', 'value'],
-  outputs: ['valueChange'],
+  outputs: ['change'],
 })
 export class EuiSlider {
   protected el: HTMLEuiSliderElement;
-  @Output() valueChange = new EventEmitter<CustomEvent<number>>();
+  @Output() change = new EventEmitter<CustomEvent<number>>();
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -825,7 +825,7 @@ export class EuiSlider {
 
 export declare interface EuiSlider extends Components.EuiSlider {
 
-  valueChange: EventEmitter<CustomEvent<number>>;
+  change: EventEmitter<CustomEvent<number>>;
 }
 
 
