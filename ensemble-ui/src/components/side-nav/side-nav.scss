@@ -1,6 +1,7 @@
 eui-side-nav {
     padding: calc(var(--space-2xl)/2);
     position: relative;
+    box-sizing: content-box;
 
     .snv {
         background-color: var(--color-neutral-50);
