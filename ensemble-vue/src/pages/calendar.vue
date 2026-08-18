@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
 import { EuiCalendar } from 'ensemble-ui/vue'
 
 type CalEvent = {
@@ -7,15 +6,6 @@ type CalEvent = {
   dueDate: Date
   title: string
 }
-
-type CalendarElement = HTMLElement & {
-  selectedDate?: Date
-  calendarEvents?: CalEvent[]
-  holidayEventType?: string
-  calendarViewMode?: string
-}
-
-const calendar = ref<CalendarElement>()
 
 const events: CalEvent[] = [
   {
@@ -60,14 +50,6 @@ const events: CalEvent[] = [
   },
 ]
 
-onMounted(() => {
-  if (calendar.value) {
-    calendar.value.selectedDate = new Date('2026-06-14 19:00:00')
-    calendar.value.calendarEvents = events
-    calendar.value.holidayEventType = 'both'
-    calendar.value.calendarViewMode = 'month'
-  }
-})
 </script>
 
 <template>
@@ -75,11 +57,9 @@ onMounted(() => {
     <span class="flex flex-col">
       <h2 class="title">Calendar</h2>
 
-      <span
-        class="calendar-wrapper"
-        style="width: 80vw"
-      >
-        <eui-calendar ref="calendar"></eui-calendar>
+      <span class="calendar-wrapper" style="width: 80vw">
+        <eui-calendar :selected-date="new Date('2026-06-13 19:00:00')" :calendar-events="events"
+          holiday-event-type="both" calendar-view-mode="month" />
       </span>
     </span>
   </div>
