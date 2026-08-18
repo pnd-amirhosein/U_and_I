@@ -26,6 +26,7 @@ eui-stepper {
                 box-sizing: border-box;
 
                 .checkbox-icon {
+                    box-sizing: content-box;
                     height: var(--space-3xl);
                     aspect-ratio: 1 / 1;
                     display: block;
