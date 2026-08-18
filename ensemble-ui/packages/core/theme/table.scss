@@ -12,6 +12,14 @@
         padding: var(--space-xl) var(--space-2xl);
     }
 
+    tbody tr:hover {
+        background-color: var(--color-neutral-100);
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--color-neutral-700);
+        }
+    }
+
     &.eui--simple-table thead {
         position: relative;
 
@@ -53,7 +61,7 @@
     }
 
     &.eui--full-lined-table {
-        
+
         tr:not(:last-of-type),
         thead tr {
             position: relative;
@@ -107,7 +115,7 @@
                 right: -1px;
                 height: 1px;
                 width: calc(100% + 2px);
-                background: var(--color-neutral-200);
+                background: var(--color-neutral-100);
 
                 @media (prefers-color-scheme: dark) {
                     background: var(--color-neutral-500);
