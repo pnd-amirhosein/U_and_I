@@ -27,7 +27,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[1]} onDismissing={() => open[1] = false} awakeTime={3000} dismiss={false} variant="info" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[1]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 1 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="info" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -41,7 +47,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[2]} onDismissing={() => open[2] = false} awakeTime={3000} dismiss={false} variant="warning" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[2]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 2 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="warning" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -55,7 +67,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[3]} onDismissing={() => open[3] = false} awakeTime={3000} dismiss={false} variant="danger" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[3]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 3 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="danger" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -69,7 +87,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[4]} onDismissing={() => open[4] = false} awakeTime={3000} dismiss={false} variant="success" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[4]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 4 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="success" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -85,7 +109,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[5]} onDismissing={() => open[5] = false} awakeTime={3000} dismiss={false} variant="info" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[5]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 5 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="info" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -99,7 +129,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[6]} onDismissing={() => open[6] = false} awakeTime={3000} dismiss={false} variant="warning" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[6]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 6 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="warning" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -113,7 +149,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[7]} onDismissing={() => open[7] = false} awakeTime={3000} dismiss={false} variant="danger" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[7]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 7 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="danger" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -127,7 +169,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[8]} onDismissing={() => open[8] = false} awakeTime={3000} dismiss={false} variant="success" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[8]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 8 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={false} variant="success" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -143,7 +191,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[9]} onDismissing={() => open[9] = false} awakeTime={3000} dismiss={true} variant="info" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[9]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 9 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={true} variant="info" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -157,7 +211,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[10]} onDismissing={() => open[10] = false} awakeTime={3000} dismiss={true} variant="warning" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[10]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 10 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={true} variant="warning" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -171,7 +231,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[11]} onDismissing={() => open[11] = false} awakeTime={3000} dismiss={true} variant="danger" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[11]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 11 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={true} variant="danger" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 
@@ -185,7 +251,13 @@ export default function SnackbarPage() {
         </EuiButton>
 
         <span className="snackbar-container" style={{ width: '100%' }}>
-          <EuiSnackbar open={open[12]} onDismissing={() => open[12] = false} awakeTime={3000} dismiss={true} variant="success" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
+          <EuiSnackbar open={open[12]}
+            onDismissing={() =>
+              setOpen(current =>
+                current.map((value, index) => index === 12 ? false : value)
+              )
+            }
+            awake-time={3000} dismiss={true} variant="success" header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
         </span>
       </span>
 

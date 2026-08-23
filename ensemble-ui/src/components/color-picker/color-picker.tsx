@@ -114,6 +114,11 @@ export class EUIColorPicker {
         this.popupEl.style.display = "block";
         this.popupEl.style.visibility = "hidden";
 
+        // Re-apply the current color state whenever the popup opens.
+        // The popup is recreated after closing, so the selector elements
+        // need their positions/background/value initialized each time.
+        this.syncUI();
+
         this.cleanupAutoUpdate?.();
 
         this.cleanupAutoUpdate =
