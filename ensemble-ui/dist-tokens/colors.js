@@ -29,7 +29,9 @@ exports.baseColors = {
     },
     neutral: {
         50: '#FFFFFF',
+        75: '#FCFCFC',
         100: '#F5F5F5',
+        150: '#E0E0E0',
         200: '#CCCCCC',
         300: '#999999',
         400: '#666666',
