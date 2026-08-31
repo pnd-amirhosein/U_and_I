@@ -16,7 +16,7 @@
     ".": {
       "import": "./dist/ensemble-ui/ensemble-ui.esm.js",
       "require": "./dist/ensemble-ui/ensemble-ui.cjs.js",
-      "types": "./dist/components.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/index.js"
     },
     "./components": {

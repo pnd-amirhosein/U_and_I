@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { EuiButton } from 'ensemble-ui/vue'
 
 import { docs } from './docs'
 
@@ -24,21 +25,16 @@ function closeDoc() {
       <h1>Welcome to EUI's very first documentation page!</h1>
 
       <div class="links" aria-label="Documentation pages">
-        <eui-button
-          v-for="doc in docs"
-          :key="doc.path"
-          size="md"
-          :variant="doc.variant"
-          @click="openDoc(doc.path)"
-        >
+        <EuiButton v-for="doc in docs" :key="doc.path" size="md" :variant="doc.variant" @click="openDoc(doc.path)">
           {{ doc.label }}
-        </eui-button>
+        </EuiButton>
       </div>
     </section>
 
     <div v-if="showClose" class="closer">
       <button class="close-button" type="button" aria-label="Return to the documentation home" @click="closeDoc">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
         </svg>
       </button>
