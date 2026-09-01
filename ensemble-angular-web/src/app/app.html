@@ -1,0 +1,49 @@
+<main class="main">
+  <span class="home">
+    <h1>Welcome to EUI's very first documentation page!</h1>
+    <div class="links">
+      <eui-button (click)="openButtons()" size='md' variant='primary'>Buttons</eui-button>
+      <eui-button (click)="openInputs()" size='md' variant='warning'>Inputs</eui-button>
+      <eui-button (click)="openIcons()" size='md' variant='danger'>Icons</eui-button>
+      <eui-button (click)="openAutoComplete()" size='md' variant='success'>AutoComplete</eui-button>
+      <eui-button (click)="openBadge()" size='md' variant='primary'>Badge</eui-button>
+      <eui-button (click)="openDropdown()" size='md' variant='warning'>Dropdown</eui-button>
+      <eui-button (click)="openChips()" size='md' variant='danger'>Chips</eui-button>
+      <eui-button (click)="openCard()" size='md' variant='warning'>Cards</eui-button>
+      <eui-button (click)="openCheckkbox()" size='md' variant='success'>Checkbox</eui-button>
+      <eui-button (click)="openPaginator()" size='md' variant='primary'>Paginator</eui-button>
+      <eui-button (click)="openDialogue()" size='md' variant='danger'>Dialogue</eui-button>
+      <eui-button (click)="openProgressbar()" size='md' variant='success'>Progressbar</eui-button>
+      <eui-button (click)="openSlider()" size='md' variant='danger'>Slider</eui-button>
+      <eui-button (click)="openSidenav()" size='md' variant='success'>Sidenav</eui-button>
+      <eui-button (click)="openFonts()" size='md' variant='danger'>Fonts</eui-button>
+      <eui-button (click)="openStepper()" size='md' variant='warning'>Stepper</eui-button>
+      <eui-button (click)="openStat()" size='md' variant='success'>Stat</eui-button>
+      <eui-button (click)="openCalendar()" size='md' variant='primary'>Calendar</eui-button>
+      <eui-button (click)="openDatepicker()" size='md' variant='danger'>Datepicker</eui-button>
+      <eui-button (click)="openFeed()" size='md' variant='warning'>Feed</eui-button>
+      <eui-button (click)="openSnackbar()" size='md' variant='primary'>Snackbar</eui-button>
+      <eui-button (click)="openTable()" size='md' variant='success'>Table</eui-button>
+      <eui-button (click)="openTab()" size='md' variant='warning'>Tab</eui-button>
+      <eui-button (click)="openToggle()" size='md' variant='primary'>Toggle</eui-button>
+      <eui-button (click)="openTree()" size='md' variant='danger'>Tree</eui-button>
+      <eui-button (click)="openKnob()" size='md' variant='success'>Knob</eui-button>
+      <eui-button (click)="openBreadcrumb()" size='md' variant='warning'>Breadcrumb</eui-button>
+      <eui-button (click)="openTextarea()" size='md' variant='primary'>Textarea</eui-button>
+      <eui-button (click)="openRadio()" size='md' variant='danger'>radio</eui-button>
+      <eui-button (click)="openEmpty()" size='md' variant='success'>Empty state</eui-button>
+      <eui-button (click)="openColorPicker()" size='md' variant='warning'>Color picker</eui-button>
+    </div>
+  </span>
+  @if (showClose) {
+  <div class="closer">
+    <div class="icon" (click)="closeDoc()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </div>
+  </div>
+  }
+  <router-outlet></router-outlet>
+</main>

@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiColorPicker } from "ensemble-ui/angular";
 
 @Component({
     selector: 'app-root',
     styleUrl: './app.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiColorPicker],
     standalone: true,
     template: `
     <div class="doc">

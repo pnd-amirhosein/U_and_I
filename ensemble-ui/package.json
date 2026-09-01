@@ -83,6 +83,7 @@
     "clean": "rimraf dist dist-angular dist-react dist-tokens node_modules/.stencil .stencil",
     "clean:build": "node scripts/clean-output.js",
     "delete:old": "node scripts/delete-old.js",
+    "dev:ngw": "node scripts/angular-web-orchestrator.js",
     "dev:ng": "node scripts/angular-orchestrator.js",
     "dev:rc": "node scripts/react-orchestrator.js",
     "dev:vu": "node scripts/vue-orchestrator.js",

@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiPaginator } from "ensemble-ui/angular";
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [EuiPaginator],
   standalone: true,
   template: `
     <div class="doc">
@@ -14,7 +15,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
       </span>
       <span class="flex">
         <h4 class="title">Simple Input</h4>
-        <eui-paginator [totalPages]="10" [defaultCurrentPage]="currentPage" disabled=true/>
+        <eui-paginator [totalPages]="10" [defaultCurrentPage]="currentPage" [disabled]=true/>
       </span>
     </div>
     `

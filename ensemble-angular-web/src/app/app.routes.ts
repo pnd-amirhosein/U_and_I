@@ -1,0 +1,67 @@
+import { Routes } from '@angular/router';
+import { ButtonComponent } from './button.component';
+import { InputComponent } from './input.component';
+import { IconComponent } from './icon.component';
+import { AutoCompleteComponent } from './autocomplete.component';
+import { BadgeComponent } from './badge.component';
+import { DropdownComponent } from './dropdown.component';
+import { ChipsComponent } from './chips.component';
+import { CardComponent } from './card.component';
+import { CheckboxComponent } from './checkbox.component';
+import { PaginatorComponent } from './paginator.component';
+import { DialogueComponent } from './dialogue.component';
+import { ProgressbarComponent } from './progressbar.component';
+import { SliderComponent } from './slider.component';
+import { SidenavComponent } from './sidenav.component';
+import { FontComponent } from './font.component';
+import { StepperComponent } from './stepper.component';
+import { StatComponent } from './stat.component';
+import { CalendarComponent } from './calendar.component';
+import { DatepickerComponent } from './datepicker.component';
+import { FeedComponent } from './feed.component';
+import { SnackabrComponent } from './snackbar.component';
+import { TableComponent } from './table.component';
+import { TabComponent } from './tab.component';
+import { ToggleComponent } from './toggle.component';
+import { TreeComponent } from './tree.component';
+import { KnobComponent } from './knob.component';
+import { BreadcrumbComponent } from './breadcrumb.component';
+import { TextareaComponent } from './textarea.component';
+import { RadioComponent } from './radio.component';
+import { EmptyStateComponent } from './empty-state.component';
+import { ColorPickerComponent } from './color-picker.component';
+
+export const routes: Routes = [
+    { path: "button", component: ButtonComponent },
+    { path: "input", component: InputComponent },
+    { path: "icon", component: IconComponent },
+    { path: "autocomplete", component: AutoCompleteComponent },
+    { path: "badge", component: BadgeComponent },
+    { path: "dropdown", component: DropdownComponent },
+    { path: "chips", component: ChipsComponent },
+    { path: "card", component: CardComponent },
+    { path: "checkbox", component: CheckboxComponent },
+    { path: "paginator", component: PaginatorComponent },
+    { path: "dialogue", component: DialogueComponent },
+    { path: "progressbar", component: ProgressbarComponent },
+    { path: "slider", component: SliderComponent },
+    { path: "sidenav", component: SidenavComponent },
+    { path: "font", component: FontComponent },
+    { path: "stepper", component: StepperComponent },
+    { path: "stat", component: StatComponent },
+    { path: "calendar", component: CalendarComponent },
+    { path: "datepicker", component: DatepickerComponent },
+    { path: "feed", component: FeedComponent },
+    { path: "snackbar", component: SnackabrComponent },
+    { path: "table", component: TableComponent },
+    { path: "tab", component: TabComponent },
+    { path: "toggle", component: ToggleComponent },
+    { path: "tree", component: TreeComponent },
+    { path: "knob", component: KnobComponent },
+    { path: "bread", component: BreadcrumbComponent },
+    { path: "textarea", component: TextareaComponent },
+    { path: "radio", component: RadioComponent },
+    { path: "empty", component: EmptyStateComponent },
+    { path: "color", component: ColorPickerComponent },
+
+];

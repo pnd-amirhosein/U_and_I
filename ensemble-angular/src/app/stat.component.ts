@@ -1,16 +1,17 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiStat } from "ensemble-ui/angular";
 
 @Component({
     selector: 'app-root',
     styleUrl: './app.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiStat],
     standalone: true,
     template: `
     <div class="doc">
         <span class="flex flex-col">
             <h4 class="title">Stat - horizontal:</h4>
             <span class="stepper-wrapper">
-                <eui-stat [data]="value"/> 
+                <eui-stat orientation="horizontal" [data]="value"/> 
             </span>
         </span>
         <span class="flex flex-col">

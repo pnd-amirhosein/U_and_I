@@ -1,22 +1,30 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiCalendar } from "ensemble-ui/angular";
 
 @Component({
     selector: 'app-root',
     styleUrl: './app.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiCalendar],
     standalone: true,
     template: `
     <div class="doc">
         <span class="flex flex-col">
             <h2 class="title">calendar</h2>
             <span class="calendar-wrapper" style="width: 80vw;">
-                <eui-calendar selectedDate="2026-06-13 19:00:00" [calendarEvents]="events" holidayEventType="both" calendarViewMode="month"/> 
+                <eui-calendar [selectedDate]="now" [calendarEvents]="events" holidayEventType="both" calendarViewMode="month"/> 
             </span>
         </span>
     </div>
     `
 })
 export class CalendarComponent {
+
+    public now: Date;
+
+    constructor() {
+        this.now = new Date("2026-06-13 19:00:00")
+
+    }
 
     month: number = 5;
     year: number = 2026;

@@ -1,8 +1,9 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { EuiSlider } from 'ensemble-ui/angular';
 
 @Component({
     selector: 'app-font',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiSlider],
     template: `
     <div class="font-center flex gap-2">
         <div class="english-text flex gap-2 flex-col justify-between">

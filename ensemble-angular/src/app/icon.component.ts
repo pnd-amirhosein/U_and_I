@@ -1,9 +1,11 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiIcon } from "ensemble-ui/angular";
+
 
 @Component({
     selector: 'app-root',
     styleUrl: './app.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiIcon],
     standalone: true,
     template: `
     <div class="doc grid">

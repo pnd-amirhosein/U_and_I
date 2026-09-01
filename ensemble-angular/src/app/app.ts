@@ -1,16 +1,15 @@
 // import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 import { FakeDataService } from './fake.api.service';
-import { HttpClient } from '@angular/common/http';
+import { EuiButton } from 'ensemble-ui/angular';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, EuiButton],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class App {
   protected readonly title = signal('testington');
