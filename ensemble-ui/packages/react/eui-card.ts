@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiCard as EuiCardElement, defineCustomElement as defineEuiCard } from "ensemble-ui/dist/components/eui-card.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiCard as EuiCardElement, defineCustomElement as defineEuiCard } from "ensemble-ui/dist/components/eui-card.js";
 
 export type EuiCardEvents = NonNullable<unknown>;
 
-export const EuiCard: StencilReactComponent<EuiCardElement, EuiCardEvents> = /*@__PURE__*/ createComponent<EuiCardElement, EuiCardEvents>({
+export const EuiCard: StencilReactComponent<EuiCardElement, EuiCardEvents, Components.EuiCard> = /*@__PURE__*/ createComponent<EuiCardElement, EuiCardEvents, Components.EuiCard>({
     tagName: 'eui-card',
     elementClass: EuiCardElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

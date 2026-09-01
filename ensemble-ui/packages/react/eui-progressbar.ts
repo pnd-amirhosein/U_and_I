@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiProgressbar as EuiProgressbarElement, defineCustomElement as defineEuiProgressbar } from "ensemble-ui/dist/components/eui-progressbar.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiProgressbar as EuiProgressbarElement, defineCustomElement as defineEuiProgressbar } from "ensemble-ui/dist/components/eui-progressbar.js";
 
 export type EuiProgressbarEvents = NonNullable<unknown>;
 
-export const EuiProgressbar: StencilReactComponent<EuiProgressbarElement, EuiProgressbarEvents> = /*@__PURE__*/ createComponent<EuiProgressbarElement, EuiProgressbarEvents>({
+export const EuiProgressbar: StencilReactComponent<EuiProgressbarElement, EuiProgressbarEvents, Components.EuiProgressbar> = /*@__PURE__*/ createComponent<EuiProgressbarElement, EuiProgressbarEvents, Components.EuiProgressbar>({
     tagName: 'eui-progressbar',
     elementClass: EuiProgressbarElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

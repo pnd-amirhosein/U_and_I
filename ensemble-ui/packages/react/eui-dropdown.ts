@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiDropdown as EuiDropdownElement, defineCustomElement as defineEuiDropdown } from "ensemble-ui/dist/components/eui-dropdown.js";
 import React from 'react';
 
-export type EuiDropdownEvents = { onItemSelected: EventName<CustomEvent<any>> };
+import { type EuiDropdownCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiDropdown as EuiDropdownElement, defineCustomElement as defineEuiDropdown } from "ensemble-ui/dist/components/eui-dropdown.js";
 
-export const EuiDropdown: StencilReactComponent<EuiDropdownElement, EuiDropdownEvents> = /*@__PURE__*/ createComponent<EuiDropdownElement, EuiDropdownEvents>({
+export type EuiDropdownEvents = { onItemSelected: EventName<EuiDropdownCustomEvent<any>> };
+
+export const EuiDropdown: StencilReactComponent<EuiDropdownElement, EuiDropdownEvents, Components.EuiDropdown> = /*@__PURE__*/ createComponent<EuiDropdownElement, EuiDropdownEvents, Components.EuiDropdown>({
     tagName: 'eui-dropdown',
     elementClass: EuiDropdownElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

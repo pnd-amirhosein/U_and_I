@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiKnob as EuiKnobElement, defineCustomElement as defineEuiKnob } from "ensemble-ui/dist/components/eui-knob.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiKnob as EuiKnobElement, defineCustomElement as defineEuiKnob } from "ensemble-ui/dist/components/eui-knob.js";
 
 export type EuiKnobEvents = NonNullable<unknown>;
 
-export const EuiKnob: StencilReactComponent<EuiKnobElement, EuiKnobEvents> = /*@__PURE__*/ createComponent<EuiKnobElement, EuiKnobEvents>({
+export const EuiKnob: StencilReactComponent<EuiKnobElement, EuiKnobEvents, Components.EuiKnob> = /*@__PURE__*/ createComponent<EuiKnobElement, EuiKnobEvents, Components.EuiKnob>({
     tagName: 'eui-knob',
     elementClass: EuiKnobElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

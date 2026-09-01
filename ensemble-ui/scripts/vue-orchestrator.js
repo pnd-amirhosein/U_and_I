@@ -7,7 +7,7 @@ const run = (cmd) => {
 
 try {
   console.log("🏗 Building Stencil...");
-  run("npm run build");
+  run("npm run build:core");
 
   console.log("🚀 Starting Vue app...");
   run("cd ../ensemble-vue && npm run dev");

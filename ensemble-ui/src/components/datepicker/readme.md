@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property        | Attribute       | Description | Type                                 | Default      |
-| --------------- | --------------- | ----------- | ------------------------------------ | ------------ |
-| `date`          | `date`          |             | `Date`                               | `new Date()` |
-| `defaultValue`  | `defaultvalue`  |             | `string`                             | `''`         |
-| `displayField`  | `displayfield`  |             | `string \| undefined`                | `undefined`  |
-| `nativeAttrs`   | `native-attrs`  |             | `undefined \| { [x: string]: any; }` | `undefined`  |
-| `noClearButton` | `noclearbutton` |             | `boolean`                            | `false`      |
-| `placeholder`   | `placeholder`   |             | `string`                             | `''`         |
-| `styleValue`    | `stylevalue`    |             | `string \| undefined`                | `undefined`  |
-| `suggestions`   | `suggestions`   |             | `any[]`                              | `[]`         |
+| Property        | Attribute       | Description | Type                         | Default      |
+| --------------- | --------------- | ----------- | ---------------------------- | ------------ |
+| `date`          | --              |             | `Date`                       | `new Date()` |
+| `defaultValue`  | `defaultvalue`  |             | `string`                     | `''`         |
+| `displayField`  | `displayfield`  |             | `string \| undefined`        | `undefined`  |
+| `nativeAttrs`   | --              |             | `any \| string \| undefined` | `undefined`  |
+| `noClearButton` | `noclearbutton` |             | `boolean`                    | `false`      |
+| `placeholder`   | `placeholder`   |             | `string`                     | `''`         |
+| `styleValue`    | `stylevalue`    |             | `string \| undefined`        | `undefined`  |
+| `suggestions`   | --              |             | `any[]`                      | `[]`         |
 
 
 ## Events

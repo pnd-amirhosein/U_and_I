@@ -24,3 +24,7 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+dist-angular/
+dist-react/
+angular-build/src/generated/

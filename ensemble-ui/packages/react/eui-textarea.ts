@@ -9,18 +9,21 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiTextarea as EuiTextareaElement, defineCustomElement as defineEuiTextarea } from "ensemble-ui/dist/components/eui-textarea.js";
 import React from 'react';
 
+import { type EuiTextareaCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiTextarea as EuiTextareaElement, defineCustomElement as defineEuiTextarea } from "ensemble-ui/dist/components/eui-textarea.js";
+
 export type EuiTextareaEvents = {
-    onClear: EventName<CustomEvent<any>>,
-    onChange: EventName<CustomEvent<any>>,
-    onKeyUp: EventName<CustomEvent<any>>,
-    onKeyDown: EventName<CustomEvent<any>>,
-    onKeyPress: EventName<CustomEvent<any>>
+    onClear: EventName<EuiTextareaCustomEvent<any>>,
+    onChange: EventName<EuiTextareaCustomEvent<any>>,
+    onKeyUp: EventName<EuiTextareaCustomEvent<any>>,
+    onKeyDown: EventName<EuiTextareaCustomEvent<any>>,
+    onKeyPress: EventName<EuiTextareaCustomEvent<any>>
 };
 
-export const EuiTextarea: StencilReactComponent<EuiTextareaElement, EuiTextareaEvents> = /*@__PURE__*/ createComponent<EuiTextareaElement, EuiTextareaEvents>({
+export const EuiTextarea: StencilReactComponent<EuiTextareaElement, EuiTextareaEvents, Components.EuiTextarea> = /*@__PURE__*/ createComponent<EuiTextareaElement, EuiTextareaEvents, Components.EuiTextarea>({
     tagName: 'eui-textarea',
     elementClass: EuiTextareaElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

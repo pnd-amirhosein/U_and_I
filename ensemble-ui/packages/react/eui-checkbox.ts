@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiCheckbox as EuiCheckboxElement, defineCustomElement as defineEuiCheckbox } from "ensemble-ui/dist/components/eui-checkbox.js";
 import React from 'react';
 
-export type EuiCheckboxEvents = { onValueChange: EventName<CustomEvent<'null' | 'false' | 'partial' | 'true'>> };
+import { type EuiCheckboxCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiCheckbox as EuiCheckboxElement, defineCustomElement as defineEuiCheckbox } from "ensemble-ui/dist/components/eui-checkbox.js";
 
-export const EuiCheckbox: StencilReactComponent<EuiCheckboxElement, EuiCheckboxEvents> = /*@__PURE__*/ createComponent<EuiCheckboxElement, EuiCheckboxEvents>({
+export type EuiCheckboxEvents = { onValueChange: EventName<EuiCheckboxCustomEvent<'null' | 'false' | 'partial' | 'true'>> };
+
+export const EuiCheckbox: StencilReactComponent<EuiCheckboxElement, EuiCheckboxEvents, Components.EuiCheckbox> = /*@__PURE__*/ createComponent<EuiCheckboxElement, EuiCheckboxEvents, Components.EuiCheckbox>({
     tagName: 'eui-checkbox',
     elementClass: EuiCheckboxElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

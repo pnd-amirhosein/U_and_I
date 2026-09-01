@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                 | Default     |
-| ------------- | -------------- | ----------- | ------------------------------------ | ----------- |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
-| `size`        | `size`         |             | `"lg" \| "md" \| "sm"`               | `"md"`      |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined` |
-| `value`       | `value`        |             | `number`                             | `0`         |
+| Property      | Attribute    | Description | Type                         | Default     |
+| ------------- | ------------ | ----------- | ---------------------------- | ----------- |
+| `nativeAttrs` | --           |             | `any \| string \| undefined` | `undefined` |
+| `size`        | `size`       |             | `"lg" \| "md" \| "sm"`       | `"md"`      |
+| `styleValue`  | `stylevalue` |             | `string \| undefined`        | `undefined` |
+| `value`       | `value`      |             | `number`                     | `0`         |
 
 
 ----------------------------------------------

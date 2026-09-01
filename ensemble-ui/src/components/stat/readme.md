@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                 | Default        |
-| ------------- | -------------- | ----------- | ------------------------------------ | -------------- |
-| `data`        | `data`         |             | `any`                                | `undefined`    |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined`    |
-| `orientation` | `orientation`  |             | `"horizontal" \| "vertical"`         | `"horizontal"` |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined`    |
+| Property      | Attribute     | Description | Type                                      | Default        |
+| ------------- | ------------- | ----------- | ----------------------------------------- | -------------- |
+| `data`        | `data`        |             | `any`                                     | `undefined`    |
+| `nativeAttrs` | --            |             | `any \| string \| undefined`              | `undefined`    |
+| `orientation` | `orientation` |             | `"horizontal" \| "vertical" \| undefined` | `"horizontal"` |
+| `styleValue`  | `stylevalue`  |             | `string \| undefined`                     | `undefined`    |
 
 
 ----------------------------------------------

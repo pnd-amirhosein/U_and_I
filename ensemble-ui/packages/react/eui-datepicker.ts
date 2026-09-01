@@ -9,13 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type EuiDatepickerCustomEvent } from "ensemble-ui";
-import { EuiDatepicker as EuiDatepickerElement, defineCustomElement as defineEuiDatepicker } from "ensemble-ui/dist/components/eui-datepicker.js";
 import React from 'react';
+
+import { type EuiDatepickerCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiDatepicker as EuiDatepickerElement, defineCustomElement as defineEuiDatepicker } from "ensemble-ui/dist/components/eui-datepicker.js";
 
 export type EuiDatepickerEvents = { onDateChanged: EventName<EuiDatepickerCustomEvent<Date>> };
 
-export const EuiDatepicker: StencilReactComponent<EuiDatepickerElement, EuiDatepickerEvents> = /*@__PURE__*/ createComponent<EuiDatepickerElement, EuiDatepickerEvents>({
+export const EuiDatepicker: StencilReactComponent<EuiDatepickerElement, EuiDatepickerEvents, Components.EuiDatepicker> = /*@__PURE__*/ createComponent<EuiDatepickerElement, EuiDatepickerEvents, Components.EuiDatepicker>({
     tagName: 'eui-datepicker',
     elementClass: EuiDatepickerElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

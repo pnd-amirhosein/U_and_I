@@ -5,12 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alert, BreadcrumbData, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
-import { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
+import { Alert, BreadcrumbData, CalendarEventType, FeedData, HolidayEventType, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 import { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
 import { ToggleItem } from "./components/toggle/toggle";
-export { Alert, BreadcrumbData, CalendarEventType as CalendarEventType1, FeedData, HolidayEventType as HolidayEventType1, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
-export { unknown as CalendarEventType, unknown as HolidayEventType } from "./components.d";
+export { Alert, BreadcrumbData, CalendarEventType, FeedData, HolidayEventType, TabData, TreeData, Validation } from "../packages/core/utils/helpers/types";
 export { CalendarViewEnum, FeedMode } from "../packages/core/utils/helpers/enums";
 export { ToggleItem } from "./components/toggle/toggle";
 export namespace Components {
@@ -518,7 +516,7 @@ export namespace Components {
         /**
           * @default "horizontal"
          */
-        "orientation": "vertical" | "horizontal";
+        "orientation"?: "vertical" | "horizontal";
         "styleValue"?: string;
     }
     interface EuiStepper {
@@ -1353,6 +1351,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K]?: never };
+
     interface EuiAutoComplete {
         "displayField"?: string;
         "fetchSuggestions"?: (query: string) => Promise<any[]>;
@@ -2049,91 +2049,333 @@ declare namespace LocalJSX {
         "showHeader"?: boolean;
         "styleValue"?: string;
     }
+
+    interface EuiAutoCompleteAttributes {
+        "placeholder": string;
+        "displayField": string;
+        "styleValue": string;
+    }
+    interface EuiBadgeAttributes {
+        "styleValue": string;
+        "type": 'blank' | 'icon' | 'number' | 'text-icon' | 'text';
+        "color": 'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending';
+    }
+    interface EuiBreadcrumbAttributes {
+        "styleValue": string;
+    }
+    interface EuiButtonAttributes {
+        "styleValue": string;
+        "size": "sm" | "md" | "lg";
+        "variant": 'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info';
+        "mode": "normal" | "outline" | "text-button";
+    }
+    interface EuiCalendarAttributes {
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+        "styleValue": string;
+        "calendarViewMode": CalendarViewEnum;
+    }
+    interface EuiCalendarHeaderAttributes {
+        "interactive": boolean;
+        "styleValue": string;
+        "calendarViewMode": CalendarViewEnum;
+    }
+    interface EuiCalendarNavigatorAttributes {
+        "interactive": boolean;
+        "styleValue": string;
+        "calendarViewMode": CalendarViewEnum;
+    }
+    interface EuiCardAttributes {
+        "styleValue": string;
+        "img": string;
+        "orientation": "horizontal" | "vertical";
+        "mode": "classic" | "belt" | "lollipop" | "gem" | "flag";
+    }
+    interface EuiCheckboxAttributes {
+        "styleValue": string;
+        "value": 'null' | 'false' | 'partial' | 'true';
+        "size": "sm" | "md" | "lg";
+        "mode": "fill" | "outline";
+    }
+    interface EuiChipsAttributes {
+        "styleValue": string;
+        "displayField": string;
+        "placeholder": string;
+    }
+    interface EuiColorPickerAttributes {
+        "styleValue": string;
+        "mode": "compact" | "standard" | "full";
+    }
+    interface EuiDatepickerAttributes {
+        "styleValue": string;
+        "displayField": string;
+        "placeholder": string;
+        "defaultValue": string;
+        "noClearButton": boolean;
+    }
+    interface EuiDayViewAttributes {
+        "styleValue": string;
+        "year": number;
+        "month": number;
+        "week": number;
+        "day": number;
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+    }
+    interface EuiDecadeCardAttributes {
+        "styleValue": string;
+        "startingYear": number;
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+        "showHeader": boolean;
+    }
+    interface EuiDialogueAttributes {
+        "styleValue": string;
+        "variant": 'primary' | 'danger' | 'success' | 'warning' | 'info';
+        "headerMessage": string;
+    }
+    interface EuiDropdownAttributes {
+        "styleValue": string;
+        "displayField": string;
+        "placeholder": string;
+        "defaultValue": string;
+        "noClearButton": boolean;
+    }
+    interface EuiEmptyStateAttributes {
+        "styleValue": string;
+        "icon": string;
+        "primaryAction": string;
+        "secondaryAction": string;
+    }
+    interface EuiFeedAttributes {
+        "styleValue": string;
+        "mode": FeedMode;
+    }
+    interface EuiIconAttributes {
+        "styleValue": string;
+        "name": string;
+        "type": 'solid' | 'outline' | 'mini' | 'micro';
+    }
+    interface EuiInputAttributes {
+        "value": string;
+        "mode": 'normal' | 'outline' | 'text-input';
+        "type": HTMLInputElement['type'];
+        "placeholder": string;
+        "step": number;
+        "min": number;
+        "max": number;
+        "showClear": boolean;
+        "styleValue": string;
+        "noClearButton": boolean;
+    }
+    interface EuiKnobAttributes {
+        "styleValue": string;
+        "value": number;
+        "min": number;
+        "max": number;
+        "isPercent": boolean;
+    }
+    interface EuiMonthCardAttributes {
+        "styleValue": string;
+        "year": number;
+        "month": number;
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+        "showHeader": boolean;
+    }
+    interface EuiMonthViewAttributes {
+        "styleValue": string;
+        "year": number;
+        "month": number;
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+    }
+    interface EuiPaginatorAttributes {
+        "styleValue": string;
+        "defaultCurrentPage": number;
+        "totalPages": number;
+        "disabled": boolean;
+    }
+    interface EuiProgressbarAttributes {
+        "styleValue": string;
+        "size": "sm" | "md" | "lg";
+        "value": number;
+    }
+    interface EuiRadioAttributes {
+        "styleValue": string;
+        "value": string;
+        "checked": boolean;
+        "disabled": boolean;
+    }
+    interface EuiRadioGroupAttributes {
+        "styleValue": string;
+        "alignment": "horizontal" | "vertical";
+        "stacked": boolean;
+        "selected": string;
+    }
+    interface EuiSideNavAttributes {
+        "styleValue": string;
+        "size": "full" | "compact";
+        "mode": "middle" | "start";
+        "direction": "rtl" | "ltr";
+    }
+    interface EuiSliderAttributes {
+        "styleValue": string;
+        "size": "sm" | "md" | "lg";
+        "value": number;
+    }
+    interface EuiSnackbarAttributes {
+        "styleValue": string;
+        "dismiss": boolean;
+        "variant": 'danger' | 'success' | 'warning' | 'neutral' | 'info';
+        "header": string;
+        "icon": string;
+        "message": string;
+        "awakeTime": number;
+        "open": boolean;
+    }
+    interface EuiStatAttributes {
+        "styleValue": string;
+        "data": string;
+        "orientation": "vertical" | "horizontal";
+    }
+    interface EuiStepperAttributes {
+        "styleValue": string;
+        "orientation": "vertical" | "horizontal";
+        "currentStep": number;
+    }
+    interface EuiTabAttributes {
+        "styleValue": string;
+        "disabled": boolean;
+        "collapse": boolean;
+        "selectedTab": number;
+    }
+    interface EuiTextareaAttributes {
+        "value": string;
+        "mode": 'normal' | 'outline' | 'text-textarea';
+        "type": HTMLTextAreaElement['type'];
+        "placeholder": string;
+        "step": number;
+        "min": number;
+        "max": number;
+        "showClear": boolean;
+        "styleValue": string;
+        "noClearButton": boolean;
+    }
+    interface EuiToggleAttributes {
+        "styleValue": string;
+        "value": number;
+        "disabled": boolean;
+    }
+    interface EuiTreeAttributes {
+        "styleValue": string;
+        "collapse": boolean;
+    }
+    interface EuiWeekViewAttributes {
+        "styleValue": string;
+        "year": number;
+        "month": number;
+        "week": number;
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+    }
+    interface EuiYearAttributes {
+        "styleValue": string;
+        "year": string;
+        "holidayEventType": HolidayEventType;
+    }
+    interface EuiYearCardAttributes {
+        "styleValue": string;
+        "interactive": boolean;
+        "holidayEventType": HolidayEventType;
+        "showHeader": boolean;
+    }
+
     interface IntrinsicElements {
-        "eui-auto-complete": EuiAutoComplete;
-        "eui-badge": EuiBadge;
-        "eui-breadcrumb": EuiBreadcrumb;
-        "eui-button": EuiButton;
-        "eui-calendar": EuiCalendar;
-        "eui-calendar-header": EuiCalendarHeader;
-        "eui-calendar-navigator": EuiCalendarNavigator;
-        "eui-card": EuiCard;
-        "eui-checkbox": EuiCheckbox;
-        "eui-chips": EuiChips;
-        "eui-color-picker": EuiColorPicker;
-        "eui-datepicker": EuiDatepicker;
-        "eui-day-view": EuiDayView;
-        "eui-decade-card": EuiDecadeCard;
-        "eui-dialogue": EuiDialogue;
-        "eui-dropdown": EuiDropdown;
-        "eui-empty-state": EuiEmptyState;
-        "eui-feed": EuiFeed;
-        "eui-icon": EuiIcon;
-        "eui-input": EuiInput;
-        "eui-knob": EuiKnob;
-        "eui-month-card": EuiMonthCard;
-        "eui-month-view": EuiMonthView;
-        "eui-paginator": EuiPaginator;
-        "eui-progressbar": EuiProgressbar;
-        "eui-radio": EuiRadio;
-        "eui-radio-group": EuiRadioGroup;
-        "eui-side-nav": EuiSideNav;
-        "eui-slider": EuiSlider;
-        "eui-snackbar": EuiSnackbar;
-        "eui-stat": EuiStat;
-        "eui-stepper": EuiStepper;
-        "eui-tab": EuiTab;
-        "eui-textarea": EuiTextarea;
-        "eui-toggle": EuiToggle;
-        "eui-tree": EuiTree;
-        "eui-week-view": EuiWeekView;
-        "eui-year": EuiYear;
-        "eui-year-card": EuiYearCard;
+        "eui-auto-complete": Omit<EuiAutoComplete, keyof EuiAutoCompleteAttributes> & { [K in keyof EuiAutoComplete & keyof EuiAutoCompleteAttributes]?: EuiAutoComplete[K] } & { [K in keyof EuiAutoComplete & keyof EuiAutoCompleteAttributes as `attr:${K}`]?: EuiAutoCompleteAttributes[K] } & { [K in keyof EuiAutoComplete & keyof EuiAutoCompleteAttributes as `prop:${K}`]?: EuiAutoComplete[K] };
+        "eui-badge": Omit<EuiBadge, keyof EuiBadgeAttributes> & { [K in keyof EuiBadge & keyof EuiBadgeAttributes]?: EuiBadge[K] } & { [K in keyof EuiBadge & keyof EuiBadgeAttributes as `attr:${K}`]?: EuiBadgeAttributes[K] } & { [K in keyof EuiBadge & keyof EuiBadgeAttributes as `prop:${K}`]?: EuiBadge[K] };
+        "eui-breadcrumb": Omit<EuiBreadcrumb, keyof EuiBreadcrumbAttributes> & { [K in keyof EuiBreadcrumb & keyof EuiBreadcrumbAttributes]?: EuiBreadcrumb[K] } & { [K in keyof EuiBreadcrumb & keyof EuiBreadcrumbAttributes as `attr:${K}`]?: EuiBreadcrumbAttributes[K] } & { [K in keyof EuiBreadcrumb & keyof EuiBreadcrumbAttributes as `prop:${K}`]?: EuiBreadcrumb[K] };
+        "eui-button": Omit<EuiButton, keyof EuiButtonAttributes> & { [K in keyof EuiButton & keyof EuiButtonAttributes]?: EuiButton[K] } & { [K in keyof EuiButton & keyof EuiButtonAttributes as `attr:${K}`]?: EuiButtonAttributes[K] } & { [K in keyof EuiButton & keyof EuiButtonAttributes as `prop:${K}`]?: EuiButton[K] };
+        "eui-calendar": Omit<EuiCalendar, keyof EuiCalendarAttributes> & { [K in keyof EuiCalendar & keyof EuiCalendarAttributes]?: EuiCalendar[K] } & { [K in keyof EuiCalendar & keyof EuiCalendarAttributes as `attr:${K}`]?: EuiCalendarAttributes[K] } & { [K in keyof EuiCalendar & keyof EuiCalendarAttributes as `prop:${K}`]?: EuiCalendar[K] };
+        "eui-calendar-header": Omit<EuiCalendarHeader, keyof EuiCalendarHeaderAttributes> & { [K in keyof EuiCalendarHeader & keyof EuiCalendarHeaderAttributes]?: EuiCalendarHeader[K] } & { [K in keyof EuiCalendarHeader & keyof EuiCalendarHeaderAttributes as `attr:${K}`]?: EuiCalendarHeaderAttributes[K] } & { [K in keyof EuiCalendarHeader & keyof EuiCalendarHeaderAttributes as `prop:${K}`]?: EuiCalendarHeader[K] };
+        "eui-calendar-navigator": Omit<EuiCalendarNavigator, keyof EuiCalendarNavigatorAttributes> & { [K in keyof EuiCalendarNavigator & keyof EuiCalendarNavigatorAttributes]?: EuiCalendarNavigator[K] } & { [K in keyof EuiCalendarNavigator & keyof EuiCalendarNavigatorAttributes as `attr:${K}`]?: EuiCalendarNavigatorAttributes[K] } & { [K in keyof EuiCalendarNavigator & keyof EuiCalendarNavigatorAttributes as `prop:${K}`]?: EuiCalendarNavigator[K] };
+        "eui-card": Omit<EuiCard, keyof EuiCardAttributes> & { [K in keyof EuiCard & keyof EuiCardAttributes]?: EuiCard[K] } & { [K in keyof EuiCard & keyof EuiCardAttributes as `attr:${K}`]?: EuiCardAttributes[K] } & { [K in keyof EuiCard & keyof EuiCardAttributes as `prop:${K}`]?: EuiCard[K] };
+        "eui-checkbox": Omit<EuiCheckbox, keyof EuiCheckboxAttributes> & { [K in keyof EuiCheckbox & keyof EuiCheckboxAttributes]?: EuiCheckbox[K] } & { [K in keyof EuiCheckbox & keyof EuiCheckboxAttributes as `attr:${K}`]?: EuiCheckboxAttributes[K] } & { [K in keyof EuiCheckbox & keyof EuiCheckboxAttributes as `prop:${K}`]?: EuiCheckbox[K] };
+        "eui-chips": Omit<EuiChips, keyof EuiChipsAttributes> & { [K in keyof EuiChips & keyof EuiChipsAttributes]?: EuiChips[K] } & { [K in keyof EuiChips & keyof EuiChipsAttributes as `attr:${K}`]?: EuiChipsAttributes[K] } & { [K in keyof EuiChips & keyof EuiChipsAttributes as `prop:${K}`]?: EuiChips[K] };
+        "eui-color-picker": Omit<EuiColorPicker, keyof EuiColorPickerAttributes> & { [K in keyof EuiColorPicker & keyof EuiColorPickerAttributes]?: EuiColorPicker[K] } & { [K in keyof EuiColorPicker & keyof EuiColorPickerAttributes as `attr:${K}`]?: EuiColorPickerAttributes[K] } & { [K in keyof EuiColorPicker & keyof EuiColorPickerAttributes as `prop:${K}`]?: EuiColorPicker[K] };
+        "eui-datepicker": Omit<EuiDatepicker, keyof EuiDatepickerAttributes> & { [K in keyof EuiDatepicker & keyof EuiDatepickerAttributes]?: EuiDatepicker[K] } & { [K in keyof EuiDatepicker & keyof EuiDatepickerAttributes as `attr:${K}`]?: EuiDatepickerAttributes[K] } & { [K in keyof EuiDatepicker & keyof EuiDatepickerAttributes as `prop:${K}`]?: EuiDatepicker[K] };
+        "eui-day-view": Omit<EuiDayView, keyof EuiDayViewAttributes> & { [K in keyof EuiDayView & keyof EuiDayViewAttributes]?: EuiDayView[K] } & { [K in keyof EuiDayView & keyof EuiDayViewAttributes as `attr:${K}`]?: EuiDayViewAttributes[K] } & { [K in keyof EuiDayView & keyof EuiDayViewAttributes as `prop:${K}`]?: EuiDayView[K] } & OneOf<"year", EuiDayView["year"], EuiDayViewAttributes["year"]> & OneOf<"month", EuiDayView["month"], EuiDayViewAttributes["month"]> & OneOf<"week", EuiDayView["week"], EuiDayViewAttributes["week"]> & OneOf<"day", EuiDayView["day"], EuiDayViewAttributes["day"]>;
+        "eui-decade-card": Omit<EuiDecadeCard, keyof EuiDecadeCardAttributes> & { [K in keyof EuiDecadeCard & keyof EuiDecadeCardAttributes]?: EuiDecadeCard[K] } & { [K in keyof EuiDecadeCard & keyof EuiDecadeCardAttributes as `attr:${K}`]?: EuiDecadeCardAttributes[K] } & { [K in keyof EuiDecadeCard & keyof EuiDecadeCardAttributes as `prop:${K}`]?: EuiDecadeCard[K] };
+        "eui-dialogue": Omit<EuiDialogue, keyof EuiDialogueAttributes> & { [K in keyof EuiDialogue & keyof EuiDialogueAttributes]?: EuiDialogue[K] } & { [K in keyof EuiDialogue & keyof EuiDialogueAttributes as `attr:${K}`]?: EuiDialogueAttributes[K] } & { [K in keyof EuiDialogue & keyof EuiDialogueAttributes as `prop:${K}`]?: EuiDialogue[K] };
+        "eui-dropdown": Omit<EuiDropdown, keyof EuiDropdownAttributes> & { [K in keyof EuiDropdown & keyof EuiDropdownAttributes]?: EuiDropdown[K] } & { [K in keyof EuiDropdown & keyof EuiDropdownAttributes as `attr:${K}`]?: EuiDropdownAttributes[K] } & { [K in keyof EuiDropdown & keyof EuiDropdownAttributes as `prop:${K}`]?: EuiDropdown[K] };
+        "eui-empty-state": Omit<EuiEmptyState, keyof EuiEmptyStateAttributes> & { [K in keyof EuiEmptyState & keyof EuiEmptyStateAttributes]?: EuiEmptyState[K] } & { [K in keyof EuiEmptyState & keyof EuiEmptyStateAttributes as `attr:${K}`]?: EuiEmptyStateAttributes[K] } & { [K in keyof EuiEmptyState & keyof EuiEmptyStateAttributes as `prop:${K}`]?: EuiEmptyState[K] };
+        "eui-feed": Omit<EuiFeed, keyof EuiFeedAttributes> & { [K in keyof EuiFeed & keyof EuiFeedAttributes]?: EuiFeed[K] } & { [K in keyof EuiFeed & keyof EuiFeedAttributes as `attr:${K}`]?: EuiFeedAttributes[K] } & { [K in keyof EuiFeed & keyof EuiFeedAttributes as `prop:${K}`]?: EuiFeed[K] };
+        "eui-icon": Omit<EuiIcon, keyof EuiIconAttributes> & { [K in keyof EuiIcon & keyof EuiIconAttributes]?: EuiIcon[K] } & { [K in keyof EuiIcon & keyof EuiIconAttributes as `attr:${K}`]?: EuiIconAttributes[K] } & { [K in keyof EuiIcon & keyof EuiIconAttributes as `prop:${K}`]?: EuiIcon[K] };
+        "eui-input": Omit<EuiInput, keyof EuiInputAttributes> & { [K in keyof EuiInput & keyof EuiInputAttributes]?: EuiInput[K] } & { [K in keyof EuiInput & keyof EuiInputAttributes as `attr:${K}`]?: EuiInputAttributes[K] } & { [K in keyof EuiInput & keyof EuiInputAttributes as `prop:${K}`]?: EuiInput[K] };
+        "eui-knob": Omit<EuiKnob, keyof EuiKnobAttributes> & { [K in keyof EuiKnob & keyof EuiKnobAttributes]?: EuiKnob[K] } & { [K in keyof EuiKnob & keyof EuiKnobAttributes as `attr:${K}`]?: EuiKnobAttributes[K] } & { [K in keyof EuiKnob & keyof EuiKnobAttributes as `prop:${K}`]?: EuiKnob[K] };
+        "eui-month-card": Omit<EuiMonthCard, keyof EuiMonthCardAttributes> & { [K in keyof EuiMonthCard & keyof EuiMonthCardAttributes]?: EuiMonthCard[K] } & { [K in keyof EuiMonthCard & keyof EuiMonthCardAttributes as `attr:${K}`]?: EuiMonthCardAttributes[K] } & { [K in keyof EuiMonthCard & keyof EuiMonthCardAttributes as `prop:${K}`]?: EuiMonthCard[K] } & OneOf<"year", EuiMonthCard["year"], EuiMonthCardAttributes["year"]> & OneOf<"month", EuiMonthCard["month"], EuiMonthCardAttributes["month"]>;
+        "eui-month-view": Omit<EuiMonthView, keyof EuiMonthViewAttributes> & { [K in keyof EuiMonthView & keyof EuiMonthViewAttributes]?: EuiMonthView[K] } & { [K in keyof EuiMonthView & keyof EuiMonthViewAttributes as `attr:${K}`]?: EuiMonthViewAttributes[K] } & { [K in keyof EuiMonthView & keyof EuiMonthViewAttributes as `prop:${K}`]?: EuiMonthView[K] } & OneOf<"year", EuiMonthView["year"], EuiMonthViewAttributes["year"]> & OneOf<"month", EuiMonthView["month"], EuiMonthViewAttributes["month"]>;
+        "eui-paginator": Omit<EuiPaginator, keyof EuiPaginatorAttributes> & { [K in keyof EuiPaginator & keyof EuiPaginatorAttributes]?: EuiPaginator[K] } & { [K in keyof EuiPaginator & keyof EuiPaginatorAttributes as `attr:${K}`]?: EuiPaginatorAttributes[K] } & { [K in keyof EuiPaginator & keyof EuiPaginatorAttributes as `prop:${K}`]?: EuiPaginator[K] };
+        "eui-progressbar": Omit<EuiProgressbar, keyof EuiProgressbarAttributes> & { [K in keyof EuiProgressbar & keyof EuiProgressbarAttributes]?: EuiProgressbar[K] } & { [K in keyof EuiProgressbar & keyof EuiProgressbarAttributes as `attr:${K}`]?: EuiProgressbarAttributes[K] } & { [K in keyof EuiProgressbar & keyof EuiProgressbarAttributes as `prop:${K}`]?: EuiProgressbar[K] };
+        "eui-radio": Omit<EuiRadio, keyof EuiRadioAttributes> & { [K in keyof EuiRadio & keyof EuiRadioAttributes]?: EuiRadio[K] } & { [K in keyof EuiRadio & keyof EuiRadioAttributes as `attr:${K}`]?: EuiRadioAttributes[K] } & { [K in keyof EuiRadio & keyof EuiRadioAttributes as `prop:${K}`]?: EuiRadio[K] } & OneOf<"value", EuiRadio["value"], EuiRadioAttributes["value"]>;
+        "eui-radio-group": Omit<EuiRadioGroup, keyof EuiRadioGroupAttributes> & { [K in keyof EuiRadioGroup & keyof EuiRadioGroupAttributes]?: EuiRadioGroup[K] } & { [K in keyof EuiRadioGroup & keyof EuiRadioGroupAttributes as `attr:${K}`]?: EuiRadioGroupAttributes[K] } & { [K in keyof EuiRadioGroup & keyof EuiRadioGroupAttributes as `prop:${K}`]?: EuiRadioGroup[K] };
+        "eui-side-nav": Omit<EuiSideNav, keyof EuiSideNavAttributes> & { [K in keyof EuiSideNav & keyof EuiSideNavAttributes]?: EuiSideNav[K] } & { [K in keyof EuiSideNav & keyof EuiSideNavAttributes as `attr:${K}`]?: EuiSideNavAttributes[K] } & { [K in keyof EuiSideNav & keyof EuiSideNavAttributes as `prop:${K}`]?: EuiSideNav[K] };
+        "eui-slider": Omit<EuiSlider, keyof EuiSliderAttributes> & { [K in keyof EuiSlider & keyof EuiSliderAttributes]?: EuiSlider[K] } & { [K in keyof EuiSlider & keyof EuiSliderAttributes as `attr:${K}`]?: EuiSliderAttributes[K] } & { [K in keyof EuiSlider & keyof EuiSliderAttributes as `prop:${K}`]?: EuiSlider[K] };
+        "eui-snackbar": Omit<EuiSnackbar, keyof EuiSnackbarAttributes> & { [K in keyof EuiSnackbar & keyof EuiSnackbarAttributes]?: EuiSnackbar[K] } & { [K in keyof EuiSnackbar & keyof EuiSnackbarAttributes as `attr:${K}`]?: EuiSnackbarAttributes[K] } & { [K in keyof EuiSnackbar & keyof EuiSnackbarAttributes as `prop:${K}`]?: EuiSnackbar[K] };
+        "eui-stat": Omit<EuiStat, keyof EuiStatAttributes> & { [K in keyof EuiStat & keyof EuiStatAttributes]?: EuiStat[K] } & { [K in keyof EuiStat & keyof EuiStatAttributes as `attr:${K}`]?: EuiStatAttributes[K] } & { [K in keyof EuiStat & keyof EuiStatAttributes as `prop:${K}`]?: EuiStat[K] };
+        "eui-stepper": Omit<EuiStepper, keyof EuiStepperAttributes> & { [K in keyof EuiStepper & keyof EuiStepperAttributes]?: EuiStepper[K] } & { [K in keyof EuiStepper & keyof EuiStepperAttributes as `attr:${K}`]?: EuiStepperAttributes[K] } & { [K in keyof EuiStepper & keyof EuiStepperAttributes as `prop:${K}`]?: EuiStepper[K] };
+        "eui-tab": Omit<EuiTab, keyof EuiTabAttributes> & { [K in keyof EuiTab & keyof EuiTabAttributes]?: EuiTab[K] } & { [K in keyof EuiTab & keyof EuiTabAttributes as `attr:${K}`]?: EuiTabAttributes[K] } & { [K in keyof EuiTab & keyof EuiTabAttributes as `prop:${K}`]?: EuiTab[K] };
+        "eui-textarea": Omit<EuiTextarea, keyof EuiTextareaAttributes> & { [K in keyof EuiTextarea & keyof EuiTextareaAttributes]?: EuiTextarea[K] } & { [K in keyof EuiTextarea & keyof EuiTextareaAttributes as `attr:${K}`]?: EuiTextareaAttributes[K] } & { [K in keyof EuiTextarea & keyof EuiTextareaAttributes as `prop:${K}`]?: EuiTextarea[K] };
+        "eui-toggle": Omit<EuiToggle, keyof EuiToggleAttributes> & { [K in keyof EuiToggle & keyof EuiToggleAttributes]?: EuiToggle[K] } & { [K in keyof EuiToggle & keyof EuiToggleAttributes as `attr:${K}`]?: EuiToggleAttributes[K] } & { [K in keyof EuiToggle & keyof EuiToggleAttributes as `prop:${K}`]?: EuiToggle[K] };
+        "eui-tree": Omit<EuiTree, keyof EuiTreeAttributes> & { [K in keyof EuiTree & keyof EuiTreeAttributes]?: EuiTree[K] } & { [K in keyof EuiTree & keyof EuiTreeAttributes as `attr:${K}`]?: EuiTreeAttributes[K] } & { [K in keyof EuiTree & keyof EuiTreeAttributes as `prop:${K}`]?: EuiTree[K] };
+        "eui-week-view": Omit<EuiWeekView, keyof EuiWeekViewAttributes> & { [K in keyof EuiWeekView & keyof EuiWeekViewAttributes]?: EuiWeekView[K] } & { [K in keyof EuiWeekView & keyof EuiWeekViewAttributes as `attr:${K}`]?: EuiWeekViewAttributes[K] } & { [K in keyof EuiWeekView & keyof EuiWeekViewAttributes as `prop:${K}`]?: EuiWeekView[K] } & OneOf<"year", EuiWeekView["year"], EuiWeekViewAttributes["year"]> & OneOf<"month", EuiWeekView["month"], EuiWeekViewAttributes["month"]> & OneOf<"week", EuiWeekView["week"], EuiWeekViewAttributes["week"]>;
+        "eui-year": Omit<EuiYear, keyof EuiYearAttributes> & { [K in keyof EuiYear & keyof EuiYearAttributes]?: EuiYear[K] } & { [K in keyof EuiYear & keyof EuiYearAttributes as `attr:${K}`]?: EuiYearAttributes[K] } & { [K in keyof EuiYear & keyof EuiYearAttributes as `prop:${K}`]?: EuiYear[K] };
+        "eui-year-card": Omit<EuiYearCard, keyof EuiYearCardAttributes> & { [K in keyof EuiYearCard & keyof EuiYearCardAttributes]?: EuiYearCard[K] } & { [K in keyof EuiYearCard & keyof EuiYearCardAttributes as `attr:${K}`]?: EuiYearCardAttributes[K] } & { [K in keyof EuiYearCard & keyof EuiYearCardAttributes as `prop:${K}`]?: EuiYearCard[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "eui-auto-complete": LocalJSX.EuiAutoComplete & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
-            "eui-badge": LocalJSX.EuiBadge & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
-            "eui-breadcrumb": LocalJSX.EuiBreadcrumb & JSXBase.HTMLAttributes<HTMLEuiBreadcrumbElement>;
-            "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
-            "eui-calendar": LocalJSX.EuiCalendar & JSXBase.HTMLAttributes<HTMLEuiCalendarElement>;
-            "eui-calendar-header": LocalJSX.EuiCalendarHeader & JSXBase.HTMLAttributes<HTMLEuiCalendarHeaderElement>;
-            "eui-calendar-navigator": LocalJSX.EuiCalendarNavigator & JSXBase.HTMLAttributes<HTMLEuiCalendarNavigatorElement>;
-            "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
-            "eui-checkbox": LocalJSX.EuiCheckbox & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
-            "eui-chips": LocalJSX.EuiChips & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
-            "eui-color-picker": LocalJSX.EuiColorPicker & JSXBase.HTMLAttributes<HTMLEuiColorPickerElement>;
-            "eui-datepicker": LocalJSX.EuiDatepicker & JSXBase.HTMLAttributes<HTMLEuiDatepickerElement>;
-            "eui-day-view": LocalJSX.EuiDayView & JSXBase.HTMLAttributes<HTMLEuiDayViewElement>;
-            "eui-decade-card": LocalJSX.EuiDecadeCard & JSXBase.HTMLAttributes<HTMLEuiDecadeCardElement>;
-            "eui-dialogue": LocalJSX.EuiDialogue & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
-            "eui-dropdown": LocalJSX.EuiDropdown & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
-            "eui-empty-state": LocalJSX.EuiEmptyState & JSXBase.HTMLAttributes<HTMLEuiEmptyStateElement>;
-            "eui-feed": LocalJSX.EuiFeed & JSXBase.HTMLAttributes<HTMLEuiFeedElement>;
-            "eui-icon": LocalJSX.EuiIcon & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
-            "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
-            "eui-knob": LocalJSX.EuiKnob & JSXBase.HTMLAttributes<HTMLEuiKnobElement>;
-            "eui-month-card": LocalJSX.EuiMonthCard & JSXBase.HTMLAttributes<HTMLEuiMonthCardElement>;
-            "eui-month-view": LocalJSX.EuiMonthView & JSXBase.HTMLAttributes<HTMLEuiMonthViewElement>;
-            "eui-paginator": LocalJSX.EuiPaginator & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
-            "eui-progressbar": LocalJSX.EuiProgressbar & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
-            "eui-radio": LocalJSX.EuiRadio & JSXBase.HTMLAttributes<HTMLEuiRadioElement>;
-            "eui-radio-group": LocalJSX.EuiRadioGroup & JSXBase.HTMLAttributes<HTMLEuiRadioGroupElement>;
-            "eui-side-nav": LocalJSX.EuiSideNav & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
-            "eui-slider": LocalJSX.EuiSlider & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
-            "eui-snackbar": LocalJSX.EuiSnackbar & JSXBase.HTMLAttributes<HTMLEuiSnackbarElement>;
-            "eui-stat": LocalJSX.EuiStat & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
-            "eui-stepper": LocalJSX.EuiStepper & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
-            "eui-tab": LocalJSX.EuiTab & JSXBase.HTMLAttributes<HTMLEuiTabElement>;
-            "eui-textarea": LocalJSX.EuiTextarea & JSXBase.HTMLAttributes<HTMLEuiTextareaElement>;
-            "eui-toggle": LocalJSX.EuiToggle & JSXBase.HTMLAttributes<HTMLEuiToggleElement>;
-            "eui-tree": LocalJSX.EuiTree & JSXBase.HTMLAttributes<HTMLEuiTreeElement>;
-            "eui-week-view": LocalJSX.EuiWeekView & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
-            "eui-year": LocalJSX.EuiYear & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
-            "eui-year-card": LocalJSX.EuiYearCard & JSXBase.HTMLAttributes<HTMLEuiYearCardElement>;
+            "eui-auto-complete": LocalJSX.IntrinsicElements["eui-auto-complete"] & JSXBase.HTMLAttributes<HTMLEuiAutoCompleteElement>;
+            "eui-badge": LocalJSX.IntrinsicElements["eui-badge"] & JSXBase.HTMLAttributes<HTMLEuiBadgeElement>;
+            "eui-breadcrumb": LocalJSX.IntrinsicElements["eui-breadcrumb"] & JSXBase.HTMLAttributes<HTMLEuiBreadcrumbElement>;
+            "eui-button": LocalJSX.IntrinsicElements["eui-button"] & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-calendar": LocalJSX.IntrinsicElements["eui-calendar"] & JSXBase.HTMLAttributes<HTMLEuiCalendarElement>;
+            "eui-calendar-header": LocalJSX.IntrinsicElements["eui-calendar-header"] & JSXBase.HTMLAttributes<HTMLEuiCalendarHeaderElement>;
+            "eui-calendar-navigator": LocalJSX.IntrinsicElements["eui-calendar-navigator"] & JSXBase.HTMLAttributes<HTMLEuiCalendarNavigatorElement>;
+            "eui-card": LocalJSX.IntrinsicElements["eui-card"] & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
+            "eui-checkbox": LocalJSX.IntrinsicElements["eui-checkbox"] & JSXBase.HTMLAttributes<HTMLEuiCheckboxElement>;
+            "eui-chips": LocalJSX.IntrinsicElements["eui-chips"] & JSXBase.HTMLAttributes<HTMLEuiChipsElement>;
+            "eui-color-picker": LocalJSX.IntrinsicElements["eui-color-picker"] & JSXBase.HTMLAttributes<HTMLEuiColorPickerElement>;
+            "eui-datepicker": LocalJSX.IntrinsicElements["eui-datepicker"] & JSXBase.HTMLAttributes<HTMLEuiDatepickerElement>;
+            "eui-day-view": LocalJSX.IntrinsicElements["eui-day-view"] & JSXBase.HTMLAttributes<HTMLEuiDayViewElement>;
+            "eui-decade-card": LocalJSX.IntrinsicElements["eui-decade-card"] & JSXBase.HTMLAttributes<HTMLEuiDecadeCardElement>;
+            "eui-dialogue": LocalJSX.IntrinsicElements["eui-dialogue"] & JSXBase.HTMLAttributes<HTMLEuiDialogueElement>;
+            "eui-dropdown": LocalJSX.IntrinsicElements["eui-dropdown"] & JSXBase.HTMLAttributes<HTMLEuiDropdownElement>;
+            "eui-empty-state": LocalJSX.IntrinsicElements["eui-empty-state"] & JSXBase.HTMLAttributes<HTMLEuiEmptyStateElement>;
+            "eui-feed": LocalJSX.IntrinsicElements["eui-feed"] & JSXBase.HTMLAttributes<HTMLEuiFeedElement>;
+            "eui-icon": LocalJSX.IntrinsicElements["eui-icon"] & JSXBase.HTMLAttributes<HTMLEuiIconElement>;
+            "eui-input": LocalJSX.IntrinsicElements["eui-input"] & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
+            "eui-knob": LocalJSX.IntrinsicElements["eui-knob"] & JSXBase.HTMLAttributes<HTMLEuiKnobElement>;
+            "eui-month-card": LocalJSX.IntrinsicElements["eui-month-card"] & JSXBase.HTMLAttributes<HTMLEuiMonthCardElement>;
+            "eui-month-view": LocalJSX.IntrinsicElements["eui-month-view"] & JSXBase.HTMLAttributes<HTMLEuiMonthViewElement>;
+            "eui-paginator": LocalJSX.IntrinsicElements["eui-paginator"] & JSXBase.HTMLAttributes<HTMLEuiPaginatorElement>;
+            "eui-progressbar": LocalJSX.IntrinsicElements["eui-progressbar"] & JSXBase.HTMLAttributes<HTMLEuiProgressbarElement>;
+            "eui-radio": LocalJSX.IntrinsicElements["eui-radio"] & JSXBase.HTMLAttributes<HTMLEuiRadioElement>;
+            "eui-radio-group": LocalJSX.IntrinsicElements["eui-radio-group"] & JSXBase.HTMLAttributes<HTMLEuiRadioGroupElement>;
+            "eui-side-nav": LocalJSX.IntrinsicElements["eui-side-nav"] & JSXBase.HTMLAttributes<HTMLEuiSideNavElement>;
+            "eui-slider": LocalJSX.IntrinsicElements["eui-slider"] & JSXBase.HTMLAttributes<HTMLEuiSliderElement>;
+            "eui-snackbar": LocalJSX.IntrinsicElements["eui-snackbar"] & JSXBase.HTMLAttributes<HTMLEuiSnackbarElement>;
+            "eui-stat": LocalJSX.IntrinsicElements["eui-stat"] & JSXBase.HTMLAttributes<HTMLEuiStatElement>;
+            "eui-stepper": LocalJSX.IntrinsicElements["eui-stepper"] & JSXBase.HTMLAttributes<HTMLEuiStepperElement>;
+            "eui-tab": LocalJSX.IntrinsicElements["eui-tab"] & JSXBase.HTMLAttributes<HTMLEuiTabElement>;
+            "eui-textarea": LocalJSX.IntrinsicElements["eui-textarea"] & JSXBase.HTMLAttributes<HTMLEuiTextareaElement>;
+            "eui-toggle": LocalJSX.IntrinsicElements["eui-toggle"] & JSXBase.HTMLAttributes<HTMLEuiToggleElement>;
+            "eui-tree": LocalJSX.IntrinsicElements["eui-tree"] & JSXBase.HTMLAttributes<HTMLEuiTreeElement>;
+            "eui-week-view": LocalJSX.IntrinsicElements["eui-week-view"] & JSXBase.HTMLAttributes<HTMLEuiWeekViewElement>;
+            "eui-year": LocalJSX.IntrinsicElements["eui-year"] & JSXBase.HTMLAttributes<HTMLEuiYearElement>;
+            "eui-year-card": LocalJSX.IntrinsicElements["eui-year-card"] & JSXBase.HTMLAttributes<HTMLEuiYearCardElement>;
         }
     }
 }

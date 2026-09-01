@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiFeed as EuiFeedElement, defineCustomElement as defineEuiFeed } from "ensemble-ui/dist/components/eui-feed.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiFeed as EuiFeedElement, defineCustomElement as defineEuiFeed } from "ensemble-ui/dist/components/eui-feed.js";
 
 export type EuiFeedEvents = NonNullable<unknown>;
 
-export const EuiFeed: StencilReactComponent<EuiFeedElement, EuiFeedEvents> = /*@__PURE__*/ createComponent<EuiFeedElement, EuiFeedEvents>({
+export const EuiFeed: StencilReactComponent<EuiFeedElement, EuiFeedEvents, Components.EuiFeed> = /*@__PURE__*/ createComponent<EuiFeedElement, EuiFeedEvents, Components.EuiFeed>({
     tagName: 'eui-feed',
     elementClass: EuiFeedElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

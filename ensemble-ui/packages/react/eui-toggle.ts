@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiToggle as EuiToggleElement, defineCustomElement as defineEuiToggle } from "ensemble-ui/dist/components/eui-toggle.js";
 import React from 'react';
 
-export type EuiToggleEvents = { onValueChanged: EventName<CustomEvent<number>> };
+import { type EuiToggleCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiToggle as EuiToggleElement, defineCustomElement as defineEuiToggle } from "ensemble-ui/dist/components/eui-toggle.js";
 
-export const EuiToggle: StencilReactComponent<EuiToggleElement, EuiToggleEvents> = /*@__PURE__*/ createComponent<EuiToggleElement, EuiToggleEvents>({
+export type EuiToggleEvents = { onValueChanged: EventName<EuiToggleCustomEvent<number>> };
+
+export const EuiToggle: StencilReactComponent<EuiToggleElement, EuiToggleEvents, Components.EuiToggle> = /*@__PURE__*/ createComponent<EuiToggleElement, EuiToggleEvents, Components.EuiToggle>({
     tagName: 'eui-toggle',
     elementClass: EuiToggleElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

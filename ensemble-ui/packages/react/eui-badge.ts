@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiBadge as EuiBadgeElement, defineCustomElement as defineEuiBadge } from "ensemble-ui/dist/components/eui-badge.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiBadge as EuiBadgeElement, defineCustomElement as defineEuiBadge } from "ensemble-ui/dist/components/eui-badge.js";
 
 export type EuiBadgeEvents = NonNullable<unknown>;
 
-export const EuiBadge: StencilReactComponent<EuiBadgeElement, EuiBadgeEvents> = /*@__PURE__*/ createComponent<EuiBadgeElement, EuiBadgeEvents>({
+export const EuiBadge: StencilReactComponent<EuiBadgeElement, EuiBadgeEvents, Components.EuiBadge> = /*@__PURE__*/ createComponent<EuiBadgeElement, EuiBadgeEvents, Components.EuiBadge>({
     tagName: 'eui-badge',
     elementClass: EuiBadgeElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

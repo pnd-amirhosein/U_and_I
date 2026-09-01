@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiColorPicker as EuiColorPickerElement, defineCustomElement as defineEuiColorPicker } from "ensemble-ui/dist/components/eui-color-picker.js";
 import React from 'react';
 
-export type EuiColorPickerEvents = { onChanged: EventName<CustomEvent<string>> };
+import { type EuiColorPickerCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiColorPicker as EuiColorPickerElement, defineCustomElement as defineEuiColorPicker } from "ensemble-ui/dist/components/eui-color-picker.js";
 
-export const EuiColorPicker: StencilReactComponent<EuiColorPickerElement, EuiColorPickerEvents> = /*@__PURE__*/ createComponent<EuiColorPickerElement, EuiColorPickerEvents>({
+export type EuiColorPickerEvents = { onChanged: EventName<EuiColorPickerCustomEvent<string>> };
+
+export const EuiColorPicker: StencilReactComponent<EuiColorPickerElement, EuiColorPickerEvents, Components.EuiColorPicker> = /*@__PURE__*/ createComponent<EuiColorPickerElement, EuiColorPickerEvents, Components.EuiColorPicker>({
     tagName: 'eui-color-picker',
     elementClass: EuiColorPickerElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

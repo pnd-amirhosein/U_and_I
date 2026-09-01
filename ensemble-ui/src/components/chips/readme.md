@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type                                 | Default     |
-| -------------- | -------------- | ----------- | ------------------------------------ | ----------- |
-| `data`         | `data`         |             | `any[]`                              | `[]`        |
-| `displayField` | `displayfield` |             | `string \| undefined`                | `undefined` |
-| `nativeAttrs`  | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
-| `placeholder`  | `placeholder`  |             | `string`                             | `''`        |
-| `styleValue`   | `stylevalue`   |             | `string \| undefined`                | `undefined` |
-| `suggestions`  | `suggestions`  |             | `any[]`                              | `[]`        |
+| Property       | Attribute      | Description | Type                         | Default     |
+| -------------- | -------------- | ----------- | ---------------------------- | ----------- |
+| `data`         | --             |             | `any[]`                      | `[]`        |
+| `displayField` | `displayfield` |             | `string \| undefined`        | `undefined` |
+| `nativeAttrs`  | --             |             | `any \| string \| undefined` | `undefined` |
+| `placeholder`  | `placeholder`  |             | `string`                     | `''`        |
+| `styleValue`   | `stylevalue`   |             | `string \| undefined`        | `undefined` |
+| `suggestions`  | --             |             | `any[]`                      | `[]`        |
 
 
 ## Events

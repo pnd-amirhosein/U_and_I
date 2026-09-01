@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                 | Default     |
-| ------------- | -------------- | ----------- | ------------------------------------ | ----------- |
-| `collapse`    | `collapse`     |             | `boolean`                            | `false`     |
-| `data`        | `data`         |             | `TreeData[]`                         | `[]`        |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined` |
+| Property      | Attribute    | Description | Type                         | Default     |
+| ------------- | ------------ | ----------- | ---------------------------- | ----------- |
+| `collapse`    | `collapse`   |             | `boolean`                    | `false`     |
+| `data`        | --           |             | `TreeData[]`                 | `[]`        |
+| `nativeAttrs` | --           |             | `any \| string \| undefined` | `undefined` |
+| `styleValue`  | `stylevalue` |             | `string \| undefined`        | `undefined` |
 
 
 ## Dependencies

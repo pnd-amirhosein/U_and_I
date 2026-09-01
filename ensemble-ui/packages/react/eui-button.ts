@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiButton as EuiButtonElement, defineCustomElement as defineEuiButton } from "ensemble-ui/dist/components/eui-button.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiButton as EuiButtonElement, defineCustomElement as defineEuiButton } from "ensemble-ui/dist/components/eui-button.js";
 
 export type EuiButtonEvents = NonNullable<unknown>;
 
-export const EuiButton: StencilReactComponent<EuiButtonElement, EuiButtonEvents> = /*@__PURE__*/ createComponent<EuiButtonElement, EuiButtonEvents>({
+export const EuiButton: StencilReactComponent<EuiButtonElement, EuiButtonEvents, Components.EuiButton> = /*@__PURE__*/ createComponent<EuiButtonElement, EuiButtonEvents, Components.EuiButton>({
     tagName: 'eui-button',
     elementClass: EuiButtonElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

@@ -7,13 +7,22 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                 | Default     |
-| ------------- | -------------- | ----------- | ------------------------------------ | ----------- |
-| `direction`   | `direction`    |             | `"ltr" \| "rtl"`                     | `"ltr"`     |
-| `mode`        | `mode`         |             | `"middle" \| "start"`                | `"middle"`  |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }` | `undefined` |
-| `size`        | `size`         |             | `"compact" \| "full"`                | `"full"`    |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                | `undefined` |
+| Property      | Attribute    | Description | Type                         | Default     |
+| ------------- | ------------ | ----------- | ---------------------------- | ----------- |
+| `direction`   | `direction`  |             | `"ltr" \| "rtl"`             | `"ltr"`     |
+| `mode`        | `mode`       |             | `"middle" \| "start"`        | `"middle"`  |
+| `nativeAttrs` | --           |             | `any \| string \| undefined` | `undefined` |
+| `size`        | `size`       |             | `"compact" \| "full"`        | `"full"`    |
+| `styleValue`  | `stylevalue` |             | `string \| undefined`        | `undefined` |
+
+
+## Slots
+
+| Slot       | Description |
+| ---------- | ----------- |
+| `"bottom"` |             |
+| `"middle"` |             |
+| `"top"`    |             |
 
 
 ----------------------------------------------

@@ -12,11 +12,13 @@ export class EUIStat {
     @Prop({ attribute: "styleValue" }) styleValue?: string;
     @Prop() nativeAttrs?: Record<string, any>;
     @Prop() data: any;
-    @Prop() orientation: "vertical" | "horizontal" = "horizontal";
+    @Prop() orientation?: "vertical" | "horizontal" = "horizontal";
 
     @State() localData: any = {}
 
     render() {
+
+        if (!this.data) return (<></>)
 
         this.localData = this.data;
 

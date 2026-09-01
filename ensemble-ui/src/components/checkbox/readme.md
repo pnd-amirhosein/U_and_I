@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                           | Default                                |
-| ------------- | -------------- | ----------- | ---------------------------------------------- | -------------------------------------- |
-| `mode`        | `mode`         |             | `"fill" \| "outline"`                          | `"fill"`                               |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }`           | `undefined`                            |
-| `size`        | `size`         |             | `"lg" \| "md" \| "sm"`                         | `"md"`                                 |
-| `states`      | `states`       |             | `("null" \| "false" \| "partial" \| "true")[]` | `['null', 'false', 'partial', 'true']` |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                          | `undefined`                            |
-| `value`       | `value`        |             | `"false" \| "null" \| "partial" \| "true"`     | `'null'`                               |
+| Property      | Attribute    | Description | Type                                           | Default                                |
+| ------------- | ------------ | ----------- | ---------------------------------------------- | -------------------------------------- |
+| `mode`        | `mode`       |             | `"fill" \| "outline"`                          | `"fill"`                               |
+| `nativeAttrs` | --           |             | `any \| string \| undefined`                   | `undefined`                            |
+| `size`        | `size`       |             | `"lg" \| "md" \| "sm"`                         | `"md"`                                 |
+| `states`      | --           |             | `("true" \| "false" \| "null" \| "partial")[]` | `['null', 'false', 'partial', 'true']` |
+| `styleValue`  | `stylevalue` |             | `string \| undefined`                          | `undefined`                            |
+| `value`       | `value`      |             | `"false" \| "null" \| "partial" \| "true"`     | `'null'`                               |
 
 
 ## Events
@@ -22,6 +22,13 @@
 | Event         | Description | Type                                                    |
 | ------------- | ----------- | ------------------------------------------------------- |
 | `valueChange` |             | `CustomEvent<"false" \| "null" \| "partial" \| "true">` |
+
+
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
 
 
 ## Dependencies
