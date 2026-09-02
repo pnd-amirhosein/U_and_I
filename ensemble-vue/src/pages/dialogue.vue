@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiDialogue } from 'ensemble-ui/vue';
+
 </script>
 
 <template>
@@ -8,7 +10,7 @@
     <span class="flex">
       <h4 class="title">Info dialogue:</h4>
 
-      <eui-dialogue
+      <EuiDialogue
         styleValue="min-width: 25vw;"
         variant="info"
         headerMessage="Information fetched!"
@@ -29,7 +31,7 @@
           <eui-button variant="info">close</eui-button>
           <eui-button variant="neutral">see details</eui-button>
         </div>
-      </eui-dialogue>
+      </EuiDialogue>
     </span>
 
 
@@ -37,7 +39,7 @@
     <span class="flex">
       <h4 class="title">Success dialogue:</h4>
 
-      <eui-dialogue
+      <EuiDialogue
         styleValue="min-width: 25vw;"
         variant="success"
         headerMessage="Operation successfully done!"
@@ -58,7 +60,7 @@
           <eui-button variant="success">close</eui-button>
           <eui-button variant="neutral">see details</eui-button>
         </div>
-      </eui-dialogue>
+      </EuiDialogue>
     </span>
 
 
@@ -66,7 +68,7 @@
     <span class="flex">
       <h4 class="title">Warning dialogue:</h4>
 
-      <eui-dialogue
+      <EuiDialogue
         styleValue="min-width: 25vw;"
         variant="warning"
         headerMessage="Maintain your operations!"
@@ -87,7 +89,7 @@
           <eui-button variant="warning">close</eui-button>
           <eui-button variant="neutral">see details</eui-button>
         </div>
-      </eui-dialogue>
+      </EuiDialogue>
     </span>
 
 
@@ -95,7 +97,7 @@
     <span class="flex">
       <h4 class="title">Danger dialogue:</h4>
 
-      <eui-dialogue
+      <EuiDialogue
         styleValue="min-width: 25vw;"
         variant="danger"
         headerMessage="System null exception!"
@@ -116,7 +118,7 @@
           <eui-button variant="danger">close</eui-button>
           <eui-button variant="neutral">see details</eui-button>
         </div>
-      </eui-dialogue>
+      </EuiDialogue>
     </span>
 
   </div>

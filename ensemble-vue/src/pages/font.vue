@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiSlider } from 'ensemble-ui/vue'
 import { ref } from 'vue'
 
 const stretch = ref(75)
@@ -79,7 +80,7 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ weight }}</div>
           </div>
 
-          <eui-slider styleValue="width:40vw;" size="md" :value="0.5" @change="() => console.log(8768)" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="() => console.log(8768)" />
         </div>
 
         <div class="tool">
@@ -88,7 +89,7 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ stretch }}</div>
           </div>
 
-          <eui-slider styleValue="width:40vw;" size="md" :value="0.5" @change="onStretchChange" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="onStretchChange" />
         </div>
 
       </div>
@@ -113,7 +114,7 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ weightPersian }}</div>
           </div>
 
-          <eui-slider styleValue="width:40vw;" size="md" :value="0.5" @change="onWeightPersianChange" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="onWeightPersianChange" />
         </div>
 
         <div class="tool">
@@ -122,7 +123,7 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ stretchPersian }}</div>
           </div>
 
-          <eui-slider styleValue="width:40vw;" size="md" :value="0.5" @change="onStretchPersianChange" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="onStretchPersianChange" />
         </div>
 
       </div>

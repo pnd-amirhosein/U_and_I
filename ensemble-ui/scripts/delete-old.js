@@ -6,6 +6,8 @@ const chalk = require("chalk");
     const targets = [
         "dist",
         "dist-angular",
+        "dist-react",
+        "dist-vue",
         "www",
         "loader",
         "../ensemble-angular/.angular",

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiPaginator } from 'ensemble-ui/vue';
 import { ref } from 'vue'
 
 const currentPage = ref(5)
@@ -14,7 +15,7 @@ const onPageChange = (event: CustomEvent<number>) => {
     <span class="flex">
       <h4 class="title">Simple Input</h4>
 
-      <eui-paginator
+      <EuiPaginator
         :totalPages="10"
         :defaultCurrentPage="currentPage"
         @currentPage="onPageChange"
@@ -27,7 +28,7 @@ const onPageChange = (event: CustomEvent<number>) => {
     <span class="flex">
       <h4 class="title">Simple Input</h4>
 
-      <eui-paginator
+      <EuiPaginator
         :totalPages="10"
         :defaultCurrentPage="currentPage"
         :disabled="true"

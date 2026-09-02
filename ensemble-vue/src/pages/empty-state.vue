@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { EuiEmptyState } from 'ensemble-ui/vue';
+
+
 const test = () => {
   console.log('Test is clicked!')
 }
@@ -9,7 +12,7 @@ const test = () => {
     <span class="flex">
       <h4 class="title">empty state:</h4>
 
-      <eui-empty-state
+      <EuiEmptyState
         icon="x-mark"
         primaryAction="Create new chat"
         secondaryAction="join existing chats"
@@ -17,7 +20,7 @@ const test = () => {
         @secondaryClick="test"
       >
         <span>It’s lonely here...</span>
-      </eui-empty-state>
+      </EuiEmptyState>
     </span>
   </div>
 </template>

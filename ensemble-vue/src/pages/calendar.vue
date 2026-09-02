@@ -58,7 +58,7 @@ const events: CalEvent[] = [
       <h2 class="title">Calendar</h2>
 
       <span class="calendar-wrapper" style="width: 80vw">
-        <eui-calendar :selected-date="new Date('2026-06-13 19:00:00')" :calendar-events="events"
+        <EuiCalendar :selected-date="new Date('2026-06-13 19:00:00')" :calendar-events="events"
           holiday-event-type="both" calendar-view-mode="month" />
       </span>
     </span>

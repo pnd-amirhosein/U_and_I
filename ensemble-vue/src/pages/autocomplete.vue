@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiAutoComplete } from 'ensemble-ui/vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 type Product = {
@@ -61,7 +62,7 @@ onBeforeUnmount(() => {
     <div class="flex">
       <h4 class="title">autocomplete example</h4>
 
-      <eui-auto-complete ref="autoComplete" placeholder="Search products..." />
+      <EuiAutoComplete ref="autoComplete" placeholder="Search products..." />
     </div>
   </section>
 </template>

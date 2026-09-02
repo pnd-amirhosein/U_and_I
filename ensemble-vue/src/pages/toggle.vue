@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiToggle } from 'ensemble-ui/vue';
+
 const data = [
   { text: 'All', icon: 'archive-box-arrow-down' },
   { text: 'Unread', icon: 'adjustments-vertical' },
@@ -13,7 +15,7 @@ const data = [
     <span class="flex">
       <h4 class="title">Toggle:</h4>
 
-      <eui-toggle
+      <EuiToggle
         :value="1"
         :data="data"
       />
@@ -22,7 +24,7 @@ const data = [
     <span class="flex">
       <h4 class="title">Toggle - disabled:</h4>
 
-      <eui-toggle
+      <EuiToggle
         disabled
         :value="2"
         :data="data"

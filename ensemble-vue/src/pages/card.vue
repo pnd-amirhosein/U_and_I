@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiCard } from 'ensemble-ui/vue';
+
 </script>
 
 <template>
@@ -8,7 +10,7 @@
     <span class="flex">
       <h4 class="title">Card vertical (default) - classic</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
       >
@@ -19,7 +21,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -27,7 +29,7 @@
     <span class="flex">
       <h4 class="title">Card vertical - belt</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         mode="belt"
@@ -39,7 +41,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -47,7 +49,7 @@
     <span class="flex">
       <h4 class="title">Card vertical - lollipop</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         mode="lollipop"
@@ -59,7 +61,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -67,7 +69,7 @@
     <span class="flex">
       <h4 class="title">Card vertical - gem</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         mode="gem"
@@ -79,7 +81,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -87,7 +89,7 @@
     <span class="flex">
       <h4 class="title">Card vertical - flag</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         mode="flag"
@@ -99,7 +101,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -107,7 +109,7 @@
     <span class="flex">
       <h4 class="title">Card horizontal (default) - classic</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         orientation="horizontal"
@@ -119,7 +121,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -127,7 +129,7 @@
     <span class="flex">
       <h4 class="title">Card horizontal - belt</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         orientation="horizontal"
@@ -140,7 +142,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -148,7 +150,7 @@
     <span class="flex">
       <h4 class="title">Card horizontal - lollipop</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         orientation="horizontal"
@@ -161,7 +163,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -169,7 +171,7 @@
     <span class="flex">
       <h4 class="title">Card horizontal - gem</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         orientation="horizontal"
@@ -182,7 +184,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
 
@@ -190,7 +192,7 @@
     <span class="flex">
       <h4 class="title">Card horizontal - flag</h4>
 
-      <eui-card
+      <EuiCard
         id="one"
         img="src/assets/sample_image.png"
         orientation="horizontal"
@@ -203,7 +205,7 @@
             Founder of ILECY, the best project of all time.
           </span>
         </span>
-      </eui-card>
+      </EuiCard>
     </span>
 
   </div>

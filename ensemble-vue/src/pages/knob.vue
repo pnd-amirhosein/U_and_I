@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiButton, EuiKnob } from 'ensemble-ui/vue'
 import { ref } from 'vue'
 
 const counter = ref(0)
@@ -51,18 +52,18 @@ const changeValue3 = () => {
     <span class="flex">
       <h4 class="title">Simple:</h4>
 
-      <eui-knob
+      <EuiKnob
         style="width: 100px"
         :value="value1"
       />
 
-      <eui-button
+      <EuiButton
         @click="changeValue1"
         size="md"
         variant="success"
       >
         Knob
-      </eui-button>
+      </EuiButton>
     </span>
 
 
@@ -70,20 +71,20 @@ const changeValue3 = () => {
     <span class="flex">
       <h4 class="title">Numeric:</h4>
 
-      <eui-knob
+      <EuiKnob
         style="width: 100px"
         :value="value2"
         :min="10"
         :max="50"
       />
 
-      <eui-button
+      <EuiButton
         @click="changeValue2"
         size="md"
         variant="success"
       >
         Knob
-      </eui-button>
+      </EuiButton>
     </span>
 
 
@@ -91,19 +92,19 @@ const changeValue3 = () => {
     <span class="flex">
       <h4 class="title">Percent:</h4>
 
-      <eui-knob
+      <EuiKnob
         style="width: 100px"
         :value="value3"
         :isPercent="true"
       />
 
-      <eui-button
+      <EuiButton
         @click="changeValue3"
         size="md"
         variant="success"
       >
         Knob
-      </eui-button>
+      </EuiButton>
     </span>
 
   </div>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiBreadcrumb } from 'ensemble-ui/vue'
 import { onMounted, ref } from 'vue'
 
 type BreadcrumbData = {
@@ -45,7 +46,7 @@ onMounted(() => {
     <div class="flex">
       <h4 class="title">Breadcrumb:</h4>
 
-      <eui-breadcrumb ref="breadcrumb" />
+      <EuiBreadcrumb ref="breadcrumb" />
     </div>
   </section>
 </template>
