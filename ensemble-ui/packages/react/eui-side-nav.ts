@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiSideNav as EuiSideNavElement, defineCustomElement as defineEuiSideNav } from "ensemble-ui/dist/components/eui-side-nav.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiSideNav as EuiSideNavElement, defineCustomElement as defineEuiSideNav } from "ensemble-ui/dist/components/eui-side-nav.js";
 
 export type EuiSideNavEvents = NonNullable<unknown>;
 
-export const EuiSideNav: StencilReactComponent<EuiSideNavElement, EuiSideNavEvents> = /*@__PURE__*/ createComponent<EuiSideNavElement, EuiSideNavEvents>({
+export const EuiSideNav: StencilReactComponent<EuiSideNavElement, EuiSideNavEvents, Components.EuiSideNav> = /*@__PURE__*/ createComponent<EuiSideNavElement, EuiSideNavEvents, Components.EuiSideNav>({
     tagName: 'eui-side-nav',
     elementClass: EuiSideNavElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

@@ -10,9 +10,17 @@
 | Property        | Attribute       | Description | Type                                                        | Default      |
 | --------------- | --------------- | ----------- | ----------------------------------------------------------- | ------------ |
 | `headerMessage` | `headermessage` |             | `string`                                                    | `"MESSAGE!"` |
-| `nativeAttrs`   | `native-attrs`  |             | `undefined \| { [x: string]: any; }`                        | `undefined`  |
+| `nativeAttrs`   | --              |             | `any \| string \| undefined`                                | `undefined`  |
 | `styleValue`    | `stylevalue`    |             | `string \| undefined`                                       | `undefined`  |
 | `variant`       | `variant`       |             | `"danger" \| "info" \| "primary" \| "success" \| "warning"` | `'primary'`  |
+
+
+## Slots
+
+| Slot       | Description |
+| ---------- | ----------- |
+| `"body"`   |             |
+| `"footer"` |             |
 
 
 ## Dependencies

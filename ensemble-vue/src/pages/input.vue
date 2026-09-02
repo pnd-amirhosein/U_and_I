@@ -1,4 +1,7 @@
 <script setup lang="ts">
+
+import { EuiInput } from 'ensemble-ui/vue';
+
 const sell = '1'
 
 const checkMate = (value: unknown): boolean => {
@@ -13,7 +16,7 @@ const checkMate = (value: unknown): boolean => {
     <span class="flex">
       <h4 class="title">Simple Input</h4>
 
-      <eui-input
+      <EuiInput
         styleValue="width:25vw;"
         :nativeAttrs="{ placeHolder: 'simple input' }"
       />
@@ -24,7 +27,7 @@ const checkMate = (value: unknown): boolean => {
     <span class="flex">
       <h4 class="title">Simple numeric Input</h4>
 
-      <eui-input
+      <EuiInput
         styleValue="width:25vw;"
         type="number"
         :nativeAttrs="{ placeHolder: 'simple input' }"
@@ -36,7 +39,7 @@ const checkMate = (value: unknown): boolean => {
     <span class="flex">
       <h4 class="title">Numeric Input with min max (2,8)</h4>
 
-      <eui-input
+      <EuiInput
         styleValue="width:25vw;"
         :min="2"
         :max="8"
@@ -52,7 +55,7 @@ const checkMate = (value: unknown): boolean => {
         Input with validation (maxlength:10)
       </h4>
 
-      <eui-input
+      <EuiInput
         styleValue="width:25vw;"
         :validation="{ maxLength: 10 }"
         type="text"
@@ -64,7 +67,7 @@ const checkMate = (value: unknown): boolean => {
     <span class="flex">
       <h4 class="title">Success message</h4>
 
-      <eui-input
+      <EuiInput
         styleValue="width:25vw;"
         type="text"
         :validation="{
@@ -82,7 +85,7 @@ const checkMate = (value: unknown): boolean => {
     <span class="flex">
       <h4 class="title">Password input</h4>
 
-      <eui-input
+      <EuiInput
         styleValue="width:25vw;"
         :nativeAttrs="{ placeHolder: 'enter password' }"
         type="password"

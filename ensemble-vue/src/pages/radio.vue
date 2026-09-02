@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiRadio, EuiRadioGroup } from 'ensemble-ui/vue';
+
 </script>
 
 <template>
@@ -7,60 +9,60 @@
     <span class="flex">
       <h4 class="title">Horizontal separate:</h4>
 
-      <eui-radio-group
+      <EuiRadioGroup
         styleValue="width:25vw;"
         id="pets"
       >
-        <eui-radio value="dog">Dog</eui-radio>
-        <eui-radio value="cat">Cat</eui-radio>
-        <eui-radio value="fox">Fox</eui-radio>
-      </eui-radio-group>
+        <EuiRadio value="dog">Dog</EuiRadio>
+        <EuiRadio value="cat">Cat</EuiRadio>
+        <EuiRadio value="fox">Fox</EuiRadio>
+      </EuiRadioGroup>
     </span>
 
 
     <span class="flex">
       <h4 class="title">Horizontal Stacked:</h4>
 
-      <eui-radio-group
+      <EuiRadioGroup
         styleValue="width:25vw;"
         stacked
         id="pets"
       >
-        <eui-radio value="dog">Dog</eui-radio>
-        <eui-radio value="cat">Cat</eui-radio>
-        <eui-radio value="fox">Fox</eui-radio>
-      </eui-radio-group>
+        <EuiRadio value="dog">Dog</EuiRadio>
+        <EuiRadio value="cat">Cat</EuiRadio>
+        <EuiRadio value="fox">Fox</EuiRadio>
+      </EuiRadioGroup>
     </span>
 
 
     <span class="flex">
       <h4 class="title">Vertical separate:</h4>
 
-      <eui-radio-group
+      <EuiRadioGroup
         alignment="vertical"
         styleValue="width:25vw;"
         id="pets"
       >
-        <eui-radio value="dog">Dog</eui-radio>
-        <eui-radio value="cat">Cat</eui-radio>
-        <eui-radio value="fox">Fox</eui-radio>
-      </eui-radio-group>
+        <EuiRadio value="dog">Dog</EuiRadio>
+        <EuiRadio value="cat">Cat</EuiRadio>
+        <EuiRadio value="fox">Fox</EuiRadio>
+      </EuiRadioGroup>
     </span>
 
 
     <span class="flex">
       <h4 class="title">Vertical Stacked:</h4>
 
-      <eui-radio-group
+      <EuiRadioGroup
         alignment="vertical"
         styleValue="width:25vw;"
         stacked
         id="pets"
       >
-        <eui-radio value="dog">Dog</eui-radio>
-        <eui-radio value="cat">Cat</eui-radio>
-        <eui-radio value="fox">Fox</eui-radio>
-      </eui-radio-group>
+        <EuiRadio value="dog">Dog</EuiRadio>
+        <EuiRadio value="cat">Cat</EuiRadio>
+        <EuiRadio value="fox">Fox</EuiRadio>
+      </EuiRadioGroup>
     </span>
 
   </div>

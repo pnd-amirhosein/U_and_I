@@ -38,8 +38,7 @@
   },
   "include": [
     "src",
-    "stencil.config.ts",
-    "packages/angular",
+    "stencil.config.ts"
   ],
   "exclude": [
     "node_modules",

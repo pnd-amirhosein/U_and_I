@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiYear as EuiYearElement, defineCustomElement as defineEuiYear } from "ensemble-ui/dist/components/eui-year.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiYear as EuiYearElement, defineCustomElement as defineEuiYear } from "ensemble-ui/dist/components/eui-year.js";
 
 export type EuiYearEvents = NonNullable<unknown>;
 
-export const EuiYear: StencilReactComponent<EuiYearElement, EuiYearEvents> = /*@__PURE__*/ createComponent<EuiYearElement, EuiYearEvents>({
+export const EuiYear: StencilReactComponent<EuiYearElement, EuiYearEvents, Components.EuiYear> = /*@__PURE__*/ createComponent<EuiYearElement, EuiYearEvents, Components.EuiYear>({
     tagName: 'eui-year',
     elementClass: EuiYearElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

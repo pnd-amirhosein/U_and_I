@@ -14,13 +14,20 @@ examples:
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                                                     | Default     |
-| ------------- | -------------- | ----------- | ------------------------------------------------------------------------ | ----------- |
-| `mode`        | `mode`         |             | `"normal" \| "outline" \| "text-button"`                                 | `"normal"`  |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }`                                     | `undefined` |
-| `size`        | `size`         |             | `"lg" \| "md" \| "sm"`                                                   | `"md"`      |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                                                    | `undefined` |
-| `variant`     | `variant`      |             | `"danger" \| "info" \| "neutral" \| "primary" \| "success" \| "warning"` | `'primary'` |
+| Property      | Attribute    | Description | Type                                                                     | Default     |
+| ------------- | ------------ | ----------- | ------------------------------------------------------------------------ | ----------- |
+| `mode`        | `mode`       |             | `"normal" \| "outline" \| "text-button"`                                 | `"normal"`  |
+| `nativeAttrs` | --           |             | `any \| string \| undefined`                                             | `undefined` |
+| `size`        | `size`       |             | `"lg" \| "md" \| "sm"`                                                   | `"md"`      |
+| `styleValue`  | `stylevalue` |             | `string \| undefined`                                                    | `undefined` |
+| `variant`     | `variant`    |             | `"danger" \| "info" \| "neutral" \| "primary" \| "success" \| "warning"` | `'primary'` |
+
+
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
 
 
 ## Dependencies

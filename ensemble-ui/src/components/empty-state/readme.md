@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property          | Attribute         | Description | Type                                 | Default     |
-| ----------------- | ----------------- | ----------- | ------------------------------------ | ----------- |
-| `icon`            | `icon`            |             | `string \| undefined`                | `undefined` |
-| `nativeAttrs`     | `native-attrs`    |             | `undefined \| { [x: string]: any; }` | `undefined` |
-| `primaryAction`   | `primaryaction`   |             | `string \| undefined`                | `undefined` |
-| `secondaryAction` | `secondaryaction` |             | `string \| undefined`                | `undefined` |
-| `styleValue`      | `stylevalue`      |             | `string \| undefined`                | `undefined` |
+| Property          | Attribute         | Description | Type                         | Default     |
+| ----------------- | ----------------- | ----------- | ---------------------------- | ----------- |
+| `icon`            | `icon`            |             | `string \| undefined`        | `undefined` |
+| `nativeAttrs`     | --                |             | `any \| string \| undefined` | `undefined` |
+| `primaryAction`   | `primaryaction`   |             | `string \| undefined`        | `undefined` |
+| `secondaryAction` | `secondaryaction` |             | `string \| undefined`        | `undefined` |
+| `styleValue`      | `stylevalue`      |             | `string \| undefined`        | `undefined` |
 
 
 ## Events
@@ -22,6 +22,13 @@
 | ---------------- | ----------- | ------------------ |
 | `primaryClick`   |             | `CustomEvent<any>` |
 | `secondaryClick` |             | `CustomEvent<any>` |
+
+
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
 
 
 ## Dependencies

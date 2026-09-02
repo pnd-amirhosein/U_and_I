@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiPaginator as EuiPaginatorElement, defineCustomElement as defineEuiPaginator } from "ensemble-ui/dist/components/eui-paginator.js";
 import React from 'react';
 
-export type EuiPaginatorEvents = { onCurrentPage: EventName<CustomEvent<any>> };
+import { type EuiPaginatorCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiPaginator as EuiPaginatorElement, defineCustomElement as defineEuiPaginator } from "ensemble-ui/dist/components/eui-paginator.js";
 
-export const EuiPaginator: StencilReactComponent<EuiPaginatorElement, EuiPaginatorEvents> = /*@__PURE__*/ createComponent<EuiPaginatorElement, EuiPaginatorEvents>({
+export type EuiPaginatorEvents = { onCurrentPage: EventName<EuiPaginatorCustomEvent<any>> };
+
+export const EuiPaginator: StencilReactComponent<EuiPaginatorElement, EuiPaginatorEvents, Components.EuiPaginator> = /*@__PURE__*/ createComponent<EuiPaginatorElement, EuiPaginatorEvents, Components.EuiPaginator>({
     tagName: 'eui-paginator',
     elementClass: EuiPaginatorElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

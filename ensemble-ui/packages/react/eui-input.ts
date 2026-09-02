@@ -9,18 +9,21 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiInput as EuiInputElement, defineCustomElement as defineEuiInput } from "ensemble-ui/dist/components/eui-input.js";
 import React from 'react';
 
+import { type EuiInputCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiInput as EuiInputElement, defineCustomElement as defineEuiInput } from "ensemble-ui/dist/components/eui-input.js";
+
 export type EuiInputEvents = {
-    onClear: EventName<CustomEvent<any>>,
-    onChange: EventName<CustomEvent<any>>,
-    onKeyUp: EventName<CustomEvent<any>>,
-    onKeyDown: EventName<CustomEvent<any>>,
-    onKeyPress: EventName<CustomEvent<any>>
+    onClear: EventName<EuiInputCustomEvent<any>>,
+    onChange: EventName<EuiInputCustomEvent<any>>,
+    onKeyUp: EventName<EuiInputCustomEvent<any>>,
+    onKeyDown: EventName<EuiInputCustomEvent<any>>,
+    onKeyPress: EventName<EuiInputCustomEvent<any>>
 };
 
-export const EuiInput: StencilReactComponent<EuiInputElement, EuiInputEvents> = /*@__PURE__*/ createComponent<EuiInputElement, EuiInputEvents>({
+export const EuiInput: StencilReactComponent<EuiInputElement, EuiInputEvents, Components.EuiInput> = /*@__PURE__*/ createComponent<EuiInputElement, EuiInputEvents, Components.EuiInput>({
     tagName: 'eui-input',
     elementClass: EuiInputElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

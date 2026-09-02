@@ -8,6 +8,7 @@ const chalk = require("chalk");
         "packages/react",
         "packages/angular",
         "packages/vue",
+        "angular-build/src/generated",
     ];
     for (const target of targets) {
         const fullPath = path.resolve(target);

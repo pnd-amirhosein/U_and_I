@@ -9,13 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type EuiWeekViewCustomEvent } from "ensemble-ui";
-import { EuiWeekView as EuiWeekViewElement, defineCustomElement as defineEuiWeekView } from "ensemble-ui/dist/components/eui-week-view.js";
 import React from 'react';
+
+import { type EuiWeekViewCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiWeekView as EuiWeekViewElement, defineCustomElement as defineEuiWeekView } from "ensemble-ui/dist/components/eui-week-view.js";
 
 export type EuiWeekViewEvents = { onDayClick: EventName<EuiWeekViewCustomEvent<Date>> };
 
-export const EuiWeekView: StencilReactComponent<EuiWeekViewElement, EuiWeekViewEvents> = /*@__PURE__*/ createComponent<EuiWeekViewElement, EuiWeekViewEvents>({
+export const EuiWeekView: StencilReactComponent<EuiWeekViewElement, EuiWeekViewEvents, Components.EuiWeekView, 'year' | 'month' | 'week'> = /*@__PURE__*/ createComponent<EuiWeekViewElement, EuiWeekViewEvents, Components.EuiWeekView, 'year' | 'month' | 'week'>({
     tagName: 'eui-week-view',
     elementClass: EuiWeekViewElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

@@ -9,15 +9,18 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiEmptyState as EuiEmptyStateElement, defineCustomElement as defineEuiEmptyState } from "ensemble-ui/dist/components/eui-empty-state.js";
 import React from 'react';
 
+import { type EuiEmptyStateCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiEmptyState as EuiEmptyStateElement, defineCustomElement as defineEuiEmptyState } from "ensemble-ui/dist/components/eui-empty-state.js";
+
 export type EuiEmptyStateEvents = {
-    onPrimaryClick: EventName<CustomEvent<any>>,
-    onSecondaryClick: EventName<CustomEvent<any>>
+    onPrimaryClick: EventName<EuiEmptyStateCustomEvent<any>>,
+    onSecondaryClick: EventName<EuiEmptyStateCustomEvent<any>>
 };
 
-export const EuiEmptyState: StencilReactComponent<EuiEmptyStateElement, EuiEmptyStateEvents> = /*@__PURE__*/ createComponent<EuiEmptyStateElement, EuiEmptyStateEvents>({
+export const EuiEmptyState: StencilReactComponent<EuiEmptyStateElement, EuiEmptyStateEvents, Components.EuiEmptyState> = /*@__PURE__*/ createComponent<EuiEmptyStateElement, EuiEmptyStateEvents, Components.EuiEmptyState>({
     tagName: 'eui-empty-state',
     elementClass: EuiEmptyStateElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

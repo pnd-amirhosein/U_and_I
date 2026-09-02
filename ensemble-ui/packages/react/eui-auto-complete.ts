@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiAutoComplete as EuiAutoCompleteElement, defineCustomElement as defineEuiAutoComplete } from "ensemble-ui/dist/components/eui-auto-complete.js";
 import React from 'react';
 
-export type EuiAutoCompleteEvents = { onItemSelected: EventName<CustomEvent<any>> };
+import { type EuiAutoCompleteCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiAutoComplete as EuiAutoCompleteElement, defineCustomElement as defineEuiAutoComplete } from "ensemble-ui/dist/components/eui-auto-complete.js";
 
-export const EuiAutoComplete: StencilReactComponent<EuiAutoCompleteElement, EuiAutoCompleteEvents> = /*@__PURE__*/ createComponent<EuiAutoCompleteElement, EuiAutoCompleteEvents>({
+export type EuiAutoCompleteEvents = { onItemSelected: EventName<EuiAutoCompleteCustomEvent<any>> };
+
+export const EuiAutoComplete: StencilReactComponent<EuiAutoCompleteElement, EuiAutoCompleteEvents, Components.EuiAutoComplete> = /*@__PURE__*/ createComponent<EuiAutoCompleteElement, EuiAutoCompleteEvents, Components.EuiAutoComplete>({
     tagName: 'eui-auto-complete',
     elementClass: EuiAutoCompleteElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

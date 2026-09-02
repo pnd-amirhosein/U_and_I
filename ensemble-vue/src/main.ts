@@ -1,12 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { defineCustomElement as defineEuiAutoComplete } from 'ensemble-ui/components/eui-auto-complete.js'
-import { defineCustomElement as defineEuiBadge } from 'ensemble-ui/components/eui-badge.js'
-import { defineCustomElement as defineEuiBreadcrumb } from 'ensemble-ui/components/eui-breadcrumb.js'
-import { defineCustomElement as defineEuiButton } from 'ensemble-ui/components/eui-button.js'
-import { defineCustomElement as defineEuiIcon } from 'ensemble-ui/components/eui-icon.js'
-
 import 'ensemble-ui/styles.css';
 import './style.css'
 import './pages/page.css'
@@ -45,11 +39,7 @@ import Dialogue from './pages/dialogue.vue'
 import Font from './pages/font.vue'
 import Feed from './pages/feed.vue'
 
-defineEuiIcon()
-defineEuiButton()
-defineEuiAutoComplete()
-defineEuiBadge()
-defineEuiBreadcrumb()
+
 
 const implementedPages = {
     '/autocomplete': AutoCompletePage,

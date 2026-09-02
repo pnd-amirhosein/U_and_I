@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false,
+
+    "outDir": "./dist-react",
+    "rootDir": "./packages/react",
+
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "ensemble-ui": [
+        "./dist/types/index.d.ts"
+      ],
+      "ensemble-ui/dist/components": [
+        "./dist/types/components.d.ts"
+      ],
+      "ensemble-ui/dist/components/*": [
+        "./dist/components/*"
+      ]
+    }
+  },
+  "include": [
+    "./packages/react/**/*.ts"
+  ]
+}

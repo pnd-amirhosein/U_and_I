@@ -1,12 +1,13 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
 import { FakeDataService } from "./fake.api.service";
 import { map } from "rxjs";
 import { fakeProduct } from "./fakeData.const";
+import { EuiChips } from "ensemble-ui/angular";
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [EuiChips],
   standalone: true,
   template: `
     <div class="doc">

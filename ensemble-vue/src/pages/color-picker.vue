@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiColorPicker } from 'ensemble-ui/vue';
+
 </script>
 
 <template>
@@ -6,17 +8,17 @@
 
     <span class="flex">
       <h4 class="title">Color picker - compact:</h4>
-      <eui-color-picker />
+      <EuiColorPicker />
     </span>
 
     <span class="flex">
       <h4 class="title">Color picker - standard:</h4>
-      <eui-color-picker mode="standard" />
+      <EuiColorPicker mode="standard" />
     </span>
 
     <span class="flex">
       <h4 class="title">Color picker - full:</h4>
-      <eui-color-picker mode="full" />
+      <EuiColorPicker mode="full" />
     </span>
 
   </div>

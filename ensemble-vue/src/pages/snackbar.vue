@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiButton, EuiSnackbar } from 'ensemble-ui/vue'
 import { ref } from 'vue'
 
 const open = ref<boolean[]>(
@@ -17,12 +18,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Light / Info -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(1)" mode="text-button" variant="info">
+      <EuiButton @click="showSnackbar(1)" mode="text-button" variant="info">
         light
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[1]" @dismissing="open[1] = false" :awake-time="3000" :dismiss="false" variant="info"
+        <EuiSnackbar :open="open[1]" @dismissing="open[1] = false" :awake-time="3000" :dismiss="false" variant="info"
           message="Lorem Ipsum is simply dummy text..." />
       </span>
     </span>
@@ -30,12 +31,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Light / Warning -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(2)" mode="text-button" variant="warning">
+      <EuiButton @click="showSnackbar(2)" mode="text-button" variant="warning">
         light
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[2]" @dismissing="open[2] = false" :awake-time="3000" :dismiss="false"
+        <EuiSnackbar :open="open[2]" @dismissing="open[2] = false" :awake-time="3000" :dismiss="false"
           variant="warning" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -43,12 +44,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Light / Danger -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(3)" mode="text-button" variant="danger">
+      <EuiButton @click="showSnackbar(3)" mode="text-button" variant="danger">
         light
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[3]" @dismissing="open[3] = false" :awakeTime="3000" :dismiss="false" variant="danger"
+        <EuiSnackbar :open="open[3]" @dismissing="open[3] = false" :awakeTime="3000" :dismiss="false" variant="danger"
           message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -56,12 +57,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Light / Success -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(4)" mode="text-button" variant="success">
+      <EuiButton @click="showSnackbar(4)" mode="text-button" variant="success">
         light
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[4]" @dismissing="open[4] = false" :awakeTime="3000" :dismiss="false" variant="success"
+        <EuiSnackbar :open="open[4]" @dismissing="open[4] = false" :awakeTime="3000" :dismiss="false" variant="success"
           message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -72,12 +73,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Info -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(5)" mode="text-button" variant="info">
+      <EuiButton @click="showSnackbar(5)" mode="text-button" variant="info">
         Header
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[5]" @dismissing="open[5] = false" :awakeTime="3000" :dismiss="false" variant="info"
+        <EuiSnackbar :open="open[5]" @dismissing="open[5] = false" :awakeTime="3000" :dismiss="false" variant="info"
           header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -85,12 +86,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Warning -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(6)" mode="text-button" variant="warning">
+      <EuiButton @click="showSnackbar(6)" mode="text-button" variant="warning">
         Header
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[6]" @dismissing="open[6] = false" :awakeTime="3000" :dismiss="false" variant="warning"
+        <EuiSnackbar :open="open[6]" @dismissing="open[6] = false" :awakeTime="3000" :dismiss="false" variant="warning"
           header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -98,12 +99,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Danger -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(7)" mode="text-button" variant="danger">
+      <EuiButton @click="showSnackbar(7)" mode="text-button" variant="danger">
         Header
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[7]" @dismissing="open[7] = false" :awakeTime="3000" :dismiss="false" variant="danger"
+        <EuiSnackbar :open="open[7]" @dismissing="open[7] = false" :awakeTime="3000" :dismiss="false" variant="danger"
           header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -111,12 +112,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Success -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(8)" mode="text-button" variant="success">
+      <EuiButton @click="showSnackbar(8)" mode="text-button" variant="success">
         Header
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[8]" @dismissing="open[8] = false" :awakeTime="3000" :dismiss="false" variant="success"
+        <EuiSnackbar :open="open[8]" @dismissing="open[8] = false" :awakeTime="3000" :dismiss="false" variant="success"
           header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -127,12 +128,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Dismiss / Info -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(9)" mode="text-button" variant="info">
+      <EuiButton @click="showSnackbar(9)" mode="text-button" variant="info">
         Header - dissmiss
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[9]" :awakeTime="3000" :dismiss="true" variant="info" @dismissing="open[9] = false"
+        <EuiSnackbar :open="open[9]" :awakeTime="3000" :dismiss="true" variant="info" @dismissing="open[9] = false"
           header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -140,12 +141,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Dismiss / Warning -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(10)" mode="text-button" variant="warning">
+      <EuiButton @click="showSnackbar(10)" mode="text-button" variant="warning">
         Header - dissmiss
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[10]" @dismissing="open[10] = false" :awakeTime="3000" :dismiss="true"
+        <EuiSnackbar :open="open[10]" @dismissing="open[10] = false" :awakeTime="3000" :dismiss="true"
           variant="warning" header="New Update!"
           message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
@@ -154,12 +155,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Dismiss / Danger -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(11)" mode="text-button" variant="danger">
+      <EuiButton @click="showSnackbar(11)" mode="text-button" variant="danger">
         Header - dissmiss
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[11]" @dismissing="open[11] = false" :awakeTime="3000" :dismiss="true" variant="danger"
+        <EuiSnackbar :open="open[11]" @dismissing="open[11] = false" :awakeTime="3000" :dismiss="true" variant="danger"
           header="New Update!" message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>
     </span>
@@ -167,12 +168,12 @@ const showSnackbar = (index: number) => {
 
     <!-- Header / Dismiss / Success -->
     <span class="flex" style="width: 50vw">
-      <eui-button @click="showSnackbar(12)" mode="text-button" variant="success">
+      <EuiButton @click="showSnackbar(12)" mode="text-button" variant="success">
         Header - dissmiss
-      </eui-button>
+      </EuiButton>
 
       <span class="snackbar-container" style="width: 100%">
-        <eui-snackbar :open="open[12]" @dismissing="open[12] = false" :awakeTime="3000" :dismiss="true"
+        <EuiSnackbar :open="open[12]" @dismissing="open[12] = false" :awakeTime="3000" :dismiss="true"
           variant="success" header="New Update!"
           message="Lorem Ipsum is simply dummy text of the printing and typesetting industry." />
       </span>

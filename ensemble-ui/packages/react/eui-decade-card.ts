@@ -9,13 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type EuiDecadeCardCustomEvent } from "ensemble-ui";
-import { EuiDecadeCard as EuiDecadeCardElement, defineCustomElement as defineEuiDecadeCard } from "ensemble-ui/dist/components/eui-decade-card.js";
 import React from 'react';
+
+import { type EuiDecadeCardCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiDecadeCard as EuiDecadeCardElement, defineCustomElement as defineEuiDecadeCard } from "ensemble-ui/dist/components/eui-decade-card.js";
 
 export type EuiDecadeCardEvents = { onYearClick: EventName<EuiDecadeCardCustomEvent<Date>> };
 
-export const EuiDecadeCard: StencilReactComponent<EuiDecadeCardElement, EuiDecadeCardEvents> = /*@__PURE__*/ createComponent<EuiDecadeCardElement, EuiDecadeCardEvents>({
+export const EuiDecadeCard: StencilReactComponent<EuiDecadeCardElement, EuiDecadeCardEvents, Components.EuiDecadeCard> = /*@__PURE__*/ createComponent<EuiDecadeCardElement, EuiDecadeCardEvents, Components.EuiDecadeCard>({
     tagName: 'eui-decade-card',
     elementClass: EuiDecadeCardElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

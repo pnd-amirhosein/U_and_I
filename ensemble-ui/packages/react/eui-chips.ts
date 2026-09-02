@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiChips as EuiChipsElement, defineCustomElement as defineEuiChips } from "ensemble-ui/dist/components/eui-chips.js";
 import React from 'react';
 
-export type EuiChipsEvents = { onItemSelected: EventName<CustomEvent<any>> };
+import { type EuiChipsCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiChips as EuiChipsElement, defineCustomElement as defineEuiChips } from "ensemble-ui/dist/components/eui-chips.js";
 
-export const EuiChips: StencilReactComponent<EuiChipsElement, EuiChipsEvents> = /*@__PURE__*/ createComponent<EuiChipsElement, EuiChipsEvents>({
+export type EuiChipsEvents = { onItemSelected: EventName<EuiChipsCustomEvent<any>> };
+
+export const EuiChips: StencilReactComponent<EuiChipsElement, EuiChipsEvents, Components.EuiChips> = /*@__PURE__*/ createComponent<EuiChipsElement, EuiChipsEvents, Components.EuiChips>({
     tagName: 'eui-chips',
     elementClass: EuiChipsElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiDatepicker } from 'ensemble-ui/vue';
+
 const date = new Date()
 
 const onDateSelected = (event: CustomEvent) => {
@@ -16,7 +18,7 @@ const onDateSelected = (event: CustomEvent) => {
     <span class="flex">
       <h4 class="title">Basic datepicker</h4>
 
-      <eui-datepicker
+      <EuiDatepicker
         :date="date"
         @dateChanged="onDateSelected"
         styleValue="width: 25vw;"

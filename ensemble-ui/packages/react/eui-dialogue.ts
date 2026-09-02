@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiDialogue as EuiDialogueElement, defineCustomElement as defineEuiDialogue } from "ensemble-ui/dist/components/eui-dialogue.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiDialogue as EuiDialogueElement, defineCustomElement as defineEuiDialogue } from "ensemble-ui/dist/components/eui-dialogue.js";
 
 export type EuiDialogueEvents = NonNullable<unknown>;
 
-export const EuiDialogue: StencilReactComponent<EuiDialogueElement, EuiDialogueEvents> = /*@__PURE__*/ createComponent<EuiDialogueElement, EuiDialogueEvents>({
+export const EuiDialogue: StencilReactComponent<EuiDialogueElement, EuiDialogueEvents, Components.EuiDialogue> = /*@__PURE__*/ createComponent<EuiDialogueElement, EuiDialogueEvents, Components.EuiDialogue>({
     tagName: 'eui-dialogue',
     elementClass: EuiDialogueElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

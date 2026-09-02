@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiTab as EuiTabElement, defineCustomElement as defineEuiTab } from "ensemble-ui/dist/components/eui-tab.js";
 import React from 'react';
 
-export type EuiTabEvents = { onItemSelected: EventName<CustomEvent<any>> };
+import { type EuiTabCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiTab as EuiTabElement, defineCustomElement as defineEuiTab } from "ensemble-ui/dist/components/eui-tab.js";
 
-export const EuiTab: StencilReactComponent<EuiTabElement, EuiTabEvents> = /*@__PURE__*/ createComponent<EuiTabElement, EuiTabEvents>({
+export type EuiTabEvents = { onItemSelected: EventName<EuiTabCustomEvent<any>> };
+
+export const EuiTab: StencilReactComponent<EuiTabElement, EuiTabEvents, Components.EuiTab> = /*@__PURE__*/ createComponent<EuiTabElement, EuiTabEvents, Components.EuiTab>({
     tagName: 'eui-tab',
     elementClass: EuiTabElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

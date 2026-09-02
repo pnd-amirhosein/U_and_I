@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiTree as EuiTreeElement, defineCustomElement as defineEuiTree } from "ensemble-ui/dist/components/eui-tree.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiTree as EuiTreeElement, defineCustomElement as defineEuiTree } from "ensemble-ui/dist/components/eui-tree.js";
 
 export type EuiTreeEvents = NonNullable<unknown>;
 
-export const EuiTree: StencilReactComponent<EuiTreeElement, EuiTreeEvents> = /*@__PURE__*/ createComponent<EuiTreeElement, EuiTreeEvents>({
+export const EuiTree: StencilReactComponent<EuiTreeElement, EuiTreeEvents, Components.EuiTree> = /*@__PURE__*/ createComponent<EuiTreeElement, EuiTreeEvents, Components.EuiTree>({
     tagName: 'eui-tree',
     elementClass: EuiTreeElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

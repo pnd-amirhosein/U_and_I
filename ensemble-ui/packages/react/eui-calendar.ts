@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiCalendar as EuiCalendarElement, defineCustomElement as defineEuiCalendar } from "ensemble-ui/dist/components/eui-calendar.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiCalendar as EuiCalendarElement, defineCustomElement as defineEuiCalendar } from "ensemble-ui/dist/components/eui-calendar.js";
 
 export type EuiCalendarEvents = NonNullable<unknown>;
 
-export const EuiCalendar: StencilReactComponent<EuiCalendarElement, EuiCalendarEvents> = /*@__PURE__*/ createComponent<EuiCalendarElement, EuiCalendarEvents>({
+export const EuiCalendar: StencilReactComponent<EuiCalendarElement, EuiCalendarEvents, Components.EuiCalendar> = /*@__PURE__*/ createComponent<EuiCalendarElement, EuiCalendarEvents, Components.EuiCalendar>({
     tagName: 'eui-calendar',
     elementClass: EuiCalendarElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+
+import { EuiButton } from 'ensemble-ui/vue'
+
 type ButtonSize = 'sm' | 'md' | 'lg'
 type ButtonVariant = 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'neutral'
 type ButtonMode = 'normal' | 'outline' | 'text-button'
@@ -192,44 +195,44 @@ const disabledButtons = ['Small Primary', 'Medium Primary', 'large Primary']
   <section class="doc" aria-label="Button documentation">
     <div v-for="row in normalRows" :key="row.title" class="flex">
       <h4 class="title">{{ row.title }}</h4>
-      <eui-button v-for="button in row.buttons" :key="button.label" :size="button.size" :variant="row.variant"
+      <EuiButton v-for="button in row.buttons" :key="button.label" :size="button.size" :variant="row.variant"
         :mode="row.mode">
         {{ button.label }}
-      </eui-button>
+      </EuiButton>
     </div>
 
     <div class="divider" />
 
     <div v-for="(row, index) in outlineRows" :key="`${row.title}-${index}`" class="flex">
       <h4 class="title">{{ row.title }}</h4>
-      <eui-button v-for="button in row.buttons" :key="button.label" :size="button.size" :variant="row.variant"
+      <EuiButton v-for="button in row.buttons" :key="button.label" :size="button.size" :variant="row.variant"
         :mode="row.mode">
         {{ button.label }}
-      </eui-button>
+      </EuiButton>
     </div>
 
     <div class="divider" />
 
     <div v-for="row in textButtonRows" :key="row.title" class="flex">
       <h4 class="title">{{ row.title }}</h4>
-      <eui-button v-for="button in row.buttons" :key="button.label" :size="button.size" :variant="row.variant"
+      <EuiButton v-for="button in row.buttons" :key="button.label" :size="button.size" :variant="row.variant"
         :mode="row.mode">
         {{ button.label }}
-      </eui-button>
+      </EuiButton>
     </div>
 
     <div class="flex">
       <h4 class="title">neutral buttons:</h4>
-      <eui-button v-for="button in neutralButtons" :key="button.label" variant="neutral">
+      <EuiButton v-for="button in neutralButtons" :key="button.label" variant="neutral">
         {{ button.label }}
-      </eui-button>
+      </EuiButton>
     </div>
 
     <div class="divider" />
 
     <div class="flex">
       <h4 class="title">primary - text-button buttons:</h4>
-      <eui-button v-for="label in disabledButtons" :key="label" :disabled="true">{{ label}}</eui-button>
+      <EuiButton v-for="label in disabledButtons" :key="label" :disabled="true">{{ label }}</EuiButton>
     </div>
   </section>
 </template>

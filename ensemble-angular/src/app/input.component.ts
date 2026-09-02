@@ -1,9 +1,11 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiInput } from "ensemble-ui/angular";
+
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [EuiInput],
   standalone: true,
   template: `
     <div class="doc">
@@ -17,7 +19,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
       </span>
       <span class="flex">
         <h4 class="title">Numeric Input with min max (2,8)</h4>
-        <eui-input styleValue="width:25vw;" min="2" max="8" type="number" placeHolder="simple input"/>
+        <eui-input styleValue="width:25vw;" [min]="2" [max]="8" type="number" placeHolder="simple input"/>
       </span>
       <span class="flex">
         <h4 class="title">Input with validation (maxlength:10)</h4>

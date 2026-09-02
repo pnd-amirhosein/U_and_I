@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiStepper as EuiStepperElement, defineCustomElement as defineEuiStepper } from "ensemble-ui/dist/components/eui-stepper.js";
 import React from 'react';
 
-export type EuiStepperEvents = { onStepSelect: EventName<CustomEvent<number>> };
+import { type EuiStepperCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiStepper as EuiStepperElement, defineCustomElement as defineEuiStepper } from "ensemble-ui/dist/components/eui-stepper.js";
 
-export const EuiStepper: StencilReactComponent<EuiStepperElement, EuiStepperEvents> = /*@__PURE__*/ createComponent<EuiStepperElement, EuiStepperEvents>({
+export type EuiStepperEvents = { onStepSelect: EventName<EuiStepperCustomEvent<number>> };
+
+export const EuiStepper: StencilReactComponent<EuiStepperElement, EuiStepperEvents, Components.EuiStepper> = /*@__PURE__*/ createComponent<EuiStepperElement, EuiStepperEvents, Components.EuiStepper>({
     tagName: 'eui-stepper',
     elementClass: EuiStepperElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiCheckbox } from 'ensemble-ui/vue';
 import { ref } from 'vue'
 
 const vals = ref([
@@ -22,28 +23,28 @@ const updateValue = (index: number, value: unknown) => {
     <span class="flex">
       <h4 class="title">Classic checkbox (null,true)</h4>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(9, $event.detail)"
         :states="['null', 'true']"
         size="sm"
       />
       <span class="valued">{{ vals[9] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(10, $event.detail)"
         :states="['null', 'true']"
         size="md"
       />
       <span class="valued">{{ vals[10] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(11, $event.detail)"
         :states="['null', 'true']"
         size="lg"
       />
       <span class="valued">{{ vals[11] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(12, $event.detail)"
         :states="['null', 'true']"
         size="lg"
@@ -57,7 +58,7 @@ const updateValue = (index: number, value: unknown) => {
     <span class="flex">
       <h4 class="title">Force to choose: false, true</h4>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(0, $event.detail)"
         :states="['false', 'true']"
         size="sm"
@@ -65,7 +66,7 @@ const updateValue = (index: number, value: unknown) => {
       />
       <span class="valued">{{ vals[0] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(1, $event.detail)"
         :states="['false', 'true']"
         size="md"
@@ -73,7 +74,7 @@ const updateValue = (index: number, value: unknown) => {
       />
       <span class="valued">{{ vals[1] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(2, $event.detail)"
         :states="['false', 'true']"
         size="lg"
@@ -81,7 +82,7 @@ const updateValue = (index: number, value: unknown) => {
       />
       <span class="valued">{{ vals[2] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(13, $event.detail)"
         :states="['false', 'true']"
         size="lg"
@@ -98,28 +99,28 @@ const updateValue = (index: number, value: unknown) => {
         Choose but optional: (null,false,true)
       </h4>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(3, $event.detail)"
         :states="['null', 'false', 'true']"
         size="sm"
       />
       <span class="valued">{{ vals[3] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(4, $event.detail)"
         :states="['null', 'false', 'true']"
         size="md"
       />
       <span class="valued">{{ vals[4] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(5, $event.detail)"
         :states="['null', 'false', 'true']"
         size="lg"
       />
       <span class="valued">{{ vals[5] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(14, $event.detail)"
         :states="['null', 'false', 'true']"
         size="lg"
@@ -135,28 +136,28 @@ const updateValue = (index: number, value: unknown) => {
         Full options: (null, false, partial, true)
       </h4>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(6, $event.detail)"
         :states="['null', 'false', 'partial', 'true']"
         size="sm"
       />
       <span class="valued">{{ vals[6] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(7, $event.detail)"
         :states="['null', 'false', 'partial', 'true']"
         size="md"
       />
       <span class="valued">{{ vals[7] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(8, $event.detail)"
         :states="['null', 'false', 'partial', 'true']"
         size="lg"
       />
       <span class="valued">{{ vals[8] }}</span>
 
-      <eui-checkbox
+      <EuiCheckbox
         @valueChange="updateValue(15, $event.detail)"
         :states="['null', 'false', 'partial', 'true']"
         size="lg"

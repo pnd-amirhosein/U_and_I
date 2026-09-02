@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiSlider as EuiSliderElement, defineCustomElement as defineEuiSlider } from "ensemble-ui/dist/components/eui-slider.js";
 import React from 'react';
 
-export type EuiSliderEvents = { onChange: EventName<CustomEvent<number>> };
+import { type EuiSliderCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiSlider as EuiSliderElement, defineCustomElement as defineEuiSlider } from "ensemble-ui/dist/components/eui-slider.js";
 
-export const EuiSlider: StencilReactComponent<EuiSliderElement, EuiSliderEvents> = /*@__PURE__*/ createComponent<EuiSliderElement, EuiSliderEvents>({
+export type EuiSliderEvents = { onChange: EventName<EuiSliderCustomEvent<number>> };
+
+export const EuiSlider: StencilReactComponent<EuiSliderElement, EuiSliderEvents, Components.EuiSlider> = /*@__PURE__*/ createComponent<EuiSliderElement, EuiSliderEvents, Components.EuiSlider>({
     tagName: 'eui-slider',
     elementClass: EuiSliderElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

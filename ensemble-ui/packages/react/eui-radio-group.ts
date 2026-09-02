@@ -9,12 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiRadioGroup as EuiRadioGroupElement, defineCustomElement as defineEuiRadioGroup } from "ensemble-ui/dist/components/eui-radio-group.js";
 import React from 'react';
 
-export type EuiRadioGroupEvents = { onChanged: EventName<CustomEvent<string>> };
+import { type EuiRadioGroupCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiRadioGroup as EuiRadioGroupElement, defineCustomElement as defineEuiRadioGroup } from "ensemble-ui/dist/components/eui-radio-group.js";
 
-export const EuiRadioGroup: StencilReactComponent<EuiRadioGroupElement, EuiRadioGroupEvents> = /*@__PURE__*/ createComponent<EuiRadioGroupElement, EuiRadioGroupEvents>({
+export type EuiRadioGroupEvents = { onChanged: EventName<EuiRadioGroupCustomEvent<string>> };
+
+export const EuiRadioGroup: StencilReactComponent<EuiRadioGroupElement, EuiRadioGroupEvents, Components.EuiRadioGroup> = /*@__PURE__*/ createComponent<EuiRadioGroupElement, EuiRadioGroupEvents, Components.EuiRadioGroup>({
     tagName: 'eui-radio-group',
     elementClass: EuiRadioGroupElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

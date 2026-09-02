@@ -9,12 +9,14 @@
 
 import type { StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { EuiStat as EuiStatElement, defineCustomElement as defineEuiStat } from "ensemble-ui/dist/components/eui-stat.js";
 import React from 'react';
+
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiStat as EuiStatElement, defineCustomElement as defineEuiStat } from "ensemble-ui/dist/components/eui-stat.js";
 
 export type EuiStatEvents = NonNullable<unknown>;
 
-export const EuiStat: StencilReactComponent<EuiStatElement, EuiStatEvents> = /*@__PURE__*/ createComponent<EuiStatElement, EuiStatEvents>({
+export const EuiStat: StencilReactComponent<EuiStatElement, EuiStatEvents, Components.EuiStat> = /*@__PURE__*/ createComponent<EuiStatElement, EuiStatEvents, Components.EuiStat>({
     tagName: 'eui-stat',
     elementClass: EuiStatElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

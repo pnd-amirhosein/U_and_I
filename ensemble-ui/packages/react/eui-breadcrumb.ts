@@ -9,13 +9,15 @@
 
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
-import { type BreadcrumbData, type EuiBreadcrumbCustomEvent } from "ensemble-ui";
-import { EuiBreadcrumb as EuiBreadcrumbElement, defineCustomElement as defineEuiBreadcrumb } from "ensemble-ui/dist/components/eui-breadcrumb.js";
 import React from 'react';
+
+import { type BreadcrumbData, type EuiBreadcrumbCustomEvent } from "ensemble-ui";
+import type { Components } from "ensemble-ui/dist/components";
+import { EuiBreadcrumb as EuiBreadcrumbElement, defineCustomElement as defineEuiBreadcrumb } from "ensemble-ui/dist/components/eui-breadcrumb.js";
 
 export type EuiBreadcrumbEvents = { onItemClick: EventName<EuiBreadcrumbCustomEvent<BreadcrumbData>> };
 
-export const EuiBreadcrumb: StencilReactComponent<EuiBreadcrumbElement, EuiBreadcrumbEvents> = /*@__PURE__*/ createComponent<EuiBreadcrumbElement, EuiBreadcrumbEvents>({
+export const EuiBreadcrumb: StencilReactComponent<EuiBreadcrumbElement, EuiBreadcrumbEvents, Components.EuiBreadcrumb> = /*@__PURE__*/ createComponent<EuiBreadcrumbElement, EuiBreadcrumbEvents, Components.EuiBreadcrumb>({
     tagName: 'eui-breadcrumb',
     elementClass: EuiBreadcrumbElement,
     // @ts-ignore - ignore potential React type mismatches between the Stencil Output Target and your project.

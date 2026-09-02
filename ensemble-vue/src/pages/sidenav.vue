@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiSideNav } from 'ensemble-ui/vue';
+
 </script>
 
 <template>
@@ -15,7 +17,7 @@
 
       <span class="side-nav-holder">
 
-        <eui-side-nav>
+        <EuiSideNav>
 
           <div slot="top">
             <div class="item">
@@ -53,7 +55,7 @@
             </div>
           </div>
 
-        </eui-side-nav>
+        </EuiSideNav>
 
 
         <div class="simulator flex">
@@ -172,7 +174,7 @@
 
       <span class="side-nav-holder">
 
-        <eui-side-nav mode="start">
+        <EuiSideNav mode="start">
 
           <div slot="top">
             <div class="item">
@@ -210,7 +212,7 @@
             </div>
           </div>
 
-        </eui-side-nav>
+        </EuiSideNav>
 
 
         <div class="simulator flex">
@@ -276,7 +278,7 @@
 
       <span class="side-nav-holder">
 
-        <eui-side-nav size="compact">
+        <EuiSideNav size="compact">
 
           <div slot="top">
             <div class="item">
@@ -314,7 +316,7 @@
             </div>
           </div>
 
-        </eui-side-nav>
+        </EuiSideNav>
 
 
         <div class="simulator flex">
@@ -429,7 +431,7 @@
         </div>
 
 
-        <eui-side-nav direction="rtl">
+        <EuiSideNav direction="rtl">
 
           <div slot="top">
             <div class="item">
@@ -469,7 +471,7 @@
             </div>
           </div>
 
-        </eui-side-nav>
+        </EuiSideNav>
 
       </span>
     </span>
@@ -535,7 +537,7 @@
         </div>
 
 
-        <eui-side-nav
+        <EuiSideNav
           mode="start"
           direction="rtl"
         >
@@ -578,7 +580,7 @@
             </div>
           </div>
 
-        </eui-side-nav>
+        </EuiSideNav>
 
       </span>
     </span>
@@ -644,7 +646,7 @@
         </div>
 
 
-        <eui-side-nav
+        <EuiSideNav
           size="compact"
           direction="rtl"
         >
@@ -687,7 +689,7 @@
             </div>
           </div>
 
-        </eui-side-nav>
+        </EuiSideNav>
 
       </span>
     </span>

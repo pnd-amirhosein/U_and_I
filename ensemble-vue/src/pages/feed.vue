@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiFeed } from 'ensemble-ui/vue'
+
 type CareerData = {
   Title: string
   start: Date | string
@@ -158,7 +160,7 @@ const data2: FeedData[] = [
     <span class="flex">
       <h4 class="title">time line mode:</h4>
 
-      <eui-feed
+      <EuiFeed
         mode="timeLine"
         :data="data"
       />
@@ -167,7 +169,7 @@ const data2: FeedData[] = [
     <span class="flex">
       <h4 class="title">events mode:</h4>
 
-      <eui-feed
+      <EuiFeed
         mode="events"
         :data="data"
       />
@@ -179,7 +181,7 @@ const data2: FeedData[] = [
     >
       <h4 class="title">Comment mode:</h4>
 
-      <eui-feed
+      <EuiFeed
         mode="comment"
         :data="data2"
       />
@@ -188,7 +190,7 @@ const data2: FeedData[] = [
     <span class="flex">
       <h4 class="title">Career mode:</h4>
 
-      <eui-feed
+      <EuiFeed
         mode="career"
         :data="data2"
       />

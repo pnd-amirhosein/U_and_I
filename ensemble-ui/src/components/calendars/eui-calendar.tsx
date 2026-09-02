@@ -2,8 +2,8 @@ import { Component, Prop, h, Element, State, Host } from '@stencil/core';
 import { CalendarViewEnum } from 'packages/core/utils/helpers/enums'
 import { parseStyleString } from 'packages/core/utils/helpers/parseStyle';
 import { getCurrentWeekIndex } from 'packages/core/utils/helpers/date/calendar.utils'
-import { CalendarEventType, EuiCalendarHeaderCustomEvent, HolidayEventType } from 'src/components';
-
+import type { CalendarEventType, HolidayEventType } from 'packages/core/utils/helpers/types';
+import type { EuiCalendarHeaderCustomEvent } from 'src/components';
 @Component({
     tag: 'eui-calendar',
     styleUrl: "./calendars.scss",

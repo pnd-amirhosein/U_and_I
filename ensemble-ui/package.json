@@ -16,7 +16,7 @@
     ".": {
       "import": "./dist/ensemble-ui/ensemble-ui.esm.js",
       "require": "./dist/ensemble-ui/ensemble-ui.cjs.js",
-      "types": "./dist/components.d.ts",
+      "types": "./dist/types/index.d.ts",
       "default": "./dist/index.js"
     },
     "./components": {
@@ -30,18 +30,22 @@
       "import": "./dist/components/*",
       "types": "./dist/components/*"
     },
+    "./dist/components": {
+      "types": "./dist/types/components.d.ts"
+    },
     "./styles.css": "./dist/ensemble-ui/ensemble-ui.css",
     "./my-component": {
       "import": "./dist/components/my-component.js",
       "types": "./dist/components/my-component.d.ts"
     },
     "./react": {
-      "import": "./packages/react/components.js",
-      "types": "./packages/react/components.d.ts"
+      "import": "./dist-react/components.js",
+      "types": "./dist-react/components.d.ts"
     },
     "./angular": {
-      "import": "./packages/angular/index.js",
-      "types": "./packages/angular/index.d.ts"
+      "types": "./dist-angular/index.d.ts",
+      "import": "./dist-angular/fesm2022/angular.mjs",
+      "default": "./dist-angular/fesm2022/angular.mjs"
     },
     "./loader": {
       "import": "./loader/index.js",
@@ -49,8 +53,8 @@
       "types": "./loader/index.d.ts"
     },
     "./vue": {
-      "import": "./packages/vue/components.js",
-      "types": "./packages/vue/components.d.ts"
+      "types": "./dist-vue/components.d.ts",
+      "import": "./dist-vue/components.js"
     }
   },
   "repository": {
@@ -60,11 +64,12 @@
   "files": [
     "dist/",
     "loader/",
-    "packages/react/",
-    "packages/vue/"
+    "dist-angular/",
+    "dist-react/",
+    "dist-vue/"
   ],
   "scripts": {
-    "build": "npm run build:all && stencil build",
+    "build": "npm run build:core && npm run build:react && npm run build:vue && npm run build:angular",
     "build:all": "npm run delete:old && npm run clean:build && npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
     "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
     "start": "stencil build --dev --watch --serve",
@@ -75,22 +80,32 @@
     "generate:tokens": "npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens",
     "generate:dist-tokens": "node dist-tokens/generate-tokens.js",
     "generate:icon": "node scripts/icon-generator.mjs",
-    "clean": "rimraf dist dist-tokens node_modules/.stencil .stencil",
+    "clean": "rimraf dist dist-angular dist-react dist-vue dist-tokens node_modules/.stencil .stencil",
     "clean:build": "node scripts/clean-output.js",
     "delete:old": "node scripts/delete-old.js",
+    "dev:ngw": "node scripts/angular-web-orchestrator.js",
     "dev:ng": "node scripts/angular-orchestrator.js",
     "dev:rc": "node scripts/react-orchestrator.js",
-    "dev:vu": "node scripts/vue-orchestrator.js"
+    "dev:vu": "node scripts/vue-orchestrator.js",
+    "prepare:angular-output": "node -e \"require('fs').mkdirSync('dist-angular', { recursive: true })\"",
+    "prepare:react-output": "node -e \"require('fs').mkdirSync('dist-react', { recursive: true })\"",
+    "build:angular": "ng-packagr -p angular-build/ng-package.json --config=angular-build/tsconfig.lib.json && node scripts/verify-angular-apf.mjs",
+    "build:react": "tsc -p react-tsconfig.json && node scripts/verify-react-build.mjs",
+    "build:core": "npm run build:all && npm run prepare:angular-output && npm run prepare:react-output && npm run prepare:vue-output && stencil build",
+    "prepublishOnly": "npm run build",
+    "prepare:vue-output": "node -e \"require('fs').mkdirSync('dist-vue', { recursive: true })\"",
+    "build:vue": "tsc -p vue-tsconfig.json && node scripts/verify-vue-build.mjs"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",
     "@angular/compiler-cli": "^20.3.0",
+    "@angular/core": "^20.3.0",
     "@stencil/angular-output-target": "^1.1.1",
     "@stencil/core": "^4.37.0",
     "@stencil/postcss": "^2.1.0",
-    "@stencil/react-output-target": "^1.2.0",
+    "@stencil/react-output-target": "1.6.2",
     "@stencil/sass": "^3.2.2",
-    "@stencil/vue-output-target": "^0.14.1",
+    "@stencil/vue-output-target": "0.14.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.18.8",
     "@types/react": "^19.1.13",
@@ -102,10 +117,12 @@
     "fs-extra": "^11.3.2",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
+    "ng-packagr": "^20.3.0",
     "postcss": "^8.5.6",
     "postcss-nesting": "^13.0.2",
     "postcss-preset-env": "^10.4.0",
     "puppeteer": "^24.3.0",
+    "rxjs": "~7.8.0",
     "sass": "^1.93.2",
     "svgo": "^4.0.0",
     "ts-node": "^10.9.2",
@@ -113,10 +130,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@angular/common": "^20.3.0",
-    "@angular/core": "^20.3.0",
     "@floating-ui/dom": "^1.7.4",
     "fs": "^0.0.1-security",
-    "jalali-moment": "^3.3.11"
+    "jalali-moment": "^3.3.11",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@angular/core": "^20.0.0",
+    "rxjs": "^7.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/core": {
+      "optional": true
+    },
+    "rxjs": {
+      "optional": true
+    }
   }
 }

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { EuiBadge } from 'ensemble-ui/vue';
+
 const colors = [
   'primary',
   'success',
@@ -14,32 +16,32 @@ const colors = [
   <section class="doc" aria-label="Badge documentation">
     <div v-for="color in colors" :key="`blank-${color}`" class="flex">
       <h4 class="title">blank / {{ color }}</h4>
-      <eui-badge type="blank" :color="color" />
+      <EuiBadge type="blank" :color="color" />
     </div>
 
     <div v-for="color in colors" :key="`number-${color}`" class="flex">
       <h4 class="title">number / {{ color }}</h4>
-      <eui-badge type="number" :color="color">1</eui-badge>
+      <EuiBadge type="number" :color="color">1</EuiBadge>
     </div>
 
     <div v-for="color in colors" :key="`icon-${color}`" class="flex">
       <h4 class="title">icon / {{ color }}</h4>
-      <eui-badge type="icon" :color="color">
+      <EuiBadge type="icon" :color="color">
         <eui-icon name="academic-cap" type="solid" />
-      </eui-badge>
+      </EuiBadge>
     </div>
 
     <div v-for="color in colors" :key="`text-${color}`" class="flex">
       <h4 class="title">text / {{ color }}</h4>
-      <eui-badge type="text" :color="color">#1st anniversarry!</eui-badge>
+      <EuiBadge type="text" :color="color">#1st anniversarry!</EuiBadge>
     </div>
 
     <div v-for="color in colors" :key="`text-icon-${color}`" class="flex">
       <h4 class="title">text-icon / {{ color }}</h4>
-      <eui-badge type="text-icon" :color="color">
+      <EuiBadge type="text-icon" :color="color">
         <div>Battery low!</div>
         <eui-icon name="battery-0" type="solid" />
-      </eui-badge>
+      </EuiBadge>
     </div>
   </section>
 </template>

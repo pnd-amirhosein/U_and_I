@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiTab } from "ensemble-ui/angular";
 
 @Component({
     selector: 'app-root',
     styleUrl: './app.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiTab],
     standalone: true,
     template: `
     <div class="doc">
@@ -13,15 +14,15 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
         </span>
         <span class="flex">
             <h4 class="title">TABS collapse:</h4>
-            <eui-tab [data]="data" collapse/>
+            <eui-tab [data]="data" [collapse]="true"/>
         </span>
         <span class="flex">
             <h4 class="title">TABS disabled:</h4>
-            <eui-tab [data]="data" disabled/>
+            <eui-tab [data]="data" [disabled]="true"/>
         </span>
         <span class="flex">
             <h4 class="title">TABS collapse and disabled:</h4>
-            <eui-tab [data]="data" collapse disabled/>
+            <eui-tab [data]="data" [collapse]="true" [disabled]="true"/>
         </span>
     </div>
     `

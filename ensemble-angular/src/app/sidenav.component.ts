@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiButton, EuiCheckbox, EuiIcon, EuiInput, EuiSideNav } from "ensemble-ui/angular";
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [EuiSideNav, EuiIcon, EuiInput, EuiCheckbox, EuiButton],
   standalone: true,
   template: `
     <div class="doc">
@@ -63,7 +64,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <span><eui-input placeHolder="enter password" type="password"/></span>
               <span><eui-input type="number" placeHolder="simple input"/></span>
                 <span class="checkbox-boy"><eui-checkbox
-                states='["null" , "false" , "partial" , "true"]'
+                [states]='["null" , "false" , "partial" , "true"]'
                 size="lg"
                 mode="outline"
               ></eui-checkbox>
@@ -132,7 +133,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <span><eui-input placeHolder="enter password" type="password"/></span>
               <span><eui-input type="number" placeHolder="simple input"/></span>
                 <span class="checkbox-boy"><eui-checkbox
-                states='["null" , "false" , "partial" , "true"]'
+                [states]='["null" , "false" , "partial" , "true"]'
                 size="lg"
                 mode="outline"
               ></eui-checkbox>
@@ -201,7 +202,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <span><eui-input placeHolder="enter password" type="password"/></span>
               <span><eui-input type="number" placeHolder="simple input"/></span>
                 <span class="checkbox-boy"><eui-checkbox
-                states='["null" , "false" , "partial" , "true"]'
+                [states]='["null" , "false" , "partial" , "true"]'
                 size="lg"
                 mode="outline"
               ></eui-checkbox>
@@ -238,7 +239,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <span><eui-input placeHolder="enter password" type="password"/></span>
               <span><eui-input type="number" placeHolder="simple input"/></span>
                 <span class="checkbox-boy"><eui-checkbox
-                states='["null" , "false" , "partial" , "true"]'
+                [states]='["null" , "false" , "partial" , "true"]'
                 size="lg"
                 mode="outline"
               ></eui-checkbox>
@@ -307,7 +308,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <span><eui-input placeHolder="enter password" type="password"/></span>
               <span><eui-input type="number" placeHolder="simple input"/></span>
                 <span class="checkbox-boy"><eui-checkbox
-                states='["null" , "false" , "partial" , "true"]'
+                [states]='["null" , "false" , "partial" , "true"]'
                 size="lg"
                 mode="outline"
               ></eui-checkbox>
@@ -376,7 +377,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
               <span><eui-input placeHolder="enter password" type="password"/></span>
               <span><eui-input type="number" placeHolder="simple input"/></span>
                 <span class="checkbox-boy"><eui-checkbox
-                states='["null" , "false" , "partial" , "true"]'
+                [states]='["null" , "false" , "partial" , "true"]'
                 size="lg"
                 mode="outline"
               ></eui-checkbox>

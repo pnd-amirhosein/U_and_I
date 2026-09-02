@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { EuiDropdown } from 'ensemble-ui/vue'
 import { fakeProduct } from './fakeData.const'
 
 const data = fakeProduct.products
@@ -16,7 +17,7 @@ const onProductSelected = (event: CustomEvent) => {
     <span class="flex">
       <h4 class="title">Dropdown by title</h4>
 
-      <eui-dropdown
+      <EuiDropdown
         :data="data"
         displayField="title"
         @itemSelected="onProductSelected"
@@ -29,7 +30,7 @@ const onProductSelected = (event: CustomEvent) => {
     <span class="flex">
       <h4 class="title">Dropdown by dimensions.height</h4>
 
-      <eui-dropdown
+      <EuiDropdown
         :data="data"
         displayField="dimensions.height"
         @itemSelected="onProductSelected"
@@ -42,7 +43,7 @@ const onProductSelected = (event: CustomEvent) => {
     <span class="flex">
       <h4 class="title">Dropdown by reviews.reviewerName</h4>
 
-      <eui-dropdown
+      <EuiDropdown
         :data="data"
         displayField="reviews.reviewerName"
         @itemSelected="onProductSelected"
@@ -55,7 +56,7 @@ const onProductSelected = (event: CustomEvent) => {
     <span class="flex">
       <h4 class="title">Default value</h4>
 
-      <eui-dropdown
+      <EuiDropdown
         :data="data"
         displayField="title"
         defaultValue="Red Nail Polish"

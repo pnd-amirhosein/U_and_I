@@ -51,8 +51,9 @@ export const config: Config = {
     }),
     angularOutputTarget({
       componentCorePackage: 'ensemble-ui',
-      directivesProxyFile: './packages/angular/components.ts',
-      directivesArrayFile: './packages/angular/index.ts'
+      directivesProxyFile: './angular-build/src/generated/components.ts',
+      outputType: 'standalone',
+      inlineProperties: true
     }),
     vueOutputTarget({
       componentCorePackage: 'ensemble-ui',

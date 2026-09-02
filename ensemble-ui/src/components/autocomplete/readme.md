@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property           | Attribute          | Description | Type                                               | Default     |
-| ------------------ | ------------------ | ----------- | -------------------------------------------------- | ----------- |
-| `displayField`     | `displayfield`     |             | `string \| undefined`                              | `undefined` |
-| `fetchSuggestions` | `fetchsuggestions` |             | `((query: string) => Promise<any[]>) \| undefined` | `undefined` |
-| `nativeAttrs`      | `native-attrs`     |             | `undefined \| { [x: string]: any; }`               | `undefined` |
-| `placeholder`      | `placeholder`      |             | `string`                                           | `''`        |
-| `styleValue`       | `stylevalue`       |             | `string \| undefined`                              | `undefined` |
+| Property           | Attribute      | Description | Type                                               | Default     |
+| ------------------ | -------------- | ----------- | -------------------------------------------------- | ----------- |
+| `displayField`     | `displayfield` |             | `string \| undefined`                              | `undefined` |
+| `fetchSuggestions` | --             |             | `((query: string) => Promise<any[]>) \| undefined` | `undefined` |
+| `nativeAttrs`      | --             |             | `any \| string \| undefined`                       | `undefined` |
+| `placeholder`      | `placeholder`  |             | `string`                                           | `''`        |
+| `styleValue`       | `stylevalue`   |             | `string \| undefined`                              | `undefined` |
 
 
 ## Events

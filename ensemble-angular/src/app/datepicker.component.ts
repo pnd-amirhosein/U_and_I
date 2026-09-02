@@ -1,10 +1,11 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
 import { fakeProduct } from "./fakeData.const";
+import { EuiDatepicker } from "ensemble-ui/angular";
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.scss',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [EuiDatepicker],
   standalone: true,
   template: `
     <div class="doc" style="height: 30vh;">

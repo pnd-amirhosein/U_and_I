@@ -9,12 +9,12 @@
 
 | Property           | Attribute          | Description | Type                                                                                               | Default                 |
 | ------------------ | ------------------ | ----------- | -------------------------------------------------------------------------------------------------- | ----------------------- |
-| `calendarEvents`   | `calendarevents`   |             | `CalendarEventType[]`                                                                              | `[]`                    |
+| `calendarEvents`   | --                 |             | `CalendarEventType[]`                                                                              | `[]`                    |
 | `calendarViewMode` | `calendarviewmode` |             | `CalendarViewEnum.day \| CalendarViewEnum.month \| CalendarViewEnum.week \| CalendarViewEnum.year` | `CalendarViewEnum.year` |
-| `holidayEventType` | `holidayeventtype` |             | `HolidayEventType`                                                                                 | `"none"`                |
+| `holidayEventType` | `holidayeventtype` |             | `"both" \| "international" \| "none" \| "persian"`                                                 | `"none"`                |
 | `interactive`      | `interactive`      |             | `boolean`                                                                                          | `true`                  |
-| `nativeAttrs`      | `native-attrs`     |             | `undefined \| { [x: string]: any; }`                                                               | `undefined`             |
-| `selectedDate`     | `selecteddate`     |             | `Date`                                                                                             | `new Date()`            |
+| `nativeAttrs`      | --                 |             | `any \| string \| undefined`                                                                       | `undefined`             |
+| `selectedDate`     | --                 |             | `Date`                                                                                             | `new Date()`            |
 | `styleValue`       | `stylevalue`       |             | `string \| undefined`                                                                              | `undefined`             |
 
 

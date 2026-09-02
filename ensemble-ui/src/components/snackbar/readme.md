@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type                                                        | Default                     |
-| ------------- | -------------- | ----------- | ----------------------------------------------------------- | --------------------------- |
-| `awakeTime`   | `awaketime`    |             | `number`                                                    | `1000`                      |
-| `dismiss`     | `dismiss`      |             | `boolean`                                                   | `false`                     |
-| `header`      | `header`       |             | `string \| undefined`                                       | `undefined`                 |
-| `icon`        | `icon`         |             | `string \| undefined`                                       | `undefined`                 |
-| `message`     | `message`      |             | `string`                                                    | `'Placeholder for message'` |
-| `nativeAttrs` | `native-attrs` |             | `undefined \| { [x: string]: any; }`                        | `undefined`                 |
-| `open`        | `open`         |             | `boolean`                                                   | `false`                     |
-| `styleValue`  | `stylevalue`   |             | `string \| undefined`                                       | `undefined`                 |
-| `variant`     | `variant`      |             | `"danger" \| "info" \| "neutral" \| "success" \| "warning"` | `'info'`                    |
+| Property      | Attribute    | Description | Type                                                        | Default                     |
+| ------------- | ------------ | ----------- | ----------------------------------------------------------- | --------------------------- |
+| `awakeTime`   | `awaketime`  |             | `number`                                                    | `1000`                      |
+| `dismiss`     | `dismiss`    |             | `boolean`                                                   | `false`                     |
+| `header`      | `header`     |             | `string \| undefined`                                       | `undefined`                 |
+| `icon`        | `icon`       |             | `string \| undefined`                                       | `undefined`                 |
+| `message`     | `message`    |             | `string`                                                    | `'Placeholder for message'` |
+| `nativeAttrs` | --           |             | `any \| string \| undefined`                                | `undefined`                 |
+| `open`        | `open`       |             | `boolean`                                                   | `false`                     |
+| `styleValue`  | `stylevalue` |             | `string \| undefined`                                       | `undefined`                 |
+| `variant`     | `variant`    |             | `"danger" \| "info" \| "neutral" \| "success" \| "warning"` | `'info'`                    |
 
 
 ## Events

@@ -1,19 +1,20 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Component } from "@angular/core";
+import { EuiToggle } from "ensemble-ui/angular";
 
 @Component({
     selector: 'app-root',
     styleUrl: './app.scss',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [EuiToggle],
     standalone: true,
     template: `
     <div class="doc">
         <span class="flex">
             <h4 class="title">Toggle:</h4>
-             <eui-toggle value="1" [data]="data"/>
+             <eui-toggle [value]="1" [data]="data"/>
         </span>
         <span class="flex">
             <h4 class="title">Toggle - disabled:</h4>
-             <eui-toggle disabled value="2" [data]="data"/>
+             <eui-toggle [disabled]="true" [value]="2" [data]="data"/>
         </span>
     </div>
     `

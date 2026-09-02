@@ -11,8 +11,8 @@
 | ------------------ | ------------------ | ----------- | -------------------------------------------------- | ----------- |
 | `holidayEventType` | `holidayeventtype` |             | `"both" \| "international" \| "none" \| "persian"` | `"none"`    |
 | `interactive`      | `interactive`      |             | `boolean`                                          | `true`      |
-| `nativeAttrs`      | `native-attrs`     |             | `undefined \| { [x: string]: any; }`               | `undefined` |
-| `selectedDate`     | `selecteddate`     |             | `Date \| undefined`                                | `undefined` |
+| `nativeAttrs`      | --                 |             | `any \| string \| undefined`                       | `undefined` |
+| `selectedDate`     | --                 |             | `Date \| undefined`                                | `undefined` |
 | `showHeader`       | `show-header`      |             | `boolean`                                          | `true`      |
 | `styleValue`       | `stylevalue`       |             | `string \| undefined`                              | `undefined` |
 
