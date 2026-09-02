@@ -80,7 +80,7 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ weight }}</div>
           </div>
 
-          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="() => console.log(8768)" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="($event) => onWeightChange($event)" />
         </div>
 
         <div class="tool">
@@ -89,7 +89,7 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ stretch }}</div>
           </div>
 
-          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="onStretchChange" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="($event) => onStretchChange($event)" />
         </div>
 
       </div>
@@ -114,7 +114,8 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ weightPersian }}</div>
           </div>
 
-          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="onWeightPersianChange" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5"
+            @change="($event) => onWeightPersianChange($event)" />
         </div>
 
         <div class="tool">
@@ -123,7 +124,8 @@ const onStretchPersianChange = (event: CustomEvent<number>) => {
             <div class="weight">{{ stretchPersian }}</div>
           </div>
 
-          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5" @change="onStretchPersianChange" />
+          <EuiSlider styleValue="width:40vw;" size="md" :value="0.5"
+            @change="($event) => onStretchPersianChange($event)" />
         </div>
 
       </div>

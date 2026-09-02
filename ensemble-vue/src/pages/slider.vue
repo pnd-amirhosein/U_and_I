@@ -19,7 +19,7 @@ const updateValue = (index: number, value: number) => {
         styleValue="width:25vw;"
         size="sm"
         :value="0.5"
-        @valueChange="updateValue(0, $event.detail)"
+        @change="updateValue(0, $event.detail)"
       />
 
       <span :style="{ width: '50px' }">
@@ -35,7 +35,7 @@ const updateValue = (index: number, value: number) => {
         styleValue="width:25vw;"
         size="md"
         :value="0.5"
-        @valueChange="updateValue(1, $event.detail)"
+        @change="updateValue(1, $event.detail)"
       />
 
       <span :style="{ width: '50px' }">
@@ -51,7 +51,7 @@ const updateValue = (index: number, value: number) => {
         styleValue="width:25vw;"
         size="lg"
         :value="0.5"
-        @valueChange="updateValue(2, $event.detail)"
+        @change="updateValue(2, $event.detail)"
       />
 
       <span :style="{ width: '50px' }">

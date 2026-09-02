@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { EuiBreadcrumb } from 'ensemble-ui/vue'
-import { onMounted, ref } from 'vue'
 
 type BreadcrumbData = {
   id: number
@@ -8,12 +7,6 @@ type BreadcrumbData = {
   title: string
   action?: () => void
 }
-
-type BreadcrumbElement = HTMLElement & {
-  data?: BreadcrumbData[]
-}
-
-const breadcrumb = ref<BreadcrumbElement>()
 
 const data: BreadcrumbData[] = [
   {
@@ -33,12 +26,6 @@ const data: BreadcrumbData[] = [
     icon: 'adjustments-horizontal',
   },
 ]
-
-onMounted(() => {
-  if (breadcrumb.value) {
-    breadcrumb.value.data = data
-  }
-})
 </script>
 
 <template>
@@ -46,7 +33,7 @@ onMounted(() => {
     <div class="flex">
       <h4 class="title">Breadcrumb:</h4>
 
-      <EuiBreadcrumb ref="breadcrumb" />
+      <EuiBreadcrumb :data="data" />
     </div>
   </section>
 </template>

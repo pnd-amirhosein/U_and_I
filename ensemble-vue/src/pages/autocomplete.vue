@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { EuiAutoComplete } from 'ensemble-ui/vue'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 type Product = {
   id: number
@@ -11,14 +10,6 @@ type Product = {
 type ProductsResponse = {
   products: Product[]
 }
-
-type AutoCompleteElement = HTMLElement & {
-  displayField?: string
-  fetchSuggestions?: (query: string) => Promise<Product[]>
-  styleValue?: string
-}
-
-const autoComplete = ref<AutoCompleteElement>()
 
 async function fetchSuggestions(query: string): Promise<Product[]> {
   if (!query || query.trim() === '') {
@@ -33,28 +24,9 @@ async function fetchSuggestions(query: string): Promise<Product[]> {
   )
 }
 
-function onProductSelected(event: Event) {
-  const product = (event as CustomEvent<Product>).detail
-
-  console.log('Product selected from Vue!', product)
+function onProductSelected(event: CustomEvent<Product>) {
+  console.log('Product selected from Vue!', event.detail)
 }
-
-onMounted(() => {
-  const element = autoComplete.value
-
-  if (!element) {
-    return
-  }
-
-  element.fetchSuggestions = fetchSuggestions
-  element.displayField = 'title'
-  element.styleValue = 'width: 25vw;'
-  element.addEventListener('itemSelected', onProductSelected)
-})
-
-onBeforeUnmount(() => {
-  autoComplete.value?.removeEventListener('itemSelected', onProductSelected)
-})
 </script>
 
 <template>
@@ -62,7 +34,13 @@ onBeforeUnmount(() => {
     <div class="flex">
       <h4 class="title">autocomplete example</h4>
 
-      <EuiAutoComplete ref="autoComplete" placeholder="Search products..." />
+      <EuiAutoComplete
+        placeholder="Search products..."
+        display-field="title"
+        style-value="width: 25vw;"
+        :fetch-suggestions="fetchSuggestions"
+        @item-selected="onProductSelected"
+      />
     </div>
   </section>
 </template>
