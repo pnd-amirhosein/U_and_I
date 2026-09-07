@@ -1,0 +1,1465 @@
+[
+  {
+    "tag": "eui-auto-complete",
+    "sourceFile": "src/components/autocomplete/autocomplete.tsx",
+    "props": [
+      {
+        "name": "placeholder",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "fetchSuggestions",
+        "type": "(query: string) => Promise<any[]>",
+        "optional": true,
+        "config": {
+          "attribute": "fetchSuggestions"
+        },
+        "decoratorArgs": "{ attribute: \"fetchSuggestions\" }"
+      },
+      {
+        "name": "displayField",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "displayField"
+        },
+        "decoratorArgs": "{ attribute: \"displayField\" }"
+      },
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-badge",
+    "sourceFile": "src/components/badge/badge.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "type",
+        "type": "'blank' | 'icon' | 'number' | 'text-icon' | 'text'",
+        "defaultValue": "'blank'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "color",
+        "type": "'primary' | 'success' | 'warning' | 'danger' | 'outline' | 'outline-filled' | 'pending'",
+        "defaultValue": "'primary'",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-breadcrumb",
+    "sourceFile": "src/components/breadcrumb/breadcrumb.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "BreadcrumbData[]",
+        "defaultValue": "undefined",
+        "optional": true,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-button",
+    "sourceFile": "src/components/button/button.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "defaultValue": "\"md\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "variant",
+        "type": "'primary' | 'danger' | 'success' | 'warning' | 'neutral' | 'info'",
+        "defaultValue": "'primary'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "\"normal\" | \"outline\" | \"text-button\"",
+        "defaultValue": "\"normal\"",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-calendar",
+    "sourceFile": "src/components/calendars/eui-calendar.tsx",
+    "props": [
+      {
+        "name": "selectedDate",
+        "type": "Date",
+        "defaultValue": "new Date()",
+        "optional": false,
+        "config": {
+          "attribute": "selectedDate"
+        },
+        "decoratorArgs": "{ attribute: \"selectedDate\" }"
+      },
+      {
+        "name": "interactive",
+        "type": "boolean",
+        "defaultValue": "true",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "holidayEventType",
+        "type": "HolidayEventType",
+        "defaultValue": "\"none\"",
+        "optional": false,
+        "config": {
+          "attribute": "holidayEventType"
+        },
+        "decoratorArgs": "{ attribute: \"holidayEventType\" }"
+      },
+      {
+        "name": "calendarEvents",
+        "type": "CalendarEventType[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {
+          "attribute": "calendarEvents"
+        },
+        "decoratorArgs": "{ attribute: \"calendarEvents\" }"
+      },
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "calendarViewMode",
+        "type": "CalendarViewEnum",
+        "defaultValue": "CalendarViewEnum.year",
+        "optional": false,
+        "config": {
+          "attribute": "calendarViewMode"
+        },
+        "decoratorArgs": "{ attribute: \"calendarViewMode\" }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-card",
+    "sourceFile": "src/components/card/card.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "img",
+        "type": "string",
+        "defaultValue": "\"\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "defaultValue": "\"vertical\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "\"classic\" | \"belt\" | \"lollipop\" | \"gem\" | \"flag\"",
+        "defaultValue": "'classic'",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-checkbox",
+    "sourceFile": "src/components/checkbox/checkbox.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "value",
+        "type": "'null' | 'false' | 'partial' | 'true'",
+        "defaultValue": "'null'",
+        "optional": false,
+        "config": {
+          "mutable": true
+        },
+        "decoratorArgs": "{ mutable: true }"
+      },
+      {
+        "name": "states",
+        "type": "Array<'null' | 'false' | 'partial' | 'true'>",
+        "defaultValue": "['null', 'false', 'partial', 'true']",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "defaultValue": "\"md\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "\"fill\" | \"outline\"",
+        "defaultValue": "\"fill\"",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-chips",
+    "sourceFile": "src/components/chips/chips.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "displayField",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "displayField"
+        },
+        "decoratorArgs": "{ attribute: \"displayField\" }"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "any[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "suggestions",
+        "type": "any[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-color-picker",
+    "sourceFile": "src/components/color-picker/color-picker.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "\"compact\" | \"standard\" | \"full\"",
+        "defaultValue": "\"compact\"",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-datepicker",
+    "sourceFile": "src/components/datepicker/datepicker.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "displayField",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "displayField"
+        },
+        "decoratorArgs": "{ attribute: \"displayField\" }"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "suggestions",
+        "type": "any[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {
+          "attribute": "defaultValue"
+        },
+        "decoratorArgs": "{ attribute: \"defaultValue\" }"
+      },
+      {
+        "name": "noClearButton",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {
+          "attribute": "noClearButton"
+        },
+        "decoratorArgs": "{ attribute: \"noClearButton\" }"
+      },
+      {
+        "name": "date",
+        "type": "Date",
+        "defaultValue": "new Date()",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-dialogue",
+    "sourceFile": "src/components/dialogue/dialogue.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "variant",
+        "type": "'primary' | 'danger' | 'success' | 'warning' | 'info'",
+        "defaultValue": "'primary'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "headerMessage",
+        "type": "string",
+        "defaultValue": "\"MESSAGE!\"",
+        "optional": false,
+        "config": {
+          "attribute": "headerMessage"
+        },
+        "decoratorArgs": "{ attribute: 'headerMessage' }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-dropdown",
+    "sourceFile": "src/components/dropdown/dropdown.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "displayField",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "displayField"
+        },
+        "decoratorArgs": "{ attribute: \"displayField\" }"
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "any[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "suggestions",
+        "type": "any[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {
+          "attribute": "defaultValue"
+        },
+        "decoratorArgs": "{ attribute: \"defaultValue\" }"
+      },
+      {
+        "name": "noClearButton",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {
+          "attribute": "noClearButton"
+        },
+        "decoratorArgs": "{ attribute: \"noClearButton\" }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-empty-state",
+    "sourceFile": "src/components/empty-state/empty-state.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "icon",
+        "type": "string",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "primaryAction",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "primaryAction"
+        },
+        "decoratorArgs": "{ attribute: \"primaryAction\" }"
+      },
+      {
+        "name": "secondaryAction",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "secondaryAction"
+        },
+        "decoratorArgs": "{ attribute: \"secondaryAction\" }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-feed",
+    "sourceFile": "src/components/feed/feed.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "FeedMode",
+        "defaultValue": "FeedMode.timeLine",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "FeedData[]",
+        "defaultValue": "[{ Title: \"placeholder\", description: \"A placeholder description for\" }]",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-icon",
+    "sourceFile": "src/components/icon/icon.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "type",
+        "type": "'solid' | 'outline' | 'mini' | 'micro'",
+        "defaultValue": "'micro'",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-input",
+    "sourceFile": "src/components/input/input.tsx",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {
+          "mutable": true
+        },
+        "decoratorArgs": "{ mutable: true }"
+      },
+      {
+        "name": "validation",
+        "type": "Validation",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "alert",
+        "type": "Alert",
+        "defaultValue": "{ message: \"There's an error!\", type: \"danger\" }",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "'normal' | 'outline' | 'text-input'",
+        "defaultValue": "'normal'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "type",
+        "type": "HTMLInputElement['type']",
+        "defaultValue": "'text'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "defaultValue": "1",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "showClear",
+        "type": "boolean",
+        "defaultValue": "true",
+        "optional": true,
+        "config": {
+          "attribute": "showClear"
+        },
+        "decoratorArgs": "{ attribute: \"showClear\" }"
+      },
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "noClearButton",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {
+          "attribute": "noClearButton"
+        },
+        "decoratorArgs": "{ attribute: \"noClearButton\" }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-knob",
+    "sourceFile": "src/components/knob/knob.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "value",
+        "defaultValue": "75",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "min",
+        "defaultValue": "0",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "max",
+        "defaultValue": "100",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "isPercent",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-paginator",
+    "sourceFile": "src/components/paginator/paginator.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "defaultCurrentPage",
+        "type": "number",
+        "defaultValue": "1",
+        "optional": false,
+        "config": {
+          "attribute": "defaultCurrentPage"
+        },
+        "decoratorArgs": "{ attribute: \"defaultCurrentPage\" }"
+      },
+      {
+        "name": "totalPages",
+        "type": "number",
+        "defaultValue": "1",
+        "optional": false,
+        "config": {
+          "attribute": "totalPages"
+        },
+        "decoratorArgs": "{ attribute: \"totalPages\" }"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-progressbar",
+    "sourceFile": "src/components/progress-bar/progress-bar.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "defaultValue": "\"md\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "defaultValue": "0",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-radio",
+    "sourceFile": "src/components/radio-group/radio.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "checked",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {
+          "mutable": true
+        },
+        "decoratorArgs": "{ mutable: true }"
+      },
+      {
+        "name": "disabled",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-radio-group",
+    "sourceFile": "src/components/radio-group/radio-group.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "alignment",
+        "type": "\"horizontal\" | \"vertical\"",
+        "defaultValue": "\"horizontal\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "stacked",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "selected",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "mutable": true
+        },
+        "decoratorArgs": "{ mutable: true }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-side-nav",
+    "sourceFile": "src/components/side-nav/side-nav.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "size",
+        "type": "\"full\" | \"compact\"",
+        "defaultValue": "\"full\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "\"middle\" | \"start\"",
+        "defaultValue": "\"middle\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "direction",
+        "type": "\"rtl\" | \"ltr\"",
+        "defaultValue": "\"ltr\"",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-slider",
+    "sourceFile": "src/components/slider/slider.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "size",
+        "type": "\"sm\" | \"md\" | \"lg\"",
+        "defaultValue": "\"md\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "defaultValue": "0",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-snackbar",
+    "sourceFile": "src/components/snackbar/snackbar.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: 'styleValue' }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "dismiss",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "variant",
+        "type": "'danger' | 'success' | 'warning' | 'neutral' | 'info'",
+        "defaultValue": "'info'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "header",
+        "type": "string",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "icon",
+        "type": "string",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "defaultValue": "'Placeholder for message'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "awakeTime",
+        "type": "number",
+        "defaultValue": "1000",
+        "optional": false,
+        "config": {
+          "attribute": "awakeTime"
+        },
+        "decoratorArgs": "{ attribute: 'awakeTime' }"
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-stat",
+    "sourceFile": "src/components/stat/stat.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "any",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "orientation",
+        "type": "\"vertical\" | \"horizontal\"",
+        "defaultValue": "\"horizontal\"",
+        "optional": true,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-stepper",
+    "sourceFile": "src/components/stepper/stepper.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "orientation",
+        "type": "\"vertical\" | \"horizontal\"",
+        "defaultValue": "\"horizontal\"",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "steps",
+        "type": "string[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "currentStep",
+        "type": "number",
+        "defaultValue": "0",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-tab",
+    "sourceFile": "src/components/tab/tab.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "collapse",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "TabData[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "selectedTab",
+        "type": "number",
+        "defaultValue": "0",
+        "optional": false,
+        "config": {
+          "attribute": "selectedTab"
+        },
+        "decoratorArgs": "{ attribute: \"selectedTab\" }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-textarea",
+    "sourceFile": "src/components/textarea/textarea.tsx",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {
+          "mutable": true
+        },
+        "decoratorArgs": "{ mutable: true }"
+      },
+      {
+        "name": "validation",
+        "type": "Validation",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "alert",
+        "type": "Alert",
+        "defaultValue": "{ message: \"There's an error!\", type: \"danger\" }",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "mode",
+        "type": "'normal' | 'outline' | 'text-textarea'",
+        "defaultValue": "'normal'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "type",
+        "type": "HTMLTextAreaElement['type']",
+        "defaultValue": "'text'",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "defaultValue": "''",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "step",
+        "type": "number",
+        "defaultValue": "1",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "showClear",
+        "type": "boolean",
+        "defaultValue": "true",
+        "optional": true,
+        "config": {
+          "attribute": "showClear"
+        },
+        "decoratorArgs": "{ attribute: \"showClear\" }"
+      },
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "noClearButton",
+        "type": "boolean",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {
+          "attribute": "noClearButton"
+        },
+        "decoratorArgs": "{ attribute: \"noClearButton\" }"
+      }
+    ]
+  },
+  {
+    "tag": "eui-toggle",
+    "sourceFile": "src/components/toggle/toggle.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "ToggleItem[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "value",
+        "defaultValue": "0",
+        "optional": false,
+        "config": {
+          "mutable": true
+        },
+        "decoratorArgs": "{ mutable: true }"
+      },
+      {
+        "name": "disabled",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  },
+  {
+    "tag": "eui-tree",
+    "sourceFile": "src/components/tree/tree.tsx",
+    "props": [
+      {
+        "name": "styleValue",
+        "type": "string",
+        "optional": true,
+        "config": {
+          "attribute": "styleValue"
+        },
+        "decoratorArgs": "{ attribute: \"styleValue\" }"
+      },
+      {
+        "name": "nativeAttrs",
+        "type": "Record<string, any>",
+        "optional": true,
+        "config": {}
+      },
+      {
+        "name": "collapse",
+        "defaultValue": "false",
+        "optional": false,
+        "config": {}
+      },
+      {
+        "name": "data",
+        "type": "TreeData[]",
+        "defaultValue": "[]",
+        "optional": false,
+        "config": {}
+      }
+    ]
+  }
+]
