@@ -1,3 +1,4 @@
+import { log } from '../../_shared/logger.mjs';
 import { PATHS } from '../config';
 import type { ManifestPropType, NormalizedPropType } from '../types/manifest';
 import type { NormalizedComponent, NormalizedProp, RawComponent, RawProp } from '../types/pipeline';
@@ -68,6 +69,8 @@ function normalizeProp(prop: RawProp): NormalizedProp {
 }
 
 export async function normalizeProps(): Promise<void> {
+  log.step('Normalizing prop type metadata');
+
   const raw = await readJson<RawComponent[]>(PATHS.rawProps);
 
   const components: NormalizedComponent[] = raw.map(component => ({
@@ -79,5 +82,5 @@ export async function normalizeProps(): Promise<void> {
   await writeJson(PATHS.normalizedProps, components);
 
   const propCount = components.reduce((count, component) => count + component.props.length, 0);
-  console.log(`🧠 Types: ${propCount} props normalized`);
+  log.success(`Normalized ${propCount} prop types.`);
 }

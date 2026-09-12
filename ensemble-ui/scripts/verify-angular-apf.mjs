@@ -1,42 +1,78 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const root = process.cwd();
-const apf = path.join(root, 'dist-angular');
-const esm = path.join(apf, 'fesm2022', 'angular.mjs');
-const types = path.join(apf, 'index.d.ts');
+import { log, runMain } from './_shared/logger.mjs';
 
-const fail = (message) => {
-  console.error(`❌ Angular APF verification failed: ${message}`);
-  process.exit(1);
-};
+const ROOT = process.cwd();
+const APF_DIR = path.join(ROOT, 'dist-angular');
+const ESM_FILE = path.join(APF_DIR, 'fesm2022', 'angular.mjs');
+const TYPES_FILE = path.join(APF_DIR, 'index.d.ts');
 
-for (const file of [esm, types]) {
-  if (!fs.existsSync(file)) fail(`missing ${path.relative(root, file)}`);
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
 }
 
-const declaration = fs.readFileSync(types, 'utf8');
-if (!declaration.includes('EuiButton')) fail('EuiButton is not exported from index.d.ts');
-if (!declaration.includes('ɵɵComponentDeclaration')) fail('Angular partial component metadata is missing');
+function collectRawTypeScript(directory) {
+  const leaked = [];
 
-const js = fs.readFileSync(esm, 'utf8');
-if (!js.includes('EuiButton')) fail('EuiButton is not present in the FESM bundle');
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const fullPath = path.join(directory, entry.name);
 
-const illegalSources = [];
-const walk = (dir) => {
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) walk(full);
-    else if (entry.name.endsWith('.ts') && !entry.name.endsWith('.d.ts')) illegalSources.push(full);
+    if (entry.isDirectory()) {
+      leaked.push(...collectRawTypeScript(fullPath));
+    } else if (entry.name.endsWith('.ts') && !entry.name.endsWith('.d.ts')) {
+      leaked.push(fullPath);
+    }
   }
-};
-walk(apf);
-if (illegalSources.length) fail(`raw TypeScript leaked into dist-angular: ${illegalSources.map(f => path.relative(root, f)).join(', ')}`);
 
-const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
-const angularExport = pkg.exports?.['./angular'];
-if (angularExport?.import !== './dist-angular/fesm2022/angular.mjs') fail('package export does not target the APF FESM bundle');
-if (angularExport?.types !== './dist-angular/index.d.ts') fail('package export does not target the APF declarations');
-if ((pkg.files ?? []).some((x) => x.startsWith('angular-build'))) fail('internal angular-build source is included in published files');
+  return leaked;
+}
 
-console.log('✅ Angular APF verified: precompiled FESM + declarations, no raw Angular source published.');
+await runMain('Angular APF verification', async () => {
+  log.title('Ensemble UI · Verify Angular Package');
+
+  log.step('Checking required APF output files');
+  for (const file of [ESM_FILE, TYPES_FILE]) {
+    assert(fs.existsSync(file), `Missing ${path.relative(ROOT, file)}`);
+  }
+
+  log.step('Checking Angular declarations');
+  const declaration = fs.readFileSync(TYPES_FILE, 'utf8');
+  assert(declaration.includes('EuiButton'), 'EuiButton is not exported from index.d.ts');
+  assert(
+    declaration.includes('ɵɵComponentDeclaration'),
+    'Angular partial component metadata is missing'
+  );
+
+  log.step('Checking FESM bundle');
+  const bundle = fs.readFileSync(ESM_FILE, 'utf8');
+  assert(bundle.includes('EuiButton'), 'EuiButton is not present in the FESM bundle');
+
+  log.step('Checking for leaked raw TypeScript');
+  const illegalSources = collectRawTypeScript(APF_DIR);
+  assert(
+    illegalSources.length === 0,
+    `Raw TypeScript leaked into dist-angular: ${illegalSources
+      .map(file => path.relative(ROOT, file))
+      .join(', ')}`
+  );
+
+  log.step('Checking package.json Angular exports');
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  const angularExport = pkg.exports?.['./angular'];
+
+  assert(
+    angularExport?.import === './dist-angular/fesm2022/angular.mjs',
+    'package export does not target the APF FESM bundle'
+  );
+  assert(
+    angularExport?.types === './dist-angular/index.d.ts',
+    'package export does not target the APF declarations'
+  );
+  assert(
+    !(pkg.files ?? []).some(entry => entry.startsWith('angular-build')),
+    'internal angular-build source is included in published files'
+  );
+
+  log.done('Angular APF verified: FESM, declarations, exports, and publish contents are valid.');
+});

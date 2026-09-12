@@ -2,38 +2,58 @@ import { access, readFile, readdir } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import path from 'node:path';
 
-const root = process.cwd();
-const required = [
+import { log, runMain } from './_shared/logger.mjs';
+
+const ROOT = process.cwd();
+const REQUIRED_FILES = [
   'dist-react/components.js',
   'dist-react/components.d.ts',
-  'dist/types/components.d.ts',
+  'dist/types/components.d.ts'
 ];
 
-for (const file of required) {
-  await access(path.join(root, file), constants.R_OK);
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
 }
 
-const pkg = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'));
-const reactExport = pkg.exports?.['./react'];
-if (reactExport?.import !== './dist-react/components.js' || reactExport?.types !== './dist-react/components.d.ts') {
-  throw new Error('package.json ./react export is not pointing to dist-react/components.{js,d.ts}');
-}
+await runMain('React build verification', async () => {
+  log.title('Ensemble UI · Verify React Package');
 
-const stencilTypesExport = pkg.exports?.['./dist/components'];
-if (stencilTypesExport?.types !== './dist/types/components.d.ts') {
-  throw new Error('package.json ./dist/components type export is required by generated React declarations.');
-}
+  log.step('Checking required React output files');
+  for (const file of REQUIRED_FILES) {
+    await access(path.join(ROOT, file), constants.R_OK);
+  }
 
-const files = await readdir(path.join(root, 'dist-react'));
-const jsCount = files.filter((file) => file.endsWith('.js')).length;
-const dtsCount = files.filter((file) => file.endsWith('.d.ts')).length;
-if (jsCount < 2 || dtsCount < 2) {
-  throw new Error(`React output looks incomplete (${jsCount} js / ${dtsCount} d.ts files).`);
-}
+  log.step('Checking package.json React exports');
+  const pkg = JSON.parse(await readFile(path.join(ROOT, 'package.json'), 'utf8'));
+  const reactExport = pkg.exports?.['./react'];
 
-const componentsJs = await readFile(path.join(root, 'dist-react/components.js'), 'utf8');
-if (!componentsJs.includes('EuiButton') || !componentsJs.includes('EuiStat') || !componentsJs.includes('EuiCalendar')) {
-  throw new Error('React barrel is missing expected EUI exports.');
-}
+  assert(
+    reactExport?.import === './dist-react/components.js' &&
+      reactExport?.types === './dist-react/components.d.ts',
+    'package.json ./react export is not pointing to dist-react/components.{js,d.ts}'
+  );
 
-console.log(`✅ React build verified: ${jsCount} JS + ${dtsCount} declaration files.`);
+  const stencilTypesExport = pkg.exports?.['./dist/components'];
+  assert(
+    stencilTypesExport?.types === './dist/types/components.d.ts',
+    'package.json ./dist/components type export is required by generated React declarations'
+  );
+
+  log.step('Checking generated React file set');
+  const files = await readdir(path.join(ROOT, 'dist-react'));
+  const jsCount = files.filter(file => file.endsWith('.js')).length;
+  const dtsCount = files.filter(file => file.endsWith('.d.ts')).length;
+
+  assert(
+    jsCount >= 2 && dtsCount >= 2,
+    `React output looks incomplete (${jsCount} JS / ${dtsCount} d.ts files)`
+  );
+
+  log.step('Checking expected component exports');
+  const componentsJs = await readFile(path.join(ROOT, 'dist-react/components.js'), 'utf8');
+  for (const expected of ['EuiButton', 'EuiStat', 'EuiCalendar']) {
+    assert(componentsJs.includes(expected), `React barrel is missing ${expected}`);
+  }
+
+  log.done(`React build verified: ${jsCount} JS + ${dtsCount} declaration files.`);
+});

@@ -1,11 +1,14 @@
 import fs from 'node:fs/promises';
 
+import { log } from '../../_shared/logger.mjs';
 import { PATHS } from '../config';
 import type { EnsembleUIManifest, ManifestProp } from '../types/manifest';
 import type { NormalizedComponent } from '../types/pipeline';
 import { readJson, writeJson } from '../utils/json';
 
 export async function buildManifest(): Promise<void> {
+  log.step('Building public manifest and type contract');
+
   const components = await readJson<NormalizedComponent[]>(PATHS.normalizedProps);
 
   const manifest: EnsembleUIManifest = {
@@ -27,5 +30,5 @@ export async function buildManifest(): Promise<void> {
   // The public type contract ships beside manifest.json.
   await fs.copyFile(PATHS.publicTypesSource, PATHS.publicTypes);
 
-  console.log(`📦 Manifest: ${Object.keys(manifest.components).length} components`);
+  log.success(`Built manifest for ${Object.keys(manifest.components).length} components.`);
 }

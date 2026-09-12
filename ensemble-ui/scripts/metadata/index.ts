@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 
+import { log, runMain } from '../_shared/logger.mjs';
 import { PATHS } from './config';
 import { buildManifest } from './steps/build-manifest';
 import { extractProps } from './steps/extract-props';
@@ -11,21 +12,25 @@ async function cleanTemporaryFiles(): Promise<void> {
 }
 
 async function main(): Promise<void> {
-  console.log('🧪 Building Ensemble UI metadata...');
+  await runMain('Metadata build', async () => {
+    log.title(
+      'Ensemble UI · Build Metadata',
+      'Extract component facts, normalize them, resolve tokens, and ship the public manifest.'
+    );
 
-  await cleanTemporaryFiles();
-  await extractProps();
-  await normalizeProps();
-  await extractTokens();
-  await buildManifest();
-  await cleanTemporaryFiles();
+    log.step('Preparing temporary metadata workspace');
+    await cleanTemporaryFiles();
 
-  console.log('✅ Metadata ready: dist/metadata/');
+    await extractProps();
+    await normalizeProps();
+    await extractTokens();
+    await buildManifest();
+
+    log.step('Removing temporary metadata files');
+    await cleanTemporaryFiles();
+
+    log.done('Metadata ready in dist/metadata/.');
+  });
 }
 
-main().catch(async error => {
-  // Keep failed intermediate files for debugging.
-  console.error('❌ Metadata build failed.');
-  console.error(error);
-  process.exitCode = 1;
-});
+void main();

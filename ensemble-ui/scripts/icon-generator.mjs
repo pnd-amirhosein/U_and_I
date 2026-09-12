@@ -1,53 +1,59 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-import chalk from "chalk";
+import { log, runMain } from './_shared/logger.mjs';
 
-// Fix __dirname for ESM
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Adjust this to your icons folder
-const ICONS_DIR = path.resolve(__dirname, '../packages/icons');
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
+const ICONS_DIR = path.resolve(SCRIPT_DIR, '../packages/icons');
 const OUTPUT_FILE = path.resolve(ICONS_DIR, 'index.ts');
 
-// Recursively get all .svg files
-function walk(dir, prefix = '') {
-  return fs.readdirSync(dir).flatMap(file => {
-    const fullPath = path.join(dir, file);
-    if (fs.statSync(fullPath).isDirectory()) {
-      return walk(fullPath, `${prefix}${file}/`);
+async function collectSvgFiles(directory, prefix = '') {
+  const entries = await readdir(directory);
+  const files = [];
+
+  for (const entry of entries) {
+    const fullPath = path.join(directory, entry);
+    const info = await stat(fullPath);
+
+    if (info.isDirectory()) {
+      files.push(...await collectSvgFiles(fullPath, `${prefix}${entry}/`));
+      continue;
     }
-    if (file.endsWith('.svg')) return [`${prefix}${file}`];
-    return [];
-  });
+
+    if (entry.endsWith('.svg')) {
+      files.push(`${prefix}${entry}`);
+    }
+  }
+
+  return files;
 }
 
-const svgFiles = walk(ICONS_DIR);
-
-// Build export lines
-const exports = svgFiles.map(file => {
+async function createIconEntry(file) {
   const fullPath = path.join(ICONS_DIR, file);
-  let content = fs.readFileSync(fullPath, 'utf-8');
+  let content = await readFile(fullPath, 'utf8');
 
-  // Remove newlines and escape single quotes
-  content = content.replace(/\r?\n|\r/g, '').replace(/'/g, "\\'");
+  content = content
+    .replace(/\r?\n|\r/g, '')
+    .replace(/'/g, "\\'");
 
-  const key = file.replace('.svg', '');
+  const key = file.slice(0, -'.svg'.length);
   return `  '${key}': '${content}'`;
-});
-
-// Write index.ts
-const tsContent = `export const icons: Record<string,string> = {\n${exports.join(',\n')}\n};\n`;
-
-fs.writeFileSync(OUTPUT_FILE, tsContent, 'utf-8');
-
-console.log(`${chalk.green(getClock())}  Icons generated!`);
-
-function getClock() {
-    const now = new Date();
-    const h = now.getHours().toString().padStart(2, '0');
-    const m = now.getMinutes().toString().padStart(2, '0');
-    return `[${h}:${m}.0]`;
 }
+
+await runMain('Icon generation', async () => {
+  log.title('Ensemble UI · Generate Icon Registry');
+
+  log.step('Scanning SVG assets');
+  const svgFiles = (await collectSvgFiles(ICONS_DIR)).sort();
+
+  log.step(`Serializing ${svgFiles.length} icons`);
+  const entries = await Promise.all(svgFiles.map(createIconEntry));
+
+  const output =
+    `export const icons: Record<string,string> = {\n${entries.join(',\n')}\n};\n`;
+
+  await writeFile(OUTPUT_FILE, output, 'utf8');
+
+  log.done(`Generated packages/icons/index.ts with ${svgFiles.length} icons.`);
+});

@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import fg from 'fast-glob';
 
+import { log } from '../../_shared/logger.mjs';
 import { PATHS, ROOT } from '../config';
 import type { ManifestToken } from '../types/manifest';
 import type { NormalizedComponent } from '../types/pipeline';
@@ -45,6 +46,8 @@ async function componentTokens(
 }
 
 export async function extractTokens(): Promise<void> {
+  log.step('Resolving component token usage');
+
   const components = await readJson<NormalizedComponent[]>(PATHS.normalizedProps);
   const definitions = tokenDefinitions(await fs.readFile(PATHS.tokenSource, 'utf8'));
 
@@ -59,6 +62,6 @@ export async function extractTokens(): Promise<void> {
 
   await writeJson(PATHS.normalizedProps, components);
 
-  console.log(`🎨 Tokens: ${definitions.size} defined, ${usages} component usages`);
-  if (unresolved) console.warn(`⚠️ Tokens: ${unresolved} usages could not be resolved`);
+  log.success(`Resolved ${usages} token usages from ${definitions.size} definitions.`);
+  if (unresolved) log.warn(`${unresolved} token usages could not be resolved.`);
 }

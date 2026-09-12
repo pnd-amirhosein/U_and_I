@@ -1,23 +1,41 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const root = process.cwd();
-const js = resolve(root, 'dist-vue/components.js');
-const dts = resolve(root, 'dist-vue/components.d.ts');
+import { log, runMain } from './_shared/logger.mjs';
 
-if (!existsSync(js) || !existsSync(dts)) {
-  throw new Error('Vue build is incomplete: dist-vue/components.js and components.d.ts are required.');
+const ROOT = process.cwd();
+const COMPONENTS_JS = resolve(ROOT, 'dist-vue/components.js');
+const COMPONENTS_DTS = resolve(ROOT, 'dist-vue/components.d.ts');
+
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
 }
 
-const jsText = readFileSync(js, 'utf8');
-const dtsText = readFileSync(dts, 'utf8');
-if (!jsText.includes('EuiButton') || !dtsText.includes('EuiButton')) {
-  throw new Error('Vue build does not export EuiButton; generated wrapper output is incomplete.');
-}
+await runMain('Vue build verification', async () => {
+  log.title('Ensemble UI · Verify Vue Package');
 
-const unexpectedTs = readdirSync(resolve(root, 'dist-vue')).filter((name) => name.endsWith('.ts') && !name.endsWith('.d.ts'));
-if (unexpectedTs.length) {
-  throw new Error(`Raw Vue TypeScript leaked into dist-vue: ${unexpectedTs.join(', ')}`);
-}
+  log.step('Checking required Vue output files');
+  assert(
+    existsSync(COMPONENTS_JS) && existsSync(COMPONENTS_DTS),
+    'Vue build is incomplete: dist-vue/components.js and components.d.ts are required'
+  );
 
-console.log('✅ Vue build verified: dist-vue/components.js + declarations are ready.');
+  log.step('Checking expected component exports');
+  const jsText = readFileSync(COMPONENTS_JS, 'utf8');
+  const dtsText = readFileSync(COMPONENTS_DTS, 'utf8');
+  assert(
+    jsText.includes('EuiButton') && dtsText.includes('EuiButton'),
+    'Vue build does not export EuiButton; generated wrapper output is incomplete'
+  );
+
+  log.step('Checking for leaked raw TypeScript');
+  const unexpectedTs = readdirSync(resolve(ROOT, 'dist-vue')).filter(
+    name => name.endsWith('.ts') && !name.endsWith('.d.ts')
+  );
+  assert(
+    unexpectedTs.length === 0,
+    `Raw Vue TypeScript leaked into dist-vue: ${unexpectedTs.join(', ')}`
+  );
+
+  log.done('Vue build verified: JavaScript bundle and declarations are ready.');
+});

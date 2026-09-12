@@ -3,6 +3,7 @@ import path from 'node:path';
 import fg from 'fast-glob';
 import ts from 'typescript';
 
+import { log } from '../../_shared/logger.mjs';
 import { PATHS, ROOT } from '../config';
 import type { ManifestPropConfig } from '../types/manifest';
 import type { RawComponent, RawProp } from '../types/pipeline';
@@ -129,6 +130,8 @@ async function extractFile(file: string): Promise<RawComponent[]> {
 }
 
 export async function extractProps(): Promise<void> {
+  log.step('Extracting public component props');
+
   const files = await fg(PATHS.componentsGlob, {
     cwd: ROOT,
     absolute: false,
@@ -146,5 +149,5 @@ export async function extractProps(): Promise<void> {
   await writeJson(PATHS.rawProps, components);
 
   const propCount = components.reduce((count, component) => count + component.props.length, 0);
-  console.log(`🔎 Props: ${components.length} components, ${propCount} props`);
+  log.success(`Extracted ${propCount} props from ${components.length} components.`);
 }
