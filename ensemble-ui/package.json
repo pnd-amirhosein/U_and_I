@@ -69,34 +69,47 @@
     "dist-vue/"
   ],
   "scripts": {
-    "build": "npm run build:core && npm run build:react && npm run build:vue && npm run build:angular",
-    "build:all": "npm run delete:old && npm run clean:build && npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
-    "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
     "start": "stencil build --dev --watch --serve",
     "generate": "stencil generate",
-    "generate:font": "node packages/core/tokens/generate-fonts.js",
+
+    "build": "npm run build:core && npm run build:react && npm run build:vue && npm run build:angular",
+
+    "build:core": "npm run build:prepare && stencil build && npm run metadata",
+    "build:prepare": "npm run delete:old && npm run clean:build && npm run generate:assets && npm run prepare:outputs",
+
+    "build:react": "tsc -p react-tsconfig.json && node scripts/verify-react-build.mjs",
+    "build:vue": "tsc -p vue-tsconfig.json && node scripts/verify-vue-build.mjs",
+    "build:angular": "ng-packagr -p angular-build/ng-package.json --config=angular-build/tsconfig.lib.json && node scripts/verify-angular-apf.mjs",
+
+    "generate:assets": "npm run generate:tokens && npm run generate:dist-tokens && npm run generate:icon",
     "generate:tokens": "npx tsc packages/core/tokens/generate-tokens.ts --outDir dist-tokens",
     "generate:dist-tokens": "node dist-tokens/generate-tokens.js",
     "generate:icon": "node scripts/icon-generator.mjs",
-    "clean:build": "node scripts/clean-output.js",
-    "delete:old": "node scripts/delete-old.js",
-    "dev:ngw": "node scripts/angular-web-orchestrator.js",
-    "dev:ng": "node scripts/angular-orchestrator.js",
-    "dev:rc": "node scripts/react-orchestrator.js",
-    "dev:vu": "node scripts/vue-orchestrator.js",
+    "generate:font": "node packages/core/tokens/generate-fonts.js",
+
+    "prepare:outputs": "npm run prepare:angular-output && npm run prepare:react-output && npm run prepare:vue-output",
     "prepare:angular-output": "node -e \"require('fs').mkdirSync('dist-angular', { recursive: true })\"",
     "prepare:react-output": "node -e \"require('fs').mkdirSync('dist-react', { recursive: true })\"",
-    "build:angular": "ng-packagr -p angular-build/ng-package.json --config=angular-build/tsconfig.lib.json && node scripts/verify-angular-apf.mjs",
-    "build:react": "tsc -p react-tsconfig.json && node scripts/verify-react-build.mjs",
-    "build:core": "npm run build:all && npm run prepare:angular-output && npm run prepare:react-output && npm run prepare:vue-output && stencil build",
-    "prepublishOnly": "npm run build",
     "prepare:vue-output": "node -e \"require('fs').mkdirSync('dist-vue', { recursive: true })\"",
-    "build:vue": "tsc -p vue-tsconfig.json && node scripts/verify-vue-build.mjs",
+
+    "clean:build": "node scripts/clean-output.js",
+    "delete:old": "node scripts/delete-old.js",
+
+    "metadata": "npm run metadata:clean && npm run metadata:props && npm run metadata:normalize && npm run metadata:tokens && npm run metadata:manifest",
     "metadata:clean": "tsx scripts/metadata/clean-metadata.ts",
     "metadata:props": "tsx scripts/metadata/extract-props.ts",
-    "metadata:tokens": "tsx scripts/metadata/extract-tokens.ts",
     "metadata:normalize": "tsx scripts/metadata/normalize-prop-type.ts",
-    "metadata:raw": "npm run metadata:clean && npm run metadata:props && npm run metadata:normalize && npm run metadata:tokens"
+    "metadata:tokens": "tsx scripts/metadata/extract-tokens.ts",
+    "metadata:manifest": "tsx scripts/metadata/build-manifest.ts",
+
+    "dev:angular:web": "node scripts/angular-web-orchestrator.js",
+    "dev:angular": "node scripts/angular-orchestrator.js",
+    "dev:react": "node scripts/react-orchestrator.js",
+    "dev:vue": "node scripts/vue-orchestrator.js",
+
+    "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
+
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",
