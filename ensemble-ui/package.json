@@ -95,12 +95,7 @@
     "clean:build": "node scripts/clean-output.js",
     "delete:old": "node scripts/delete-old.js",
 
-    "metadata": "npm run metadata:clean && npm run metadata:props && npm run metadata:normalize && npm run metadata:tokens && npm run metadata:manifest",
-    "metadata:clean": "tsx scripts/metadata/clean-metadata.ts",
-    "metadata:props": "tsx scripts/metadata/extract-props.ts",
-    "metadata:normalize": "tsx scripts/metadata/normalize-prop-type.ts",
-    "metadata:tokens": "tsx scripts/metadata/extract-tokens.ts",
-    "metadata:manifest": "tsx scripts/metadata/build-manifest.ts",
+    "metadata": "tsx scripts/metadata/index.ts",
 
     "dev:angular:web": "node scripts/angular-web-orchestrator.js",
     "dev:angular": "node scripts/angular-orchestrator.js",
