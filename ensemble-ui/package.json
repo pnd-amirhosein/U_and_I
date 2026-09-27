@@ -55,6 +55,12 @@
     "./vue": {
       "types": "./dist-vue/components.d.ts",
       "import": "./dist-vue/components.js"
+    },
+        "./metadata": {
+      "types": "./dist/metadata/index.d.ts"
+    },
+    "./metadata/manifest.json": {
+      "default": "./dist/metadata/manifest.json"
     }
   },
   "repository": {
