@@ -66,7 +66,7 @@ export class EUITab {
                         return (
                             <div class={`tab-item ${selected ? "selected-tab" : ""}`} onClick={() => this.changeSelected(i)}>
                                 {item.Icon && (<div class="icon"><eui-icon name={item.Icon} type="outline" class="hydrated" /></div>)}
-                                <div class="title">{item.Title}</div>
+                                {item.Title && <div class="title">{item.Title}</div>}
                                 {item.badgeCounter && (<div class="badge"><eui-badge type="number" color={selected ? "success" : "pending"}>{item.badgeCounter}</eui-badge></div>)}
                             </div>
                         )
