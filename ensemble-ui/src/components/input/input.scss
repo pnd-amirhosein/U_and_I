@@ -159,4 +159,12 @@
             }
         }
     }
+
+    &.compact {
+        input {
+            padding: var(--space-md) var(--space-lg);
+            font-size: var(--font-caption-fontSize);
+            font-weight: var(--font-caption-fontWeight);
+        }
+    }
 }

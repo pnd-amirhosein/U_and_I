@@ -22,6 +22,17 @@ const checkMate = (value: unknown): boolean => {
       />
     </span>
 
+    <!-- Compact Input -->
+    <span class="flex">
+      <h4 class="title">Compact Input</h4>
+
+      <EuiInput
+        compact
+        styleValue="width:25vw;"
+        :nativeAttrs="{ placeHolder: 'simple input' }"
+      />
+    </span>
+
 
     <!-- Numeric Input -->
     <span class="flex">

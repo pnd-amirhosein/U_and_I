@@ -195,6 +195,7 @@ export const EuiDropdown = /*@__PURE__*/ defineContainer('eui-dropdown', defineE
     'suggestions',
     'defaultValue',
     'noClearButton',
+    'compact',
     'itemSelected'
 ], [
     'itemSelected'
@@ -233,6 +234,7 @@ export const EuiInput = /*@__PURE__*/ defineContainer('eui-input', defineEuiInpu
     'step',
     'min',
     'max',
+    'compact',
     'showClear',
     'styleValue',
     'nativeAttrs',

@@ -51,6 +51,18 @@ import { fakeProduct } from "./fakeData.const";
           placeholder="Search products..."
         />
       </span>
+      <span class="flex">
+        <h4 class="title">Compact - Defalut value</h4>
+        <eui-dropdown
+          [data]="data"
+          [compact]="true"
+          displayField="title" 
+          defaultValue="Red Nail Polish"
+          (itemSelected)="onProductSelected($event)"
+          styleValue="width: 25vw;"
+          placeholder="Search products..."
+        />
+      </span>
     </div>
     `
 })

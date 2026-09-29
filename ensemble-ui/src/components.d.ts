@@ -250,6 +250,10 @@ export namespace Components {
     }
     interface EuiDropdown {
         /**
+          * @default false
+         */
+        "compact"?: boolean;
+        /**
           * @default []
          */
         "data": any[];
@@ -309,6 +313,10 @@ export namespace Components {
           * @default { message: "There's an error!", type: "danger" }
          */
         "alert": Alert;
+        /**
+          * @default false
+         */
+        "compact"?: boolean;
         "max"?: number;
         "min"?: number;
         /**
@@ -1602,6 +1610,10 @@ declare namespace LocalJSX {
     }
     interface EuiDropdown {
         /**
+          * @default false
+         */
+        "compact"?: boolean;
+        /**
           * @default []
          */
         "data"?: any[];
@@ -1664,6 +1676,10 @@ declare namespace LocalJSX {
           * @default { message: "There's an error!", type: "danger" }
          */
         "alert"?: Alert;
+        /**
+          * @default false
+         */
+        "compact"?: boolean;
         "max"?: number;
         "min"?: number;
         /**
@@ -2140,6 +2156,7 @@ declare namespace LocalJSX {
         "placeholder": string;
         "defaultValue": string;
         "noClearButton": boolean;
+        "compact": boolean;
     }
     interface EuiEmptyStateAttributes {
         "styleValue": string;
@@ -2164,6 +2181,7 @@ declare namespace LocalJSX {
         "step": number;
         "min": number;
         "max": number;
+        "compact": boolean;
         "showClear": boolean;
         "styleValue": string;
         "noClearButton": boolean;

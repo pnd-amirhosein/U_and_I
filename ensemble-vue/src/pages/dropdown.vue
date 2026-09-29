@@ -65,6 +65,21 @@ const onProductSelected = (event: CustomEvent) => {
         placeholder="Search products..."
       />
     </span>
+   
+   
+    <span class="flex">
+      <h4 class="title">Compact - Default value</h4>
+
+      <EuiDropdown
+        :data="data"
+        compact
+        displayField="title"
+        defaultValue="Red Nail Polish"
+        @itemSelected="onProductSelected"
+        styleValue="width: 25vw;"
+        placeholder="Search products..."
+      />
+    </span>
 
   </div>
 </template>

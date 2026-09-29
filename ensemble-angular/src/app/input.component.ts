@@ -14,6 +14,10 @@ import { EuiInput } from "ensemble-ui/angular";
         <eui-input styleValue="width:25vw;" placeHolder="simple input"/>
       </span>
       <span class="flex">
+        <h4 class="title">Compact Input</h4>
+        <eui-input [compact]="true" styleValue="width:25vw;" placeHolder="simple input"/>
+      </span>
+      <span class="flex">
         <h4 class="title">Simple numeric Input</h4>
         <eui-input styleValue="width:25vw;" type="number" placeHolder="simple input"/>
       </span>

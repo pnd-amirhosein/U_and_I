@@ -19,6 +19,17 @@ export default function InputPage() {
         />
       </span>
 
+
+      <span className="flex">
+        <h4 className="title">Compact Input</h4>
+
+        <EuiInput
+          compact
+          styleValue="width:25vw;"
+          nativeAttrs={{ "placeHolder": "simple input" }}
+        />
+      </span>
+
       <span className="flex">
         <h4 className="title">Simple numeric Input</h4>
 

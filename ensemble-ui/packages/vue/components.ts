@@ -231,6 +231,7 @@ export const EuiDropdown: StencilVueComponent<JSX.EuiDropdown> = /*@__PURE__*/ d
   'suggestions',
   'defaultValue',
   'noClearButton',
+  'compact',
   'itemSelected'
 ], [
   'itemSelected'
@@ -277,6 +278,7 @@ export const EuiInput: StencilVueComponent<JSX.EuiInput> = /*@__PURE__*/ defineC
   'step',
   'min',
   'max',
+  'compact',
   'showClear',
   'styleValue',
   'nativeAttrs',

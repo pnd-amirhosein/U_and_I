@@ -64,6 +64,21 @@ export default function DropdownPage() {
           placeholder="Search products..."
         />
       </span>
+     
+     
+      <span className="flex">
+        <h4 className="title">Compact - Default value</h4>
+
+        <EuiDropdown
+          data={data}
+          compact
+          displayField="title"
+          defaultValue="Red Nail Polish"
+          onItemSelected={onProductSelected}
+          styleValue="width: 25vw;"
+          placeholder="Search products..."
+        />
+      </span>
 
     </div>
   )

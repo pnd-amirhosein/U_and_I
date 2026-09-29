@@ -62,7 +62,6 @@ export class EUITab {
                     {this.data && this.data.map((item, i) => {
 
                         const selected = i == this.currentTab;
-                        console.log(item, item.Title);
 
                         return (
                             <div class={`tab-item ${selected ? "selected-tab" : ""}`} onClick={() => { this.changeSelected(i) }}>

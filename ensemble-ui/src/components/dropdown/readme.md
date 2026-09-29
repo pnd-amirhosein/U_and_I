@@ -9,6 +9,7 @@
 
 | Property        | Attribute       | Description | Type                         | Default     |
 | --------------- | --------------- | ----------- | ---------------------------- | ----------- |
+| `compact`       | `compact`       |             | `boolean \| undefined`       | `false`     |
 | `data`          | --              |             | `any[]`                      | `[]`        |
 | `defaultValue`  | `defaultvalue`  |             | `string`                     | `''`        |
 | `displayField`  | `displayfield`  |             | `string \| undefined`        | `undefined` |

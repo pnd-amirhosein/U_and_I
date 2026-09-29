@@ -21,6 +21,7 @@ export class EUIInput {
   @Prop() step: number = 1;
   @Prop() min?: number;
   @Prop() max?: number;
+  @Prop() compact?: boolean = false
   @Prop({ attribute: "showClear" }) showClear?: boolean = true;
   @Prop({ attribute: "styleValue" }) styleValue?: string;
   @Prop() nativeAttrs?: Record<string, any>;
@@ -123,7 +124,7 @@ export class EUIInput {
 
     return (
       <Host >
-        <div class={`input-wrapper ${this.hostEl.getAttribute("class") ?? ""}`}
+        <div class={`input-wrapper ${this.compact ? "compact" : ""} ${this.hostEl.getAttribute("class") ?? ""}`}
           style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
         >
           <span class={`input ${!this.isValid && this.alert.type == 'danger' ? "danger" : ""} 

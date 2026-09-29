@@ -19,6 +19,7 @@ export class EUIDropdown {
     @Prop() suggestions: any[] = [];
     @Prop({ attribute: "defaultValue" }) defaultValue: string = ''
     @Prop({ attribute: "noClearButton" }) noClearButton: boolean = false;
+    @Prop() compact?: boolean = false
 
     @Event() itemSelected?: EventEmitter<any>;
 
@@ -261,6 +262,7 @@ export class EUIDropdown {
                 style={this.styleValue ? parseStyleString(this.styleValue) : undefined}
             >
                 <eui-input
+                    compact={this.compact}
                     value={this.value}
                     placeholder={this.placeholder}
                     onInput={(e: any) => this.onInput(e)}
@@ -278,7 +280,7 @@ export class EUIDropdown {
                         )}
                         <eui-icon
                             name="chevron-down"
-                            type="mini"
+                            type={this.compact ? "micro" : "mini"}
                             class="menu-opener"
                             onClick={() => this.openCloseDropdown()}
                         ></eui-icon>
