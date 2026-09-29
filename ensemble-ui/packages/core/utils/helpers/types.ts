@@ -58,7 +58,7 @@ export interface CareerData {
 }
 
 export interface TabData {
-    Title: string,
+    Title?: string,
     Icon?: string,
     badgeCounter?: string
 }

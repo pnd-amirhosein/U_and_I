@@ -1,6 +1,6 @@
 {
   "name": "ensemble-ui",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Stencil Component Starter",
   "types": "dist/types/components.d.ts",
   "main": "dist/index.cjs.js",
@@ -108,9 +108,7 @@
     "dev:react": "node scripts/react-orchestrator.mjs",
     "dev:vue": "node scripts/vue-orchestrator.mjs",
 
-    "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts",
-
-    "prepublishOnly": "npm run build"
+    "tokens": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' packages/core/tokens/generate-tokens.ts"
   },
   "devDependencies": {
     "@angular/compiler": "^20.3.0",

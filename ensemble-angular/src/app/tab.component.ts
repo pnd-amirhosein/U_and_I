@@ -13,6 +13,10 @@ import { EuiTab } from "ensemble-ui/angular";
             <eui-tab [data]="data"/>
         </span>
         <span class="flex">
+            <h4 class="title">TABS no title:</h4>
+            <eui-tab [data]="data2"/>
+        </span>
+        <span class="flex">
             <h4 class="title">TABS collapse:</h4>
             <eui-tab [data]="data" [collapse]="true"/>
         </span>
@@ -34,10 +38,16 @@ export class TabComponent {
         { Title: "Contact", Icon: "phone", badgeCounter: "5" },
         { Title: "Other info", Icon: "ellipsis-horizontal" }
     ]
+    data2: TabData[] = [
+        { Icon: "user" },
+        { Icon: "arrow-trending-up" },
+        { Icon: "phone", badgeCounter: "5" },
+        { Icon: "ellipsis-horizontal" }
+    ]
 }
 
 export interface TabData {
-    Title: string,
+    Title?: string,
     Icon?: string,
     badgeCounter?: string
 }

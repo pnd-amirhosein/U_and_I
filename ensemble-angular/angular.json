@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "preserveSymlinks": true,
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -71,6 +72,13 @@
             },
             "development": {
               "buildTarget": "ensemble-angular:build:development"
+            }
+          },
+          "options": {
+            "prebundle": {
+              "exclude": [
+                "ensemble-ui"
+              ]
             }
           },
           "defaultConfiguration": "development"

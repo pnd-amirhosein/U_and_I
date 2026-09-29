@@ -21,7 +21,7 @@ export class EUITab {
 
     @Event() itemSelected?: EventEmitter<any>;
 
-    changeSelected = (i: number) => {
+    private changeSelected = (i: number) => {
         if (this.disabled) return;
         this.currentTab = i;
         this.itemSelected?.emit(this.currentTab);
@@ -62,9 +62,10 @@ export class EUITab {
                     {this.data && this.data.map((item, i) => {
 
                         const selected = i == this.currentTab;
+                        console.log(item, item.Title);
 
                         return (
-                            <div class={`tab-item ${selected ? "selected-tab" : ""}`} onClick={() => this.changeSelected(i)}>
+                            <div class={`tab-item ${selected ? "selected-tab" : ""}`} onClick={() => { this.changeSelected(i) }}>
                                 {item.Icon && (<div class="icon"><eui-icon name={item.Icon} type="outline" class="hydrated" /></div>)}
                                 {item.Title && <div class="title">{item.Title}</div>}
                                 {item.badgeCounter && (<div class="badge"><eui-badge type="number" color={selected ? "success" : "pending"}>{item.badgeCounter}</eui-badge></div>)}
