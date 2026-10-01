@@ -17,7 +17,7 @@
         align-items: center;
         justify-content: center;
         gap: var(--space-sm);
-        border: 1px solid var(--color-neutral-500);
+        border: 1px solid var(--color-neutral-200);
         border-radius: var(--radius-lg);
         background-color: var(--color-neutral-50);
         background-color: inherit;
@@ -142,6 +142,7 @@
 
     @media (prefers-color-scheme: dark) {
         .input {
+            border-color: var(--color-neutral-500);
             background-color: var(--color-neutral-900);
             color: var(--color-neutral-100);
 
@@ -165,6 +166,10 @@
             padding: var(--space-md) var(--space-lg);
             font-size: var(--font-caption-fontSize);
             font-weight: var(--font-caption-fontWeight);
+        }
+
+        eui-icon {
+            padding: var(--space-sm);
         }
     }
 }
