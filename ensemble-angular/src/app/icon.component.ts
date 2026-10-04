@@ -2210,6 +2210,69 @@ import { EuiIcon } from "ensemble-ui/angular";
 <eui-icon name="x-mark" type="mini"/>
 <eui-icon name="x-mark" type="micro"/>
 </span>
+<span class="icon-row flex">
+<p class="icon-name">react</p>
+<eui-icon name="react" type="solid"/>
+<eui-icon name="react" type="outline"/>
+<eui-icon name="react" type="mini"/>
+<eui-icon name="react" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">angular</p>
+<eui-icon name="angular" type="solid"/>
+<eui-icon name="angular" type="outline"/>
+<eui-icon name="angular" type="mini"/>
+<eui-icon name="angular" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">vue</p>
+<eui-icon name="vue" type="solid"/>
+<eui-icon name="vue" type="outline"/>
+<eui-icon name="vue" type="mini"/>
+<eui-icon name="vue" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">vue</p>
+<eui-icon name="vue" type="solid"/>
+<eui-icon name="vue" type="outline"/>
+<eui-icon name="vue" type="mini"/>
+<eui-icon name="vue" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">javascript</p>
+<eui-icon name="javascript" type="solid"/>
+<eui-icon name="javascript" type="outline"/>
+<eui-icon name="javascript" type="mini"/>
+<eui-icon name="javascript" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">github</p>
+<eui-icon name="github" type="solid"/>
+<eui-icon name="github" type="outline"/>
+<eui-icon name="github" type="mini"/>
+<eui-icon name="github" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">figma</p>
+<eui-icon name="figma" type="solid"/>
+<eui-icon name="figma" type="outline"/>
+<eui-icon name="figma" type="mini"/>
+<eui-icon name="figma" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">typescript</p>
+<eui-icon name="typescript" type="solid"/>
+<eui-icon name="typescript" type="outline"/>
+<eui-icon name="typescript" type="mini"/>
+<eui-icon name="typescript" type="micro"/>
+</span>
+<span class="icon-row flex">
+<p class="icon-name">cursor</p>
+<eui-icon name="cursor" type="solid"/>
+<eui-icon name="cursor" type="outline"/>
+<eui-icon name="cursor" type="mini"/>
+<eui-icon name="cursor" type="micro"/>
+</span>
 
 
 
